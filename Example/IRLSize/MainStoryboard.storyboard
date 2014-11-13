@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AeK-B6-oLd">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="G8a-og-IvA">
+            <objects>
+                <viewController id="AeK-B6-oLd" customClass="IRLViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="go1-Yq-6oD"/>
+                        <viewControllerLayoutGuide type="bottom" id="4PU-od-t1s"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6gr-T9-C85">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Width" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bs4-HA-XU5">
+                                <rect key="frame" x="278" y="559" width="45" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Height" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mz2-Sx-qRr">
+                                <rect key="frame" x="533" y="289" width="51" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ruler" translatesAutoresizingMaskIntoConstraints="NO" id="lbh-zw-oJs">
+                                <rect key="frame" x="0.0" y="20" width="1178" height="108"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="mz2-Sx-qRr" firstAttribute="trailing" secondItem="6gr-T9-C85" secondAttribute="trailingMargin" id="0PV-Av-yde"/>
+                            <constraint firstItem="lbh-zw-oJs" firstAttribute="leading" secondItem="6gr-T9-C85" secondAttribute="leading" placeholder="YES" id="0a0-Rv-aoJ"/>
+                            <constraint firstItem="lbh-zw-oJs" firstAttribute="top" secondItem="go1-Yq-6oD" secondAttribute="bottom" placeholder="YES" id="EoX-tY-UBE"/>
+                            <constraint firstAttribute="centerY" secondItem="mz2-Sx-qRr" secondAttribute="centerY" constant="0.5" id="KhI-4c-xrv"/>
+                            <constraint firstItem="4PU-od-t1s" firstAttribute="top" secondItem="Bs4-HA-XU5" secondAttribute="bottom" constant="20" id="WE7-Cx-x1a"/>
+                            <constraint firstAttribute="centerX" secondItem="Bs4-HA-XU5" secondAttribute="centerX" id="mOa-9n-quh"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="heightLabel" destination="mz2-Sx-qRr" id="ZHY-uj-U5x"/>
+                        <outlet property="rulerImageView" destination="lbh-zw-oJs" id="S6G-J4-48D"/>
+                        <outlet property="widthLabel" destination="Bs4-HA-XU5" id="WnO-4U-oLI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L6K-3L-dgT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="242" y="433"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Ruler" width="1178" height="108"/>
+    </resources>
+</document>

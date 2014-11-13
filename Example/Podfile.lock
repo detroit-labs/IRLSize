@@ -1,0 +1,20 @@
+PODS:
+  - IRLSize (0.1.0):
+    - SDiPhoneVersion (~> 1.1)
+  - Kiwi (2.3.1)
+  - SDiPhoneVersion (1.1.1)
+
+DEPENDENCIES:
+  - IRLSize (from `../`)
+  - Kiwi
+
+EXTERNAL SOURCES:
+  IRLSize:
+    :path: ../
+
+SPEC CHECKSUMS:
+  IRLSize: 54bb82d06f566be5f5c67b1bdec7675c50788718
+  Kiwi: 73e1400209055ee9c8ba78c6012b6b642d0fb9f7
+  SDiPhoneVersion: 21958fa669603b61a4052c459a365259380c394c
+
+COCOAPODS: 0.34.4
