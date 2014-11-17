@@ -193,6 +193,38 @@ describe(@"Getting the IRL size of a view", ^{
             
         });
         
+        context(@"when there is no key window", ^{
+            
+            beforeEach(^{
+                
+               [[UIApplication sharedApplication] stub:@selector(keyWindow)
+                                             andReturn:nil];
+                
+            });
+            
+            it(@"should report the correct size", ^{
+                
+                [[theValue([view irl_dimensions].width) should] equal:0.01654589372
+                                                            withDelta:0.001];
+                
+                [[theValue([view irl_dimensions].height) should] equal:0.01654589372
+                                                             withDelta:0.001];
+                
+            });
+            
+            it(@"should return the correct transform to resize the view", ^{
+                
+                CGAffineTransform transform = [view irl_transformForWidth:0.01f];
+                
+                CGAffineTransform expectedTransform =
+                CGAffineTransformMakeScale(0.604379535f, 0.604379535f);
+                
+                [[theValue(CGAffineTransformEqualToTransform(transform, expectedTransform)) should] beTrue];
+                
+            });
+            
+        });
+        
         context(@"when a view is on a secondary screen", ^{
            
             beforeEach(^{
