@@ -11,6 +11,8 @@
 
 #import "SDiPhoneVersion.h"
 
+#import "UIView+IRLSize.h"
+
 
 // https://www.sven.de/dpi/ is a good resource for determining screen sizes.
 static const float kiPhone3_5InchScreenHeight = 0.0740f;
@@ -35,24 +37,21 @@ static const NSUInteger kiPhone5_5InchHeightPoints = 736;
 static const NSUInteger kiPadHeightPoints = 1024;
 
 
-@interface UIView (IRLSizePrivate)
-
-- (BOOL)irl_isOnMainScreen;
-
-@end
-
-
 @implementation UIDevice (IRLSize)
 
 - (IRLSize)irl_dimensionsOfView:(UIView *)view
 {
     IRLSize dimensions = { 0.0f, 0.0f };
     
-    if ([view irl_isOnMainScreen]) {
+    // If the view’s window is nil, we’ll just assume that it will be going onto
+    // the main screen. This is what happens if you use this code during
+    // -[UIViewController viewWillAppear:], which is the most logical place to
+    // be doing this anyway.
+    if (view.window == nil || [view irl_isOnMainScreen]) {
         // Convert the view into the window coordinate space. Takes care of any
         // weird custom rotation stuff going on. You may get interesting results
         // from rotated views.
-        UIWindow *window = view.window;
+        UIWindow *window = view.window ?: [UIApplication sharedApplication].keyWindow;
         CGRect convertedFrame = [window convertRect:view.frame
                                            fromView:view.superview];
         
@@ -204,16 +203,6 @@ static const NSUInteger kiPadHeightPoints = 1024;
     }
     
     return width;
-}
-
-@end
-
-
-@implementation UIView (IRLSizePrivate)
-
-- (BOOL)irl_isOnMainScreen
-{
-    return (self.window.screen == [UIScreen mainScreen]);
 }
 
 @end

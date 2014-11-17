@@ -21,4 +21,7 @@
 - (CGAffineTransform)irl_transformForHeight:(float)height;	// in meters
 - (CGAffineTransform)irl_transformForWidth:(float)width;	// in meters
 
+- (BOOL)irl_isOnMainScreen;
+- (BOOL)irl_isOnSecondaryScreen;
+
 @end

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "IRLSize"
-  s.version          = "0.1.0"
+  s.version          = "0.1.1"
   s.summary          = "A library for determining the actual physical size of pixels on an iOS device."
   s.description      = <<-DESC
                        IRLSize is used to determine the physical size of the iOS
@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
                        convenience methods for drawing a view at a specific size
                        as well as determining the physical size of a view.
                        DESC
-  s.homepage         = "https://github.com/detroit-labs/IRLSize"
+  s.homepage         = "http://www.detroitlabs.com"
   s.license          = 'MIT'
   s.author           = { "Jeff Kelley" => "SlaunchaMan@gmail.com" }
   s.source           = { :git => "https://github.com/detroit-labs/IRLSize.git", :tag => s.version.to_s }

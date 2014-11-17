@@ -80,6 +80,17 @@ describe(@"Getting the IRL size of a view", ^{
         
         mockWindow = [UIWindow mock];
         
+        UIApplication *mockSharedApplication = [UIApplication mock];
+        
+        [mockSharedApplication stub:@selector(statusBarOrientation)
+                          andReturn:theValue(UIInterfaceOrientationPortrait)];
+        
+        [mockSharedApplication stub:@selector(keyWindow)
+                          andReturn:mockWindow];
+        
+        [UIApplication stub:@selector(sharedApplication)
+                  andReturn:mockSharedApplication];
+        
         [mockWindow stub:@selector(screen)
                andReturn:mockMainScreen];
         
@@ -97,7 +108,7 @@ describe(@"Getting the IRL size of a view", ^{
     context(@"on an iPhone 6 Plus", ^{
         
         __block UIView *view;
-       
+        
         beforeEach(^{
             
             CGRect iPhone6PlusBounds = CGRectMake(0.0f, 0.0f,
@@ -123,32 +134,103 @@ describe(@"Getting the IRL size of a view", ^{
                                                             100.0f,
                                                             100.0f)];
             
-            [view stub:@selector(window) andReturn:mockWindow];
-            [view stub:@selector(superview) andReturn:mockWindow];
-            
         });
         
-        it(@"should report the correct size", ^{
-            
-            [[theValue([view irl_dimensions].width) should] equal:0.01654589372
-                                                        withDelta:0.001];
-            
-            [[theValue([view irl_dimensions].height) should] equal:0.01654589372
-                                                         withDelta:0.001];
-            
-        });
-        
-        it(@"should return the correct transform to resize the view", ^{
+        context(@"when a view is on the main screen", ^{
            
-            CGAffineTransform transform = [view irl_transformForWidth:0.01f];
+            beforeEach(^{
+                
+                [view stub:@selector(window) andReturn:mockWindow];
+                [view stub:@selector(superview) andReturn:mockWindow];
+                
+            });
             
-            CGAffineTransform expectedTransform =
-            CGAffineTransformMakeScale(0.604379535f, 0.604379535f);
+            it(@"should report the correct size", ^{
+                
+                [[theValue([view irl_dimensions].width) should] equal:0.01654589372
+                                                            withDelta:0.001];
+                
+                [[theValue([view irl_dimensions].height) should] equal:0.01654589372
+                                                             withDelta:0.001];
+                
+            });
             
-            [[theValue(CGAffineTransformEqualToTransform(transform, expectedTransform)) should] beTrue];
+            it(@"should return the correct transform to resize the view", ^{
+                
+                CGAffineTransform transform = [view irl_transformForWidth:0.01f];
+                
+                CGAffineTransform expectedTransform =
+                CGAffineTransformMakeScale(0.604379535f, 0.604379535f);
+                
+                [[theValue(CGAffineTransformEqualToTransform(transform, expectedTransform)) should] beTrue];
+                
+            });
             
         });
         
+        context(@"when a view is not attached to a window", ^{
+            
+            it(@"should report the correct size", ^{
+                
+                [[theValue([view irl_dimensions].width) should] equal:0.01654589372
+                                                            withDelta:0.001];
+                
+                [[theValue([view irl_dimensions].height) should] equal:0.01654589372
+                                                             withDelta:0.001];
+                
+            });
+            
+            it(@"should return the correct transform to resize the view", ^{
+                
+                CGAffineTransform transform = [view irl_transformForWidth:0.01f];
+                
+                CGAffineTransform expectedTransform =
+                CGAffineTransformMakeScale(0.604379535f, 0.604379535f);
+                
+                [[theValue(CGAffineTransformEqualToTransform(transform, expectedTransform)) should] beTrue];
+                
+            });
+            
+        });
+        
+        context(@"when a view is on a secondary screen", ^{
+           
+            beforeEach(^{
+                
+                UIScreen *mockOtherScreen = [UIScreen mock];
+                UIWindow *mockOtherWindow = [UIWindow mock];
+                
+                [mockOtherWindow stub:@selector(screen)
+                            andReturn:mockOtherScreen];
+                
+                [view stub:@selector(superview)
+                 andReturn:mockOtherWindow];
+                
+                [view stub:@selector(window)
+                 andReturn:mockOtherWindow];
+                
+                [view stub:@selector(transform)
+                 andReturn:theValue(CGAffineTransformIdentity)];
+                
+            });
+
+            it(@"should report 0 for size", ^{
+               
+                [[theValue([view irl_dimensions].width) should] beZero];
+                [[theValue([view irl_dimensions].height) should] beZero];
+                
+            });
+            
+            it(@"should reuse the view’s transform for resizing", ^{
+               
+                CGAffineTransform transform = [view irl_transformForWidth:1.0f];
+                
+                [[theValue(CGAffineTransformIsIdentity(transform)) should] beTrue];
+                
+            });
+            
+        });
+       
     });
     
 });
