@@ -64,8 +64,7 @@ static const NSUInteger kiPadHeightPoints = 1024;
         if (window == nil) {
             windowSize = [UIScreen mainScreen].fixedCoordinateSpace.bounds.size;
         }
-        
-        if (UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)) {
+        else if (UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)) {
             CGSize windowSizeSwap = CGSizeMake(windowSize.height,
                                                windowSize.width);
             windowSize = windowSizeSwap;
