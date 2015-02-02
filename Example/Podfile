@@ -5,6 +5,6 @@ target 'IRLSize', :exclusive => true do
 end
 
 target 'Tests', :exclusive => true do
-  pod "IRLSize", :path => "../"
+  pod "IRLSize", :path => "../IRLSize.podspec"
   pod "Kiwi"
 end
