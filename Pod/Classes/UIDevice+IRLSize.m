@@ -62,7 +62,12 @@ static const NSUInteger kiPadHeightPoints = 1024;
         CGSize windowSize = window.bounds.size;
         
         if (window == nil) {
-            windowSize = [UIScreen mainScreen].fixedCoordinateSpace.bounds.size;
+            if ([[UIScreen mainScreen] respondsToSelector:@selector(fixedCoordinateSpace)]) {
+                windowSize = [UIScreen mainScreen].fixedCoordinateSpace.bounds.size;   // ios 8 +
+            }
+            else {
+                windowSize = [UIScreen mainScreen].bounds.size;   // ios 7 and below
+            }
         }
         else if (UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)) {
             CGSize windowSizeSwap = CGSizeMake(windowSize.height,
@@ -82,7 +87,15 @@ static const NSUInteger kiPadHeightPoints = 1024;
 {
     IRLSize estimatedDimensions = { 0.0f, 0.0f };
     
-    CGRect portraitBounds = [UIScreen mainScreen].fixedCoordinateSpace.bounds;
+    CGRect portraitBounds;
+    if ([[UIScreen mainScreen] respondsToSelector:@selector(fixedCoordinateSpace)]) {
+        portraitBounds = [UIScreen mainScreen].fixedCoordinateSpace.bounds;   // ios 8 +
+    }
+    else {
+        // Prior to iOS 8, a screen’s bounds rectangle always reflected the screen dimensions relative to a portrait-up orientation.
+        portraitBounds = [UIScreen mainScreen].bounds;  // ios 7 and below
+    }
+    
     
     switch ((NSUInteger)round(CGRectGetHeight(portraitBounds))) {
         case kiPhone3_5InchHeightPoints:
