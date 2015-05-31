@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "IRLSize"
-  s.version          = "0.1.5"
+  s.version          = "0.3.0"
   s.summary          = "A library for determining the actual physical size of pixels on an iOS device."
   s.description      = <<-DESC
                        IRLSize is used to determine the physical size of the iOS
@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.author           = { "Jeff Kelley" => "SlaunchaMan@gmail.com" }
   s.source           = { :git => "https://github.com/detroit-labs/IRLSize.git", :tag => s.version.to_s }
 
-  s.platform     = :ios, '8.0'
+  s.platform     = :ios, '7.0'
   s.requires_arc = true
 
   s.source_files = 'Pod/Classes'

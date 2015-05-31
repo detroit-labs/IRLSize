@@ -124,6 +124,9 @@ describe(@"Getting the IRL size of a view", ^{
             [mockMainScreen stub:@selector(fixedCoordinateSpace)
                        andReturn:mockFixedCoordinateSpace];
             
+            [mockMainScreen stub:@selector(bounds)
+                       andReturn:theValue(iPhone6PlusBounds)];
+            
             [SDiPhoneVersion stub:@selector(deviceVersion)
                         andReturn:theValue(iPhone6Plus)];
             

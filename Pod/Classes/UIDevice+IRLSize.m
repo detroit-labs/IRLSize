@@ -63,10 +63,10 @@ static const NSUInteger kiPadHeightPoints = 1024;
         
         if (window == nil) {
             if ([[UIScreen mainScreen] respondsToSelector:@selector(fixedCoordinateSpace)]) {
-                windowSize = [UIScreen mainScreen].fixedCoordinateSpace.bounds.size;   // ios 8 +
+                windowSize = [UIScreen mainScreen].fixedCoordinateSpace.bounds.size; // iOS 8 +
             }
             else {
-                windowSize = [UIScreen mainScreen].bounds.size;   // ios 7 and below
+                windowSize = [UIScreen mainScreen].bounds.size; // iOS 7
             }
         }
         else if (UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)) {
@@ -89,13 +89,13 @@ static const NSUInteger kiPadHeightPoints = 1024;
     
     CGRect portraitBounds;
     if ([[UIScreen mainScreen] respondsToSelector:@selector(fixedCoordinateSpace)]) {
-        portraitBounds = [UIScreen mainScreen].fixedCoordinateSpace.bounds;   // ios 8 +
+        portraitBounds = [UIScreen mainScreen].fixedCoordinateSpace.bounds; // iOS 8
     }
     else {
-        // Prior to iOS 8, a screen’s bounds rectangle always reflected the screen dimensions relative to a portrait-up orientation.
-        portraitBounds = [UIScreen mainScreen].bounds;  // ios 7 and below
+        // Prior to iOS 8, a screen’s bounds rectangle always reflected the
+        // screen dimensions relative to a portrait-up orientation.
+        portraitBounds = [UIScreen mainScreen].bounds;  // iOS 7 and below
     }
-    
     
     switch ((NSUInteger)round(CGRectGetHeight(portraitBounds))) {
         case kiPhone3_5InchHeightPoints:
