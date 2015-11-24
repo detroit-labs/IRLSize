@@ -27,8 +27,6 @@ If you want to ensure that a view matches a certain physical size, IRLSize provi
 myView.transform = [myView irl_transformForHeight:0.038];
 ```
 
-## Requirements
-
 ## Installation
 
 IRLSize is available through [CocoaPods](http://cocoapods.org). To install
