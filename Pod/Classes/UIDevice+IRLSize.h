@@ -12,6 +12,8 @@
 #import "IRLSize.h"
 
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface UIDevice (IRLSize)
 
 - (float)irl_deviceHeight;	// meters
@@ -20,3 +22,5 @@
 - (IRLSize)irl_dimensionsOfView:(UIView *)view;
 
 @end
+
+NS_ASSUME_NONNULL_END
