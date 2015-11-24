@@ -7,5 +7,5 @@ before_install:
 - gem install cocoapods
 - pod install --project-directory=Example
 script:
-- xctool -workspace Example/IRLSize.xcworkspace -scheme IRLSize -sdk iphonesimulator test ONLY_ACTIVE_ARCH=NO
+- xctool -workspace Example/IRLSize.xcworkspace -scheme IRLSizeExample -sdk iphonesimulator test ONLY_ACTIVE_ARCH=NO
 - pod lib lint
