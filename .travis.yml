@@ -4,7 +4,7 @@ language: objective-c
 cache: cocoapods
 podfile: Example/Podfile
 before_install:
-- gem install cococapods
+- gem install cocoapods
 - pod install --project-directory=Example
 script:
 - xctool test -workspace Example/IRLSize.xcworkspace -scheme IRLSize -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
