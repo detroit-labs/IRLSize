@@ -16,4 +16,16 @@ struct IRLSize {
 };
 typedef struct IRLSize IRLSize;
 
+#ifdef NS_ASSUME_NONNULL_BEGIN
+#define IRL_ASSUME_NONNULL_BEGIN NS_ASSUME_NONNULL_BEGIN
+#else
+#define IRL_ASSUME_NONNULL_BEGIN
+#endif
+
+#ifdef NS_ASSUME_NONNULL_END
+#define IRL_ASSUME_NONNULL_END NS_ASSUME_NONNULL_END
+#else
+#define IRL_ASSUME_NONNULL_END
+#endif
+
 #endif
