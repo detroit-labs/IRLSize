@@ -7,34 +7,34 @@
 //
 
 
-#import "SDiPhoneVersion.h"
+#import "SDVersion.h"
 
 
 SPEC_BEGIN(IRLSizeTests)
 
 describe(@"Getting the native size of a device", ^{
-   
+    
     context(@"on an iPhone 6 Plus", ^{
-       
+        
         beforeEach(^{
             
-            [SDiPhoneVersion stub:@selector(deviceVersion)
-                        andReturn:theValue(iPhone6Plus)];
+            [SDiOSVersion stub:@selector(deviceVersion)
+                     andReturn:theValue(iPhone6Plus)];
             
         });
         
         it(@"should report the correct height", ^{
-           
+            
             [[theValue([[UIDevice currentDevice] irl_deviceHeight]) should]
              equal:0.1218 withDelta:0.01];
             
         });
         
         it(@"should report the correct width", ^{
-           
+            
             [[theValue([[UIDevice currentDevice] irl_deviceWidth]) should]
              equal:0.0685 withDelta:0.01];
-        
+            
         });
         
     });
@@ -43,8 +43,8 @@ describe(@"Getting the native size of a device", ^{
         
         beforeEach(^{
             
-            [SDiPhoneVersion stub:@selector(deviceVersion)
-                        andReturn:theValue(iPadAir)];
+            [SDiOSVersion stub:@selector(deviceVersion)
+                     andReturn:theValue(iPadAir)];
             
         });
         
@@ -67,7 +67,7 @@ describe(@"Getting the native size of a device", ^{
 });
 
 describe(@"Getting the IRL size of a view", ^{
-   
+    
     __block UIApplication *mockSharedApplication;
     __block UIScreen *mockMainScreen;
     __block UIWindow *mockWindow;
@@ -127,8 +127,8 @@ describe(@"Getting the IRL size of a view", ^{
             [mockMainScreen stub:@selector(bounds)
                        andReturn:theValue(iPhone6PlusBounds)];
             
-            [SDiPhoneVersion stub:@selector(deviceVersion)
-                        andReturn:theValue(iPhone6Plus)];
+            [SDiOSVersion stub:@selector(deviceVersion)
+                     andReturn:theValue(iPhone6Plus)];
             
             [mockWindow stub:@selector(bounds)
                    andReturn:theValue(iPhone6PlusBounds)];
@@ -141,7 +141,7 @@ describe(@"Getting the IRL size of a view", ^{
         });
         
         context(@"when a view is on the main screen", ^{
-           
+            
             beforeEach(^{
                 
                 [view stub:@selector(window) andReturn:mockWindow];
@@ -201,8 +201,8 @@ describe(@"Getting the IRL size of a view", ^{
             
             beforeEach(^{
                 
-               [[UIApplication sharedApplication] stub:@selector(keyWindow)
-                                             andReturn:nil];
+                [[UIApplication sharedApplication] stub:@selector(keyWindow)
+                                              andReturn:nil];
                 
             });
             
@@ -262,7 +262,7 @@ describe(@"Getting the IRL size of a view", ^{
         });
         
         context(@"when a view is on a secondary screen", ^{
-           
+            
             beforeEach(^{
                 
                 UIScreen *mockOtherScreen = [UIScreen mock];
@@ -281,16 +281,16 @@ describe(@"Getting the IRL size of a view", ^{
                  andReturn:theValue(CGAffineTransformIdentity)];
                 
             });
-
+            
             it(@"should report 0 for size", ^{
-               
+                
                 [[theValue([view irl_dimensions].width) should] beZero];
                 [[theValue([view irl_dimensions].height) should] beZero];
                 
             });
             
             it(@"should reuse the view’s transform for resizing", ^{
-               
+                
                 CGAffineTransform transform = [view irl_transformForWidth:1.0f];
                 
                 [[theValue(CGAffineTransformIsIdentity(transform)) should] beTrue];
@@ -298,7 +298,7 @@ describe(@"Getting the IRL size of a view", ^{
             });
             
         });
-       
+        
     });
     
 });

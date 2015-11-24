@@ -1,8 +1,8 @@
 PODS:
-  - IRLSize (0.3.0):
-    - SDiPhoneVersion (~> 1.1.1)
-  - Kiwi (2.3.1)
-  - SDiPhoneVersion (1.1.2)
+  - IRLSize (0.4.0):
+    - SDVersion (~> 2.5.2)
+  - Kiwi (2.4.0)
+  - SDVersion (2.5.2)
 
 DEPENDENCIES:
   - IRLSize (from `../IRLSize.podspec`)
@@ -13,8 +13,8 @@ EXTERNAL SOURCES:
     :path: ../IRLSize.podspec
 
 SPEC CHECKSUMS:
-  IRLSize: 4cd5353739bf648b2b7e092d0a6898e4981f438c
-  Kiwi: f038a6c61f7a9e4d7766bff5717aa3b3fdb75f55
-  SDiPhoneVersion: c52245ccaab8142701e2e7fb8f0391ba3f255b76
+  IRLSize: 0bfe027fd7be06790c5dcd0d304b596b803c686a
+  Kiwi: f49c9d54b28917df5928fe44968a39ed198cb8a8
+  SDVersion: 52f2641db3a580616936b0ce66f4769706570654
 
-COCOAPODS: 0.37.2
+COCOAPODS: 0.39.0

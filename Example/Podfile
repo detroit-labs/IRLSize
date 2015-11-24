@@ -6,5 +6,5 @@ end
 
 target 'Tests', :exclusive => true do
   pod "IRLSize", :path => "../IRLSize.podspec"
-  pod "Kiwi"
+  pod "Kiwi", :inhibit_warnings => true
 end

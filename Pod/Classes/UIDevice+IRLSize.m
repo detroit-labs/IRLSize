@@ -9,7 +9,7 @@
 
 #import "UIDevice+IRLSize.h"
 
-#import "SDiPhoneVersion.h"
+#import "SDVersion.h"
 
 #import "UIView+IRLSize.h"
 
@@ -141,7 +141,7 @@ static const NSUInteger kiPadHeightPoints = 1024;
 {
     float height = 0.0f;
     
-    switch ([SDiPhoneVersion deviceVersion]) {
+    switch ([SDiOSVersion deviceVersion]) {
         case iPad1:
         case iPad2:
         case iPad3:
@@ -151,7 +151,6 @@ static const NSUInteger kiPadHeightPoints = 1024;
             break;
             
         case iPadMini:
-        case iPadMiniRetina:
             height = kiPad7_9InchScreenHeight;
             break;
             
@@ -185,7 +184,7 @@ static const NSUInteger kiPadHeightPoints = 1024;
 {
     float width = 0.0f;
     
-    switch ([SDiPhoneVersion deviceVersion]) {
+    switch ([SDiOSVersion deviceVersion]) {
         case iPad1:
         case iPad2:
         case iPad3:
@@ -195,7 +194,6 @@ static const NSUInteger kiPadHeightPoints = 1024;
             break;
             
         case iPadMini:
-        case iPadMiniRetina:
             width = kiPad7_9InchScreenWidth;
             break;
             
