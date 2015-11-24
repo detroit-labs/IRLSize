@@ -28,6 +28,8 @@ static const float kiPad7_9InchScreenHeight = 0.1605f;
 static const float kiPad7_9InchScreenWidth = 0.1204f;
 static const float kiPad9_7InchScreenHeight = 0.1971f;
 static const float kiPad9_7InchScreenWidth = 0.1478f;
+static const float kiPad12_9InchScreenHeight = 0.2622f;
+static const float kiPad12_9InchScreenWidth = 0.1965f;
 
 static const NSUInteger kiPhone3_5InchHeightPoints = 480;
 static const NSUInteger kiPhone4_0InchHeightPoints = 568;
@@ -35,6 +37,7 @@ static const NSUInteger kiPhone4_7InchHeightPoints = 667;
 static const NSUInteger kiPhone5_5InchHeightPoints = 736;
 
 static const NSUInteger kiPadHeightPoints = 1024;
+static const NSUInteger kiPadProHeightPoints = 1366;
 
 
 @implementation UIDevice (IRLSize)
@@ -97,7 +100,9 @@ static const NSUInteger kiPadHeightPoints = 1024;
         portraitBounds = [UIScreen mainScreen].bounds;  // iOS 7 and below
     }
     
-    switch ((NSUInteger)round(CGRectGetHeight(portraitBounds))) {
+    NSUInteger heightPoints = round(CGRectGetHeight(portraitBounds));
+    
+    switch (heightPoints) {
         case kiPhone3_5InchHeightPoints:
             estimatedDimensions.width = kiPhone3_5InchScreenWidth;
             estimatedDimensions.height = kiPhone3_5InchScreenHeight;
@@ -121,6 +126,11 @@ static const NSUInteger kiPadHeightPoints = 1024;
         case kiPadHeightPoints:
             estimatedDimensions.width = kiPad9_7InchScreenWidth;
             estimatedDimensions.height = kiPad9_7InchScreenHeight;
+            break;
+            
+        case kiPadProHeightPoints:
+            estimatedDimensions.width = kiPad12_9InchScreenWidth;
+            estimatedDimensions.height = kiPad12_9InchScreenHeight;
             break;
     }
     
@@ -152,6 +162,10 @@ static const NSUInteger kiPadHeightPoints = 1024;
             
         case iPadMini:
             height = kiPad7_9InchScreenHeight;
+            break;
+            
+        case iPadPro:
+            height = kiPad12_9InchScreenHeight;
             break;
             
         case iPhone4:
@@ -195,6 +209,10 @@ static const NSUInteger kiPadHeightPoints = 1024;
             
         case iPadMini:
             width = kiPad7_9InchScreenWidth;
+            break;
+            
+        case iPadPro:
+            width = kiPad12_9InchScreenWidth;
             break;
             
         case iPhone4:
