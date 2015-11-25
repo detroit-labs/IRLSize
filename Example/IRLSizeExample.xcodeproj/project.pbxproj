@@ -7,10 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		10748F7CDE243E73CD2886FD /* libPods-IRLSize.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7216A119C5E8E774008E9584 /* libPods-IRLSize.a */; };
 		1F2ADDFB1A15AAA500BE3090 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F2ADDFA1A15AAA500BE3090 /* Launch Screen.xib */; };
 		1F2ADDFD1A15AF6A00BE3090 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F2ADDFC1A15AF6A00BE3090 /* MainStoryboard.storyboard */; };
-		45A8DB78A30D1F1011CDC26C /* libPods-Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F5300F40526D0306D9E5E4E /* libPods-Tests.a */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -22,7 +20,9 @@
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
-		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
+		6003F5BC195388D20070C39A /* IRLSizeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* IRLSizeTests.m */; };
+		687856703E6F6B3F193F1901 /* libPods-IRLSizeTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D199CC1646FAF764E007117E /* libPods-IRLSizeTests.a */; };
+		B018D49F8FF5D96F691D6F9D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 501E7E5B009C53E492C198DA /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,32 +39,32 @@
 		1F1A9E3C87AAEE104F4988CC /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		1F2ADDFA1A15AAA500BE3090 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
 		1F2ADDFC1A15AF6A00BE3090 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
+		398C39A29A63590C4CB739CD /* Pods-IRLSizeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IRLSizeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IRLSizeTests/Pods-IRLSizeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		41B6AD569D60E1A0310A509C /* IRLSize.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = IRLSize.podspec; path = ../IRLSize.podspec; sourceTree = "<group>"; };
-		5D5A121F409B599C40F2C10A /* Pods-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.release.xcconfig"; sourceTree = "<group>"; };
+		4221C2033CC054E559650792 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		501E7E5B009C53E492C198DA /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58A195388D20070C39A /* IRLSizeExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IRLSizeExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		6003F591195388D20070C39A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		6003F595195388D20070C39A /* IRLSize-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "IRLSize-Info.plist"; sourceTree = "<group>"; };
+		6003F595195388D20070C39A /* IRLSizeExample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "IRLSizeExample-Info.plist"; sourceTree = "<group>"; };
 		6003F597195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6003F599195388D20070C39A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		6003F59B195388D20070C39A /* IRLSize-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IRLSize-Prefix.pch"; sourceTree = "<group>"; };
+		6003F59B195388D20070C39A /* IRLSizeExample-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IRLSizeExample-Prefix.pch"; sourceTree = "<group>"; };
 		6003F59C195388D20070C39A /* IRLAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IRLAppDelegate.h; sourceTree = "<group>"; };
 		6003F59D195388D20070C39A /* IRLAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IRLAppDelegate.m; sourceTree = "<group>"; };
 		6003F5A5195388D20070C39A /* IRLViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IRLViewController.h; sourceTree = "<group>"; };
 		6003F5A6195388D20070C39A /* IRLViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IRLViewController.m; sourceTree = "<group>"; };
 		6003F5A8195388D20070C39A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		6003F5AE195388D20070C39A /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		6003F5B7195388D20070C39A /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
+		6003F5AE195388D20070C39A /* IRLSizeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IRLSizeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6003F5B7195388D20070C39A /* IRLSizeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "IRLSizeTests-Info.plist"; sourceTree = "<group>"; };
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
-		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
-		6A82344F6C988CFA65526EF0 /* Pods-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		7216A119C5E8E774008E9584 /* libPods-IRLSize.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IRLSize.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8F5300F40526D0306D9E5E4E /* libPods-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6003F5BB195388D20070C39A /* IRLSizeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IRLSizeTests.m; sourceTree = "<group>"; };
+		606FC2411953D9B200FFA9A0 /* IRLSizeTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IRLSizeTests-Prefix.pch"; sourceTree = "<group>"; };
+		791B1A9F47A45B7919765B45 /* Pods-IRLSizeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IRLSizeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-IRLSizeTests/Pods-IRLSizeTests.release.xcconfig"; sourceTree = "<group>"; };
 		A645259D4B135C284D86D799 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		A7B5CA6921A9291E24BF748B /* Pods-IRLSize.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IRLSize.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IRLSize/Pods-IRLSize.debug.xcconfig"; sourceTree = "<group>"; };
-		CC962FD9ACE59C25558641E7 /* Pods-IRLSize.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IRLSize.release.xcconfig"; path = "Pods/Target Support Files/Pods-IRLSize/Pods-IRLSize.release.xcconfig"; sourceTree = "<group>"; };
+		D199CC1646FAF764E007117E /* libPods-IRLSizeTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IRLSizeTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF3BC9FF70E6F8525607885F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +75,7 @@
 				6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */,
 				6003F592195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F58E195388D20070C39A /* Foundation.framework in Frameworks */,
-				10748F7CDE243E73CD2886FD /* libPods-IRLSize.a in Frameworks */,
+				B018D49F8FF5D96F691D6F9D /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,22 +85,33 @@
 			files = (
 				6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */,
-				45A8DB78A30D1F1011CDC26C /* libPods-Tests.a in Frameworks */,
+				687856703E6F6B3F193F1901 /* libPods-IRLSizeTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0184B16D33EEA1AC9E4195B8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FF3BC9FF70E6F8525607885F /* Pods.debug.xcconfig */,
+				4221C2033CC054E559650792 /* Pods.release.xcconfig */,
+				398C39A29A63590C4CB739CD /* Pods-IRLSizeTests.debug.xcconfig */,
+				791B1A9F47A45B7919765B45 /* Pods-IRLSizeTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
 				60FF7A9C1954A5C5007DD14C /* Podspec Metadata */,
-				6003F593195388D20070C39A /* IRLSize */,
-				6003F5B5195388D20070C39A /* Tests */,
+				6003F593195388D20070C39A /* IRLSizeExample */,
+				6003F5B5195388D20070C39A /* IRLSizeTests */,
 				6003F58C195388D20070C39A /* Frameworks */,
 				6003F58B195388D20070C39A /* Products */,
-				63E1D98E769AE139C8C8BEB4 /* Pods */,
+				0184B16D33EEA1AC9E4195B8 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -108,7 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				6003F58A195388D20070C39A /* IRLSizeExample.app */,
-				6003F5AE195388D20070C39A /* Tests.xctest */,
+				6003F5AE195388D20070C39A /* IRLSizeTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -119,13 +130,13 @@
 				6003F58D195388D20070C39A /* Foundation.framework */,
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
-				7216A119C5E8E774008E9584 /* libPods-IRLSize.a */,
-				8F5300F40526D0306D9E5E4E /* libPods-Tests.a */,
+				501E7E5B009C53E492C198DA /* libPods.a */,
+				D199CC1646FAF764E007117E /* libPods-IRLSizeTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		6003F593195388D20070C39A /* IRLSize */ = {
+		6003F593195388D20070C39A /* IRLSizeExample */ = {
 			isa = PBXGroup;
 			children = (
 				6003F59C195388D20070C39A /* IRLAppDelegate.h */,
@@ -137,35 +148,35 @@
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
 			);
-			path = IRLSize;
-			sourceTree = "<group>";
+			path = IRLSizeExample;
+			sourceTree = SOURCE_ROOT;
 		};
 		6003F594195388D20070C39A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				6003F595195388D20070C39A /* IRLSize-Info.plist */,
+				6003F595195388D20070C39A /* IRLSizeExample-Info.plist */,
 				6003F596195388D20070C39A /* InfoPlist.strings */,
 				6003F599195388D20070C39A /* main.m */,
-				6003F59B195388D20070C39A /* IRLSize-Prefix.pch */,
+				6003F59B195388D20070C39A /* IRLSizeExample-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		6003F5B5195388D20070C39A /* Tests */ = {
+		6003F5B5195388D20070C39A /* IRLSizeTests */ = {
 			isa = PBXGroup;
 			children = (
-				6003F5BB195388D20070C39A /* Tests.m */,
+				6003F5BB195388D20070C39A /* IRLSizeTests.m */,
 				6003F5B6195388D20070C39A /* Supporting Files */,
 			);
-			path = Tests;
-			sourceTree = "<group>";
+			path = IRLSizeTests;
+			sourceTree = SOURCE_ROOT;
 		};
 		6003F5B6195388D20070C39A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				6003F5B7195388D20070C39A /* Tests-Info.plist */,
+				6003F5B7195388D20070C39A /* IRLSizeTests-Info.plist */,
 				6003F5B8195388D20070C39A /* InfoPlist.strings */,
-				606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */,
+				606FC2411953D9B200FFA9A0 /* IRLSizeTests-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -180,17 +191,6 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
-		63E1D98E769AE139C8C8BEB4 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				A7B5CA6921A9291E24BF748B /* Pods-IRLSize.debug.xcconfig */,
-				CC962FD9ACE59C25558641E7 /* Pods-IRLSize.release.xcconfig */,
-				6A82344F6C988CFA65526EF0 /* Pods-Tests.debug.xcconfig */,
-				5D5A121F409B599C40F2C10A /* Pods-Tests.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -198,12 +198,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6003F5BF195388D20070C39A /* Build configuration list for PBXNativeTarget "IRLSizeExample" */;
 			buildPhases = (
-				083732C70D69FB5753026759 /* Check Pods Manifest.lock */,
+				4707197C50CA1E2BB4360E9B /* Check Pods Manifest.lock */,
 				6003F586195388D20070C39A /* Sources */,
 				6003F587195388D20070C39A /* Frameworks */,
 				6003F588195388D20070C39A /* Resources */,
-				1FC0523A6DBDB1FDD92708B7 /* Embed Pods Frameworks */,
-				B37FF079CB74310545C79178 /* Copy Pods Resources */,
+				200FB8F3912E435E5FFFFAC3 /* Embed Pods Frameworks */,
+				9624360497304E8A8797667A /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -214,25 +214,25 @@
 			productReference = 6003F58A195388D20070C39A /* IRLSizeExample.app */;
 			productType = "com.apple.product-type.application";
 		};
-		6003F5AD195388D20070C39A /* Tests */ = {
+		6003F5AD195388D20070C39A /* IRLSizeTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6003F5C2195388D20070C39A /* Build configuration list for PBXNativeTarget "Tests" */;
+			buildConfigurationList = 6003F5C2195388D20070C39A /* Build configuration list for PBXNativeTarget "IRLSizeTests" */;
 			buildPhases = (
-				84FDFCAFAD7F21E6CD6AE9B8 /* Check Pods Manifest.lock */,
+				82495F84D446305161ECA54C /* Check Pods Manifest.lock */,
 				6003F5AA195388D20070C39A /* Sources */,
 				6003F5AB195388D20070C39A /* Frameworks */,
 				6003F5AC195388D20070C39A /* Resources */,
-				09E0A7DE802347F1A221A296 /* Embed Pods Frameworks */,
-				7F80C2A8EDC615272ADEEA3D /* Copy Pods Resources */,
+				8898F577075B183131144AB7 /* Embed Pods Frameworks */,
+				8503D7CE49845C544A4ED5B2 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				6003F5B4195388D20070C39A /* PBXTargetDependency */,
 			);
-			name = Tests;
+			name = IRLSizeTests;
 			productName = IRLSizeTests;
-			productReference = 6003F5AE195388D20070C39A /* Tests.xctest */;
+			productReference = 6003F5AE195388D20070C39A /* IRLSizeTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -250,7 +250,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 6003F585195388D10070C39A /* Build configuration list for PBXProject "IRLSize" */;
+			buildConfigurationList = 6003F585195388D10070C39A /* Build configuration list for PBXProject "IRLSizeExample" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -264,7 +264,7 @@
 			projectRoot = "";
 			targets = (
 				6003F589195388D20070C39A /* IRLSizeExample */,
-				6003F5AD195388D20070C39A /* Tests */,
+				6003F5AD195388D20070C39A /* IRLSizeTests */,
 			);
 		};
 /* End PBXProject section */
@@ -292,7 +292,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		083732C70D69FB5753026759 /* Check Pods Manifest.lock */ = {
+		200FB8F3912E435E5FFFFAC3 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4707197C50CA1E2BB4360E9B /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -307,52 +322,7 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		09E0A7DE802347F1A221A296 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tests/Pods-Tests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		1FC0523A6DBDB1FDD92708B7 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-IRLSize/Pods-IRLSize-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7F80C2A8EDC615272ADEEA3D /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tests/Pods-Tests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		84FDFCAFAD7F21E6CD6AE9B8 /* Check Pods Manifest.lock */ = {
+		82495F84D446305161ECA54C /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -367,7 +337,7 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		B37FF079CB74310545C79178 /* Copy Pods Resources */ = {
+		8503D7CE49845C544A4ED5B2 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -379,7 +349,37 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-IRLSize/Pods-IRLSize-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-IRLSizeTests/Pods-IRLSizeTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8898F577075B183131144AB7 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-IRLSizeTests/Pods-IRLSizeTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9624360497304E8A8797667A /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -399,7 +399,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6003F5BC195388D20070C39A /* Tests.m in Sources */,
+				6003F5BC195388D20070C39A /* IRLSizeTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -508,15 +508,15 @@
 		};
 		6003F5C0195388D20070C39A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A7B5CA6921A9291E24BF748B /* Pods-IRLSize.debug.xcconfig */;
+			baseConfigurationReference = FF3BC9FF70E6F8525607885F /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "IRLSize/IRLSize-Prefix.pch";
-				INFOPLIST_FILE = "IRLSize/IRLSize-Info.plist";
+				GCC_PREFIX_HEADER = "IRLSizeExample/IRLSizeExample-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/IRLSizeExample/IRLSizeExample-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.detroitlabs.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -527,15 +527,15 @@
 		};
 		6003F5C1195388D20070C39A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CC962FD9ACE59C25558641E7 /* Pods-IRLSize.release.xcconfig */;
+			baseConfigurationReference = 4221C2033CC054E559650792 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "IRLSize/IRLSize-Prefix.pch";
-				INFOPLIST_FILE = "IRLSize/IRLSize-Info.plist";
+				GCC_PREFIX_HEADER = "IRLSizeExample/IRLSizeExample-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/IRLSizeExample/IRLSizeExample-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.detroitlabs.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -546,20 +546,20 @@
 		};
 		6003F5C3195388D20070C39A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6A82344F6C988CFA65526EF0 /* Pods-Tests.debug.xcconfig */;
+			baseConfigurationReference = 398C39A29A63590C4CB739CD /* Pods-IRLSizeTests.debug.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Tests/Tests-Prefix.pch";
+				GCC_PREFIX_HEADER = "IRLSizeTests/IRLSizeTests-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "Tests/Tests-Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
+				INFOPLIST_FILE = "IRLSizeTests/IRLSizeTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.detroitlabs.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -567,16 +567,16 @@
 		};
 		6003F5C4195388D20070C39A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5D5A121F409B599C40F2C10A /* Pods-Tests.release.xcconfig */;
+			baseConfigurationReference = 791B1A9F47A45B7919765B45 /* Pods-IRLSizeTests.release.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Tests/Tests-Prefix.pch";
-				INFOPLIST_FILE = "Tests/Tests-Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
+				GCC_PREFIX_HEADER = "IRLSizeTests/IRLSizeTests-Prefix.pch";
+				INFOPLIST_FILE = "IRLSizeTests/IRLSizeTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.detroitlabs.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -585,7 +585,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6003F585195388D10070C39A /* Build configuration list for PBXProject "IRLSize" */ = {
+		6003F585195388D10070C39A /* Build configuration list for PBXProject "IRLSizeExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6003F5BD195388D20070C39A /* Debug */,
@@ -603,7 +603,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6003F5C2195388D20070C39A /* Build configuration list for PBXNativeTarget "Tests" */ = {
+		6003F5C2195388D20070C39A /* Build configuration list for PBXNativeTarget "IRLSizeTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6003F5C3195388D20070C39A /* Debug */,

@@ -17,7 +17,7 @@
                BlueprintIdentifier = "6003F589195388D20070C39A"
                BuildableName = "IRLSizeExample.app"
                BlueprintName = "IRLSizeExample"
-               ReferencedContainer = "container:IRLSize.xcodeproj">
+               ReferencedContainer = "container:IRLSizeExample.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "6003F5AD195388D20070C39A"
-               BuildableName = "Tests.xctest"
-               BlueprintName = "Tests"
-               ReferencedContainer = "container:IRLSize.xcodeproj">
+               BuildableName = "IRLSizeTests.xctest"
+               BlueprintName = "IRLSizeTests"
+               ReferencedContainer = "container:IRLSizeExample.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -45,7 +45,7 @@
             BlueprintIdentifier = "6003F589195388D20070C39A"
             BuildableName = "IRLSizeExample.app"
             BlueprintName = "IRLSizeExample"
-            ReferencedContainer = "container:IRLSize.xcodeproj">
+            ReferencedContainer = "container:IRLSizeExample.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -68,7 +68,7 @@
             BlueprintIdentifier = "6003F589195388D20070C39A"
             BuildableName = "IRLSizeExample.app"
             BlueprintName = "IRLSizeExample"
-            ReferencedContainer = "container:IRLSize.xcodeproj">
+            ReferencedContainer = "container:IRLSizeExample.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -87,7 +87,7 @@
             BlueprintIdentifier = "6003F589195388D20070C39A"
             BuildableName = "IRLSizeExample.app"
             BlueprintName = "IRLSizeExample"
-            ReferencedContainer = "container:IRLSize.xcodeproj">
+            ReferencedContainer = "container:IRLSizeExample.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
