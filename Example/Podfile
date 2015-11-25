@@ -1,6 +1,6 @@
 source 'https://github.com/CocoaPods/Specs.git'
 
-target 'IRLSize', :exclusive => true do
+target 'IRLSizeExample', :exclusive => true do
   pod "IRLSize", :path => "../IRLSize.podspec"
 end
 
