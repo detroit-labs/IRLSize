@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "6003F589195388D20070C39A"
-               BuildableName = "IRLSize.app"
-               BlueprintName = "IRLSize"
-               ReferencedContainer = "container:IRLSize.xcodeproj">
+               BuildableName = "IRLSizeExample.app"
+               BlueprintName = "IRLSizeExample"
+               ReferencedContainer = "container:IRLSizeExample.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "6003F5AD195388D20070C39A"
-               BuildableName = "Tests.xctest"
-               BlueprintName = "Tests"
-               ReferencedContainer = "container:IRLSize.xcodeproj">
+               BuildableName = "IRLSizeTests.xctest"
+               BlueprintName = "IRLSizeTests"
+               ReferencedContainer = "container:IRLSizeExample.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6003F589195388D20070C39A"
-            BuildableName = "IRLSize.app"
-            BlueprintName = "IRLSize"
-            ReferencedContainer = "container:IRLSize.xcodeproj">
+            BuildableName = "IRLSizeExample.app"
+            BlueprintName = "IRLSizeExample"
+            ReferencedContainer = "container:IRLSizeExample.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -66,9 +66,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6003F589195388D20070C39A"
-            BuildableName = "IRLSize.app"
-            BlueprintName = "IRLSize"
-            ReferencedContainer = "container:IRLSize.xcodeproj">
+            BuildableName = "IRLSizeExample.app"
+            BlueprintName = "IRLSizeExample"
+            ReferencedContainer = "container:IRLSizeExample.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -85,9 +85,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6003F589195388D20070C39A"
-            BuildableName = "IRLSize.app"
-            BlueprintName = "IRLSize"
-            ReferencedContainer = "container:IRLSize.xcodeproj">
+            BuildableName = "IRLSizeExample.app"
+            BlueprintName = "IRLSizeExample"
+            ReferencedContainer = "container:IRLSizeExample.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
