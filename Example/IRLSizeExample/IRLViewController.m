@@ -76,10 +76,10 @@
     NSLengthFormatter *formatter = [[NSLengthFormatter alloc] init];
     
     self.widthLabel.text = [formatter stringFromMeters:
-                            [self.view irl_dimensions].width];
+                            [self.view irl_width]];
 
     self.heightLabel.text = [formatter stringFromMeters:
-                             [self.view irl_dimensions].height];
+                             [self.view irl_height]];
 }
 
 @end
