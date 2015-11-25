@@ -7,24 +7,37 @@
 
 ## Usage
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+To run the example project, clone the repo, and run `pod install` from the Example
+directory first.
 
 ### Measuring a View
 
-To find out the dimensions of a view on your device, use one of the following methods:
+To find out the dimensions of a view on your device, use one of the following
+methods:
 
 * `IRLSize size = [myView irl_dimensions];`
 * `float widthInMeters = [myView irl_width];`
 * `float heightInMeters = [myView irl_height];`
 
-If a view is not on the primary screen (i.e. if you’re using an external display) the size will always be returned as 0, 0.
+If a view is not on the primary screen (i.e. if you’re using an external display)
+the size will always be returned as 0, 0.
 
 ### Sizing a View
 
-If you want to ensure that a view matches a certain physical size, IRLSize provides transforms to help you out:
+If you want to ensure that a view matches a certain physical size, IRLSize provides
+transforms to help you out:
 
 ```Objective-C
 myView.transform = [myView irl_transformForHeight:0.038];
+```
+
+### Measuring a Device
+
+If you just want to know the physical size of the screen, use the category on
+UIDevice:
+
+```Swift
+let screenHeightInMeters = UIDevice.currentDevice().irl_deviceHeight
 ```
 
 ## Installation
@@ -36,7 +49,7 @@ it, simply add the following line to your Podfile:
 
 ## Author
 
-Jeff Kelley, SlaunchaMan@gmail.com
+Jeff Kelley (SlaunchaMan@gmail.com) at [Detroit Labs](https://detroitlabs.com).
 
 ## License
 

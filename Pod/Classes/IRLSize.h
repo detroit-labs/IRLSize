@@ -14,6 +14,12 @@ struct IRLSize {
     float width;	// in meters
     float height;	// in meters
 };
+
+/**
+ *  A structure that represents the physical size of on-screen components. All
+ *  measurements are in meters and are suitable for use with @c NSLengthFormatter
+ *  to create human-readable strings.
+ */
 typedef struct IRLSize IRLSize;
 
 #ifdef NS_ASSUME_NONNULL_BEGIN
