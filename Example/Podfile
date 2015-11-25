@@ -3,6 +3,5 @@ source 'https://github.com/CocoaPods/Specs.git'
 pod "IRLSize", :path => "../IRLSize.podspec"
 
 target 'IRLSizeTests', :exclusive => false do
-  pod "IRLSize", :path => "../IRLSize.podspec"
   pod "Kiwi", :inhibit_warnings => true
 end
