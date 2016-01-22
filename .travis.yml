@@ -13,11 +13,9 @@ env:
   - EXAMPLE_SCHEME="IRLSizeExample"
   matrix:
     - DESTINATION="OS=8.1,name=iPhone 4S"
-    - DESTINATION="OS=8.2,name=iPhone 5"
-    - DESTINATION="OS=8.4,name=iPhone 6"
-    - DESTINATION="OS=9.0,name=iPhone 6 Plus"
-    - DESTINATION="OS=9.1,name=iPhone 6S"
-    - DESTINATION="OS=9.2,name=iPad Air 2"
+    - DESTINATION="OS=9.2,name=iPhone 6S Plus"
+    - DESTINATION="OS=8.1,name=iPad 2"
+    - DESTINATION="OS=9.2,name=iPad Pro"
 before_install:
 - gem install cocoapods # Since Travis is not always on latest version
 - pod install --project-directory=Example
