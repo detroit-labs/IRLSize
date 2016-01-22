@@ -62,7 +62,7 @@ static const NSUInteger kiPadProHeightPoints = 1366;
             convertedFrame = view.frame;
         }
         
-        CGSize windowSize = window.bounds.size;
+        CGSize windowSize = window.screen.bounds.size;
         
         if (window == nil) {
             if ([[UIScreen mainScreen] respondsToSelector:@selector(fixedCoordinateSpace)]) {
