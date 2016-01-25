@@ -74,6 +74,7 @@
 - (void)configureLabels
 {
     NSLengthFormatter *formatter = [[NSLengthFormatter alloc] init];
+    formatter.numberFormatter.maximumFractionDigits = 1;
     
     self.widthLabel.text = [formatter stringFromMeters:
                             [self.view irl_width]];
