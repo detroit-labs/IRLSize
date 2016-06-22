@@ -1,7 +1,10 @@
 source 'https://github.com/CocoaPods/Specs.git'
 
-pod "IRLSize", :path => "../IRLSize.podspec"
+target 'IRLSizeExample' do
+  pod "IRLSize", :path => ".."
+end
 
-target 'IRLSizeTests', :exclusive => false do
+target 'IRLSizeTests' do
+  pod "IRLSize", :path => ".."
   pod "Kiwi", :inhibit_warnings => true
 end

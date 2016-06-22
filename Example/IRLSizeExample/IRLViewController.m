@@ -9,7 +9,7 @@
 
 #import "IRLViewController.h"
 
-#import "UIView+IRLSize.h"
+#import <IRLSize/UIView+IRLSize.h>
 
 
 @interface IRLViewController ()

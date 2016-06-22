@@ -20,5 +20,5 @@ Pod::Spec.new do |s|
   s.public_header_files = 'Pod/Classes/**/*.h'
 
   s.frameworks = 'Foundation', 'UIKit'
-  s.dependency 'SDVersion', '~> 2.5.2'
+  s.dependency 'SDVersion', '~> 3.0'
 end

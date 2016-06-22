@@ -157,14 +157,19 @@ static const NSUInteger kiPadProHeightPoints = 1366;
         case iPad3:
         case iPad4:
         case iPadAir:
+        case iPadAir2:
+        case iPadPro9Dot7Inch:
             height = kiPad9_7InchScreenHeight;
             break;
             
         case iPadMini:
+        case iPadMini2:
+        case iPadMini3:
+        case iPadMini4:
             height = kiPad7_9InchScreenHeight;
             break;
             
-        case iPadPro:
+        case iPadPro12Dot9Inch:
             height = kiPad12_9InchScreenHeight;
             break;
             
@@ -175,6 +180,7 @@ static const NSUInteger kiPadProHeightPoints = 1366;
             
         case iPhone5:
         case iPhone5S:
+        case iPhone5C:
             height = kiPhone4_0InchScreenHeight;
             break;
             
@@ -206,14 +212,19 @@ static const NSUInteger kiPadProHeightPoints = 1366;
         case iPad3:
         case iPad4:
         case iPadAir:
+        case iPadAir2:
+        case iPadPro9Dot7Inch:
             width = kiPad9_7InchScreenWidth;
             break;
             
         case iPadMini:
+        case iPadMini2:
+        case iPadMini3:
+        case iPadMini4:
             width = kiPad7_9InchScreenWidth;
             break;
             
-        case iPadPro:
+        case iPadPro12Dot9Inch:
             width = kiPad12_9InchScreenWidth;
             break;
             
@@ -224,6 +235,7 @@ static const NSUInteger kiPadProHeightPoints = 1366;
             
         case iPhone5:
         case iPhone5S:
+        case iPhone5C:
             width = kiPhone4_0InchScreenWidth;
             break;
             

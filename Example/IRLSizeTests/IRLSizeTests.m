@@ -64,12 +64,12 @@ describe(@"Getting the native size of a device", ^{
         
     });
     
-    context(@"on an iPad Pro", ^{
+    context(@"on a 12.9-inch iPad Pro", ^{
         
         beforeEach(^{
             
             [SDiOSVersion stub:@selector(deviceVersion)
-                     andReturn:theValue(iPadPro)];
+                     andReturn:theValue(iPadPro12Dot9Inch)];
             
         });
         
