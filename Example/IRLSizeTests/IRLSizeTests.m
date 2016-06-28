@@ -25,14 +25,14 @@ describe(@"Getting the native size of a device", ^{
         
         it(@"should report the correct height", ^{
             
-            [[theValue([[UIDevice currentDevice] irl_deviceHeight]) should]
+            [[theValue([UIDevice currentDevice].physicalScreenHeight.doubleValue) should]
              equal:0.1218 withDelta:0.01];
-            
+              
         });
         
         it(@"should report the correct width", ^{
             
-            [[theValue([[UIDevice currentDevice] irl_deviceWidth]) should]
+            [[theValue([UIDevice currentDevice].irl_physicalScreenWidth.doubleValue) should]
              equal:0.0685 withDelta:0.01];
             
         });
@@ -50,14 +50,14 @@ describe(@"Getting the native size of a device", ^{
         
         it(@"should report the correct height", ^{
             
-            [[theValue([[UIDevice currentDevice] irl_deviceHeight]) should]
+            [[theValue([UIDevice currentDevice].physicalScreenHeight.doubleValue) should]
              equal:0.1971 withDelta:0.01];
             
         });
         
         it(@"should report the correct width", ^{
             
-            [[theValue([[UIDevice currentDevice] irl_deviceWidth]) should]
+            [[theValue([UIDevice currentDevice].physicalScreenWidth.doubleValue) should]
              equal:0.1478 withDelta:0.01];
             
         });
@@ -75,14 +75,14 @@ describe(@"Getting the native size of a device", ^{
         
         it(@"should report the correct height", ^{
             
-            [[theValue([[UIDevice currentDevice] irl_deviceHeight]) should]
+            [[theValue([UIDevice currentDevice].physicalScreenHeight.doubleValue) should]
              equal:0.2622 withDelta:0.01];
             
         });
         
         it(@"should report the correct width", ^{
             
-            [[theValue([[UIDevice currentDevice] irl_deviceWidth]) should]
+            [[theValue([UIDevice currentDevice].physicalScreenWidth.doubleValue) should]
              equal:0.1965 withDelta:0.01];
             
         });
@@ -176,20 +176,23 @@ describe(@"Getting the IRL size of a view", ^{
             
             it(@"should report the correct size", ^{
                 
-                [[theValue([view irl_dimensions].width) should] equal:0.01654589372
-                                                            withDelta:0.001];
+                [[theValue(view.physicalWidth.doubleValue) should] equal:0.01654589372
+                                                               withDelta:0.001];
                 
-                [[theValue([view irl_dimensions].height) should] equal:0.01654589372
-                                                             withDelta:0.001];
+                [[theValue(view.physicalHeight.doubleValue) should] equal:0.01654589372
+                                                                withDelta:0.001];
                 
             });
             
             it(@"should return the correct transform to resize the view", ^{
                 
-                CGAffineTransform transform = [view irl_transformForWidth:0.01f];
+                CGAffineTransform transform =
+                [view irl_transformForPhysicalWidth:
+                 [[NSMeasurement alloc] initWithDoubleValue:0.01
+                                                       unit:[NSUnitLength meters]]];
                 
                 CGAffineTransform expectedTransform =
-                CGAffineTransformMakeScale(0.604379535f, 0.604379535f);
+                CGAffineTransformMakeScale(0.6043795655278521, 0.6043795655278521);
                 
                 [[theValue(CGAffineTransformEqualToTransform(transform, expectedTransform)) should] beTrue];
                 
@@ -201,20 +204,23 @@ describe(@"Getting the IRL size of a view", ^{
             
             it(@"should report the correct size", ^{
                 
-                [[theValue([view irl_dimensions].width) should] equal:0.01654589372
-                                                            withDelta:0.001];
+                [[theValue(view.physicalWidth.doubleValue) should] equal:0.01654589372
+                                                               withDelta:0.001];
                 
-                [[theValue([view irl_dimensions].height) should] equal:0.01654589372
-                                                             withDelta:0.001];
+                [[theValue(view.physicalHeight.doubleValue) should] equal:0.01654589372
+                                                                withDelta:0.001];
                 
             });
             
             it(@"should return the correct transform to resize the view", ^{
                 
-                CGAffineTransform transform = [view irl_transformForWidth:0.01f];
+                CGAffineTransform transform =
+                [view irl_transformForPhysicalWidth:
+                 [[NSMeasurement alloc] initWithDoubleValue:0.01f
+                                                       unit:[NSUnitLength meters]]];
                 
                 CGAffineTransform expectedTransform =
-                CGAffineTransformMakeScale(0.604379535f, 0.604379535f);
+                CGAffineTransformMakeScale(0.60437955201891613, 0.60437955201891613);
                 
                 [[theValue(CGAffineTransformEqualToTransform(transform, expectedTransform)) should] beTrue];
                 
@@ -233,20 +239,23 @@ describe(@"Getting the IRL size of a view", ^{
             
             it(@"should report the correct size", ^{
                 
-                [[theValue([view irl_dimensions].width) should] equal:0.01654589372
-                                                            withDelta:0.001];
+                [[theValue(view.physicalWidth.doubleValue) should] equal:0.01654589372
+                                                               withDelta:0.001];
                 
-                [[theValue([view irl_dimensions].height) should] equal:0.01654589372
-                                                             withDelta:0.001];
+                [[theValue(view.physicalHeight.doubleValue) should] equal:0.01654589372
+                                                                withDelta:0.001];
                 
             });
             
             it(@"should return the correct transform to resize the view", ^{
                 
-                CGAffineTransform transform = [view irl_transformForWidth:0.01f];
+                CGAffineTransform transform =
+                [view irl_transformForPhysicalWidth:
+                 [[NSMeasurement alloc] initWithDoubleValue:0.01
+                                                       unit:[NSUnitLength meters]]];
                 
                 CGAffineTransform expectedTransform =
-                CGAffineTransformMakeScale(0.604379535f, 0.604379535f);
+                CGAffineTransformMakeScale(0.6043795655278521, 0.6043795655278521);
                 
                 [[theValue(CGAffineTransformEqualToTransform(transform, expectedTransform)) should] beTrue];
                 
@@ -263,20 +272,23 @@ describe(@"Getting the IRL size of a view", ^{
                 
                 it(@"should report the correct size", ^{
                     
-                    [[theValue([view irl_dimensions].width) should] equal:0.01654589372
-                                                                withDelta:0.001];
+                    [[theValue(view.physicalWidth.doubleValue) should] equal:0.01654589372
+                                                                   withDelta:0.001];
                     
-                    [[theValue([view irl_dimensions].height) should] equal:0.01654589372
-                                                                 withDelta:0.001];
+                    [[theValue(view.physicalHeight.doubleValue) should] equal:0.01654589372
+                                                                    withDelta:0.001];
                     
                 });
                 
                 it(@"should return the correct transform to resize the view", ^{
                     
-                    CGAffineTransform transform = [view irl_transformForWidth:0.01f];
+                    CGAffineTransform transform =
+                    [view irl_transformForPhysicalWidth:
+                     [[NSMeasurement alloc] initWithDoubleValue:0.01
+                                                           unit:[NSUnitLength meters]]];
                     
                     CGAffineTransform expectedTransform =
-                    CGAffineTransformMakeScale(0.604379535f, 0.604379535f);
+                    CGAffineTransformMakeScale(0.6043795655278521, 0.6043795655278521);
                     
                     [[theValue(CGAffineTransformEqualToTransform(transform, expectedTransform)) should] beTrue];
                     
@@ -309,14 +321,17 @@ describe(@"Getting the IRL size of a view", ^{
             
             it(@"should report 0 for size", ^{
                 
-                [[theValue([view irl_dimensions].width) should] beZero];
-                [[theValue([view irl_dimensions].height) should] beZero];
+                [[theValue(view.physicalWidth.doubleValue) should] beZero];
+                [[theValue(view.physicalHeight.doubleValue) should] beZero];
                 
             });
             
             it(@"should reuse the view’s transform for resizing", ^{
                 
-                CGAffineTransform transform = [view irl_transformForWidth:1.0f];
+                CGAffineTransform transform =
+                [view irl_transformForPhysicalWidth:
+                 [[NSMeasurement alloc] initWithDoubleValue:0.01
+                                                       unit:[NSUnitLength meters]]];
                 
                 [[theValue(CGAffineTransformIsIdentity(transform)) should] beTrue];
                 
@@ -334,7 +349,7 @@ describe(@"Estimating the size of a device based on the screen size", ^{
     __block NSObject <UICoordinateSpace> *mockCoordinateSpace = nil;
     
     beforeEach(^{
-       
+        
         [SDiOSVersion stub:@selector(deviceVersion)
                  andReturn:theValue(Simulator)];
         
@@ -353,32 +368,6 @@ describe(@"Estimating the size of a device based on the screen size", ^{
         mockScreen = nil;
         
     });
-   
-    context(@"on an iPhone 4S", ^{
-        
-        beforeEach(^{
-            
-            [mockCoordinateSpace stub:@selector(bounds)
-                            andReturn:theValue(CGRectMake(0.0f, 0.0f,
-                                                          320.0f, 480.0f))];
-            
-        });
-        
-        it(@"should report the correct height", ^{
-            
-            [[theValue([[UIDevice currentDevice] irl_deviceHeight]) should]
-             equal:0.0740 withDelta:0.01];
-            
-        });
-        
-        it(@"should report the correct width", ^{
-            
-            [[theValue([[UIDevice currentDevice] irl_deviceWidth]) should]
-             equal:0.0493 withDelta:0.01];
-            
-        });
-        
-    });
     
     context(@"on an iPhone 5", ^{
         
@@ -392,14 +381,14 @@ describe(@"Estimating the size of a device based on the screen size", ^{
         
         it(@"should report the correct height", ^{
             
-            [[theValue([[UIDevice currentDevice] irl_deviceHeight]) should]
+            [[theValue([UIDevice currentDevice].physicalScreenHeight.doubleValue) should]
              equal:0.0885 withDelta:0.01];
             
         });
         
         it(@"should report the correct width", ^{
             
-            [[theValue([[UIDevice currentDevice] irl_deviceWidth]) should]
+            [[theValue([UIDevice currentDevice].physicalScreenWidth.doubleValue) should]
              equal:0.0499 withDelta:0.01];
             
         });
@@ -418,14 +407,14 @@ describe(@"Estimating the size of a device based on the screen size", ^{
         
         it(@"should report the correct height", ^{
             
-            [[theValue([[UIDevice currentDevice] irl_deviceHeight]) should]
+            [[theValue([UIDevice currentDevice].physicalScreenHeight.doubleValue) should]
              equal:0.1041 withDelta:0.01];
             
         });
         
         it(@"should report the correct width", ^{
             
-            [[theValue([[UIDevice currentDevice] irl_deviceWidth]) should]
+            [[theValue([UIDevice currentDevice].physicalScreenWidth.doubleValue) should]
              equal:0.0585f withDelta:0.01];
             
         });
@@ -435,7 +424,7 @@ describe(@"Estimating the size of a device based on the screen size", ^{
     context(@"on an iPhone 6 Plus", ^{
         
         beforeEach(^{
-
+            
             [mockCoordinateSpace stub:@selector(bounds)
                             andReturn:theValue(CGRectMake(0.0f, 0.0f,
                                                           414.0f, 736.0f))];
@@ -444,14 +433,14 @@ describe(@"Estimating the size of a device based on the screen size", ^{
         
         it(@"should report the correct height", ^{
             
-            [[theValue([[UIDevice currentDevice] irl_deviceHeight]) should]
+            [[theValue([UIDevice currentDevice].physicalScreenHeight.doubleValue) should]
              equal:0.1218 withDelta:0.01];
             
         });
         
         it(@"should report the correct width", ^{
             
-            [[theValue([[UIDevice currentDevice] irl_deviceWidth]) should]
+            [[theValue([UIDevice currentDevice].physicalScreenWidth.doubleValue) should]
              equal:0.0685 withDelta:0.01];
             
         });
@@ -470,14 +459,14 @@ describe(@"Estimating the size of a device based on the screen size", ^{
         
         it(@"should report the correct height", ^{
             
-            [[theValue([[UIDevice currentDevice] irl_deviceHeight]) should]
+            [[theValue([UIDevice currentDevice].physicalScreenHeight.doubleValue) should]
              equal:0.1971 withDelta:0.01];
             
         });
         
         it(@"should report the correct width", ^{
             
-            [[theValue([[UIDevice currentDevice] irl_deviceWidth]) should]
+            [[theValue([UIDevice currentDevice].physicalScreenWidth.doubleValue) should]
              equal:0.1478 withDelta:0.01];
             
         });
@@ -496,14 +485,14 @@ describe(@"Estimating the size of a device based on the screen size", ^{
         
         it(@"should report the correct height", ^{
             
-            [[theValue([[UIDevice currentDevice] irl_deviceHeight]) should]
+            [[theValue([UIDevice currentDevice].physicalScreenHeight.doubleValue) should]
              equal:0.2622 withDelta:0.01];
             
         });
         
         it(@"should report the correct width", ^{
             
-            [[theValue([[UIDevice currentDevice] irl_deviceWidth]) should]
+            [[theValue([UIDevice currentDevice].physicalScreenWidth.doubleValue) should]
              equal:0.1965 withDelta:0.01];
             
         });

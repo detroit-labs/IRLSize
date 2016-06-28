@@ -8,47 +8,66 @@
 
 #import "UIView+IRLSize.h"
 
-#import "UIDevice+IRLSize.h"
+#import "UIDevice+IRLSizePrivate.h"
 
 
 @implementation UIView (IRLSize)
 
-- (IRLSize)irl_dimensions
+- (RawSize)irl_rawPhysicalSize
 {
-    return [[UIDevice currentDevice] irl_dimensionsOfView:self];
+    return [[UIDevice currentDevice] irl_rawPhysicalSizeOfView:self];
 }
 
-- (float)irl_height
+- (NSMeasurement<NSUnitLength *> *)irl_physicalWidth
 {
-    return [self irl_dimensions].height;
+    return [[NSMeasurement alloc] initWithDoubleValue:[self irl_rawPhysicalSize].width
+                                                 unit:[NSUnitLength meter]];
 }
 
-- (float)irl_width
+- (NSMeasurement<NSUnitLength *> *)irl_physicalHeight
 {
-    return [self irl_dimensions].width;
+    return [[NSMeasurement alloc] initWithDoubleValue:[self irl_rawPhysicalSize].height
+                                                 unit:[NSUnitLength meter]];
 }
 
-- (CGAffineTransform)irl_scaleTransformForRatio:(float)ratio
+- (CGAffineTransform)irl_transformForPhysicalWidth:(NSMeasurement<NSUnitLength *> *)physicalWidth
 {
-    return CGAffineTransformMakeScale(ratio, ratio);
-}
-
-- (CGAffineTransform)irl_transformForHeight:(float)height
-{
-    if ([self irl_isOnSecondaryScreen]) {
-        return self.transform;
-    }
-        
-    return [self irl_scaleTransformForRatio:height / [self irl_height]];
-}
-
-- (CGAffineTransform)irl_transformForWidth:(float)width
-{
-    if ([self irl_isOnSecondaryScreen]) {
+    NSMeasurement<NSUnitLength *> *currentPhysicalWidth = self.physicalWidth;
+    
+    if (currentPhysicalWidth == nil || [self irl_isOnSecondaryScreen]) {
         return self.transform;
     }
     
-    return [self irl_scaleTransformForRatio:width / [self irl_width]];
+    return [self irl_scaleTransformForTargetMeasurement:physicalWidth
+                                     currentMeasurement:currentPhysicalWidth];
+}
+
+- (CGAffineTransform)irl_transformForPhysicalHeight:(NSMeasurement<NSUnitLength *> *)physicalHeight
+{
+    NSMeasurement<NSUnitLength *> *currentPhysicalHeight = self.physicalHeight;
+    
+    if (currentPhysicalHeight == nil || [self irl_isOnSecondaryScreen]) {
+        return self.transform;
+    }
+    
+    return [self irl_scaleTransformForTargetMeasurement:physicalHeight
+                                     currentMeasurement:currentPhysicalHeight];
+}
+
+- (CGAffineTransform)irl_scaleTransformForTargetMeasurement:(NSMeasurement *)target
+                                         currentMeasurement:(NSMeasurement *)current
+{
+    if ([target canBeConvertedToUnit:current.unit]) {
+        NSMeasurement *convertedTarget =
+        [target measurementByConvertingToUnit:current.unit];
+        
+        double ratio = convertedTarget.doubleValue / current.doubleValue;
+        
+        return CGAffineTransformScale(self.transform, ratio, ratio);
+    }
+    else {
+        return self.transform;
+    }
 }
 
 - (BOOL)irl_isOnMainScreen

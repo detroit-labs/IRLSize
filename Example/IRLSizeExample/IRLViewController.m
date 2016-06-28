@@ -60,8 +60,12 @@
 - (void)configureImageView
 {
     if (!self.didTransformRuler) {
+        NSMeasurement<NSUnitLength *> *expectedWidth =
+        [[NSMeasurement alloc] initWithDoubleValue:30.5
+                                              unit:[NSUnitLength centimeters]];
+        
         self.rulerImageView.transform =
-        [self.rulerImageView irl_transformForWidth:0.31];
+        [self.rulerImageView irl_transformForPhysicalWidth:expectedWidth];
         
         self.didTransformRuler = YES;
     }
@@ -73,14 +77,19 @@
 
 - (void)configureLabels
 {
-    NSLengthFormatter *formatter = [[NSLengthFormatter alloc] init];
-    formatter.numberFormatter.maximumFractionDigits = 1;
+    NSMeasurementFormatter *formatter = [[NSMeasurementFormatter alloc] init];
     
-    self.widthLabel.text = [formatter stringFromMeters:
-                            [self.view irl_width]];
+    formatter.unitOptions = NSMeasurementFormatterUnitOptionsProvidedUnit;
+    
+    self.widthLabel.text = [formatter stringFromMeasurement:
+                            [[self.view irl_physicalWidth]
+                             measurementByConvertingToUnit:
+                             [NSUnitLength centimeters]]];
 
-    self.heightLabel.text = [formatter stringFromMeters:
-                             [self.view irl_height]];
+    self.heightLabel.text = [formatter stringFromMeasurement:
+                             [[self.view irl_physicalHeight]
+                             measurementByConvertingToUnit:
+                              [NSUnitLength centimeters]]];
 }
 
 @end
