@@ -21,13 +21,13 @@
 - (NSMeasurement<NSUnitLength *> *)irl_physicalWidth
 {
     return [[NSMeasurement alloc] initWithDoubleValue:[self irl_rawPhysicalSize].width
-                                                 unit:[NSUnitLength meter]];
+                                                 unit:[NSUnitLength meters]];
 }
 
 - (NSMeasurement<NSUnitLength *> *)irl_physicalHeight
 {
     return [[NSMeasurement alloc] initWithDoubleValue:[self irl_rawPhysicalSize].height
-                                                 unit:[NSUnitLength meter]];
+                                                 unit:[NSUnitLength meters]];
 }
 
 - (CGAffineTransform)irl_transformForPhysicalWidth:(NSMeasurement<NSUnitLength *> *)physicalWidth
