@@ -16,7 +16,8 @@
 
 @property (assign) BOOL didTransformRuler;
 
-@property (weak, nonatomic) IBOutlet UIImageView *rulerImageView;
+@property (weak, nonatomic) UIImageView *rulerImageView;
+
 @property (weak, nonatomic) IBOutlet UILabel *widthLabel;
 @property (weak, nonatomic) IBOutlet UILabel *heightLabel;
 
@@ -34,11 +35,21 @@
 {
     [super viewDidLoad];
     
+    UIImageView *rulerImageView =
+    [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ruler"]];
+    
     self.didTransformRuler = NO;
     
-    self.rulerImageView.autoresizingMask =
-    (UIViewAutoresizingFlexibleRightMargin |
-     UIViewAutoresizingFlexibleBottomMargin);
+    rulerImageView.layer.anchorPoint = CGPointZero;
+    
+    // There are no constraints on the image view, so we use good ol’ autoresizing
+    // masks to pin it to the top-left corner.
+    rulerImageView.autoresizingMask = (UIViewAutoresizingFlexibleRightMargin |
+                                       UIViewAutoresizingFlexibleBottomMargin);
+    
+    [self.view addSubview:rulerImageView];
+    
+    self.rulerImageView = rulerImageView;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -47,6 +58,16 @@
     
     [self configureLabels];
     [self configureImageView];
+}
+
+- (void)viewWillTransitionToSize:(CGSize)size
+       withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
+{
+    [super viewWillTransitionToSize:size
+          withTransitionCoordinator:coordinator];
+    
+    self.rulerImageView.transform = CGAffineTransformIdentity;
+    self.didTransformRuler = NO;
 }
 
 - (void)viewDidLayoutSubviews
@@ -60,6 +81,11 @@
 - (void)configureImageView
 {
     if (!self.didTransformRuler) {
+        CGRect frame = self.rulerImageView.frame;
+        frame.origin = CGPointZero;
+        frame.size = self.rulerImageView.image.size;
+        self.rulerImageView.frame = frame;
+        
         NSMeasurement<NSUnitLength *> *expectedWidth =
         [[NSMeasurement alloc] initWithDoubleValue:30.5
                                               unit:[NSUnitLength centimeters]];
@@ -69,10 +95,6 @@
         
         self.didTransformRuler = YES;
     }
-
-    CGRect rulerFrame = self.rulerImageView.frame;
-    rulerFrame.origin = CGPointMake(0.0f, self.topLayoutGuide.length);
-    self.rulerImageView.frame = rulerFrame;
 }
 
 - (void)configureLabels
