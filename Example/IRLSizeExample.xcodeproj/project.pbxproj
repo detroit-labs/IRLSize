@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		1F2ADDFB1A15AAA500BE3090 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F2ADDFA1A15AAA500BE3090 /* Launch Screen.xib */; };
 		1F2ADDFD1A15AF6A00BE3090 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F2ADDFC1A15AF6A00BE3090 /* MainStoryboard.storyboard */; };
+		1F5EC3761D241DBF0068E86F /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F5EC3741D241DBF0068E86F /* Interface.storyboard */; };
+		1F5EC3781D241DBF0068E86F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F5EC3771D241DBF0068E86F /* Assets.xcassets */; };
+		1F5EC37F1D241DBF0068E86F /* IRLSizeExample-Watch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 1F5EC37E1D241DBF0068E86F /* IRLSizeExample-Watch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		1F5EC3851D241DBF0068E86F /* InterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5EC3841D241DBF0068E86F /* InterfaceController.m */; };
+		1F5EC3881D241DBF0068E86F /* ExtensionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5EC3871D241DBF0068E86F /* ExtensionDelegate.m */; };
+		1F5EC38A1D241DBF0068E86F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F5EC3891D241DBF0068E86F /* Assets.xcassets */; };
+		1F5EC38E1D241DBF0068E86F /* IRLSizeExample-Watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 1F5EC3721D241DBF0068E86F /* IRLSizeExample-Watch.app */; };
 		1FBC8FD51D236DFD00015A75 /* RulerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBC8FD41D236DFD00015A75 /* RulerView.swift */; };
 		31F902202C1E58E195B198FD /* libPods-IRLSizeTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D9F5014F0E72C4E27DCABAA /* libPods-IRLSizeTests.a */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
@@ -23,9 +30,24 @@
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* IRLSizeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* IRLSizeTests.m */; };
 		881376FB0C32B595A48EAFA5 /* libPods-IRLSizeExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE564897B3648BF73B076BBC /* libPods-IRLSizeExample.a */; };
+		C19B5629148C6DC304B8CD7A /* libPods-IRLSizeExample-Watch Extension.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BEF1258540BA1981AF80DB5 /* libPods-IRLSizeExample-Watch Extension.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		1F5EC3801D241DBF0068E86F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6003F582195388D10070C39A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1F5EC37D1D241DBF0068E86F;
+			remoteInfo = "IRLSizeExample-Watch Extension";
+		};
+		1F5EC38C1D241DBF0068E86F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6003F582195388D10070C39A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1F5EC3711D241DBF0068E86F;
+			remoteInfo = "IRLSizeExample-Watch";
+		};
 		6003F5B3195388D20070C39A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6003F582195388D10070C39A /* Project object */;
@@ -35,15 +57,53 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		1F5EC3941D241DBF0068E86F /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				1F5EC37F1D241DBF0068E86F /* IRLSizeExample-Watch Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F5EC3961D241DBF0068E86F /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				1F5EC38E1D241DBF0068E86F /* IRLSizeExample-Watch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		1F1A9E3C87AAEE104F4988CC /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		1F2ADDFA1A15AAA500BE3090 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
 		1F2ADDFC1A15AF6A00BE3090 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
+		1F5EC3721D241DBF0068E86F /* IRLSizeExample-Watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "IRLSizeExample-Watch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F5EC3751D241DBF0068E86F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		1F5EC3771D241DBF0068E86F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1F5EC3791D241DBF0068E86F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F5EC37E1D241DBF0068E86F /* IRLSizeExample-Watch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "IRLSizeExample-Watch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F5EC3831D241DBF0068E86F /* InterfaceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InterfaceController.h; sourceTree = "<group>"; };
+		1F5EC3841D241DBF0068E86F /* InterfaceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InterfaceController.m; sourceTree = "<group>"; };
+		1F5EC3861D241DBF0068E86F /* ExtensionDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExtensionDelegate.h; sourceTree = "<group>"; };
+		1F5EC3871D241DBF0068E86F /* ExtensionDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExtensionDelegate.m; sourceTree = "<group>"; };
+		1F5EC3891D241DBF0068E86F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1F5EC38B1D241DBF0068E86F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1FBC8FD31D236DFD00015A75 /* IRLSizeExample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IRLSizeExample-Bridging-Header.h"; sourceTree = "<group>"; };
 		1FBC8FD41D236DFD00015A75 /* RulerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RulerView.swift; sourceTree = "<group>"; };
 		2D7A6FA6D99E271DC58A3FDB /* Pods-IRLSizeExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IRLSizeExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-IRLSizeExample/Pods-IRLSizeExample.release.xcconfig"; sourceTree = "<group>"; };
 		3B52ABAB0F4897702004A1C3 /* Pods-IRLSizeExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IRLSizeExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IRLSizeExample/Pods-IRLSizeExample.debug.xcconfig"; sourceTree = "<group>"; };
+		3F468B881C59569556F61E7D /* Pods-IRLSizeExample-Watch Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IRLSizeExample-Watch Extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IRLSizeExample-Watch Extension/Pods-IRLSizeExample-Watch Extension.debug.xcconfig"; sourceTree = "<group>"; };
 		41B6AD569D60E1A0310A509C /* IRLSize.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = IRLSize.podspec; path = ../IRLSize.podspec; sourceTree = "<group>"; };
+		5BEF1258540BA1981AF80DB5 /* libPods-IRLSizeExample-Watch Extension.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IRLSizeExample-Watch Extension.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58A195388D20070C39A /* IRLSizeExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IRLSizeExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -63,11 +123,27 @@
 		6C158A350FFFD3888523BC11 /* Pods-IRLSizeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IRLSizeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-IRLSizeTests/Pods-IRLSizeTests.release.xcconfig"; sourceTree = "<group>"; };
 		7D9F5014F0E72C4E27DCABAA /* libPods-IRLSizeTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IRLSizeTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B7741AA1E2B063EFB3F9D1E /* Pods-IRLSizeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IRLSizeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IRLSizeTests/Pods-IRLSizeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		9DB66CAB261F863E26738E09 /* Pods-IRLSizeExample-Watch Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IRLSizeExample-Watch Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-IRLSizeExample-Watch Extension/Pods-IRLSizeExample-Watch Extension.release.xcconfig"; sourceTree = "<group>"; };
 		A645259D4B135C284D86D799 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		EE564897B3648BF73B076BBC /* libPods-IRLSizeExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IRLSizeExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		0FB8338401C884410454195E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F5EC37B1D241DBF0068E86F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C19B5629148C6DC304B8CD7A /* libPods-IRLSizeExample-Watch Extension.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6003F587195388D20070C39A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -92,12 +168,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F5EC3731D241DBF0068E86F /* IRLSizeExample-Watch */ = {
+			isa = PBXGroup;
+			children = (
+				1F5EC3741D241DBF0068E86F /* Interface.storyboard */,
+				1F5EC3771D241DBF0068E86F /* Assets.xcassets */,
+				1F5EC3791D241DBF0068E86F /* Info.plist */,
+			);
+			path = "IRLSizeExample-Watch";
+			sourceTree = "<group>";
+		};
+		1F5EC3821D241DBF0068E86F /* IRLSizeExample-Watch Extension */ = {
+			isa = PBXGroup;
+			children = (
+				1F5EC3831D241DBF0068E86F /* InterfaceController.h */,
+				1F5EC3841D241DBF0068E86F /* InterfaceController.m */,
+				1F5EC3861D241DBF0068E86F /* ExtensionDelegate.h */,
+				1F5EC3871D241DBF0068E86F /* ExtensionDelegate.m */,
+				1F5EC3891D241DBF0068E86F /* Assets.xcassets */,
+				1F5EC38B1D241DBF0068E86F /* Info.plist */,
+			);
+			path = "IRLSizeExample-Watch Extension";
+			sourceTree = "<group>";
+		};
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
 				60FF7A9C1954A5C5007DD14C /* Podspec Metadata */,
 				6003F593195388D20070C39A /* IRLSizeExample */,
 				6003F5B5195388D20070C39A /* IRLSizeTests */,
+				1F5EC3731D241DBF0068E86F /* IRLSizeExample-Watch */,
+				1F5EC3821D241DBF0068E86F /* IRLSizeExample-Watch Extension */,
 				6003F58C195388D20070C39A /* Frameworks */,
 				6003F58B195388D20070C39A /* Products */,
 				94571F4B2CB1DF60A927D28C /* Pods */,
@@ -109,6 +210,8 @@
 			children = (
 				6003F58A195388D20070C39A /* IRLSizeExample.app */,
 				6003F5AE195388D20070C39A /* IRLSizeTests.xctest */,
+				1F5EC3721D241DBF0068E86F /* IRLSizeExample-Watch.app */,
+				1F5EC37E1D241DBF0068E86F /* IRLSizeExample-Watch Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -121,6 +224,7 @@
 				6003F591195388D20070C39A /* UIKit.framework */,
 				7D9F5014F0E72C4E27DCABAA /* libPods-IRLSizeTests.a */,
 				EE564897B3648BF73B076BBC /* libPods-IRLSizeExample.a */,
+				5BEF1258540BA1981AF80DB5 /* libPods-IRLSizeExample-Watch Extension.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -187,6 +291,8 @@
 				6C158A350FFFD3888523BC11 /* Pods-IRLSizeTests.release.xcconfig */,
 				3B52ABAB0F4897702004A1C3 /* Pods-IRLSizeExample.debug.xcconfig */,
 				2D7A6FA6D99E271DC58A3FDB /* Pods-IRLSizeExample.release.xcconfig */,
+				3F468B881C59569556F61E7D /* Pods-IRLSizeExample-Watch Extension.debug.xcconfig */,
+				9DB66CAB261F863E26738E09 /* Pods-IRLSizeExample-Watch Extension.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -194,6 +300,44 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		1F5EC3711D241DBF0068E86F /* IRLSizeExample-Watch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1F5EC3951D241DBF0068E86F /* Build configuration list for PBXNativeTarget "IRLSizeExample-Watch" */;
+			buildPhases = (
+				1F5EC3701D241DBF0068E86F /* Resources */,
+				1F5EC3941D241DBF0068E86F /* Embed App Extensions */,
+				0FB8338401C884410454195E /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1F5EC3811D241DBF0068E86F /* PBXTargetDependency */,
+			);
+			name = "IRLSizeExample-Watch";
+			productName = "IRLSizeExample-Watch";
+			productReference = 1F5EC3721D241DBF0068E86F /* IRLSizeExample-Watch.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		1F5EC37D1D241DBF0068E86F /* IRLSizeExample-Watch Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1F5EC3931D241DBF0068E86F /* Build configuration list for PBXNativeTarget "IRLSizeExample-Watch Extension" */;
+			buildPhases = (
+				80C8380A1BEB2A072EF4B0E7 /* [CP] Check Pods Manifest.lock */,
+				1F5EC37A1D241DBF0068E86F /* Sources */,
+				1F5EC37B1D241DBF0068E86F /* Frameworks */,
+				1F5EC37C1D241DBF0068E86F /* Resources */,
+				2BE8ED3E1DBC55B6BCA2A8A4 /* [CP] Embed Pods Frameworks */,
+				CB52E73785A7AD07EE1D64C9 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "IRLSizeExample-Watch Extension";
+			productName = "IRLSizeExample-Watch Extension";
+			productReference = 1F5EC37E1D241DBF0068E86F /* IRLSizeExample-Watch Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 		6003F589195388D20070C39A /* IRLSizeExample */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6003F5BF195388D20070C39A /* Build configuration list for PBXNativeTarget "IRLSizeExample" */;
@@ -204,10 +348,12 @@
 				6003F588195388D20070C39A /* Resources */,
 				B370DFD0AB52801D45BD1C1E /* [CP] Embed Pods Frameworks */,
 				B3801CA4B6CDFEA906913B5A /* [CP] Copy Pods Resources */,
+				1F5EC3961D241DBF0068E86F /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				1F5EC38D1D241DBF0068E86F /* PBXTargetDependency */,
 			);
 			name = IRLSizeExample;
 			productName = IRLSize;
@@ -245,6 +391,18 @@
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Detroit Labs";
 				TargetAttributes = {
+					1F5EC3711D241DBF0068E86F = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 2Z262HL3RX;
+						DevelopmentTeamName = "Detroit Labs, LLC";
+						ProvisioningStyle = Automatic;
+					};
+					1F5EC37D1D241DBF0068E86F = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 2Z262HL3RX;
+						DevelopmentTeamName = "Detroit Labs, LLC";
+						ProvisioningStyle = Automatic;
+					};
 					6003F589195388D20070C39A = {
 						DevelopmentTeam = 2Z262HL3RX;
 						LastSwiftMigration = 0800;
@@ -271,11 +429,30 @@
 			targets = (
 				6003F589195388D20070C39A /* IRLSizeExample */,
 				6003F5AD195388D20070C39A /* IRLSizeTests */,
+				1F5EC3711D241DBF0068E86F /* IRLSizeExample-Watch */,
+				1F5EC37D1D241DBF0068E86F /* IRLSizeExample-Watch Extension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		1F5EC3701D241DBF0068E86F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F5EC3781D241DBF0068E86F /* Assets.xcassets in Resources */,
+				1F5EC3761D241DBF0068E86F /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F5EC37C1D241DBF0068E86F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F5EC38A1D241DBF0068E86F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6003F588195388D20070C39A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -297,6 +474,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		2BE8ED3E1DBC55B6BCA2A8A4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-IRLSizeExample-Watch Extension/Pods-IRLSizeExample-Watch Extension-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		3C3F77F5E30EE088BF2922D4 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -325,6 +517,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-IRLSizeTests/Pods-IRLSizeTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		80C8380A1BEB2A072EF4B0E7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		9DB209BF5841D8D55EF49B17 /* [CP] Check Pods Manifest.lock */ = {
@@ -387,9 +594,33 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-IRLSizeTests/Pods-IRLSizeTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		CB52E73785A7AD07EE1D64C9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-IRLSizeExample-Watch Extension/Pods-IRLSizeExample-Watch Extension-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		1F5EC37A1D241DBF0068E86F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F5EC3881D241DBF0068E86F /* ExtensionDelegate.m in Sources */,
+				1F5EC3851D241DBF0068E86F /* InterfaceController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6003F586195388D20070C39A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -412,6 +643,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		1F5EC3811D241DBF0068E86F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1F5EC37D1D241DBF0068E86F /* IRLSizeExample-Watch Extension */;
+			targetProxy = 1F5EC3801D241DBF0068E86F /* PBXContainerItemProxy */;
+		};
+		1F5EC38D1D241DBF0068E86F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1F5EC3711D241DBF0068E86F /* IRLSizeExample-Watch */;
+			targetProxy = 1F5EC38C1D241DBF0068E86F /* PBXContainerItemProxy */;
+		};
 		6003F5B4195388D20070C39A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 6003F589195388D20070C39A /* IRLSizeExample */;
@@ -420,6 +661,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		1F5EC3741D241DBF0068E86F /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1F5EC3751D241DBF0068E86F /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
 		6003F596195388D20070C39A /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -439,6 +688,90 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		1F5EC38F1D241DBF0068E86F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				IBSC_MODULE = IRLSizeExample_Watch_Extension;
+				INFOPLIST_FILE = "IRLSizeExample-Watch/Info.plist";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.detroitlabs.demo.IRLSizeExample.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+			};
+			name = Debug;
+		};
+		1F5EC3901D241DBF0068E86F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				IBSC_MODULE = IRLSizeExample_Watch_Extension;
+				INFOPLIST_FILE = "IRLSizeExample-Watch/Info.plist";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.detroitlabs.demo.IRLSizeExample.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+			};
+			name = Release;
+		};
+		1F5EC3911D241DBF0068E86F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3F468B881C59569556F61E7D /* Pods-IRLSizeExample-Watch Extension.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = "IRLSizeExample-Watch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.detroitlabs.demo.IRLSizeExample.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+			};
+			name = Debug;
+		};
+		1F5EC3921D241DBF0068E86F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9DB66CAB261F863E26738E09 /* Pods-IRLSizeExample-Watch Extension.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				INFOPLIST_FILE = "IRLSizeExample-Watch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.detroitlabs.demo.IRLSizeExample.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+			};
+			name = Release;
+		};
 		6003F5BD195388D20070C39A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -554,6 +887,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "IRLSizeExample/IRLSizeExample-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
 				WRAPPER_EXTENSION = app;
 			};
@@ -598,6 +932,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1F5EC3931D241DBF0068E86F /* Build configuration list for PBXNativeTarget "IRLSizeExample-Watch Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F5EC3911D241DBF0068E86F /* Debug */,
+				1F5EC3921D241DBF0068E86F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1F5EC3951D241DBF0068E86F /* Build configuration list for PBXNativeTarget "IRLSizeExample-Watch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F5EC38F1D241DBF0068E86F /* Debug */,
+				1F5EC3901D241DBF0068E86F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		6003F585195388D10070C39A /* Build configuration list for PBXProject "IRLSizeExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

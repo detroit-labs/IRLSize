@@ -1,18 +1,16 @@
 //
-//  UIDevice+IRLSize.h
+//  WKInterfaceDevice+IRLSize.h
 //  Pods
 //
-//  Created by Jeff Kelley on 11/13/14.
+//  Created by Jeff Kelley on 6/29/16.
 //
 //
 
-
-#import <UIKit/UIKit.h>
-
+#import <WatchKit/WatchKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UIDevice (IRLSize)
+@interface WKInterfaceDevice (IRLSize)
 
 /**
  *  Get the height of the device’s screen.

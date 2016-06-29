@@ -3,23 +3,28 @@ Pod::Spec.new do |s|
   s.version          = "1.0.0"
   s.summary          = "A library for determining the actual physical size of pixels on an iOS device."
   s.description      = <<-DESC
-                       IRLSize is used to determine the physical size of the iOS
-                       device you’re using, both width and height. It includes
-                       convenience methods for drawing a view at a specific size
-                       as well as determining the physical size of a view.
+                       IRLSize is used to determine the physical size of the device
+                       you’re using, both width and height. It includes convenience
+                       methods for drawing a view at a specific size as well as
+                       determining the physical size of a view.
                        DESC
   s.homepage         = "http://www.detroitlabs.com"
   s.license          = 'MIT'
   s.author           = { "Jeff Kelley" => "SlaunchaMan@gmail.com" }
   s.source           = { :git => "https://github.com/detroit-labs/IRLSize.git", :tag => s.version.to_s }
 
-  s.platform     = :ios, '10.0'
+  s.ios.deployment_target = '10.0'
+  s.watchos.deployment_target = '3.0'
   s.requires_arc = true
 
-  s.source_files = 'Pod/Classes/**/*'
-  s.public_header_files = 'Pod/Classes/**/*.h'
+  s.source_files = 'Pod/Classes/*', 'Pod/Classes/Private/*'
+  s.ios.source_files = 'Pod/Classes/iOS/*'
+  s.watchos.source_files = 'Pod/Classes/watchOS/*'
+
   s.private_header_files = 'Pod/Classes/Private/*.h'
 
-  s.frameworks = 'Foundation', 'UIKit'
-  s.dependency 'SDVersion', '~> 3.0'
+  s.ios.frameworks = 'Foundation', 'UIKit'
+  s.watchos.frameworks = 'Foundation', 'WatchKit'
+
+  s.ios.dependency 'SDVersion', '~> 3.0'
 end

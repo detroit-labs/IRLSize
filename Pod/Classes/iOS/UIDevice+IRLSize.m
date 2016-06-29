@@ -6,7 +6,6 @@
 //
 //
 
-
 #import "UIDevice+IRLSize.h"
 
 #import <SDVersion/SDVersion.h>

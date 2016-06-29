@@ -10,7 +10,6 @@
 
 #import "UIDevice+IRLSizePrivate.h"
 
-
 @implementation UIView (IRLSize)
 
 - (RawSize)irl_rawPhysicalSize

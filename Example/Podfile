@@ -4,6 +4,11 @@ target 'IRLSizeExample' do
   pod "IRLSize", :path => ".."
 end
 
+target 'IRLSizeExample-Watch Extension' do
+  platform :watchos, '3.0'
+  pod "IRLSize", :path => ".."
+end
+
 target 'IRLSizeTests' do
   pod "IRLSize", :path => ".."
   pod "Kiwi", :inhibit_warnings => true

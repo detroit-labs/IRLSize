@@ -6,5 +6,12 @@
 //
 //
 
-#import "UIDevice+IRLSize.h"
-#import "UIView+IRLSize.h"
+#import <TargetConditionals.h>
+
+#if TARGET_OS_IOS
+    #import "UIDevice+IRLSize.h"
+    #import "UIView+IRLSize.h"
+#elif TARGET_OS_WATCH
+    #import "WKInterfaceDevice+IRLSize.h"
+    #import "WKInterfaceObject+IRLSize.h"
+#endif
