@@ -136,13 +136,13 @@ public class RulerView: UIView {
                             skipping unitsToSkip: [UnitLength] = [],
                             height: CGFloat,
                             lineWidth: CGFloat) {
-        let context = UIGraphicsGetCurrentContext()
+        guard let context = UIGraphicsGetCurrentContext() else { return }
         
-        context?.saveGState()
+        context.saveGState()
         
-        context?.setLineWidth(lineWidth)
-        context?.setStrokeColor(hashColor.cgColor)
-        context?.setShouldAntialias(false)
+        context.setLineWidth(lineWidth)
+        context.setStrokeColor(hashColor.cgColor)
+        context.setShouldAntialias(false)
         
         var offsets: Set<CGFloat> = xOffsets(for: unit)
         
@@ -151,16 +151,16 @@ public class RulerView: UIView {
         }
         
         for offset in offsets {
-            context?.moveTo(x: offset, y: 0)
-            context?.addLineTo(x: offset, y: height)
+            context.moveTo(x: offset, y: 0)
+            context.addLineTo(x: offset, y: height)
             
-            context?.moveTo(x: offset, y: bounds.maxY)
-            context?.addLineTo(x: offset, y: bounds.maxY - height)
+            context.moveTo(x: offset, y: bounds.maxY)
+            context.addLineTo(x: offset, y: bounds.maxY - height)
             
-            context?.strokePath()
+            context.strokePath()
         }
         
-        context?.restoreGState()
+        context.restoreGState()
     }
     
 }
