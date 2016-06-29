@@ -6,9 +6,7 @@
 //  Copyright (c) 2014 Detroit Labs. All rights reserved.
 //
 
-
 #import "IRLAppDelegate.h"
-
 
 @implementation IRLAppDelegate
 

@@ -6,13 +6,11 @@
 //  Copyright (c) 2014 Detroit Labs. All rights reserved.
 //
 
-
 #import "IRLViewController.h"
 
 #import "IRLSizeExample-Swift.h"
 
 #import <IRLSize/UIView+IRLSize.h>
-
 
 @interface IRLViewController ()
 
