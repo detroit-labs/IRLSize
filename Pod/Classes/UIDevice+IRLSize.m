@@ -70,8 +70,13 @@ static const NSUInteger kiPadPro12Dot9InchHeightPoints = 1366;
             windowSize = windowSizeSwap;
         }
         
-        dimensions.width = (CGRectGetWidth(convertedFrame) / windowSize.width) * [self irl_rawPhysicalScreenSize].width;
-        dimensions.height = (CGRectGetHeight(convertedFrame) / windowSize.height) * [self irl_rawPhysicalScreenSize].height;
+        RawSize rawPhysicalScreenSize = [self irl_rawPhysicalScreenSize];
+        
+        dimensions.width = ((CGRectGetWidth(convertedFrame) / windowSize.width) *
+                            rawPhysicalScreenSize.width);
+        
+        dimensions.height = ((CGRectGetHeight(convertedFrame) / windowSize.height) *
+                             rawPhysicalScreenSize.height);
     }
     
     return dimensions;

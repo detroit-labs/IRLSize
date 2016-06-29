@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1F2ADDFB1A15AAA500BE3090 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F2ADDFA1A15AAA500BE3090 /* Launch Screen.xib */; };
 		1F2ADDFD1A15AF6A00BE3090 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F2ADDFC1A15AF6A00BE3090 /* MainStoryboard.storyboard */; };
+		1FBC8FD51D236DFD00015A75 /* RulerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBC8FD41D236DFD00015A75 /* RulerView.swift */; };
 		31F902202C1E58E195B198FD /* libPods-IRLSizeTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D9F5014F0E72C4E27DCABAA /* libPods-IRLSizeTests.a */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
@@ -17,7 +18,6 @@
 		6003F59A195388D20070C39A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F599195388D20070C39A /* main.m */; };
 		6003F59E195388D20070C39A /* IRLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F59D195388D20070C39A /* IRLAppDelegate.m */; };
 		6003F5A7195388D20070C39A /* IRLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5A6195388D20070C39A /* IRLViewController.m */; };
-		6003F5A9195388D20070C39A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5A8195388D20070C39A /* Images.xcassets */; };
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
@@ -39,6 +39,8 @@
 		1F1A9E3C87AAEE104F4988CC /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		1F2ADDFA1A15AAA500BE3090 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
 		1F2ADDFC1A15AF6A00BE3090 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
+		1FBC8FD31D236DFD00015A75 /* IRLSizeExample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IRLSizeExample-Bridging-Header.h"; sourceTree = "<group>"; };
+		1FBC8FD41D236DFD00015A75 /* RulerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RulerView.swift; sourceTree = "<group>"; };
 		2D7A6FA6D99E271DC58A3FDB /* Pods-IRLSizeExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IRLSizeExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-IRLSizeExample/Pods-IRLSizeExample.release.xcconfig"; sourceTree = "<group>"; };
 		3B52ABAB0F4897702004A1C3 /* Pods-IRLSizeExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IRLSizeExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IRLSizeExample/Pods-IRLSizeExample.debug.xcconfig"; sourceTree = "<group>"; };
 		41B6AD569D60E1A0310A509C /* IRLSize.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = IRLSize.podspec; path = ../IRLSize.podspec; sourceTree = "<group>"; };
@@ -49,12 +51,10 @@
 		6003F595195388D20070C39A /* IRLSizeExample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "IRLSizeExample-Info.plist"; sourceTree = "<group>"; };
 		6003F597195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6003F599195388D20070C39A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		6003F59B195388D20070C39A /* IRLSizeExample-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IRLSizeExample-Prefix.pch"; sourceTree = "<group>"; };
 		6003F59C195388D20070C39A /* IRLAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IRLAppDelegate.h; sourceTree = "<group>"; };
 		6003F59D195388D20070C39A /* IRLAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IRLAppDelegate.m; sourceTree = "<group>"; };
 		6003F5A5195388D20070C39A /* IRLViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IRLViewController.h; sourceTree = "<group>"; };
 		6003F5A6195388D20070C39A /* IRLViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IRLViewController.m; sourceTree = "<group>"; };
-		6003F5A8195388D20070C39A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6003F5AE195388D20070C39A /* IRLSizeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IRLSizeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F5B7195388D20070C39A /* IRLSizeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "IRLSizeTests-Info.plist"; sourceTree = "<group>"; };
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -132,10 +132,11 @@
 				6003F59D195388D20070C39A /* IRLAppDelegate.m */,
 				6003F5A5195388D20070C39A /* IRLViewController.h */,
 				6003F5A6195388D20070C39A /* IRLViewController.m */,
+				1FBC8FD41D236DFD00015A75 /* RulerView.swift */,
 				1F2ADDFA1A15AAA500BE3090 /* Launch Screen.xib */,
 				1F2ADDFC1A15AF6A00BE3090 /* MainStoryboard.storyboard */,
-				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
+				1FBC8FD31D236DFD00015A75 /* IRLSizeExample-Bridging-Header.h */,
 			);
 			path = IRLSizeExample;
 			sourceTree = SOURCE_ROOT;
@@ -146,7 +147,6 @@
 				6003F595195388D20070C39A /* IRLSizeExample-Info.plist */,
 				6003F596195388D20070C39A /* InfoPlist.strings */,
 				6003F599195388D20070C39A /* main.m */,
-				6003F59B195388D20070C39A /* IRLSizeExample-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -247,6 +247,7 @@
 				TargetAttributes = {
 					6003F589195388D20070C39A = {
 						DevelopmentTeam = 2Z262HL3RX;
+						LastSwiftMigration = 0800;
 					};
 					6003F5AD195388D20070C39A = {
 						DevelopmentTeam = 2Z262HL3RX;
@@ -279,7 +280,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 				1F2ADDFD1A15AF6A00BE3090 /* MainStoryboard.storyboard in Resources */,
 				1F2ADDFB1A15AAA500BE3090 /* Launch Screen.xib in Resources */,
@@ -397,6 +397,7 @@
 				6003F59E195388D20070C39A /* IRLAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* IRLViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				1FBC8FD51D236DFD00015A75 /* RulerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -525,13 +526,15 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "IRLSizeExample/IRLSizeExample-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/IRLSizeExample/IRLSizeExample-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.detroitlabs.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "IRLSizeExample/IRLSizeExample-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -544,13 +547,14 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "IRLSizeExample/IRLSizeExample-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/IRLSizeExample/IRLSizeExample-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.detroitlabs.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "IRLSizeExample/IRLSizeExample-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -564,8 +568,6 @@
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "IRLSizeTests/IRLSizeTests-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -586,8 +588,6 @@
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "IRLSizeTests/IRLSizeTests-Prefix.pch";
 				INFOPLIST_FILE = "IRLSizeTests/IRLSizeTests-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.detroitlabs.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
