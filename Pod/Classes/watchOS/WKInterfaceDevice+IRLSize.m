@@ -1,9 +1,9 @@
 //
 //  WKInterfaceDevice+IRLSize.m
-//  Pods
+//  IRLSize
 //
 //  Created by Jeff Kelley on 6/29/16.
-//
+//  Copyright © 2016 Detroit Labs. All rights reserved.
 //
 
 #import "WKInterfaceDevice+IRLSize.h"

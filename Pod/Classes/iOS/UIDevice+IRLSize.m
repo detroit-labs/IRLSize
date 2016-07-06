@@ -1,9 +1,9 @@
 //
 //  UIDevice+IRLSize.m
-//  Pods
+//  IRLSize
 //
 //  Created by Jeff Kelley on 11/13/14.
-//
+//  Copyright © 2016 Detroit Labs. All rights reserved.
 //
 
 #import "UIDevice+IRLSize.h"
@@ -12,6 +12,7 @@
 
 #import "UIDevice+IRLSizePrivate.h"
 #import "UIView+IRLSize.h"
+#import "UIView+IRLSizePrivate.h"
 
 // https://www.sven.de/dpi/ is a good resource for determining screen sizes.
 static const float kiPhone4_0InchScreenHeight = 0.0885f;
@@ -46,7 +47,7 @@ static const NSUInteger kiPadPro12Dot9InchHeightPoints = 1366;
     // the main screen. This is what happens if you use this code during
     // -[UIViewController viewWillAppear:], which is the most logical place to
     // be doing this anyway.
-    if (view.window == nil || [view irl_isOnMainScreen]) {
+    if (view.window == nil || view.isOnMainScreen) {
         // Convert the view into the window coordinate space. Takes care of any
         // weird custom rotation stuff going on. You may get interesting results
         // from rotated views.

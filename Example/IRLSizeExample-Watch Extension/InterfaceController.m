@@ -8,8 +8,7 @@
 
 #import "InterfaceController.h"
 
-#import "WKInterfaceDevice+IRLSize.h"
-#import "WKInterfaceObject+IRLSize.h"
+#import <IRLSize/IRLSize.h>
 
 @interface InterfaceController()
 

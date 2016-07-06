@@ -1,16 +1,16 @@
 //
 //  IRLViewController.m
-//  IRLSize
+//  IRLSizeExample
 //
 //  Created by Jeff Kelley on 11/13/2014.
-//  Copyright (c) 2014 Detroit Labs. All rights reserved.
+//  Copyright © 2016 Detroit Labs. All rights reserved.
 //
 
 #import "IRLViewController.h"
 
-#import "IRLSizeExample-Swift.h"
+#import <IRLSize/IRLSize.h>
 
-#import <IRLSize/UIView+IRLSize.h>
+#import "IRLSizeExample-Swift.h"
 
 @interface IRLViewController ()
 

@@ -1,9 +1,9 @@
 //
 //  UIDevice+IRLSize.h
-//  Pods
+//  IRLSize
 //
 //  Created by Jeff Kelley on 11/13/14.
-//
+//  Copyright © 2016 Detroit Labs. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

@@ -26,5 +26,6 @@ Pod::Spec.new do |s|
   s.ios.frameworks = 'Foundation', 'UIKit'
   s.watchos.frameworks = 'Foundation', 'WatchKit'
 
-  s.ios.dependency 'SDVersion', '~> 3.0'
+  s.ios.dependency 'SDVersion', '~> 3.1'
+  s.watchos.dependency 'SDVersion', '~> 3.1'
 end

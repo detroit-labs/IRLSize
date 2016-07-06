@@ -1,9 +1,9 @@
 //
 //  UIView+IRLSize.h
-//  Pods
+//  IRLSize
 //
 //  Created by Jeff Kelley on 11/13/14.
-//
+//  Copyright © 2016 Detroit Labs. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -47,22 +47,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return A transform that will make the view the desired width.
  */
 - (CGAffineTransform)irl_transformForPhysicalWidth:(NSMeasurement<NSUnitLength *> *)physicalWidth NS_SWIFT_NAME(transform(forPhysicalWidth:));
-
-/**
- *  Determines if the view is displayed on the device’s main screen.
- *
- *  @return @c YES if the view is on the device’s main screen. @c NO if the view is
- *  not on any screen or if it’s on a secondary screen.
- */
-@property (nonatomic, readonly, getter=irl_isOnMainScreen) BOOL isOnMainScreen;
-
-/**
- *  Determines if the view is displayed on a secondary screen (e.g. using AirPlay).
- *
- *  @return @c YES if the view is on a screen other than the device’s main screen.
- *          @c NO if the view is not on any screen or if it’s on the primary screen.
- */
-@property (nonatomic, readonly, getter=irl_isOnSecondaryScreen) BOOL isOnSecondaryScreen;
 
 @end
 

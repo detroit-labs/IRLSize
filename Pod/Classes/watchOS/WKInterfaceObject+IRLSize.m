@@ -1,9 +1,9 @@
-
+//
 //  WKInterfaceObject+IRLSize.m
-//  Pods
+//  IRLSize
 //
 //  Created by Jeff Kelley on 6/29/16.
-//
+//  Copyright © 2016 Detroit Labs. All rights reserved.
 //
 
 #import "WKInterfaceObject+IRLSize.h"
@@ -46,7 +46,7 @@
         
         CGFloat targetHeight = screenHeightInPoints * ratio;
         
-        [self setWidth:targetHeight];
+        [self setHeight:targetHeight];
     }
 }
 

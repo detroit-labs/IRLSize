@@ -1,9 +1,9 @@
 //
 //  IRLViewController.h
-//  IRLSize
+//  IRLSizeExample
 //
 //  Created by Jeff Kelley on 11/13/2014.
-//  Copyright (c) 2014 Detroit Labs. All rights reserved.
+//  Copyright © 2016 Detroit Labs. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

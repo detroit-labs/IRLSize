@@ -14,6 +14,20 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "1F5EC3711D241DBF0068E86F"
+               BuildableName = "IRLSizeExample-Watch.app"
+               BlueprintName = "IRLSizeExample-Watch"
+               ReferencedContainer = "container:IRLSizeExample.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "6003F589195388D20070C39A"
                BuildableName = "IRLSizeExample.app"
                BlueprintName = "IRLSizeExample"
@@ -32,9 +46,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6003F589195388D20070C39A"
-            BuildableName = "IRLSizeExample.app"
-            BlueprintName = "IRLSizeExample"
+            BlueprintIdentifier = "1F5EC3711D241DBF0068E86F"
+            BuildableName = "IRLSizeExample-Watch.app"
+            BlueprintName = "IRLSizeExample-Watch"
             ReferencedContainer = "container:IRLSizeExample.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -50,18 +64,28 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
-      allowLocationSimulation = "YES"
-      region = "US">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      allowLocationSimulation = "YES">
+      <RemoteRunnable
+         runnableDebuggingMode = "2"
+         BundleIdentifier = "com.apple.carousel"
+         RemotePath = "/IRLSizeExample">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6003F589195388D20070C39A"
-            BuildableName = "IRLSizeExample.app"
-            BlueprintName = "IRLSizeExample"
+            BlueprintIdentifier = "1F5EC3711D241DBF0068E86F"
+            BuildableName = "IRLSizeExample-Watch.app"
+            BlueprintName = "IRLSizeExample-Watch"
             ReferencedContainer = "container:IRLSizeExample.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </RemoteRunnable>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "1F5EC3711D241DBF0068E86F"
+            BuildableName = "IRLSizeExample-Watch.app"
+            BlueprintName = "IRLSizeExample-Watch"
+            ReferencedContainer = "container:IRLSizeExample.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -71,16 +95,27 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <RemoteRunnable
+         runnableDebuggingMode = "2"
+         BundleIdentifier = "com.apple.carousel"
+         RemotePath = "/IRLSizeExample">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6003F589195388D20070C39A"
-            BuildableName = "IRLSizeExample.app"
-            BlueprintName = "IRLSizeExample"
+            BlueprintIdentifier = "1F5EC3711D241DBF0068E86F"
+            BuildableName = "IRLSizeExample-Watch.app"
+            BlueprintName = "IRLSizeExample-Watch"
             ReferencedContainer = "container:IRLSizeExample.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </RemoteRunnable>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "1F5EC3711D241DBF0068E86F"
+            BuildableName = "IRLSizeExample-Watch.app"
+            BlueprintName = "IRLSizeExample-Watch"
+            ReferencedContainer = "container:IRLSizeExample.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

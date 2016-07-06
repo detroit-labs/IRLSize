@@ -3,10 +3,15 @@
 //  IRLSizeTests
 //
 //  Created by Jeff Kelley on 11/13/2014.
-//  Copyright (c) 2014 Detroit Labs. All rights reserved.
+//  Copyright © 2016 Detroit Labs. All rights reserved.
 //
 
-#import "SDVersion.h"
+#import <IRLSize/IRLSize.h>
+
+#import <UIKit/UIKit.h>
+
+#import <Kiwi/Kiwi.h>
+#import <SDVersion/SDVersion.h>
 
 SPEC_BEGIN(IRLSizeTests)
 

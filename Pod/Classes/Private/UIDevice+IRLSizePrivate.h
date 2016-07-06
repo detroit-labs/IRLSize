@@ -1,24 +1,19 @@
 //
 //  UIDevice+IRLSizePrivate.h
-//  Pods
+//  IRLSize
 //
 //  Created by Jeff Kelley on 6/29/16.
-//
+//  Copyright © 2016 Detroit Labs. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
 #import "IRLSizePrivate.h"
 
-#ifndef UIDevice_IRLSizePrivate_h
-#define UIDevice_IRLSizePrivate_h
-
 #if TARGET_OS_IOS
 @interface UIDevice (IRLSizePrivate)
 
-- (RawSize)irl_rawPhysicalSizeOfView:(nonnull UIView *)view NS_SWIFT_NAME(rawPhysicalSize(of:));
+- (RawSize)irl_rawPhysicalSizeOfView:(nonnull UIView *)view;
 
 @end
 #endif
-
-#endif /* UIDevice_IRLSizePrivate_h */

@@ -55,7 +55,7 @@ private class SixteenthInchConverter: UnitConverter, NSCopying {
 
 public class RulerView: UIView {
     
-    let locale = Locale.autoupdatingCurrent()
+    let locale = Locale.autoupdatingCurrent
     
     @IBInspectable var hashColor: UIColor = .black()
     
