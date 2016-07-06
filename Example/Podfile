@@ -1,15 +1,17 @@
 source 'https://github.com/CocoaPods/Specs.git'
 
 target 'IRLSizeExample' do
-  pod "IRLSize", :path => ".."
+    platform :ios, '10.0'
+    pod "IRLSize", :path => ".."
 end
 
 target 'IRLSizeExample-Watch Extension' do
-  platform :watchos, '3.0'
-  pod "IRLSize", :path => ".."
+    platform :watchos, '3.0'
+    pod "IRLSize", :path => ".."
 end
 
 target 'IRLSizeTests' do
-  pod "IRLSize", :path => ".."
-  pod "Kiwi", :inhibit_warnings => true
+    platform :ios, '10.0'
+    pod "IRLSize", :path => ".."
+    pod "Kiwi", :inhibit_warnings => true
 end
