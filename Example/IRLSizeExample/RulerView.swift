@@ -100,13 +100,11 @@ public class RulerView: UIView {
                    lineWidth: 2)
         
         drawHashes(for: mediumRulerUnit,
-                   skipping: [rulerUnit],
                    height: hashHeight / 2,
                    lineWidth: 1)
         
         if let smallUnit = smallRulerUnit {
             drawHashes(for: smallUnit,
-                       skipping: [rulerUnit, mediumRulerUnit],
                        height: hashHeight / 3,
                        lineWidth: 1)
         }
@@ -133,7 +131,6 @@ public class RulerView: UIView {
     }
     
     private func drawHashes(for unit: UnitLength,
-                            skipping unitsToSkip: [UnitLength] = [],
                             height: CGFloat,
                             lineWidth: CGFloat) {
         guard let context = UIGraphicsGetCurrentContext() else { return }
@@ -144,13 +141,7 @@ public class RulerView: UIView {
         context.setStrokeColor(hashColor.cgColor)
         context.setShouldAntialias(false)
         
-        var offsets: Set<CGFloat> = xOffsets(for: unit)
-        
-        for skippedUnit in unitsToSkip {
-            offsets.subtract(xOffsets(for: skippedUnit))
-        }
-        
-        for offset in offsets {
+        for offset in xOffsets(for: unit) {
             context.moveTo(x: offset, y: 0)
             context.addLineTo(x: offset, y: height)
             
