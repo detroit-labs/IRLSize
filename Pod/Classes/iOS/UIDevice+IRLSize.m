@@ -179,7 +179,7 @@ static const NSUInteger kiPadPro12Dot9InchHeightPoints = 1366;
     RawSize deviceDimensions = [self irl_rawPhysicalScreenSize];
     
     return [[NSMeasurement alloc] initWithDoubleValue:deviceDimensions.height
-                                                 unit:[NSUnitLength meters]];
+                                                 unit:RAW_SIZE_UNIT];
 }
 
 - (NSMeasurement<NSUnitLength *> *)irl_physicalScreenWidth
@@ -187,7 +187,7 @@ static const NSUInteger kiPadPro12Dot9InchHeightPoints = 1366;
     RawSize deviceDimensions = [self irl_rawPhysicalScreenSize];
     
     return [[NSMeasurement alloc] initWithDoubleValue:deviceDimensions.width
-                                                 unit:[NSUnitLength meters]];
+                                                 unit:RAW_SIZE_UNIT];
 }
 
 @end
