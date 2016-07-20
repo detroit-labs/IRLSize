@@ -10,12 +10,26 @@
 
 #import "UIDevice+IRLSizePrivate.h"
 
-@implementation UIView (IRLSize)
+@implementation UIView (IRLSizePrivate)
 
 - (RawSize)irl_rawPhysicalSize
 {
     return [[UIDevice currentDevice] irl_rawPhysicalSizeOfView:self];
 }
+
+- (BOOL)irl_isOnMainScreen
+{
+    return (self.window.screen == [UIScreen mainScreen]);
+}
+
+- (BOOL)irl_isOnSecondaryScreen
+{
+    return (self.window != nil && ![self irl_isOnMainScreen]);
+}
+
+@end
+
+@implementation UIView (IRLSize)
 
 - (NSMeasurement<NSUnitLength *> *)irl_physicalWidth
 {
@@ -67,16 +81,6 @@
     else {
         return self.transform;
     }
-}
-
-- (BOOL)irl_isOnMainScreen
-{
-    return (self.window.screen == [UIScreen mainScreen]);
-}
-
-- (BOOL)irl_isOnSecondaryScreen
-{
-    return (self.window != nil && ![self irl_isOnMainScreen]);
 }
 
 @end

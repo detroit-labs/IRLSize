@@ -37,7 +37,7 @@ static const NSUInteger kiPadHeightPoints = 1024;
 static const NSUInteger kiPadPro12Dot9InchHeightPoints = 1366;
 
 
-@implementation UIDevice (IRLSize)
+@implementation UIDevice (IRLSizePrivate)
 
 - (RawSize)irl_rawPhysicalSizeOfView:(UIView *)view
 {
@@ -173,6 +173,10 @@ static const NSUInteger kiPadPro12Dot9InchHeightPoints = 1366;
     
     return size;
 }
+
+@end
+
+@implementation UIDevice (IRLSize)
 
 - (NSMeasurement<NSUnitLength *> *)irl_physicalScreenHeight
 {
