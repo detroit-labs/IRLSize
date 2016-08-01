@@ -45,7 +45,7 @@
 
 - (CGAffineTransform)irl_transformForPhysicalWidth:(NSMeasurement<NSUnitLength *> *)physicalWidth
 {
-    NSMeasurement<NSUnitLength *> *currentPhysicalWidth = self.physicalWidth;
+    NSMeasurement<NSUnitLength *> *currentPhysicalWidth = self.irl_physicalWidth;
     
     if (currentPhysicalWidth == nil || [self irl_isOnSecondaryScreen]) {
         return self.transform;
@@ -57,7 +57,7 @@
 
 - (CGAffineTransform)irl_transformForPhysicalHeight:(NSMeasurement<NSUnitLength *> *)physicalHeight
 {
-    NSMeasurement<NSUnitLength *> *currentPhysicalHeight = self.physicalHeight;
+    NSMeasurement<NSUnitLength *> *currentPhysicalHeight = self.irl_physicalHeight;
     
     if (currentPhysicalHeight == nil || [self irl_isOnSecondaryScreen]) {
         return self.transform;

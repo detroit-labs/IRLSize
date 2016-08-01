@@ -13,20 +13,14 @@ NS_ASSUME_NONNULL_BEGIN
 @interface WKInterfaceDevice (IRLSize)
 
 /**
- *  Get the height of the device’s screen.
- *
- *  @return The height of the device screen. If the view is not on the main screen,
- *          returns @c nil .
+ The physical height of the device’s screen.
  */
-@property (nonatomic, readonly, getter=irl_physicalScreenHeight) NSMeasurement<NSUnitLength *> *physicalScreenHeight;
+@property (nonatomic, readonly) NSMeasurement<NSUnitLength *> *irl_physicalScreenHeight NS_SWIFT_NAME(physicalScreenHeight);
 
 /**
- *  Get the width of the device’s screen.
- *
- *  @return The height of the device screen If the view is not on the main screen,
- *          returns @c nil .
+ The physical width of the device’s screen.
  */
-@property (nonatomic, readonly, getter=irl_physicalScreenWidth) NSMeasurement<NSUnitLength *> *physicalScreenWidth;
+@property (nonatomic, readonly) NSMeasurement<NSUnitLength *> *irl_physicalScreenWidth NS_SWIFT_NAME(physicalScreenWidth);
 
 @end
 

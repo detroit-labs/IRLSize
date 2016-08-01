@@ -13,7 +13,7 @@
 - (void)irl_setPhysicalWidth:(NSMeasurement<NSUnitLength *> *)width
 {
     NSMeasurement<NSUnitLength *> *screenWidth =
-    [WKInterfaceDevice currentDevice].physicalScreenWidth;
+    [WKInterfaceDevice currentDevice].irl_physicalScreenWidth;
     
     if ([width canBeConvertedToUnit:screenWidth.unit]) {
         NSMeasurement<NSUnitLength *> *convertedWidth =
@@ -33,7 +33,7 @@
 - (void)irl_setPhysicalHeight:(NSMeasurement<NSUnitLength *> *)height
 {
     NSMeasurement<NSUnitLength *> *screenHeight =
-    [WKInterfaceDevice currentDevice].physicalScreenHeight;
+    [WKInterfaceDevice currentDevice].irl_physicalScreenHeight;
     
     if ([height canBeConvertedToUnit:screenHeight.unit]) {
         NSMeasurement<NSUnitLength *> *convertedHeight =

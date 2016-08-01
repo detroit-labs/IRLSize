@@ -14,8 +14,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface WKInterfaceObject (IRLSize)
 
+/**
+ Sets the physical width of the interface object on screen.
+
+ @param width The physical width to set on the interface object.
+ */
 - (void)irl_setPhysicalWidth:(NSMeasurement<NSUnitLength *> *)width NS_SWIFT_NAME(setPhysicalWidth(_:));
 
+/**
+ Sets the physical height of the interface object on screen.
+ 
+ @param width The physical height to set on the interface object.
+ */
 - (void)irl_setPhysicalHeight:(NSMeasurement<NSUnitLength *> *)height NS_SWIFT_NAME(setPhysicalHeight(_:));
 
 @end

@@ -47,7 +47,7 @@ static const NSUInteger kiPadPro12Dot9InchHeightPoints = 1366;
     // the main screen. This is what happens if you use this code during
     // -[UIViewController viewWillAppear:], which is the most logical place to
     // be doing this anyway.
-    if (view.window == nil || view.isOnMainScreen) {
+    if (view.window == nil || view.irl_isOnMainScreen) {
         // Convert the view into the window coordinate space. Takes care of any
         // weird custom rotation stuff going on. You may get interesting results
         // from rotated views.
