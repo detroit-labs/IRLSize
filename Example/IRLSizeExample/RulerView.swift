@@ -57,56 +57,40 @@ public class RulerView: UIView {
     
     let locale = Locale.autoupdatingCurrent
     
-    @IBInspectable var hashColor: UIColor = .black()
+    @IBInspectable var hashColor: UIColor = .black
     
     public override func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
         
-        hashColor = .black()
-    }
-    
-    var rulerUnit: UnitLength {
-        if locale.usesMetricSystem {
-            return UnitLength.centimeters
-        }
-        else {
-            return UnitLength.inches
-        }
-    }
-    
-    var mediumRulerUnit: UnitLength {
-        if locale.usesMetricSystem {
-            return UnitLength.millimeters
-        }
-        else {
-            return UnitLength(symbol: "1/8 in", converter: EigthInchConverter())
-        }
-    }
-    
-    var smallRulerUnit: UnitLength? {
-        if locale.usesMetricSystem {
-            return nil
-        }
-        else {
-            return UnitLength(symbol: "1/16 in", converter: SixteenthInchConverter())
-        }
+        hashColor = .black
     }
     
     public override func draw(_ rect: CGRect) {
         let hashHeight = bounds.height / 3.0
         
-        drawHashes(for: rulerUnit,
-                   height: hashHeight,
-                   lineWidth: 2)
-        
-        drawHashes(for: mediumRulerUnit,
-                   height: hashHeight / 2,
-                   lineWidth: 1)
-        
-        if let smallUnit = smallRulerUnit {
-            drawHashes(for: smallUnit,
-                       height: hashHeight / 3,
-                       lineWidth: 1)
+        if locale.usesMetricSystem {
+            drawHashes(for: .centimeters,
+                       height: hashHeight,
+                       lineWidth: 2.0)
+            
+            drawHashes(for: .millimeters,
+                       height: hashHeight / 2.0,
+                       lineWidth: 2.0)
+        }
+        else {
+            drawHashes(for: .inches,
+                       height: hashHeight,
+                       lineWidth: 2.0)
+            
+            drawHashes(for: UnitLength(symbol: "1/8 in",
+                                       converter: EigthInchConverter()),
+                       height: hashHeight / 2.0,
+                       lineWidth: 2.0)
+            
+            drawHashes(for: UnitLength(symbol: "1/16 in",
+                                       converter: SixteenthInchConverter()),
+                       height: hashHeight / 3.0,
+                       lineWidth: 1.0)
         }
     }
     
