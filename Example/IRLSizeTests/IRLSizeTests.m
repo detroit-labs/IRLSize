@@ -13,30 +13,428 @@
 #import <Kiwi/Kiwi.h>
 #import <SDVersion/SDVersion.h>
 
+#import "IRLMeasurementBeWithinMatcher.h"
+
 SPEC_BEGIN(IRLSizeTests)
 
 describe(@"Getting the native size of a device", ^{
+    
+    registerMatchers(@"IRL");
+    
+    context(@"on an iPhone 5", ^{
+        
+        beforeEach(^{
+            
+            [SDiOSVersion stub:@selector(deviceVersion)
+                     andReturn:theValue(iPhone5)];
+            
+        });
+        
+        it(@"should report the correct height", ^{
+            
+            NSMeasurement<NSUnitLength *> *expectedHeight =
+            [[NSMeasurement alloc] initWithDoubleValue:0.0885
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenHeight should]
+             beWithin:0.01
+             ofMeasurement:expectedHeight];
+            
+        });
+        
+        it(@"should report the correct width", ^{
+            
+            NSMeasurement<NSUnitLength *> *expectedWidth =
+            [[NSMeasurement alloc] initWithDoubleValue:0.0499
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenWidth should]
+             beWithin:0.01
+             ofMeasurement:expectedWidth];
+            
+        });
+        
+    });
+    
+    context(@"on an iPhone 5C", ^{
+        
+        beforeEach(^{
+            
+            [SDiOSVersion stub:@selector(deviceVersion)
+                     andReturn:theValue(iPhone5C)];
+            
+        });
+        
+        it(@"should report the correct height", ^{
+            
+            NSMeasurement<NSUnitLength *> *expectedHeight =
+            [[NSMeasurement alloc] initWithDoubleValue:0.0885
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenHeight should]
+             beWithin:0.01
+             ofMeasurement:expectedHeight];
+            
+        });
+        
+        it(@"should report the correct width", ^{
+            
+            NSMeasurement<NSUnitLength *> *expectedWidth =
+            [[NSMeasurement alloc] initWithDoubleValue:0.0499
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenWidth should]
+             beWithin:0.01
+             ofMeasurement:expectedWidth];
+            
+        });
+        
+    });
+    
+    context(@"on an iPhone 5S", ^{
+        
+        beforeEach(^{
+            
+            [SDiOSVersion stub:@selector(deviceVersion)
+                     andReturn:theValue(iPhone5S)];
+            
+        });
+        
+        it(@"should report the correct height", ^{
+            
+            NSMeasurement<NSUnitLength *> *expectedHeight =
+            [[NSMeasurement alloc] initWithDoubleValue:0.0885
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenHeight should]
+             beWithin:0.01
+             ofMeasurement:expectedHeight];
+            
+        });
+        
+        it(@"should report the correct width", ^{
+            
+            NSMeasurement<NSUnitLength *> *expectedWidth =
+            [[NSMeasurement alloc] initWithDoubleValue:0.0499
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenWidth should]
+             beWithin:0.01
+             ofMeasurement:expectedWidth];
+            
+        });
+    });
+    
+    context(@"on an iPhone SE", ^{
+        
+        beforeEach(^{
+            
+            [SDiOSVersion stub:@selector(deviceVersion)
+                     andReturn:theValue(iPhoneSE)];
+            
+        });
+        
+        it(@"should report the correct height", ^{
+            
+            NSMeasurement<NSUnitLength *> *expectedHeight =
+            [[NSMeasurement alloc] initWithDoubleValue:0.0885
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenHeight should]
+             beWithin:0.01
+             ofMeasurement:expectedHeight];
+            
+        });
+        
+        it(@"should report the correct width", ^{
+            
+            NSMeasurement<NSUnitLength *> *expectedWidth =
+            [[NSMeasurement alloc] initWithDoubleValue:0.0499
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenWidth should]
+             beWithin:0.01
+             ofMeasurement:expectedWidth];
+            
+        });
+        
+    });
+    
+    context(@"on an iPhone 6", ^{
+        
+        beforeEach(^{
+            
+            [SDiOSVersion stub:@selector(deviceVersion)
+                     andReturn:theValue(iPhone6)];
+            
+        });
+        
+        it(@"should report the correct height", ^{
+            
+            NSMeasurement<NSUnitLength *> *expectedHeight =
+            [[NSMeasurement alloc] initWithDoubleValue:0.1041
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenHeight should]
+             beWithin:0.01
+             ofMeasurement:expectedHeight];
+            
+        });
+        
+        it(@"should report the correct width", ^{
+            
+            NSMeasurement<NSUnitLength *> *expectedWidth =
+            [[NSMeasurement alloc] initWithDoubleValue:0.0585
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenWidth should]
+             beWithin:0.01
+             ofMeasurement:expectedWidth];
+            
+        });
+        
+    });
+    
+    context(@"on an iPhone 6s", ^{
+        
+        beforeEach(^{
+            
+            [SDiOSVersion stub:@selector(deviceVersion)
+                     andReturn:theValue(iPhone6S)];
+            
+        });
+        
+        it(@"should report the correct height", ^{
+            
+            NSMeasurement<NSUnitLength *> *expectedHeight =
+            [[NSMeasurement alloc] initWithDoubleValue:0.1041
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenHeight should]
+             beWithin:0.01
+             ofMeasurement:expectedHeight];
+            
+        });
+        
+        it(@"should report the correct width", ^{
+            
+            NSMeasurement<NSUnitLength *> *expectedWidth =
+            [[NSMeasurement alloc] initWithDoubleValue:0.0585
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenWidth should]
+             beWithin:0.01
+             ofMeasurement:expectedWidth];
+            
+        });
+        
+    });
     
     context(@"on an iPhone 6 Plus", ^{
         
         beforeEach(^{
             
             [SDiOSVersion stub:@selector(deviceVersion)
-                     andReturn:theValue(iPhone6Plus)];
+                     andReturn:theValue(iPhone6SPlus)];
             
         });
         
         it(@"should report the correct height", ^{
             
-            [[theValue([UIDevice currentDevice].physicalScreenHeight.doubleValue) should]
-             equal:0.1218 withDelta:0.01];
-              
+            NSMeasurement<NSUnitLength *> *expectedHeight =
+            [[NSMeasurement alloc] initWithDoubleValue:0.1218
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenHeight should]
+             beWithin:0.01
+             ofMeasurement:expectedHeight];
+            
         });
         
         it(@"should report the correct width", ^{
             
-            [[theValue([UIDevice currentDevice].irl_physicalScreenWidth.doubleValue) should]
-             equal:0.0685 withDelta:0.01];
+            NSMeasurement<NSUnitLength *> *expectedWidth =
+            [[NSMeasurement alloc] initWithDoubleValue:0.0685
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenWidth should]
+             beWithin:0.01
+             ofMeasurement:expectedWidth];
+            
+        });
+        
+    });
+    
+    context(@"on an iPhone 6s Plus", ^{
+        
+        beforeEach(^{
+            
+            [SDiOSVersion stub:@selector(deviceVersion)
+                     andReturn:theValue(iPhone6SPlus)];
+            
+        });
+        
+        it(@"should report the correct height", ^{
+            
+            NSMeasurement<NSUnitLength *> *expectedHeight =
+            [[NSMeasurement alloc] initWithDoubleValue:0.1218
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenHeight should]
+             beWithin:0.01
+             ofMeasurement:expectedHeight];
+            
+        });
+        
+        it(@"should report the correct width", ^{
+            
+            NSMeasurement<NSUnitLength *> *expectedWidth =
+            [[NSMeasurement alloc] initWithDoubleValue:0.0685
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenWidth should]
+             beWithin:0.01
+             ofMeasurement:expectedWidth];
+            
+        });
+        
+    });
+    
+    context(@"on an iPad mini (2nd Generation)", ^{
+        
+        beforeEach(^{
+            
+            [SDiOSVersion stub:@selector(deviceVersion)
+                     andReturn:theValue(iPadMini2)];
+            
+        });
+        
+        it(@"should report the correct height", ^{
+            
+            NSMeasurement<NSUnitLength *> *expectedHeight =
+            [[NSMeasurement alloc] initWithDoubleValue:0.1605
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenHeight should]
+             beWithin:0.01
+             ofMeasurement:expectedHeight];
+            
+        });
+        
+        it(@"should report the correct width", ^{
+            
+            NSMeasurement<NSUnitLength *> *expectedWidth =
+            [[NSMeasurement alloc] initWithDoubleValue:0.1204
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenWidth should]
+             beWithin:0.01
+             ofMeasurement:expectedWidth];
+            
+        });
+        
+    });
+    
+    context(@"on an iPad mini (3rd Generation)", ^{
+        
+        beforeEach(^{
+            
+            [SDiOSVersion stub:@selector(deviceVersion)
+                     andReturn:theValue(iPadMini3)];
+            
+        });
+        
+        it(@"should report the correct height", ^{
+            
+            NSMeasurement<NSUnitLength *> *expectedHeight =
+            [[NSMeasurement alloc] initWithDoubleValue:0.1605
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenHeight should]
+             beWithin:0.01
+             ofMeasurement:expectedHeight];
+            
+        });
+        
+        it(@"should report the correct width", ^{
+            
+            NSMeasurement<NSUnitLength *> *expectedWidth =
+            [[NSMeasurement alloc] initWithDoubleValue:0.1204
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenWidth should]
+             beWithin:0.01
+             ofMeasurement:expectedWidth];
+            
+        });
+        
+    });
+    
+    context(@"on an iPad mini (4th Generation)", ^{
+        
+        beforeEach(^{
+            
+            [SDiOSVersion stub:@selector(deviceVersion)
+                     andReturn:theValue(iPadMini4)];
+            
+        });
+        
+        it(@"should report the correct height", ^{
+            
+            NSMeasurement<NSUnitLength *> *expectedHeight =
+            [[NSMeasurement alloc] initWithDoubleValue:0.1605
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenHeight should]
+             beWithin:0.01
+             ofMeasurement:expectedHeight];
+            
+        });
+        
+        it(@"should report the correct width", ^{
+            
+            NSMeasurement<NSUnitLength *> *expectedWidth =
+            [[NSMeasurement alloc] initWithDoubleValue:0.1204
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenWidth should]
+             beWithin:0.01
+             ofMeasurement:expectedWidth];
+            
+        });
+        
+    });
+    
+    context(@"on an iPad (4th Generation)", ^{
+        
+        beforeEach(^{
+            
+            [SDiOSVersion stub:@selector(deviceVersion)
+                     andReturn:theValue(iPad4)];
+            
+        });
+        
+        it(@"should report the correct height", ^{
+            
+            NSMeasurement<NSUnitLength *> *expectedHeight =
+            [[NSMeasurement alloc] initWithDoubleValue:0.1971
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenHeight should]
+             beWithin:0.01
+             ofMeasurement:expectedHeight];
+            
+        });
+        
+        it(@"should report the correct width", ^{
+            
+            NSMeasurement<NSUnitLength *> *expectedWidth =
+            [[NSMeasurement alloc] initWithDoubleValue:0.1478
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenWidth should]
+             beWithin:0.01
+             ofMeasurement:expectedWidth];
             
         });
         
@@ -53,21 +451,101 @@ describe(@"Getting the native size of a device", ^{
         
         it(@"should report the correct height", ^{
             
-            [[theValue([UIDevice currentDevice].physicalScreenHeight.doubleValue) should]
-             equal:0.1971 withDelta:0.01];
+            NSMeasurement<NSUnitLength *> *expectedHeight =
+            [[NSMeasurement alloc] initWithDoubleValue:0.1971
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenHeight should]
+             beWithin:0.01
+             ofMeasurement:expectedHeight];
             
         });
         
         it(@"should report the correct width", ^{
             
-            [[theValue([UIDevice currentDevice].physicalScreenWidth.doubleValue) should]
-             equal:0.1478 withDelta:0.01];
+            NSMeasurement<NSUnitLength *> *expectedWidth =
+            [[NSMeasurement alloc] initWithDoubleValue:0.1478
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenWidth should]
+             beWithin:0.01
+             ofMeasurement:expectedWidth];
             
         });
         
     });
     
-    context(@"on a 12.9-inch iPad Pro", ^{
+    context(@"on an iPad Air 2", ^{
+        
+        beforeEach(^{
+            
+            [SDiOSVersion stub:@selector(deviceVersion)
+                     andReturn:theValue(iPadAir2)];
+            
+        });
+        
+        it(@"should report the correct height", ^{
+            
+            NSMeasurement<NSUnitLength *> *expectedHeight =
+            [[NSMeasurement alloc] initWithDoubleValue:0.1971
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenHeight should]
+             beWithin:0.01
+             ofMeasurement:expectedHeight];
+            
+        });
+        
+        it(@"should report the correct width", ^{
+            
+            NSMeasurement<NSUnitLength *> *expectedWidth =
+            [[NSMeasurement alloc] initWithDoubleValue:0.1478
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenWidth should]
+             beWithin:0.01
+             ofMeasurement:expectedWidth];
+            
+        });
+        
+    });
+    
+    context(@"on a 9.7\" iPad Pro", ^{
+        
+        beforeEach(^{
+            
+            [SDiOSVersion stub:@selector(deviceVersion)
+                     andReturn:theValue(iPadPro9Dot7Inch)];
+            
+        });
+        
+        it(@"should report the correct height", ^{
+            
+            NSMeasurement<NSUnitLength *> *expectedHeight =
+            [[NSMeasurement alloc] initWithDoubleValue:0.1971
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenHeight should]
+             beWithin:0.01
+             ofMeasurement:expectedHeight];
+            
+        });
+        
+        it(@"should report the correct width", ^{
+            
+            NSMeasurement<NSUnitLength *> *expectedWidth =
+            [[NSMeasurement alloc] initWithDoubleValue:0.1478
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenWidth should]
+             beWithin:0.01
+             ofMeasurement:expectedWidth];
+            
+        });
+        
+    });
+    
+    context(@"on a 12.9\" iPad Pro", ^{
         
         beforeEach(^{
             
@@ -78,15 +556,25 @@ describe(@"Getting the native size of a device", ^{
         
         it(@"should report the correct height", ^{
             
-            [[theValue([UIDevice currentDevice].physicalScreenHeight.doubleValue) should]
-             equal:0.2622 withDelta:0.01];
+            NSMeasurement<NSUnitLength *> *expectedHeight =
+            [[NSMeasurement alloc] initWithDoubleValue:0.2622
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenHeight should]
+             beWithin:0.01
+             ofMeasurement:expectedHeight];
             
         });
         
         it(@"should report the correct width", ^{
             
-            [[theValue([UIDevice currentDevice].physicalScreenWidth.doubleValue) should]
-             equal:0.1965 withDelta:0.01];
+            NSMeasurement<NSUnitLength *> *expectedWidth =
+            [[NSMeasurement alloc] initWithDoubleValue:0.1965
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenWidth should]
+             beWithin:0.01
+             ofMeasurement:expectedWidth];
             
         });
         
@@ -179,11 +667,11 @@ describe(@"Getting the IRL size of a view", ^{
             
             it(@"should report the correct size", ^{
                 
-                [[theValue(view.physicalWidth.doubleValue) should] equal:0.01654589372
-                                                               withDelta:0.001];
+                [[theValue(view.irl_physicalWidth.doubleValue) should] equal:0.01654589372
+                                                                   withDelta:0.001];
                 
-                [[theValue(view.physicalHeight.doubleValue) should] equal:0.01654589372
-                                                                withDelta:0.001];
+                [[theValue(view.irl_physicalHeight.doubleValue) should] equal:0.01654589372
+                                                                    withDelta:0.001];
                 
             });
             
@@ -207,11 +695,11 @@ describe(@"Getting the IRL size of a view", ^{
             
             it(@"should report the correct size", ^{
                 
-                [[theValue(view.physicalWidth.doubleValue) should] equal:0.01654589372
-                                                               withDelta:0.001];
+                [[theValue(view.irl_physicalWidth.doubleValue) should] equal:0.01654589372
+                                                                   withDelta:0.001];
                 
-                [[theValue(view.physicalHeight.doubleValue) should] equal:0.01654589372
-                                                                withDelta:0.001];
+                [[theValue(view.irl_physicalHeight.doubleValue) should] equal:0.01654589372
+                                                                    withDelta:0.001];
                 
             });
             
@@ -242,11 +730,11 @@ describe(@"Getting the IRL size of a view", ^{
             
             it(@"should report the correct size", ^{
                 
-                [[theValue(view.physicalWidth.doubleValue) should] equal:0.01654589372
-                                                               withDelta:0.001];
+                [[theValue(view.irl_physicalWidth.doubleValue) should] equal:0.01654589372
+                                                                   withDelta:0.001];
                 
-                [[theValue(view.physicalHeight.doubleValue) should] equal:0.01654589372
-                                                                withDelta:0.001];
+                [[theValue(view.irl_physicalHeight.doubleValue) should] equal:0.01654589372
+                                                                    withDelta:0.001];
                 
             });
             
@@ -275,11 +763,11 @@ describe(@"Getting the IRL size of a view", ^{
                 
                 it(@"should report the correct size", ^{
                     
-                    [[theValue(view.physicalWidth.doubleValue) should] equal:0.01654589372
-                                                                   withDelta:0.001];
+                    [[theValue(view.irl_physicalWidth.doubleValue) should] equal:0.01654589372
+                                                                       withDelta:0.001];
                     
-                    [[theValue(view.physicalHeight.doubleValue) should] equal:0.01654589372
-                                                                    withDelta:0.001];
+                    [[theValue(view.irl_physicalHeight.doubleValue) should] equal:0.01654589372
+                                                                        withDelta:0.001];
                     
                 });
                 
@@ -324,8 +812,8 @@ describe(@"Getting the IRL size of a view", ^{
             
             it(@"should report 0 for size", ^{
                 
-                [[theValue(view.physicalWidth.doubleValue) should] beZero];
-                [[theValue(view.physicalHeight.doubleValue) should] beZero];
+                [[theValue(view.irl_physicalWidth.doubleValue) should] beZero];
+                [[theValue(view.irl_physicalHeight.doubleValue) should] beZero];
                 
             });
             
@@ -384,14 +872,14 @@ describe(@"Estimating the size of a device based on the screen size", ^{
         
         it(@"should report the correct height", ^{
             
-            [[theValue([UIDevice currentDevice].physicalScreenHeight.doubleValue) should]
+            [[theValue([UIDevice currentDevice].irl_physicalScreenHeight.doubleValue) should]
              equal:0.0885 withDelta:0.01];
             
         });
         
         it(@"should report the correct width", ^{
             
-            [[theValue([UIDevice currentDevice].physicalScreenWidth.doubleValue) should]
+            [[theValue([UIDevice currentDevice].irl_physicalScreenWidth.doubleValue) should]
              equal:0.0499 withDelta:0.01];
             
         });
@@ -410,14 +898,14 @@ describe(@"Estimating the size of a device based on the screen size", ^{
         
         it(@"should report the correct height", ^{
             
-            [[theValue([UIDevice currentDevice].physicalScreenHeight.doubleValue) should]
+            [[theValue([UIDevice currentDevice].irl_physicalScreenHeight.doubleValue) should]
              equal:0.1041 withDelta:0.01];
             
         });
         
         it(@"should report the correct width", ^{
             
-            [[theValue([UIDevice currentDevice].physicalScreenWidth.doubleValue) should]
+            [[theValue([UIDevice currentDevice].irl_physicalScreenWidth.doubleValue) should]
              equal:0.0585f withDelta:0.01];
             
         });
@@ -436,14 +924,14 @@ describe(@"Estimating the size of a device based on the screen size", ^{
         
         it(@"should report the correct height", ^{
             
-            [[theValue([UIDevice currentDevice].physicalScreenHeight.doubleValue) should]
+            [[theValue([UIDevice currentDevice].irl_physicalScreenHeight.doubleValue) should]
              equal:0.1218 withDelta:0.01];
             
         });
         
         it(@"should report the correct width", ^{
             
-            [[theValue([UIDevice currentDevice].physicalScreenWidth.doubleValue) should]
+            [[theValue([UIDevice currentDevice].irl_physicalScreenWidth.doubleValue) should]
              equal:0.0685 withDelta:0.01];
             
         });
@@ -462,14 +950,14 @@ describe(@"Estimating the size of a device based on the screen size", ^{
         
         it(@"should report the correct height", ^{
             
-            [[theValue([UIDevice currentDevice].physicalScreenHeight.doubleValue) should]
+            [[theValue([UIDevice currentDevice].irl_physicalScreenHeight.doubleValue) should]
              equal:0.1971 withDelta:0.01];
             
         });
         
         it(@"should report the correct width", ^{
             
-            [[theValue([UIDevice currentDevice].physicalScreenWidth.doubleValue) should]
+            [[theValue([UIDevice currentDevice].irl_physicalScreenWidth.doubleValue) should]
              equal:0.1478 withDelta:0.01];
             
         });
@@ -488,14 +976,14 @@ describe(@"Estimating the size of a device based on the screen size", ^{
         
         it(@"should report the correct height", ^{
             
-            [[theValue([UIDevice currentDevice].physicalScreenHeight.doubleValue) should]
+            [[theValue([UIDevice currentDevice].irl_physicalScreenHeight.doubleValue) should]
              equal:0.2622 withDelta:0.01];
             
         });
         
         it(@"should report the correct width", ^{
             
-            [[theValue([UIDevice currentDevice].physicalScreenWidth.doubleValue) should]
+            [[theValue([UIDevice currentDevice].irl_physicalScreenWidth.doubleValue) should]
              equal:0.1965 withDelta:0.01];
             
         });
