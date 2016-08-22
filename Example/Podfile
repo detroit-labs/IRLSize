@@ -12,6 +12,7 @@ end
 
 target 'IRLSizeTests' do
     platform :ios, '10.0'
+    pod "SDVersion"
     pod "IRLSize", :path => ".."
-    pod "Kiwi", :inhibit_warnings => true
+    pod "Kiwi"
 end
