@@ -21,11 +21,7 @@ private class EigthInchConverter: UnitConverter, NSCopying {
         return inches.converter.value(fromBaseUnitValue: baseUnitValue) * 8
     }
     
-    private override func copy() -> AnyObject {
-        return self
-    }
-    
-    private func copy(with zone: NSZone? = nil) -> AnyObject {
+    func copy(with zone: NSZone? = nil) -> Any {
         return self
     }
     
@@ -43,11 +39,7 @@ private class SixteenthInchConverter: UnitConverter, NSCopying {
         return inches.converter.value(fromBaseUnitValue: baseUnitValue) * 16
     }
     
-    private override func copy() -> AnyObject {
-        return self
-    }
-    
-    private func copy(with zone: NSZone? = nil) -> AnyObject {
+    func copy(with zone: NSZone? = nil) -> Any {
         return self
     }
     
@@ -126,11 +118,11 @@ public class RulerView: UIView {
         context.setShouldAntialias(false)
         
         for offset in xOffsets(for: unit) {
-            context.moveTo(x: offset, y: 0)
-            context.addLineTo(x: offset, y: height)
+            context.move(to: CGPoint(x: offset, y: 0))
+            context.addLine(to: CGPoint(x: offset, y: height))
             
-            context.moveTo(x: offset, y: bounds.maxY)
-            context.addLineTo(x: offset, y: bounds.maxY - height)
+            context.move(to: CGPoint(x: offset, y: bounds.maxY))
+            context.addLine(to: CGPoint(x: offset, y: bounds.maxY - height))
             
             context.strokePath()
         }
