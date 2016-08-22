@@ -15,14 +15,16 @@ NS_ASSUME_NONNULL_BEGIN
 @interface UIView (IRLSize)
 
 /**
- The physical height of the view on the screen, or @c nil if the view is not visible
- on the main screen.
+ The physical height of the view on the screen, or @c nil if the view is displayed
+ on a secondary screen. If the view is not on any screen, returns measurements for
+ the main screen.
  */
 @property (nonatomic, readonly, nullable) NSMeasurement<NSUnitLength *> *irl_physicalHeight NS_SWIFT_NAME(physicalHeight);
 
 /**
- The physical width of the view on the screen, or @c nil if the view is not visible
- on the main screen.
+ The physical width of the view on the screen, or @c nil if the view is displayed
+ on a secondary screen. If the view is not on any screen, returns measurements for
+ the main screen.
  */
 @property (nonatomic, readonly, nullable) NSMeasurement<NSUnitLength *> *irl_physicalWidth NS_SWIFT_NAME(physicalWidth);
 
@@ -33,8 +35,8 @@ NS_ASSUME_NONNULL_BEGIN
  @param physicalHeight The desired physical height of the view on the screen.
 
  @return A @c CGAffineTransform that will achieve the desired height. If the view is
-         not currently visible on the main screen, the return value will be the
-         view’s current transform.
+         displayed on a secondary screen, the return value will be the view’s
+         current transform.
  */
 - (CGAffineTransform)irl_transformForPhysicalHeight:(NSMeasurement<NSUnitLength *> *)physicalHeight NS_SWIFT_NAME(transform(forPhysicalHeight:));
 
@@ -45,8 +47,8 @@ NS_ASSUME_NONNULL_BEGIN
  @param physicalWidth The desired physical width of the view on the screen.
  
  @return A @c CGAffineTransform that will achieve the desired width. If the view is
-         not currently visible on the main screen, the return value will be the
-         view’s current transform.
+         displayed on a secondary screen, the return value will be the view’s
+         current transform.
  */
 - (CGAffineTransform)irl_transformForPhysicalWidth:(NSMeasurement<NSUnitLength *> *)physicalWidth NS_SWIFT_NAME(transform(forPhysicalWidth:));
 

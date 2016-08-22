@@ -33,12 +33,20 @@
 
 - (NSMeasurement<NSUnitLength *> *)irl_physicalWidth
 {
+    if ([self irl_isOnSecondaryScreen]) {
+        return nil;
+    }
+    
     return [[NSMeasurement alloc] initWithDoubleValue:[self irl_rawPhysicalSize].width
                                                  unit:RAW_SIZE_UNIT];
 }
 
 - (NSMeasurement<NSUnitLength *> *)irl_physicalHeight
 {
+    if ([self irl_isOnSecondaryScreen]) {
+        return nil;
+    }
+    
     return [[NSMeasurement alloc] initWithDoubleValue:[self irl_rawPhysicalSize].height
                                                  unit:RAW_SIZE_UNIT];
 }

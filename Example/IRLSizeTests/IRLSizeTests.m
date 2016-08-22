@@ -584,6 +584,8 @@ describe(@"Getting the native size of a device", ^{
 
 describe(@"Getting the IRL size of a view", ^{
     
+    registerMatchers(@"IRL");
+
     __block UIApplication *mockSharedApplication;
     __block UIScreen *mockMainScreen;
     __block UIWindow *mockWindow;
@@ -597,6 +599,9 @@ describe(@"Getting the IRL size of a view", ^{
         
         mockWindow = [UIWindow mock];
         
+        [mockWindow stub:@selector(screen)
+               andReturn:mockMainScreen];
+        
         mockSharedApplication = [UIApplication mock];
         
         [mockSharedApplication stub:@selector(statusBarOrientation)
@@ -607,9 +612,6 @@ describe(@"Getting the IRL size of a view", ^{
         
         [UIApplication stub:@selector(sharedApplication)
                   andReturn:mockSharedApplication];
-        
-        [mockWindow stub:@selector(screen)
-               andReturn:mockMainScreen];
         
         [mockWindow stub:@selector(convertRect:fromView:)
                withBlock:^id(NSArray *params) {
@@ -622,32 +624,32 @@ describe(@"Getting the IRL size of a view", ^{
         
     });
     
-    context(@"on an iPhone 6 Plus", ^{
+    context(@"on an iPhone 6s", ^{
         
         __block UIView *view;
         
         beforeEach(^{
             
-            CGRect iPhone6PlusBounds = CGRectMake(0.0f, 0.0f,
-                                                  414.0f, 736.0f);
+            CGRect iPhone6sBounds = CGRectMake(0.0f, 0.0f,
+                                               375.0f, 667.0f);
             
             KWMock <UICoordinateSpace> *mockFixedCoordinateSpace =
             [KWMock mockForProtocol:@protocol(UICoordinateSpace)];
             
             [mockFixedCoordinateSpace stub:@selector(bounds)
-                                 andReturn:theValue(iPhone6PlusBounds)];
+                                 andReturn:theValue(iPhone6sBounds)];
             
             [mockMainScreen stub:@selector(fixedCoordinateSpace)
                        andReturn:mockFixedCoordinateSpace];
             
             [mockMainScreen stub:@selector(bounds)
-                       andReturn:theValue(iPhone6PlusBounds)];
+                       andReturn:theValue(iPhone6sBounds)];
             
             [SDiOSVersion stub:@selector(deviceVersion)
-                     andReturn:theValue(iPhone6Plus)];
+                     andReturn:theValue(iPhone6S)];
             
             [mockWindow stub:@selector(bounds)
-                   andReturn:theValue(iPhone6PlusBounds)];
+                   andReturn:theValue(iPhone6sBounds)];
             
             view = [[UIView alloc] initWithFrame:CGRectMake(0.0f,
                                                             0.0f,
@@ -667,11 +669,15 @@ describe(@"Getting the IRL size of a view", ^{
             
             it(@"should report the correct size", ^{
                 
-                [[theValue(view.irl_physicalWidth.doubleValue) should] equal:0.01654589372
-                                                                   withDelta:0.001];
+                NSMeasurement<NSUnitLength *> *expectedSize =
+                [[NSMeasurement alloc] initWithDoubleValue:0.01654589372
+                                                      unit:[NSUnitLength meters]];
                 
-                [[theValue(view.irl_physicalHeight.doubleValue) should] equal:0.01654589372
-                                                                    withDelta:0.001];
+                [[view.irl_physicalWidth should] beWithin:0.01
+                                            ofMeasurement:expectedSize];
+                
+                [[view.irl_physicalHeight should] beWithin:0.01
+                                             ofMeasurement:expectedSize];
                 
             });
             
@@ -683,7 +689,7 @@ describe(@"Getting the IRL size of a view", ^{
                                                        unit:[NSUnitLength meters]]];
                 
                 CGAffineTransform expectedTransform =
-                CGAffineTransformMakeScale(0.6043795655278521, 0.6043795655278521);
+                CGAffineTransformMakeScale(0.641025602, 0.641025602);
                 
                 [[theValue(CGAffineTransformEqualToTransform(transform, expectedTransform)) should] beTrue];
                 
@@ -695,11 +701,15 @@ describe(@"Getting the IRL size of a view", ^{
             
             it(@"should report the correct size", ^{
                 
-                [[theValue(view.irl_physicalWidth.doubleValue) should] equal:0.01654589372
-                                                                   withDelta:0.001];
+                NSMeasurement<NSUnitLength *> *expectedSize =
+                [[NSMeasurement alloc] initWithDoubleValue:0.01654589372
+                                                      unit:[NSUnitLength meters]];
                 
-                [[theValue(view.irl_physicalHeight.doubleValue) should] equal:0.01654589372
-                                                                    withDelta:0.001];
+                [[view.irl_physicalWidth should] beWithin:0.01
+                                            ofMeasurement:expectedSize];
+                
+                [[view.irl_physicalHeight should] beWithin:0.01
+                                             ofMeasurement:expectedSize];
                 
             });
             
@@ -711,7 +721,7 @@ describe(@"Getting the IRL size of a view", ^{
                                                        unit:[NSUnitLength meters]]];
                 
                 CGAffineTransform expectedTransform =
-                CGAffineTransformMakeScale(0.60437955201891613, 0.60437955201891613);
+                CGAffineTransformMakeScale(0.641025602, 0.641025602);
                 
                 [[theValue(CGAffineTransformEqualToTransform(transform, expectedTransform)) should] beTrue];
                 
@@ -730,11 +740,15 @@ describe(@"Getting the IRL size of a view", ^{
             
             it(@"should report the correct size", ^{
                 
-                [[theValue(view.irl_physicalWidth.doubleValue) should] equal:0.01654589372
-                                                                   withDelta:0.001];
+                NSMeasurement<NSUnitLength *> *expectedSize =
+                [[NSMeasurement alloc] initWithDoubleValue:0.01654589372
+                                                      unit:[NSUnitLength meters]];
                 
-                [[theValue(view.irl_physicalHeight.doubleValue) should] equal:0.01654589372
-                                                                    withDelta:0.001];
+                [[view.irl_physicalWidth should] beWithin:0.01
+                                            ofMeasurement:expectedSize];
+                
+                [[view.irl_physicalHeight should] beWithin:0.01
+                                             ofMeasurement:expectedSize];
                 
             });
             
@@ -746,7 +760,7 @@ describe(@"Getting the IRL size of a view", ^{
                                                        unit:[NSUnitLength meters]]];
                 
                 CGAffineTransform expectedTransform =
-                CGAffineTransformMakeScale(0.6043795655278521, 0.6043795655278521);
+                CGAffineTransformMakeScale(0.641025602, 0.641025602);
                 
                 [[theValue(CGAffineTransformEqualToTransform(transform, expectedTransform)) should] beTrue];
                 
@@ -763,11 +777,16 @@ describe(@"Getting the IRL size of a view", ^{
                 
                 it(@"should report the correct size", ^{
                     
-                    [[theValue(view.irl_physicalWidth.doubleValue) should] equal:0.01654589372
-                                                                       withDelta:0.001];
+                    NSMeasurement<NSUnitLength *> *expectedSize =
+                    [[NSMeasurement alloc] initWithDoubleValue:0.01654589372
+                                                          unit:[NSUnitLength meters]];
                     
-                    [[theValue(view.irl_physicalHeight.doubleValue) should] equal:0.01654589372
-                                                                        withDelta:0.001];
+                    [[view.irl_physicalWidth should] beWithin:0.01
+                                                ofMeasurement:expectedSize];
+                    
+                    [[view.irl_physicalHeight should] beWithin:0.01
+                                                 ofMeasurement:expectedSize];
+                    
                     
                 });
                 
@@ -779,7 +798,7 @@ describe(@"Getting the IRL size of a view", ^{
                                                            unit:[NSUnitLength meters]]];
                     
                     CGAffineTransform expectedTransform =
-                    CGAffineTransformMakeScale(0.6043795655278521, 0.6043795655278521);
+                    CGAffineTransformMakeScale(0.641025602, 0.641025602);
                     
                     [[theValue(CGAffineTransformEqualToTransform(transform, expectedTransform)) should] beTrue];
                     
@@ -810,19 +829,21 @@ describe(@"Getting the IRL size of a view", ^{
                 
             });
             
-            it(@"should report 0 for size", ^{
+            it(@"should not return a size", ^{
                 
-                [[theValue(view.irl_physicalWidth.doubleValue) should] beZero];
-                [[theValue(view.irl_physicalHeight.doubleValue) should] beZero];
+                [[view.irl_physicalWidth should] beNil];
+                [[view.irl_physicalHeight should] beNil];
                 
             });
             
             it(@"should reuse the view’s transform for resizing", ^{
                 
+                NSMeasurement<NSUnitLength *> *desiredWidth =
+                [[NSMeasurement alloc] initWithDoubleValue:0.42
+                                                      unit:[NSUnitLength meters]];
+                
                 CGAffineTransform transform =
-                [view irl_transformForPhysicalWidth:
-                 [[NSMeasurement alloc] initWithDoubleValue:0.01
-                                                       unit:[NSUnitLength meters]]];
+                [view irl_transformForPhysicalWidth:desiredWidth];
                 
                 [[theValue(CGAffineTransformIsIdentity(transform)) should] beTrue];
                 
@@ -834,7 +855,9 @@ describe(@"Getting the IRL size of a view", ^{
     
 });
 
-describe(@"Estimating the size of a device based on the screen size", ^{
+describe(@"Estimating the size of an unknown device based on the screen size", ^{
+    
+    registerMatchers(@"IRL");
     
     __block UIScreen *mockScreen = nil;
     __block NSObject <UICoordinateSpace> *mockCoordinateSpace = nil;
@@ -860,7 +883,7 @@ describe(@"Estimating the size of a device based on the screen size", ^{
         
     });
     
-    context(@"on an iPhone 5", ^{
+    context(@"on a device with a resolution of 320 ⨉ 568", ^{
         
         beforeEach(^{
             
@@ -870,23 +893,33 @@ describe(@"Estimating the size of a device based on the screen size", ^{
             
         });
         
-        it(@"should report the correct height", ^{
+        it(@"should estimate the height of a 4\" device", ^{
             
-            [[theValue([UIDevice currentDevice].irl_physicalScreenHeight.doubleValue) should]
-             equal:0.0885 withDelta:0.01];
+            NSMeasurement<NSUnitLength *> *expectedHeight =
+            [[NSMeasurement alloc] initWithDoubleValue:0.0885
+                                                  unit:[NSUnitLength meters]];
+            
+            [[[UIDevice currentDevice].irl_physicalScreenHeight should]
+             beWithin:0.01
+             ofMeasurement:expectedHeight];
             
         });
         
-        it(@"should report the correct width", ^{
+        it(@"should estimate the width of a 4\" device", ^{
             
-            [[theValue([UIDevice currentDevice].irl_physicalScreenWidth.doubleValue) should]
-             equal:0.0499 withDelta:0.01];
+            NSMeasurement<NSUnitLength *> *expectedWidth =
+            [[NSMeasurement alloc] initWithDoubleValue:0.0499
+                                                  unit:[NSUnitLength meters]];
+            
+            [[[UIDevice currentDevice].irl_physicalScreenWidth should]
+             beWithin:0.01
+             ofMeasurement:expectedWidth];
             
         });
         
     });
     
-    context(@"on an iPhone 6", ^{
+    context(@"on a device with a resolution of 375 ⨉ 667", ^{
         
         beforeEach(^{
             
@@ -896,23 +929,33 @@ describe(@"Estimating the size of a device based on the screen size", ^{
             
         });
         
-        it(@"should report the correct height", ^{
+        it(@"should estimate the height of a 4.7\" device", ^{
             
-            [[theValue([UIDevice currentDevice].irl_physicalScreenHeight.doubleValue) should]
-             equal:0.1041 withDelta:0.01];
+            NSMeasurement<NSUnitLength *> *expectedHeight =
+            [[NSMeasurement alloc] initWithDoubleValue:0.1041
+                                                  unit:[NSUnitLength meters]];
+            
+            [[[UIDevice currentDevice].irl_physicalScreenHeight should]
+             beWithin:0.01
+             ofMeasurement:expectedHeight];
             
         });
         
-        it(@"should report the correct width", ^{
+        it(@"should estimate the width of a 4.7\" device", ^{
             
-            [[theValue([UIDevice currentDevice].irl_physicalScreenWidth.doubleValue) should]
-             equal:0.0585f withDelta:0.01];
+            NSMeasurement<NSUnitLength *> *expectedWidth =
+            [[NSMeasurement alloc] initWithDoubleValue:0.0585f
+                                                  unit:[NSUnitLength meters]];
+            
+            [[[UIDevice currentDevice].irl_physicalScreenWidth should]
+             beWithin:0.01
+             ofMeasurement:expectedWidth];
             
         });
         
     });
     
-    context(@"on an iPhone 6 Plus", ^{
+    context(@"on a device with a resolution of 414 ⨉ 736", ^{
         
         beforeEach(^{
             
@@ -922,23 +965,33 @@ describe(@"Estimating the size of a device based on the screen size", ^{
             
         });
         
-        it(@"should report the correct height", ^{
+        it(@"should estimate the height of a 5.5\" device", ^{
             
-            [[theValue([UIDevice currentDevice].irl_physicalScreenHeight.doubleValue) should]
-             equal:0.1218 withDelta:0.01];
+            NSMeasurement<NSUnitLength *> *expectedHeight =
+            [[NSMeasurement alloc] initWithDoubleValue:0.1218
+                                                  unit:[NSUnitLength meters]];
+            
+            [[[UIDevice currentDevice].irl_physicalScreenHeight should]
+             beWithin:0.01
+             ofMeasurement:expectedHeight];
             
         });
         
-        it(@"should report the correct width", ^{
+        it(@"should estimate the width of a 5.5\" device", ^{
             
-            [[theValue([UIDevice currentDevice].irl_physicalScreenWidth.doubleValue) should]
-             equal:0.0685 withDelta:0.01];
+            NSMeasurement<NSUnitLength *> *expectedWidth =
+            [[NSMeasurement alloc] initWithDoubleValue:0.0685
+                                                  unit:[NSUnitLength meters]];
+            
+            [[[UIDevice currentDevice].irl_physicalScreenWidth should]
+             beWithin:0.01
+             ofMeasurement:expectedWidth];
             
         });
         
     });
     
-    context(@"on an iPad", ^{
+    context(@"on a device with a resolution of 768 ⨉ 1024", ^{
         
         beforeEach(^{
             
@@ -948,23 +1001,33 @@ describe(@"Estimating the size of a device based on the screen size", ^{
             
         });
         
-        it(@"should report the correct height", ^{
+        it(@"should estimate the height of a 9.7\" device", ^{
             
-            [[theValue([UIDevice currentDevice].irl_physicalScreenHeight.doubleValue) should]
-             equal:0.1971 withDelta:0.01];
+            NSMeasurement<NSUnitLength *> *expectedHeight =
+            [[NSMeasurement alloc] initWithDoubleValue:0.1971
+                                                  unit:[NSUnitLength meters]];
+            
+            [[[UIDevice currentDevice].irl_physicalScreenHeight should]
+             beWithin:0.01
+             ofMeasurement:expectedHeight];
             
         });
         
-        it(@"should report the correct width", ^{
+        it(@"should estimate the width of a 9.7\" device", ^{
             
-            [[theValue([UIDevice currentDevice].irl_physicalScreenWidth.doubleValue) should]
-             equal:0.1478 withDelta:0.01];
+            NSMeasurement<NSUnitLength *> *expectedWidth =
+            [[NSMeasurement alloc] initWithDoubleValue:0.1478
+                                                  unit:[NSUnitLength meters]];
+            
+            [[[UIDevice currentDevice].irl_physicalScreenWidth should]
+             beWithin:0.01
+             ofMeasurement:expectedWidth];
             
         });
         
     });
     
-    context(@"on an iPad Pro", ^{
+    context(@"on a device with a resolution of 1024 ⨉ 1366", ^{
         
         beforeEach(^{
             
@@ -974,17 +1037,27 @@ describe(@"Estimating the size of a device based on the screen size", ^{
             
         });
         
-        it(@"should report the correct height", ^{
+        it(@"should estimate the height of a 12.9\" device", ^{
             
-            [[theValue([UIDevice currentDevice].irl_physicalScreenHeight.doubleValue) should]
-             equal:0.2622 withDelta:0.01];
+            NSMeasurement<NSUnitLength *> *expectedHeight =
+            [[NSMeasurement alloc] initWithDoubleValue:0.2622
+                                                  unit:[NSUnitLength meters]];
+            
+            [[[UIDevice currentDevice].irl_physicalScreenHeight should]
+             beWithin:0.01
+             ofMeasurement:expectedHeight];
             
         });
         
-        it(@"should report the correct width", ^{
+        it(@"should estimate the width of a 12.9\" device", ^{
             
-            [[theValue([UIDevice currentDevice].irl_physicalScreenWidth.doubleValue) should]
-             equal:0.1965 withDelta:0.01];
+            NSMeasurement<NSUnitLength *> *expectedWidth =
+            [[NSMeasurement alloc] initWithDoubleValue:0.1965
+                                                  unit:[NSUnitLength meters]];
+            
+            [[[UIDevice currentDevice].irl_physicalScreenWidth should]
+             beWithin:0.01
+             ofMeasurement:expectedWidth];
             
         });
         
