@@ -11,19 +11,20 @@ Pod::Spec.new do |s|
   s.homepage         = "http://www.detroitlabs.com"
   s.license          = 'MIT'
   s.author           = { "Jeff Kelley" => "SlaunchaMan@gmail.com" }
-  s.source           = { :git => "https://github.com/detroit-labs/IRLSize.git", :tag => s.version.to_s }
+  s.source           = { :git => "https://github.com/detroit-labs/IRLSize.git",
+                         :tag => s.version.to_s }
 
   s.ios.deployment_target = '10.0'
   s.watchos.deployment_target = '3.0'
   s.requires_arc = true
 
   s.source_files = 'Pod/Classes/*', 'Pod/Classes/Private/*'
-  s.ios.source_files = 'Pod/Classes/iOS/*'
-  s.watchos.source_files = 'Pod/Classes/watchOS/*'
-
   s.private_header_files = 'Pod/Classes/Private/*.h'
 
+  s.ios.source_files = 'Pod/Classes/iOS/*'
   s.ios.frameworks = 'Foundation', 'UIKit'
+
+  s.watchos.source_files = 'Pod/Classes/watchOS/*'
   s.watchos.frameworks = 'Foundation', 'WatchKit'
 
   s.dependency 'SDVersion', '~> 3.1'
