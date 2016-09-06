@@ -10,8 +10,7 @@
 
 @interface UIView (IRLSizePrivate)
 
-@property (nonatomic, readonly) BOOL irl_isOnMainScreen NS_SWIFT_NAME(isOnMainScreen);
-
-@property (nonatomic, readonly) BOOL irl_isOnSecondaryScreen NS_SWIFT_NAME(isOnSecondaryScreen);
+@property (nonatomic, readonly) BOOL irl_isOnMainScreen;
+@property (nonatomic, readonly) BOOL irl_isOnSecondaryScreen;
 
 @end

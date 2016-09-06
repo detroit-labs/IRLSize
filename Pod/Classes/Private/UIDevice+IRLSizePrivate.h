@@ -13,7 +13,7 @@
 #if TARGET_OS_IOS
 @interface UIDevice (IRLSizePrivate)
 
-- (RawSize)irl_rawPhysicalSizeOfView:(nonnull UIView *)view NS_SWIFT_NAME(rawPhysicalSize(of:));
+- (RawSize)irl_rawPhysicalSizeOfView:(nonnull UIView *)view;
 
 @end
 #endif
