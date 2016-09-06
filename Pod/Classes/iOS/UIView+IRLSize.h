@@ -29,8 +29,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly, nullable) NSMeasurement<NSUnitLength *> *irl_physicalWidth NS_SWIFT_NAME(physicalWidth);
 
 /**
- Calculates a transform that, when applied to a view, will make it a given height on
- the screen.
+ Calculates a transform that, when applied to the view, will make it a given height
+ on the screen.
 
  @param physicalHeight The desired physical height of the view on the screen.
 
@@ -41,8 +41,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (CGAffineTransform)irl_transformForPhysicalHeight:(NSMeasurement<NSUnitLength *> *)physicalHeight NS_SWIFT_NAME(transform(forPhysicalHeight:));
 
 /**
- Calculates a transform that, when applied to a view, will make it a given width on
- the screen.
+ Calculates a transform that, when applied to the view, will make it a given width
+ on the screen.
  
  @param physicalWidth The desired physical width of the view on the screen.
  
