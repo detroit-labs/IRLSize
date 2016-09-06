@@ -2,12 +2,11 @@ PODS:
   - IRLSize (1.0.0-beta1):
     - SDVersion (~> 3.1)
   - Kiwi (2.4.0)
-  - SDVersion (3.2)
+  - SDVersion (3.5)
 
 DEPENDENCIES:
   - IRLSize (from `..`)
   - Kiwi
-  - SDVersion
 
 EXTERNAL SOURCES:
   IRLSize:
@@ -16,8 +15,8 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   IRLSize: bf31a7347c6c916555c798398aa7d9b7eb395f19
   Kiwi: f49c9d54b28917df5928fe44968a39ed198cb8a8
-  SDVersion: e8bf034813e40fdd31c002942f78182f46468ee1
+  SDVersion: 73adb37feaf9ddaca41b88f4095325d4d583af7e
 
-PODFILE CHECKSUM: 8601c2a99efb8475ac7e5b0a230a022bde79cddb
+PODFILE CHECKSUM: db18fa8d5c2e4506831663c4cc688087b54efa69
 
 COCOAPODS: 1.0.1
