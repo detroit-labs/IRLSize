@@ -48,10 +48,13 @@ static const NSUInteger kiPadPro12Dot9InchHeightPoints = 1366;
     // -[UIViewController viewWillAppear:], which is the most logical place to
     // be doing this anyway.
     if (view.window == nil || view.irl_isOnMainScreen) {
+        UIApplication *application = UIApplication.sharedApplication;
+        
         // Convert the view into the window coordinate space. Takes care of any
         // weird custom rotation stuff going on. You may get interesting results
         // from rotated views.
-        UIWindow *window = view.window ?: [UIApplication sharedApplication].keyWindow;
+        UIWindow *window = view.window ?: application.keyWindow;
+        
         CGRect convertedFrame = [window convertRect:view.frame
                                            fromView:view.superview];
         
@@ -62,9 +65,9 @@ static const NSUInteger kiPadPro12Dot9InchHeightPoints = 1366;
         CGSize windowSize = window.screen.bounds.size;
         
         if (window == nil) {
-            windowSize = [UIScreen mainScreen].fixedCoordinateSpace.bounds.size;
+            windowSize = UIScreen.mainScreen.fixedCoordinateSpace.bounds.size;
         }
-        else if (UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)) {
+        else if (UIInterfaceOrientationIsLandscape(application.statusBarOrientation)) {
             CGSize windowSizeSwap = CGSizeMake(windowSize.height,
                                                windowSize.width);
             windowSize = windowSizeSwap;
@@ -86,7 +89,7 @@ static const NSUInteger kiPadPro12Dot9InchHeightPoints = 1366;
 {
     RawSize estimatedDimensions = { 0.0f, 0.0f };
     
-    CGRect portraitBounds = [UIScreen mainScreen].fixedCoordinateSpace.bounds;
+    CGRect portraitBounds = UIScreen.mainScreen.fixedCoordinateSpace.bounds;
     
     NSUInteger heightPoints = round(CGRectGetHeight(portraitBounds));
     

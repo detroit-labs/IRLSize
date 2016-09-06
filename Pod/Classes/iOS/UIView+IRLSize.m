@@ -14,12 +14,12 @@
 
 - (RawSize)irl_rawPhysicalSize
 {
-    return [[UIDevice currentDevice] irl_rawPhysicalSizeOfView:self];
+    return [UIDevice.currentDevice irl_rawPhysicalSizeOfView:self];
 }
 
 - (BOOL)irl_isOnMainScreen
 {
-    return (self.window.screen == [UIScreen mainScreen]);
+    return (self.window.screen == UIScreen.mainScreen);
 }
 
 - (BOOL)irl_isOnSecondaryScreen

@@ -733,8 +733,8 @@ describe(@"Getting the IRL size of a view", ^{
             
             beforeEach(^{
                 
-                [[UIApplication sharedApplication] stub:@selector(keyWindow)
-                                              andReturn:nil];
+                [UIApplication.sharedApplication stub:@selector(keyWindow)
+                                            andReturn:nil];
                 
             });
             
@@ -899,7 +899,7 @@ describe(@"Estimating the size of an unknown device based on the screen size", ^
             [[NSMeasurement alloc] initWithDoubleValue:0.0885
                                                   unit:[NSUnitLength meters]];
             
-            [[[UIDevice currentDevice].irl_physicalScreenHeight should]
+            [[UIDevice.currentDevice.irl_physicalScreenHeight should]
              beWithin:0.01
              ofMeasurement:expectedHeight];
             
@@ -911,7 +911,7 @@ describe(@"Estimating the size of an unknown device based on the screen size", ^
             [[NSMeasurement alloc] initWithDoubleValue:0.0499
                                                   unit:[NSUnitLength meters]];
             
-            [[[UIDevice currentDevice].irl_physicalScreenWidth should]
+            [[UIDevice.currentDevice.irl_physicalScreenWidth should]
              beWithin:0.01
              ofMeasurement:expectedWidth];
             
@@ -935,7 +935,7 @@ describe(@"Estimating the size of an unknown device based on the screen size", ^
             [[NSMeasurement alloc] initWithDoubleValue:0.1041
                                                   unit:[NSUnitLength meters]];
             
-            [[[UIDevice currentDevice].irl_physicalScreenHeight should]
+            [[UIDevice.currentDevice.irl_physicalScreenHeight should]
              beWithin:0.01
              ofMeasurement:expectedHeight];
             
@@ -947,7 +947,7 @@ describe(@"Estimating the size of an unknown device based on the screen size", ^
             [[NSMeasurement alloc] initWithDoubleValue:0.0585f
                                                   unit:[NSUnitLength meters]];
             
-            [[[UIDevice currentDevice].irl_physicalScreenWidth should]
+            [[UIDevice.currentDevice.irl_physicalScreenWidth should]
              beWithin:0.01
              ofMeasurement:expectedWidth];
             
@@ -971,7 +971,7 @@ describe(@"Estimating the size of an unknown device based on the screen size", ^
             [[NSMeasurement alloc] initWithDoubleValue:0.1218
                                                   unit:[NSUnitLength meters]];
             
-            [[[UIDevice currentDevice].irl_physicalScreenHeight should]
+            [[UIDevice.currentDevice.irl_physicalScreenHeight should]
              beWithin:0.01
              ofMeasurement:expectedHeight];
             
@@ -983,7 +983,7 @@ describe(@"Estimating the size of an unknown device based on the screen size", ^
             [[NSMeasurement alloc] initWithDoubleValue:0.0685
                                                   unit:[NSUnitLength meters]];
             
-            [[[UIDevice currentDevice].irl_physicalScreenWidth should]
+            [[UIDevice.currentDevice.irl_physicalScreenWidth should]
              beWithin:0.01
              ofMeasurement:expectedWidth];
             
@@ -1007,7 +1007,7 @@ describe(@"Estimating the size of an unknown device based on the screen size", ^
             [[NSMeasurement alloc] initWithDoubleValue:0.1971
                                                   unit:[NSUnitLength meters]];
             
-            [[[UIDevice currentDevice].irl_physicalScreenHeight should]
+            [[UIDevice.currentDevice.irl_physicalScreenHeight should]
              beWithin:0.01
              ofMeasurement:expectedHeight];
             
@@ -1019,7 +1019,7 @@ describe(@"Estimating the size of an unknown device based on the screen size", ^
             [[NSMeasurement alloc] initWithDoubleValue:0.1478
                                                   unit:[NSUnitLength meters]];
             
-            [[[UIDevice currentDevice].irl_physicalScreenWidth should]
+            [[UIDevice.currentDevice.irl_physicalScreenWidth should]
              beWithin:0.01
              ofMeasurement:expectedWidth];
             
@@ -1043,7 +1043,7 @@ describe(@"Estimating the size of an unknown device based on the screen size", ^
             [[NSMeasurement alloc] initWithDoubleValue:0.2622
                                                   unit:[NSUnitLength meters]];
             
-            [[[UIDevice currentDevice].irl_physicalScreenHeight should]
+            [[UIDevice.currentDevice.irl_physicalScreenHeight should]
              beWithin:0.01
              ofMeasurement:expectedHeight];
             
@@ -1055,7 +1055,7 @@ describe(@"Estimating the size of an unknown device based on the screen size", ^
             [[NSMeasurement alloc] initWithDoubleValue:0.1965
                                                   unit:[NSUnitLength meters]];
             
-            [[[UIDevice currentDevice].irl_physicalScreenWidth should]
+            [[UIDevice.currentDevice.irl_physicalScreenWidth should]
              beWithin:0.01
              ofMeasurement:expectedWidth];
             
