@@ -5,42 +5,82 @@
 [![License](https://img.shields.io/cocoapods/l/IRLSize.svg?style=flat)](http://cocoadocs.org/docsets/IRLSize)
 [![Platform](https://img.shields.io/cocoapods/p/IRLSize.svg?style=flat)](http://cocoadocs.org/docsets/IRLSize)
 
-## Usage
+## Getting Started
 
-To run the example project, clone the repo, and run `pod install` from the Example
-directory first.
+To run the example project, clone the repo and navigate to its root folder in
+Terminal. Run the following command to install dependencies in their proper
+location:
 
-### Measuring a View
+```Bash
+pod install --project-directory=Example
+```
 
-To find out the dimensions of a view on your device, use one of the following
-methods:
+## Use
 
-* `NSMeasurement<NSUnitLength *> *width = [myView irl_physicalWidth];`
-* `NSMeasurement<NSUnitLength *> *height = [myView irl_physicalHeight];`
+### Measuring an On-Screen Element
 
-If a view is not on the primary screen (i.e. if you’re using an external display)
+To find out the dimensions of a `UIView` in an iOS app, use one of the following
+properties:
+
+#### Objective-C
+```Objective-C
+NSMeasurement<NSUnitLength *> *width = view.irl_physicalWidth;
+NSMeasurement<NSUnitLength *> *height = view.irl_physicalHeight;
+```
+
+If a view is on a secondary screen (i.e. if you’re using an external display)
 the measurements will be returned as `nil`.
+
+Of course, this also works nicely in Swift:
+
+#### Swift
+```Swift
+let width = view.physicalWidth // type: Measurement<UnitLength>
+let height = view.physicalHeight // type: Measurement<UnitLength>
+```
 
 ### Sizing a View
 
 If you want to ensure that a view matches a certain physical size, IRLSize provides
 transforms to help you out:
 
+#### Objective-C
 ```Objective-C
-NSMeasurement<NSUnitLength *> *expectedHeight =
-[[NSMeasurement alloc] initWithDoubleValue:0.038
-                                      unit:[NSUnitLength meters]];
+NSMeasurement<NSUnitLength *> *desiredHeight =
+[[NSMeasurement alloc] initWithDoubleValue:38.0
+                                      unit:NSUnitLength.millimeters];
 
-myView.transform = [myView irl_transformForPhysicalHeight:expectedHeight];
+view.transform = [view irl_transformForPhysicalHeight:desiredHeight];
+```
+
+#### Swift
+```Swift
+let desiredHeight = Measurement(value: 38, unit: UnitLength.millimeters)
+
+view.transform = view.transform(forPhysicalHeight: desiredHeight)
 ```
 
 ### Measuring a Device
 
 If you just want to know the physical size of the screen, use the category on
-UIDevice:
+`UIDevice` for iOS or `WKInterfaceDevice` for watchOS:
 
+#### Objective-C
+```Objective-C
+// iOS
+NSMeasurement<NSUnitLength *> *screenHeight = UIDevice.currentDevice.irl_physicalScreenHeight;
+
+// watchOS
+NSMeasurement<NSUnitLength *> *screenHeight = WKInterfaceDevice.currentDevice.irl_physicalScreenHeight;
+```
+
+#### Swift
 ```Swift
-let screenHeight = UIDevice.current().physicalScreenHeight
+// iOS
+let screenHeight = UIDevice.current.physicalScreenHeight
+
+// watchOS
+let screenHeight = WKInterfaceDevice.current.phsyicalScreenHeight
 ```
 
 ## Installation
@@ -48,7 +88,9 @@ let screenHeight = UIDevice.current().physicalScreenHeight
 IRLSize is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
-    pod "IRLSize"
+```Ruby
+pod "IRLSize"
+```
 
 ## Author
 
