@@ -1,6 +1,6 @@
 PODS:
-  - IRLSize (0.4.3):
-    - SDVersion (~> 3.0)
+  - IRLSize (0.5.0):
+    - SDVersion (~> 3.0.1)
   - Kiwi (2.4.0)
   - SDVersion (3.0.1)
 
@@ -13,7 +13,7 @@ EXTERNAL SOURCES:
     :path: ".."
 
 SPEC CHECKSUMS:
-  IRLSize: 8e6c36b05312924bc1a4f5ab90064b86a20f49b0
+  IRLSize: 1f59ff976cbaf5fc275aaa44846adaafd1ea00f5
   Kiwi: f49c9d54b28917df5928fe44968a39ed198cb8a8
   SDVersion: 99fc7a356ed89db3d41f17af49e0310c42248190
 
