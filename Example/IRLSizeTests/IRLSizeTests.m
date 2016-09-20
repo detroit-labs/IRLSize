@@ -691,7 +691,11 @@ describe(@"Getting the IRL size of a view", ^{
                 CGAffineTransform expectedTransform =
                 CGAffineTransformMakeScale(0.641025602, 0.641025602);
                 
-                [[theValue(CGAffineTransformEqualToTransform(transform, expectedTransform)) should] beTrue];
+                [[theValue(transform.a) should] equal:expectedTransform.a
+                                            withDelta:0.001];
+                
+                [[theValue(transform.d) should] equal:expectedTransform.d
+                                            withDelta:0.001];
                 
             });
             
@@ -723,7 +727,11 @@ describe(@"Getting the IRL size of a view", ^{
                 CGAffineTransform expectedTransform =
                 CGAffineTransformMakeScale(0.641025602, 0.641025602);
                 
-                [[theValue(CGAffineTransformEqualToTransform(transform, expectedTransform)) should] beTrue];
+                [[theValue(transform.a) should] equal:expectedTransform.a
+                                            withDelta:0.001];
+                
+                [[theValue(transform.d) should] equal:expectedTransform.d
+                                            withDelta:0.001];
                 
             });
             
@@ -762,7 +770,11 @@ describe(@"Getting the IRL size of a view", ^{
                 CGAffineTransform expectedTransform =
                 CGAffineTransformMakeScale(0.641025602, 0.641025602);
                 
-                [[theValue(CGAffineTransformEqualToTransform(transform, expectedTransform)) should] beTrue];
+                [[theValue(transform.a) should] equal:expectedTransform.a
+                                            withDelta:0.001];
+                
+                [[theValue(transform.d) should] equal:expectedTransform.d
+                                            withDelta:0.001];
                 
             });
             
@@ -800,7 +812,11 @@ describe(@"Getting the IRL size of a view", ^{
                     CGAffineTransform expectedTransform =
                     CGAffineTransformMakeScale(0.641025602, 0.641025602);
                     
-                    [[theValue(CGAffineTransformEqualToTransform(transform, expectedTransform)) should] beTrue];
+                    [[theValue(transform.a) should] equal:expectedTransform.a
+                                                withDelta:0.001];
+                    
+                    [[theValue(transform.d) should] equal:expectedTransform.d
+                                                withDelta:0.001];
                     
                 });
                 
