@@ -14,4 +14,4 @@ before_install:
 - pod install --project-directory=Example
 install:
 - gem install xcpretty --no-rdoc --no-ri --no-document --quiet
-script: ./travis_build.sh
+script: ./travis-build.sh
