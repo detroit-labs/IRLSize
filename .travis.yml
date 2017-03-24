@@ -30,7 +30,7 @@ install:
 script:
   - set -o pipefail
 
-  - xcodebuild -workspace "$WORKSPACE" -scheme "$EXAMPLE_SCHEME" -destination "platform=iOS Simulator,name=$NAME,OS=$OS" -configuration Debug test | xcpretty -c;
+  - xcodebuild -workspace "$WORKSPACE" -scheme "$EXAMPLE_SCHEME" -destination "platform=iOS Simulator,name=$name,OS=$OS" -configuration Debug test | xcpretty -c;
 
   # Run `pod lib lint` if specified
   - if [ $? == 0 && $NAME == "iPhone 7" && $OS == "10.2" ]; then
