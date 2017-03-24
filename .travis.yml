@@ -12,11 +12,11 @@ env:
   - IOS_SDK=iphonesimulator10.2
   - EXAMPLE_SCHEME="IRLSizeExample"
   matrix:
-    - DESTINATION="os=latest,name=iPhone 7"             POD_LINT="NO"
-    - DESTINATION="os=latest,name=iPhone 7 Plus"        POD_LINT="NO"
-    - DESTINATION="os=latest,name=iPad Pro (9.7 inch)"  POD_LINT="NO"
-    - DESTINATION="os=latest,name=iPad Pro (12.9 inch)" POD_LINT="NO"
-    - DESTINATION="os=latest,name=iPhone SE"            POD_LINT="YES"
+    - DESTINATION="OS=latest,platform=iOS Simulator,name=iPhone 7"             POD_LINT="NO"
+    - DESTINATION="OS=latest,platform=iOS Simulator,name=iPhone 7 Plus"        POD_LINT="NO"
+    - DESTINATION="OS=latest,platform=iOS Simulator,name=iPad Pro (9.7 inch)"  POD_LINT="NO"
+    - DESTINATION="OS=latest,platform=iOS Simulator,name=iPad Pro (12.9 inch)" POD_LINT="NO"
+    - DESTINATION="OS=latest,platform=iOS Simulator,name=iPhone SE"            POD_LINT="YES"
 before_install:
 - gem install cocoapods # Since Travis is not always on latest version
 - pod repo update
