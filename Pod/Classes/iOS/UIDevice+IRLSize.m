@@ -159,12 +159,14 @@ static const NSUInteger kiPadPro12Dot9InchHeightPoints = 1366;
             
         case iPhone6:
         case iPhone6S:
+        case iPhone7:
             size.width = kiPhone4_7InchScreenWidth;
             size.height = kiPhone4_7InchScreenHeight;
             break;
             
         case iPhone6Plus:
         case iPhone6SPlus:
+        case iPhone7Plus:
             size.width = kiPhone5_5InchScreenWidth;
             size.height = kiPhone5_5InchScreenHeight;
             break;
