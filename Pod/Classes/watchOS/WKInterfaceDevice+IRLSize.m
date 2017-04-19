@@ -46,8 +46,24 @@ static const NSUInteger kAppleWatch42mmHeightPoints = 195;
 
 - (RawSize)irl_rawPhysicalScreenSize
 {
-    // TODO: Integrate with SDwatchOSVersion when merged
-    RawSize size = [self irl_estimatedRawPhysicalScreenSizeFromScreenPointHeight];
+    RawSize size = { 0.0f, 0.0f };
+    
+    switch ([SDwatchOSVersion deviceVersion]) {
+        case AppleWatch38mm:
+        case AppleWatch38mmSeries1:
+        case AppleWatch38mmSeries2:
+            size.width = kAppleWatch38mmScreenWidth;
+            size.height = kAppleWatch38mmScreenHeight;
+            
+        case AppleWatch42mm:
+        case AppleWatch42mmSeries1:
+        case AppleWatch42mmSeries2:
+            size.width = kAppleWatch42mmScreenWidth;
+            size.height = kAppleWatch42mmScreenHeight;
+            
+        default:
+            size = [self irl_estimatedRawPhysicalScreenSizeFromScreenPointHeight];
+    }
 
     return size;
 }
