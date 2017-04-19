@@ -9,7 +9,7 @@ for OS in 10.0 10.1 10.2 10.3; do
 		xcodebuild -workspace "Example/IRLSizeExample.xcworkspace" \
 		           -scheme "IRLSizeExample" \
 		           -destination "name=${device},OS=${OS},platform=iOS Simulator" \
-		           -configuration Debug test | xcpretty -c;
+		           -configuration Debug test | bundle exec xcpretty -c;
 
 		((rc += $?))
 	done
