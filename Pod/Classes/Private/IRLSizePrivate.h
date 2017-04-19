@@ -16,6 +16,6 @@ typedef struct {
     RawLengthMeasurement height;
 } RawSize;
 
-#define RAW_SIZE_UNIT [NSUnitLength meters]
+#define RAW_SIZE_UNIT NSUnitLength.meters
 
 #endif /* IRLSizePrivate_h */
