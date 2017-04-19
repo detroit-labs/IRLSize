@@ -27,5 +27,5 @@ Pod::Spec.new do |s|
   s.watchos.source_files = 'Pod/Classes/watchOS/*'
   s.watchos.frameworks = 'Foundation', 'WatchKit'
 
-  s.dependency 'SDVersion', '~> 3.5'
+  s.dependency 'SDVersion', '~> 4.0.2'
 end
