@@ -132,6 +132,7 @@ static const NSUInteger kiPadPro12Dot9InchHeightPoints = 1366;
         case iPadAir:
         case iPadAir2:
         case iPadPro9Dot7Inch:
+        case iPad5:
             size.width = kiPad9_7InchScreenWidth;
             size.height = kiPad9_7InchScreenHeight;
             break;
