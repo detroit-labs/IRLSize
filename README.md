@@ -49,8 +49,8 @@ let width = view.physicalWidth // type: Measurement<UnitLength>
 let height = view.physicalHeight // type: Measurement<UnitLength>
 
 // Raw Version
-let rawWidth = view.rawPhysicalWidth // type: RawLengthMeasurement
-let rawHeight = view.rawPhysicalHeight // type: RawLengthMeasurement
+let rawWidth = view.rawPhysicalWidth // type: IRLRawLengthMeasurement
+let rawHeight = view.rawPhysicalHeight // type: IRLRawLengthMeasurement
 ```
 
 ### Sizing a View

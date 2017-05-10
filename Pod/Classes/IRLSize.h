@@ -16,12 +16,12 @@
     #define IRL_WATCHOS_AVAILABLE(v) __attribute__((availability(watchos,introduced=v)))
 #endif
 
-typedef float IRLRawLengthMeasurement NS_SWIFT_NAME(RawLengthMeasurement); // meters
+typedef float IRLRawLengthMeasurement; // meters
 
 typedef struct {
     IRLRawLengthMeasurement width;
     IRLRawLengthMeasurement height;
-} IRLRawSize NS_SWIFT_NAME(RawSize);
+} IRLRawSize;
 
 #define IRL_RAW_SIZE_UNIT NSUnitLength.meters
 
