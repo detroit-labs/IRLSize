@@ -6,13 +6,13 @@
 //  Copyright © 2016 Detroit Labs. All rights reserved.
 //
 
-#import "UIView+IRLSize.h"
+#import "IRLSize.h"
 
 #import "UIDevice+IRLSizePrivate.h"
 
 @implementation UIView (IRLSizePrivate)
 
-- (RawSize)irl_rawPhysicalSize
+- (IRLRawSize)irl_rawPhysicalSize
 {
     return [UIDevice.currentDevice irl_rawPhysicalSizeOfView:self];
 }
@@ -31,6 +31,7 @@
 
 @implementation UIView (IRLSize)
 
+#if IRL_SUPPORTS_NSMEASUREMENT
 - (NSMeasurement<NSUnitLength *> *)irl_physicalWidth
 {
     if ([self irl_isOnSecondaryScreen]) {
@@ -38,7 +39,7 @@
     }
     
     return [[NSMeasurement alloc] initWithDoubleValue:[self irl_rawPhysicalSize].width
-                                                 unit:RAW_SIZE_UNIT];
+                                                 unit:IRL_RAW_SIZE_UNIT];
 }
 
 - (NSMeasurement<NSUnitLength *> *)irl_physicalHeight
@@ -48,9 +49,21 @@
     }
     
     return [[NSMeasurement alloc] initWithDoubleValue:[self irl_rawPhysicalSize].height
-                                                 unit:RAW_SIZE_UNIT];
+                                                 unit:IRL_RAW_SIZE_UNIT];
+}
+#endif
+
+- (IRLRawLengthMeasurement)irl_rawPhysicalWidth
+{
+    return [self irl_rawPhysicalSize].width;
 }
 
+- (IRLRawLengthMeasurement)irl_rawPhysicalHeight
+{
+    return [self irl_rawPhysicalSize].height;
+}
+
+#if IRL_SUPPORTS_NSMEASUREMENT
 - (CGAffineTransform)irl_transformForPhysicalWidth:(NSMeasurement<NSUnitLength *> *)physicalWidth
 {
     NSMeasurement<NSUnitLength *> *currentPhysicalWidth = self.irl_physicalWidth;
@@ -82,13 +95,45 @@
         NSMeasurement *convertedTarget =
         [target measurementByConvertingToUnit:current.unit];
         
-        double ratio = convertedTarget.doubleValue / current.doubleValue;
-        
-        return CGAffineTransformScale(self.transform, ratio, ratio);
+        return [self irl_scaleTransformForTargetRawMeasurement:convertedTarget.doubleValue
+                                         currentRawMeasurement:current.doubleValue];
     }
     else {
         return self.transform;
     }
+}
+#endif
+
+- (CGAffineTransform)irl_transformForRawPhysicalWidth:(IRLRawLengthMeasurement)rawPhysicalWidth
+{
+    if ([self irl_isOnSecondaryScreen]) {
+        return self.transform;
+    }
+    
+    IRLRawLengthMeasurement currentValue = self.irl_rawPhysicalWidth;
+    
+    return [self irl_scaleTransformForTargetRawMeasurement:rawPhysicalWidth
+                                     currentRawMeasurement:currentValue];
+}
+
+- (CGAffineTransform)irl_transformForRawPhysicalHeight:(IRLRawLengthMeasurement)rawPhysicalHeight
+{
+    if ([self irl_isOnSecondaryScreen]) {
+        return self.transform;
+    }
+    
+    IRLRawLengthMeasurement currentValue = self.irl_rawPhysicalHeight;
+    
+    return [self irl_scaleTransformForTargetRawMeasurement:rawPhysicalHeight
+                                     currentRawMeasurement:currentValue];
+}
+
+- (CGAffineTransform)irl_scaleTransformForTargetRawMeasurement:(IRLRawLengthMeasurement)target
+                                         currentRawMeasurement:(IRLRawLengthMeasurement)current
+{
+    double ratio = target / current;
+    
+    return CGAffineTransformScale(self.transform, ratio, ratio);
 }
 
 @end
