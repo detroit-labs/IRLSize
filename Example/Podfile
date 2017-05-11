@@ -13,5 +13,5 @@ end
 target 'IRLSizeTests' do
     platform :ios, '10.0'
     pod "IRLSize", :path => ".."
-    pod "Kiwi"
+    pod "Kiwi", :inhibit_warnings => true
 end

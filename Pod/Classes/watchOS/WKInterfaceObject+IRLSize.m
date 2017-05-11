@@ -10,6 +10,7 @@
 
 @implementation WKInterfaceObject (IRLSize)
 
+#if IRL_SUPPORTS_NSMEASUREMENT
 - (void)irl_setPhysicalWidth:(NSMeasurement<NSUnitLength *> *)width
 {
     NSMeasurement<NSUnitLength *> *screenWidth =
@@ -19,14 +20,11 @@
         NSMeasurement<NSUnitLength *> *convertedWidth =
         [width measurementByConvertingToUnit:screenWidth.unit];
         
+        [self irl_setRawPhysicalWidth:convertedWidth.doubleValue];
+        
         double ratio = convertedWidth.doubleValue / screenWidth.doubleValue;
         
-        CGFloat screenWidthInPoints =
-        CGRectGetWidth([WKInterfaceDevice currentDevice].screenBounds);
-        
-        CGFloat targetWidth = screenWidthInPoints * ratio;
-        
-        [self setWidth:targetWidth];
+        [self irl_setWidthRatio:ratio];
     }
 }
 
@@ -41,13 +39,49 @@
         
         double ratio = convertedHeight.doubleValue / screenHeight.doubleValue;
         
-        CGFloat screenHeightInPoints =
-        CGRectGetHeight([WKInterfaceDevice currentDevice].screenBounds);
-        
-        CGFloat targetHeight = screenHeightInPoints * ratio;
-        
-        [self setHeight:targetHeight];
+        [self irl_setHeightRatio:ratio];
     }
+}
+#endif
+
+- (void)irl_setRawPhysicalWidth:(IRLRawLengthMeasurement)width
+{
+    IRLRawLengthMeasurement screenWidth =
+    [WKInterfaceDevice currentDevice].irl_rawPhysicalScreenWidth;
+    
+    double ratio = width / screenWidth;
+
+    [self irl_setWidthRatio:ratio];
+}
+
+- (void)irl_setRawPhysicalHeight:(IRLRawLengthMeasurement)height
+{
+    IRLRawLengthMeasurement screenHeight =
+    [WKInterfaceDevice currentDevice].irl_rawPhysicalScreenHeight;
+    
+    double ratio = height / screenHeight;
+    
+    [self irl_setHeightRatio:ratio];
+}
+
+- (void)irl_setWidthRatio:(double)ratio
+{
+    CGFloat screenWidthInPoints =
+    CGRectGetWidth([WKInterfaceDevice currentDevice].screenBounds);
+    
+    CGFloat targetWidth = screenWidthInPoints * ratio;
+    
+    [self setWidth:targetWidth];
+}
+
+- (void)irl_setHeightRatio:(double)ratio
+{
+    CGFloat screenHeightInPoints =
+    CGRectGetHeight([WKInterfaceDevice currentDevice].screenBounds);
+    
+    CGFloat targetHeight = screenHeightInPoints * ratio;
+    
+    [self setHeight:targetHeight];
 }
 
 @end

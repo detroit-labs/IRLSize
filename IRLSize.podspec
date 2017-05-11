@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "IRLSize"
-  s.version          = "1.0.2"
+  s.version          = "1.1.0"
   s.summary          = "A library for determining the actual physical size of pixels on an iOS or watchOS device."
   s.description      = <<-DESC
                        IRLSize is used to determine the physical size of the device
@@ -14,8 +14,8 @@ Pod::Spec.new do |s|
   s.source           = { :git => "https://github.com/detroit-labs/IRLSize.git",
                          :tag => s.version.to_s }
 
-  s.ios.deployment_target = '10.0'
-  s.watchos.deployment_target = '3.0'
+  s.ios.deployment_target = '8.0'
+  s.watchos.deployment_target = '2.0'
   s.requires_arc = true
 
   s.source_files = 'Pod/Classes/*', 'Pod/Classes/Private/*'

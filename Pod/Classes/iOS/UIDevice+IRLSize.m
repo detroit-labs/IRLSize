@@ -6,12 +6,10 @@
 //  Copyright © 2016 Detroit Labs. All rights reserved.
 //
 
-#import "UIDevice+IRLSize.h"
+#import "IRLSize.h"
 
 #import <SDVersion/SDVersion.h>
 
-#import "UIDevice+IRLSizePrivate.h"
-#import "UIView+IRLSize.h"
 #import "UIView+IRLSizePrivate.h"
 
 // https://www.sven.de/dpi/ is a good resource for determining screen sizes.
@@ -39,9 +37,9 @@ static const NSUInteger kiPadPro12Dot9InchHeightPoints = 1366;
 
 @implementation UIDevice (IRLSizePrivate)
 
-- (RawSize)irl_rawPhysicalSizeOfView:(UIView *)view
+- (IRLRawSize)irl_rawPhysicalSizeOfView:(UIView *)view
 {
-    RawSize dimensions = { 0.0f, 0.0f };
+    IRLRawSize dimensions = { 0.0f, 0.0f };
     
     // If the view’s window is nil, we’ll just assume that it will be going onto
     // the main screen. This is what happens if you use this code during
@@ -73,7 +71,7 @@ static const NSUInteger kiPadPro12Dot9InchHeightPoints = 1366;
             windowSize = windowSizeSwap;
         }
         
-        RawSize rawPhysicalScreenSize = [self irl_rawPhysicalScreenSize];
+        IRLRawSize rawPhysicalScreenSize = [self irl_rawPhysicalScreenSize];
         
         dimensions.width = ((CGRectGetWidth(convertedFrame) / windowSize.width) *
                             rawPhysicalScreenSize.width);
@@ -85,9 +83,9 @@ static const NSUInteger kiPadPro12Dot9InchHeightPoints = 1366;
     return dimensions;
 }
 
-- (RawSize)irl_estimatedRawPhysicalScreenSizeFromScreenPointHeight
+- (IRLRawSize)irl_estimatedRawPhysicalScreenSizeFromScreenPointHeight
 {
-    RawSize estimatedDimensions = { 0.0f, 0.0f };
+    IRLRawSize estimatedDimensions = { 0.0f, 0.0f };
     
     CGRect portraitBounds = UIScreen.mainScreen.fixedCoordinateSpace.bounds;
     
@@ -123,9 +121,9 @@ static const NSUInteger kiPadPro12Dot9InchHeightPoints = 1366;
     return estimatedDimensions;
 }
 
-- (RawSize)irl_rawPhysicalScreenSize
+- (IRLRawSize)irl_rawPhysicalScreenSize
 {
-    RawSize size = { 0.0f, 0.0f };
+    IRLRawSize size = { 0.0f, 0.0f };
     
     switch ([SDiOSVersion deviceVersion]) {
         case iPad4:
@@ -184,20 +182,32 @@ static const NSUInteger kiPadPro12Dot9InchHeightPoints = 1366;
 
 @implementation UIDevice (IRLSize)
 
+#if IRL_SUPPORTS_NSMEASUREMENT
 - (NSMeasurement<NSUnitLength *> *)irl_physicalScreenHeight
 {
-    RawSize deviceDimensions = [self irl_rawPhysicalScreenSize];
+    IRLRawSize deviceDimensions = [self irl_rawPhysicalScreenSize];
     
     return [[NSMeasurement alloc] initWithDoubleValue:deviceDimensions.height
-                                                 unit:RAW_SIZE_UNIT];
+                                                 unit:IRL_RAW_SIZE_UNIT];
 }
 
 - (NSMeasurement<NSUnitLength *> *)irl_physicalScreenWidth
 {
-    RawSize deviceDimensions = [self irl_rawPhysicalScreenSize];
+    IRLRawSize deviceDimensions = [self irl_rawPhysicalScreenSize];
     
     return [[NSMeasurement alloc] initWithDoubleValue:deviceDimensions.width
-                                                 unit:RAW_SIZE_UNIT];
+                                                 unit:IRL_RAW_SIZE_UNIT];
+}
+#endif
+
+- (IRLRawLengthMeasurement)irl_rawPhysicalScreenHeight
+{
+    return [self irl_rawPhysicalScreenSize].height;
+}
+
+- (IRLRawLengthMeasurement)irl_rawPhysicalScreenWidth
+{
+    return [self irl_rawPhysicalScreenSize].width;
 }
 
 @end
