@@ -3,14 +3,12 @@
 //  IRLSizeExample
 //
 //  Created by Jeff Kelley on 11/13/2014.
-//  Copyright © 2016 Detroit Labs. All rights reserved.
+//  Copyright © 2017 Detroit Labs. All rights reserved.
 //
-
 
 #import <UIKit/UIKit.h>
 
 #import "IRLAppDelegate.h"
-
 
 int main(int argc, char * argv[])
 {
