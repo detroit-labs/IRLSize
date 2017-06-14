@@ -129,6 +129,7 @@ static const NSUInteger kiPadPro12Dot9InchHeightPoints = 1366;
         case kiPadPro10Dot5InchHeightPoints:
             estimatedDimensions.width = kiPad10_5ScreenWidth;
             estimatedDimensions.height = kiPad10_5InchScreenHeight;
+            break;
             
         case kiPadPro12Dot9InchHeightPoints:
             estimatedDimensions.width = kiPad12_9InchScreenWidth;
