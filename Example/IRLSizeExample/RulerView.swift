@@ -2,8 +2,8 @@
 //  RulerView.swift
 //  IRLSizeExample
 //
-//  Created by Jeff Kelley on 6/28/16.
-//  Copyright © 2016 Detroit Labs. All rights reserved.
+//  Created by Jeff Kelley on 6/28/2016.
+//  Copyright © 2017 Detroit Labs. All rights reserved.
 //
 
 import Foundation
