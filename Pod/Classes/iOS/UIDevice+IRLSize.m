@@ -145,12 +145,7 @@ static const NSUInteger kiPadPro12Dot9InchHeightPoints = 1366;
     IRLRawSize size = { 0.0f, 0.0f };
     
     switch ([SDiOSVersion deviceVersion]) {
-        case iPhone4:
         case iPhone4S:
-        case iPodTouch1Gen:
-        case iPodTouch2Gen:
-        case iPodTouch3Gen:
-        case iPodTouch4Gen:
             size.width = kiPhone3_5InchScreenWidth;
             size.height = kiPhone3_5InchScreenHeight;
             break;
@@ -179,7 +174,6 @@ static const NSUInteger kiPadPro12Dot9InchHeightPoints = 1366;
             size.height = kiPhone5_5InchScreenHeight;
             break;
             
-        case iPad1:
         case iPad2:
         case iPad3:
         case iPad4:
