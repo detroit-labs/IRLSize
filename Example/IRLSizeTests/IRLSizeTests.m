@@ -895,6 +895,76 @@ describe(@"Getting the native size of a device", ^{
         
     });
     
+    context(@"on an iPod touch (5th Generation)", ^{
+        
+        beforeEach(^{
+            
+            [SDiOSVersion stub:@selector(deviceVersion)
+                     andReturn:theValue(iPodTouch5Gen)];
+            
+        });
+        
+        it(@"should report the correct height", ^{
+            
+            NSMeasurement<NSUnitLength *> *expectedHeight =
+            [[NSMeasurement alloc] initWithDoubleValue:0.0885
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenHeight should]
+             beWithin:0.01
+             ofMeasurement:expectedHeight];
+            
+        });
+        
+        it(@"should report the correct width", ^{
+            
+            NSMeasurement<NSUnitLength *> *expectedWidth =
+            [[NSMeasurement alloc] initWithDoubleValue:0.0499
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenWidth should]
+             beWithin:0.01
+             ofMeasurement:expectedWidth];
+            
+        });
+        
+    });
+    
+    context(@"on an iPod touch (6th Generation)", ^{
+        
+        beforeEach(^{
+            
+            [SDiOSVersion stub:@selector(deviceVersion)
+                     andReturn:theValue(iPodTouch6Gen)];
+            
+        });
+        
+        it(@"should report the correct height", ^{
+            
+            NSMeasurement<NSUnitLength *> *expectedHeight =
+            [[NSMeasurement alloc] initWithDoubleValue:0.0885
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenHeight should]
+             beWithin:0.01
+             ofMeasurement:expectedHeight];
+            
+        });
+        
+        it(@"should report the correct width", ^{
+            
+            NSMeasurement<NSUnitLength *> *expectedWidth =
+            [[NSMeasurement alloc] initWithDoubleValue:0.0499
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenWidth should]
+             beWithin:0.01
+             ofMeasurement:expectedWidth];
+            
+        });
+        
+    });
+    
 });
 
 describe(@"Estimating the size of an unknown device based on the screen size", ^{
