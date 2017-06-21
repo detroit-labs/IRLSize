@@ -21,6 +21,41 @@ describe(@"Getting the native size of a device", ^{
     
     registerMatchers(@"IRL");
     
+    context(@"on an iPhone 4S", ^{
+        
+        beforeEach(^{
+            
+            [SDiOSVersion stub:@selector(deviceVersion)
+                     andReturn:theValue(iPhone4S)];
+            
+        });
+        
+        it(@"should report the correct height", ^{
+            
+            NSMeasurement<NSUnitLength *> *expectedHeight =
+            [[NSMeasurement alloc] initWithDoubleValue:0.0740
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenHeight should]
+             beWithin:0.01
+             ofMeasurement:expectedHeight];
+            
+        });
+        
+        it(@"should report the correct width", ^{
+            
+            NSMeasurement<NSUnitLength *> *expectedWidth =
+            [[NSMeasurement alloc] initWithDoubleValue:0.0493
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenWidth should]
+             beWithin:0.01
+             ofMeasurement:expectedWidth];
+            
+        });
+        
+    });
+    
     context(@"on an iPhone 5", ^{
         
         beforeEach(^{
@@ -195,41 +230,6 @@ describe(@"Getting the native size of a device", ^{
         
     });
     
-    context(@"on an iPhone 6s", ^{
-        
-        beforeEach(^{
-            
-            [SDiOSVersion stub:@selector(deviceVersion)
-                     andReturn:theValue(iPhone6S)];
-            
-        });
-        
-        it(@"should report the correct height", ^{
-            
-            NSMeasurement<NSUnitLength *> *expectedHeight =
-            [[NSMeasurement alloc] initWithDoubleValue:0.1041
-                                                  unit:[NSUnitLength meters]];
-            
-            [[UIDevice.currentDevice.irl_physicalScreenHeight should]
-             beWithin:0.01
-             ofMeasurement:expectedHeight];
-            
-        });
-        
-        it(@"should report the correct width", ^{
-            
-            NSMeasurement<NSUnitLength *> *expectedWidth =
-            [[NSMeasurement alloc] initWithDoubleValue:0.0585
-                                                  unit:[NSUnitLength meters]];
-            
-            [[UIDevice.currentDevice.irl_physicalScreenWidth should]
-             beWithin:0.01
-             ofMeasurement:expectedWidth];
-            
-        });
-        
-    });
-    
     context(@"on an iPhone 6 Plus", ^{
         
         beforeEach(^{
@@ -300,19 +300,19 @@ describe(@"Getting the native size of a device", ^{
         
     });
     
-    context(@"on an iPad mini (2nd Generation)", ^{
+    context(@"on an iPhone 6s", ^{
         
         beforeEach(^{
             
             [SDiOSVersion stub:@selector(deviceVersion)
-                     andReturn:theValue(iPadMini2)];
+                     andReturn:theValue(iPhone6S)];
             
         });
         
         it(@"should report the correct height", ^{
             
             NSMeasurement<NSUnitLength *> *expectedHeight =
-            [[NSMeasurement alloc] initWithDoubleValue:0.1605
+            [[NSMeasurement alloc] initWithDoubleValue:0.1041
                                                   unit:[NSUnitLength meters]];
             
             [[UIDevice.currentDevice.irl_physicalScreenHeight should]
@@ -324,7 +324,7 @@ describe(@"Getting the native size of a device", ^{
         it(@"should report the correct width", ^{
             
             NSMeasurement<NSUnitLength *> *expectedWidth =
-            [[NSMeasurement alloc] initWithDoubleValue:0.1204
+            [[NSMeasurement alloc] initWithDoubleValue:0.0585
                                                   unit:[NSUnitLength meters]];
             
             [[UIDevice.currentDevice.irl_physicalScreenWidth should]
@@ -335,19 +335,19 @@ describe(@"Getting the native size of a device", ^{
         
     });
     
-    context(@"on an iPad mini (3rd Generation)", ^{
+    context(@"on an iPhone 7", ^{
         
         beforeEach(^{
             
             [SDiOSVersion stub:@selector(deviceVersion)
-                     andReturn:theValue(iPadMini3)];
+                     andReturn:theValue(iPhone7)];
             
         });
         
         it(@"should report the correct height", ^{
             
             NSMeasurement<NSUnitLength *> *expectedHeight =
-            [[NSMeasurement alloc] initWithDoubleValue:0.1605
+            [[NSMeasurement alloc] initWithDoubleValue:0.1041
                                                   unit:[NSUnitLength meters]];
             
             [[UIDevice.currentDevice.irl_physicalScreenHeight should]
@@ -359,7 +359,7 @@ describe(@"Getting the native size of a device", ^{
         it(@"should report the correct width", ^{
             
             NSMeasurement<NSUnitLength *> *expectedWidth =
-            [[NSMeasurement alloc] initWithDoubleValue:0.1204
+            [[NSMeasurement alloc] initWithDoubleValue:0.0585
                                                   unit:[NSUnitLength meters]];
             
             [[UIDevice.currentDevice.irl_physicalScreenWidth should]
@@ -370,19 +370,19 @@ describe(@"Getting the native size of a device", ^{
         
     });
     
-    context(@"on an iPad mini (4th Generation)", ^{
+    context(@"on an iPhone 7 Plus", ^{
         
         beforeEach(^{
             
             [SDiOSVersion stub:@selector(deviceVersion)
-                     andReturn:theValue(iPadMini4)];
+                     andReturn:theValue(iPhone7Plus)];
             
         });
         
         it(@"should report the correct height", ^{
             
             NSMeasurement<NSUnitLength *> *expectedHeight =
-            [[NSMeasurement alloc] initWithDoubleValue:0.1605
+            [[NSMeasurement alloc] initWithDoubleValue:0.1218
                                                   unit:[NSUnitLength meters]];
             
             [[UIDevice.currentDevice.irl_physicalScreenHeight should]
@@ -394,7 +394,77 @@ describe(@"Getting the native size of a device", ^{
         it(@"should report the correct width", ^{
             
             NSMeasurement<NSUnitLength *> *expectedWidth =
-            [[NSMeasurement alloc] initWithDoubleValue:0.1204
+            [[NSMeasurement alloc] initWithDoubleValue:0.0685
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenWidth should]
+             beWithin:0.01
+             ofMeasurement:expectedWidth];
+            
+        });
+        
+    });
+    
+    context(@"on an iPad (2nd Generation)", ^{
+        
+        beforeEach(^{
+            
+            [SDiOSVersion stub:@selector(deviceVersion)
+                     andReturn:theValue(iPad2)];
+            
+        });
+        
+        it(@"should report the correct height", ^{
+            
+            NSMeasurement<NSUnitLength *> *expectedHeight =
+            [[NSMeasurement alloc] initWithDoubleValue:0.1971
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenHeight should]
+             beWithin:0.01
+             ofMeasurement:expectedHeight];
+            
+        });
+        
+        it(@"should report the correct width", ^{
+            
+            NSMeasurement<NSUnitLength *> *expectedWidth =
+            [[NSMeasurement alloc] initWithDoubleValue:0.1478
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenWidth should]
+             beWithin:0.01
+             ofMeasurement:expectedWidth];
+            
+        });
+        
+    });
+    
+    context(@"on an iPad (3rd Generation)", ^{
+        
+        beforeEach(^{
+            
+            [SDiOSVersion stub:@selector(deviceVersion)
+                     andReturn:theValue(iPad3)];
+            
+        });
+        
+        it(@"should report the correct height", ^{
+            
+            NSMeasurement<NSUnitLength *> *expectedHeight =
+            [[NSMeasurement alloc] initWithDoubleValue:0.1971
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenHeight should]
+             beWithin:0.01
+             ofMeasurement:expectedHeight];
+            
+        });
+        
+        it(@"should report the correct width", ^{
+            
+            NSMeasurement<NSUnitLength *> *expectedWidth =
+            [[NSMeasurement alloc] initWithDoubleValue:0.1478
                                                   unit:[NSUnitLength meters]];
             
             [[UIDevice.currentDevice.irl_physicalScreenWidth should]
@@ -440,6 +510,41 @@ describe(@"Getting the native size of a device", ^{
         
     });
     
+    context(@"on an iPad mini", ^{
+        
+        beforeEach(^{
+            
+            [SDiOSVersion stub:@selector(deviceVersion)
+                     andReturn:theValue(iPadMini)];
+            
+        });
+        
+        it(@"should report the correct height", ^{
+            
+            NSMeasurement<NSUnitLength *> *expectedHeight =
+            [[NSMeasurement alloc] initWithDoubleValue:0.1605
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenHeight should]
+             beWithin:0.01
+             ofMeasurement:expectedHeight];
+            
+        });
+        
+        it(@"should report the correct width", ^{
+            
+            NSMeasurement<NSUnitLength *> *expectedWidth =
+            [[NSMeasurement alloc] initWithDoubleValue:0.1204
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenWidth should]
+             beWithin:0.01
+             ofMeasurement:expectedWidth];
+            
+        });
+        
+    });
+    
     context(@"on an iPad Air", ^{
         
         beforeEach(^{
@@ -465,6 +570,41 @@ describe(@"Getting the native size of a device", ^{
             
             NSMeasurement<NSUnitLength *> *expectedWidth =
             [[NSMeasurement alloc] initWithDoubleValue:0.1478
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenWidth should]
+             beWithin:0.01
+             ofMeasurement:expectedWidth];
+            
+        });
+        
+    });
+    
+    context(@"on an iPad mini (2nd Generation)", ^{
+        
+        beforeEach(^{
+            
+            [SDiOSVersion stub:@selector(deviceVersion)
+                     andReturn:theValue(iPadMini2)];
+            
+        });
+        
+        it(@"should report the correct height", ^{
+            
+            NSMeasurement<NSUnitLength *> *expectedHeight =
+            [[NSMeasurement alloc] initWithDoubleValue:0.1605
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenHeight should]
+             beWithin:0.01
+             ofMeasurement:expectedHeight];
+            
+        });
+        
+        it(@"should report the correct width", ^{
+            
+            NSMeasurement<NSUnitLength *> *expectedWidth =
+            [[NSMeasurement alloc] initWithDoubleValue:0.1204
                                                   unit:[NSUnitLength meters]];
             
             [[UIDevice.currentDevice.irl_physicalScreenWidth should]
@@ -510,6 +650,41 @@ describe(@"Getting the native size of a device", ^{
         
     });
     
+    context(@"on an iPad mini (3rd Generation)", ^{
+        
+        beforeEach(^{
+            
+            [SDiOSVersion stub:@selector(deviceVersion)
+                     andReturn:theValue(iPadMini3)];
+            
+        });
+        
+        it(@"should report the correct height", ^{
+            
+            NSMeasurement<NSUnitLength *> *expectedHeight =
+            [[NSMeasurement alloc] initWithDoubleValue:0.1605
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenHeight should]
+             beWithin:0.01
+             ofMeasurement:expectedHeight];
+            
+        });
+        
+        it(@"should report the correct width", ^{
+            
+            NSMeasurement<NSUnitLength *> *expectedWidth =
+            [[NSMeasurement alloc] initWithDoubleValue:0.1204
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenWidth should]
+             beWithin:0.01
+             ofMeasurement:expectedWidth];
+            
+        });
+        
+    });
+    
     context(@"on a 9.7\" iPad Pro", ^{
         
         beforeEach(^{
@@ -535,56 +710,6 @@ describe(@"Getting the native size of a device", ^{
             
             NSMeasurement<NSUnitLength *> *expectedWidth =
             [[NSMeasurement alloc] initWithDoubleValue:0.1478
-                                                  unit:[NSUnitLength meters]];
-            
-            [[UIDevice.currentDevice.irl_physicalScreenWidth should]
-             beWithin:0.01
-             ofMeasurement:expectedWidth];
-            
-        });
-        
-    });
-    
-    context(@"on a 10.5\" iPad Pro", ^{
-        
-        beforeEach(^{
-            
-            // TODO: When SDVersion updates, use the new device version.
-            
-            [SDiOSVersion stub:@selector(deviceVersion)
-                     andReturn:theValue(UnknownDevice)];
-            
-            UIScreen *mockScreen = [UIScreen mock];
-            [UIScreen stub:@selector(mainScreen)
-                 andReturn:mockScreen];
-            
-            KWMock <UICoordinateSpace> *mockCoordinateSpace =
-            [KWMock mockForProtocol:@protocol(UICoordinateSpace)];
-            
-            [mockScreen stub:@selector(fixedCoordinateSpace)
-                   andReturn:mockCoordinateSpace];
-            
-            [mockCoordinateSpace stub:@selector(bounds)
-                            andReturn:theValue(CGRectMake(0, 0, 834, 1112))];
-            
-        });
-        
-        it(@"should report the correct height", ^{
-            
-            NSMeasurement<NSUnitLength *> *expectedHeight =
-            [[NSMeasurement alloc] initWithDoubleValue:0.2134
-                                                  unit:[NSUnitLength meters]];
-            
-            [[UIDevice.currentDevice.irl_physicalScreenHeight should]
-             beWithin:0.01
-             ofMeasurement:expectedHeight];
-            
-        });
-        
-        it(@"should report the correct width", ^{
-            
-            NSMeasurement<NSUnitLength *> *expectedWidth =
-            [[NSMeasurement alloc] initWithDoubleValue:0.16
                                                   unit:[NSUnitLength meters]];
             
             [[UIDevice.currentDevice.irl_physicalScreenWidth should]
@@ -630,12 +755,434 @@ describe(@"Getting the native size of a device", ^{
         
     });
     
+    context(@"on an iPad mini (4th Generation)", ^{
+        
+        beforeEach(^{
+            
+            [SDiOSVersion stub:@selector(deviceVersion)
+                     andReturn:theValue(iPadMini4)];
+            
+        });
+        
+        it(@"should report the correct height", ^{
+            
+            NSMeasurement<NSUnitLength *> *expectedHeight =
+            [[NSMeasurement alloc] initWithDoubleValue:0.1605
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenHeight should]
+             beWithin:0.01
+             ofMeasurement:expectedHeight];
+            
+        });
+        
+        it(@"should report the correct width", ^{
+            
+            NSMeasurement<NSUnitLength *> *expectedWidth =
+            [[NSMeasurement alloc] initWithDoubleValue:0.1204
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenWidth should]
+             beWithin:0.01
+             ofMeasurement:expectedWidth];
+            
+        });
+        
+    });
+    
+    context(@"on an iPad (5th Generation)", ^{
+        
+        beforeEach(^{
+            
+            [SDiOSVersion stub:@selector(deviceVersion)
+                     andReturn:theValue(iPad5)];
+            
+        });
+        
+        it(@"should report the correct height", ^{
+            
+            NSMeasurement<NSUnitLength *> *expectedHeight =
+            [[NSMeasurement alloc] initWithDoubleValue:0.1971
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenHeight should]
+             beWithin:0.01
+             ofMeasurement:expectedHeight];
+            
+        });
+        
+        it(@"should report the correct width", ^{
+            
+            NSMeasurement<NSUnitLength *> *expectedWidth =
+            [[NSMeasurement alloc] initWithDoubleValue:0.1478
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenWidth should]
+             beWithin:0.01
+             ofMeasurement:expectedWidth];
+            
+        });
+        
+    });
+    
+    context(@"on a 10.5\" iPad Pro", ^{
+        
+        beforeEach(^{
+            
+            [SDiOSVersion stub:@selector(deviceVersion)
+                     andReturn:theValue(iPadPro10Dot5Inch)];
+            
+        });
+        
+        it(@"should report the correct height", ^{
+            
+            NSMeasurement<NSUnitLength *> *expectedHeight =
+            [[NSMeasurement alloc] initWithDoubleValue:0.2134
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenHeight should]
+             beWithin:0.01
+             ofMeasurement:expectedHeight];
+            
+        });
+        
+        it(@"should report the correct width", ^{
+            
+            NSMeasurement<NSUnitLength *> *expectedWidth =
+            [[NSMeasurement alloc] initWithDoubleValue:0.16
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenWidth should]
+             beWithin:0.01
+             ofMeasurement:expectedWidth];
+            
+        });
+        
+    });
+    
+    context(@"on a 12.9\" iPad Pro (2nd Generation)", ^{
+        
+        beforeEach(^{
+            
+            [SDiOSVersion stub:@selector(deviceVersion)
+                     andReturn:theValue(iPadPro12Dot9Inch2Gen)];
+            
+        });
+        
+        it(@"should report the correct height", ^{
+            
+            NSMeasurement<NSUnitLength *> *expectedHeight =
+            [[NSMeasurement alloc] initWithDoubleValue:0.2622
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenHeight should]
+             beWithin:0.01
+             ofMeasurement:expectedHeight];
+            
+        });
+        
+        it(@"should report the correct width", ^{
+            
+            NSMeasurement<NSUnitLength *> *expectedWidth =
+            [[NSMeasurement alloc] initWithDoubleValue:0.1965
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenWidth should]
+             beWithin:0.01
+             ofMeasurement:expectedWidth];
+            
+        });
+        
+    });
+    
+});
+
+describe(@"Estimating the size of an unknown device based on the screen size", ^{
+    
+    registerMatchers(@"IRL");
+    
+    __block UIScreen *mockScreen = nil;
+    __block NSObject <UICoordinateSpace> *mockCoordinateSpace = nil;
+    
+    beforeEach(^{
+        
+        [SDiOSVersion stub:@selector(deviceVersion)
+                 andReturn:theValue(Simulator)];
+        
+        mockScreen = [UIScreen mock];
+        mockCoordinateSpace = [KWMock mockForProtocol:@protocol(UICoordinateSpace)];
+        
+        [UIScreen stub:@selector(mainScreen) andReturn:mockScreen];
+        
+        [mockScreen stub:@selector(fixedCoordinateSpace)
+               andReturn:mockCoordinateSpace];
+        
+    });
+    
+    afterEach(^{
+        
+        mockScreen = nil;
+        
+    });
+    
+    context(@"on a device with a resolution of 320 ⨉ 480", ^{
+        
+        beforeEach(^{
+            
+            [mockCoordinateSpace stub:@selector(bounds)
+                            andReturn:theValue(CGRectMake(0.0f, 0.0f,
+                                                          320.0f, 480.0))];
+            
+        });
+        
+        it(@"should estimate the height of a 3.5\" device", ^{
+            
+            NSMeasurement<NSUnitLength *> *expectedHeight =
+            [[NSMeasurement alloc] initWithDoubleValue:0.0740
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenHeight should]
+             beWithin:0.01
+             ofMeasurement:expectedHeight];
+            
+        });
+        
+        it(@"should estimate the width of a 3.5\" device", ^{
+            
+            NSMeasurement<NSUnitLength *> *expectedWidth =
+            [[NSMeasurement alloc] initWithDoubleValue:0.0493
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenWidth should]
+             beWithin:0.01
+             ofMeasurement:expectedWidth];
+            
+        });
+        
+    });
+    
+    context(@"on a device with a resolution of 320 ⨉ 568", ^{
+        
+        beforeEach(^{
+            
+            [mockCoordinateSpace stub:@selector(bounds)
+                            andReturn:theValue(CGRectMake(0.0f, 0.0f,
+                                                          320.0f, 568.0f))];
+            
+        });
+        
+        it(@"should estimate the height of a 4\" device", ^{
+            
+            NSMeasurement<NSUnitLength *> *expectedHeight =
+            [[NSMeasurement alloc] initWithDoubleValue:0.0885
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenHeight should]
+             beWithin:0.01
+             ofMeasurement:expectedHeight];
+            
+        });
+        
+        it(@"should estimate the width of a 4\" device", ^{
+            
+            NSMeasurement<NSUnitLength *> *expectedWidth =
+            [[NSMeasurement alloc] initWithDoubleValue:0.0499
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenWidth should]
+             beWithin:0.01
+             ofMeasurement:expectedWidth];
+            
+        });
+        
+    });
+    
+    context(@"on a device with a resolution of 375 ⨉ 667", ^{
+        
+        beforeEach(^{
+            
+            [mockCoordinateSpace stub:@selector(bounds)
+                            andReturn:theValue(CGRectMake(0.0f, 0.0f,
+                                                          375.0f, 667.0f))];
+            
+        });
+        
+        it(@"should estimate the height of a 4.7\" device", ^{
+            
+            NSMeasurement<NSUnitLength *> *expectedHeight =
+            [[NSMeasurement alloc] initWithDoubleValue:0.1041
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenHeight should]
+             beWithin:0.01
+             ofMeasurement:expectedHeight];
+            
+        });
+        
+        it(@"should estimate the width of a 4.7\" device", ^{
+            
+            NSMeasurement<NSUnitLength *> *expectedWidth =
+            [[NSMeasurement alloc] initWithDoubleValue:0.0585f
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenWidth should]
+             beWithin:0.01
+             ofMeasurement:expectedWidth];
+            
+        });
+        
+    });
+    
+    context(@"on a device with a resolution of 414 ⨉ 736", ^{
+        
+        beforeEach(^{
+            
+            [mockCoordinateSpace stub:@selector(bounds)
+                            andReturn:theValue(CGRectMake(0.0f, 0.0f,
+                                                          414.0f, 736.0f))];
+            
+        });
+        
+        it(@"should estimate the height of a 5.5\" device", ^{
+            
+            NSMeasurement<NSUnitLength *> *expectedHeight =
+            [[NSMeasurement alloc] initWithDoubleValue:0.1218
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenHeight should]
+             beWithin:0.01
+             ofMeasurement:expectedHeight];
+            
+        });
+        
+        it(@"should estimate the width of a 5.5\" device", ^{
+            
+            NSMeasurement<NSUnitLength *> *expectedWidth =
+            [[NSMeasurement alloc] initWithDoubleValue:0.0685
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenWidth should]
+             beWithin:0.01
+             ofMeasurement:expectedWidth];
+            
+        });
+        
+    });
+    
+    context(@"on a device with a resolution of 768 ⨉ 1024", ^{
+        
+        beforeEach(^{
+            
+            [mockCoordinateSpace stub:@selector(bounds)
+                            andReturn:theValue(CGRectMake(0.0f, 0.0f,
+                                                          768.0f, 1024.0f))];
+            
+        });
+        
+        it(@"should estimate the height of a 9.7\" device", ^{
+            
+            NSMeasurement<NSUnitLength *> *expectedHeight =
+            [[NSMeasurement alloc] initWithDoubleValue:0.1971
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenHeight should]
+             beWithin:0.01
+             ofMeasurement:expectedHeight];
+            
+        });
+        
+        it(@"should estimate the width of a 9.7\" device", ^{
+            
+            NSMeasurement<NSUnitLength *> *expectedWidth =
+            [[NSMeasurement alloc] initWithDoubleValue:0.1478
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenWidth should]
+             beWithin:0.01
+             ofMeasurement:expectedWidth];
+            
+        });
+        
+    });
+    
+    context(@"on a device with a resolution of 834 ⨉ 1112", ^{
+        
+        beforeEach(^{
+            
+            [mockCoordinateSpace stub:@selector(bounds)
+                            andReturn:theValue(CGRectMake(0.0f, 0.0f,
+                                                          834.0f, 1112.0f))];
+            
+        });
+        
+        it(@"should estimate the height of a 10.5\" device", ^{
+            
+            NSMeasurement<NSUnitLength *> *expectedHeight =
+            [[NSMeasurement alloc] initWithDoubleValue:0.2134
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenHeight should]
+             beWithin:0.01
+             ofMeasurement:expectedHeight];
+            
+        });
+        
+        it(@"should estimate the width of a 10.5\" device", ^{
+            
+            NSMeasurement<NSUnitLength *> *expectedWidth =
+            [[NSMeasurement alloc] initWithDoubleValue:0.16
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenWidth should]
+             beWithin:0.01
+             ofMeasurement:expectedWidth];
+            
+        });
+        
+    });
+    
+    context(@"on a device with a resolution of 1024 ⨉ 1366", ^{
+        
+        beforeEach(^{
+            
+            [mockCoordinateSpace stub:@selector(bounds)
+                            andReturn:theValue(CGRectMake(0.0f, 0.0f,
+                                                          1024.0f, 1366.0f))];
+            
+        });
+        
+        it(@"should estimate the height of a 12.9\" device", ^{
+            
+            NSMeasurement<NSUnitLength *> *expectedHeight =
+            [[NSMeasurement alloc] initWithDoubleValue:0.2622
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenHeight should]
+             beWithin:0.01
+             ofMeasurement:expectedHeight];
+            
+        });
+        
+        it(@"should estimate the width of a 12.9\" device", ^{
+            
+            NSMeasurement<NSUnitLength *> *expectedWidth =
+            [[NSMeasurement alloc] initWithDoubleValue:0.1965
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenWidth should]
+             beWithin:0.01
+             ofMeasurement:expectedWidth];
+            
+        });
+        
+    });
+    
 });
 
 describe(@"Getting the IRL size of a view", ^{
     
     registerMatchers(@"IRL");
-
+    
     __block UIApplication *mockSharedApplication;
     __block UIScreen *mockMainScreen;
     __block UIWindow *mockWindow;
@@ -914,252 +1461,6 @@ describe(@"Getting the IRL size of a view", ^{
                 [[theValue(CGAffineTransformIsIdentity(transform)) should] beTrue];
                 
             });
-            
-        });
-        
-    });
-    
-});
-
-describe(@"Estimating the size of an unknown device based on the screen size", ^{
-    
-    registerMatchers(@"IRL");
-    
-    __block UIScreen *mockScreen = nil;
-    __block NSObject <UICoordinateSpace> *mockCoordinateSpace = nil;
-    
-    beforeEach(^{
-        
-        [SDiOSVersion stub:@selector(deviceVersion)
-                 andReturn:theValue(Simulator)];
-        
-        mockScreen = [UIScreen mock];
-        mockCoordinateSpace = [KWMock mockForProtocol:@protocol(UICoordinateSpace)];
-        
-        [UIScreen stub:@selector(mainScreen) andReturn:mockScreen];
-        
-        [mockScreen stub:@selector(fixedCoordinateSpace)
-               andReturn:mockCoordinateSpace];
-        
-    });
-    
-    afterEach(^{
-        
-        mockScreen = nil;
-        
-    });
-    
-    context(@"on a device with a resolution of 320 ⨉ 568", ^{
-        
-        beforeEach(^{
-            
-            [mockCoordinateSpace stub:@selector(bounds)
-                            andReturn:theValue(CGRectMake(0.0f, 0.0f,
-                                                          320.0f, 568.0f))];
-            
-        });
-        
-        it(@"should estimate the height of a 4\" device", ^{
-            
-            NSMeasurement<NSUnitLength *> *expectedHeight =
-            [[NSMeasurement alloc] initWithDoubleValue:0.0885
-                                                  unit:[NSUnitLength meters]];
-            
-            [[UIDevice.currentDevice.irl_physicalScreenHeight should]
-             beWithin:0.01
-             ofMeasurement:expectedHeight];
-            
-        });
-        
-        it(@"should estimate the width of a 4\" device", ^{
-            
-            NSMeasurement<NSUnitLength *> *expectedWidth =
-            [[NSMeasurement alloc] initWithDoubleValue:0.0499
-                                                  unit:[NSUnitLength meters]];
-            
-            [[UIDevice.currentDevice.irl_physicalScreenWidth should]
-             beWithin:0.01
-             ofMeasurement:expectedWidth];
-            
-        });
-        
-    });
-    
-    context(@"on a device with a resolution of 375 ⨉ 667", ^{
-        
-        beforeEach(^{
-            
-            [mockCoordinateSpace stub:@selector(bounds)
-                            andReturn:theValue(CGRectMake(0.0f, 0.0f,
-                                                          375.0f, 667.0f))];
-            
-        });
-        
-        it(@"should estimate the height of a 4.7\" device", ^{
-            
-            NSMeasurement<NSUnitLength *> *expectedHeight =
-            [[NSMeasurement alloc] initWithDoubleValue:0.1041
-                                                  unit:[NSUnitLength meters]];
-            
-            [[UIDevice.currentDevice.irl_physicalScreenHeight should]
-             beWithin:0.01
-             ofMeasurement:expectedHeight];
-            
-        });
-        
-        it(@"should estimate the width of a 4.7\" device", ^{
-            
-            NSMeasurement<NSUnitLength *> *expectedWidth =
-            [[NSMeasurement alloc] initWithDoubleValue:0.0585f
-                                                  unit:[NSUnitLength meters]];
-            
-            [[UIDevice.currentDevice.irl_physicalScreenWidth should]
-             beWithin:0.01
-             ofMeasurement:expectedWidth];
-            
-        });
-        
-    });
-    
-    context(@"on a device with a resolution of 414 ⨉ 736", ^{
-        
-        beforeEach(^{
-            
-            [mockCoordinateSpace stub:@selector(bounds)
-                            andReturn:theValue(CGRectMake(0.0f, 0.0f,
-                                                          414.0f, 736.0f))];
-            
-        });
-        
-        it(@"should estimate the height of a 5.5\" device", ^{
-            
-            NSMeasurement<NSUnitLength *> *expectedHeight =
-            [[NSMeasurement alloc] initWithDoubleValue:0.1218
-                                                  unit:[NSUnitLength meters]];
-            
-            [[UIDevice.currentDevice.irl_physicalScreenHeight should]
-             beWithin:0.01
-             ofMeasurement:expectedHeight];
-            
-        });
-        
-        it(@"should estimate the width of a 5.5\" device", ^{
-            
-            NSMeasurement<NSUnitLength *> *expectedWidth =
-            [[NSMeasurement alloc] initWithDoubleValue:0.0685
-                                                  unit:[NSUnitLength meters]];
-            
-            [[UIDevice.currentDevice.irl_physicalScreenWidth should]
-             beWithin:0.01
-             ofMeasurement:expectedWidth];
-            
-        });
-        
-    });
-    
-    context(@"on a device with a resolution of 768 ⨉ 1024", ^{
-        
-        beforeEach(^{
-            
-            [mockCoordinateSpace stub:@selector(bounds)
-                            andReturn:theValue(CGRectMake(0.0f, 0.0f,
-                                                          768.0f, 1024.0f))];
-            
-        });
-        
-        it(@"should estimate the height of a 9.7\" device", ^{
-            
-            NSMeasurement<NSUnitLength *> *expectedHeight =
-            [[NSMeasurement alloc] initWithDoubleValue:0.1971
-                                                  unit:[NSUnitLength meters]];
-            
-            [[UIDevice.currentDevice.irl_physicalScreenHeight should]
-             beWithin:0.01
-             ofMeasurement:expectedHeight];
-            
-        });
-        
-        it(@"should estimate the width of a 9.7\" device", ^{
-            
-            NSMeasurement<NSUnitLength *> *expectedWidth =
-            [[NSMeasurement alloc] initWithDoubleValue:0.1478
-                                                  unit:[NSUnitLength meters]];
-            
-            [[UIDevice.currentDevice.irl_physicalScreenWidth should]
-             beWithin:0.01
-             ofMeasurement:expectedWidth];
-            
-        });
-        
-    });
-    
-    context(@"on a device with a resolution of 834 ⨉ 1112", ^{
-        
-        beforeEach(^{
-            
-            [mockCoordinateSpace stub:@selector(bounds)
-                            andReturn:theValue(CGRectMake(0.0f, 0.0f,
-                                                          834.0f, 1112.0f))];
-            
-        });
-        
-        it(@"should estimate the height of a 10.5\" device", ^{
-            
-            NSMeasurement<NSUnitLength *> *expectedHeight =
-            [[NSMeasurement alloc] initWithDoubleValue:0.2134
-                                                  unit:[NSUnitLength meters]];
-            
-            [[UIDevice.currentDevice.irl_physicalScreenHeight should]
-             beWithin:0.01
-             ofMeasurement:expectedHeight];
-            
-        });
-        
-        it(@"should estimate the width of a 10.5\" device", ^{
-            
-            NSMeasurement<NSUnitLength *> *expectedWidth =
-            [[NSMeasurement alloc] initWithDoubleValue:0.16
-                                                  unit:[NSUnitLength meters]];
-            
-            [[UIDevice.currentDevice.irl_physicalScreenWidth should]
-             beWithin:0.01
-             ofMeasurement:expectedWidth];
-            
-        });
-        
-    });
-    
-    context(@"on a device with a resolution of 1024 ⨉ 1366", ^{
-        
-        beforeEach(^{
-            
-            [mockCoordinateSpace stub:@selector(bounds)
-                            andReturn:theValue(CGRectMake(0.0f, 0.0f,
-                                                          1024.0f, 1366.0f))];
-            
-        });
-        
-        it(@"should estimate the height of a 12.9\" device", ^{
-            
-            NSMeasurement<NSUnitLength *> *expectedHeight =
-            [[NSMeasurement alloc] initWithDoubleValue:0.2622
-                                                  unit:[NSUnitLength meters]];
-            
-            [[UIDevice.currentDevice.irl_physicalScreenHeight should]
-             beWithin:0.01
-             ofMeasurement:expectedHeight];
-            
-        });
-        
-        it(@"should estimate the width of a 12.9\" device", ^{
-            
-            NSMeasurement<NSUnitLength *> *expectedWidth =
-            [[NSMeasurement alloc] initWithDoubleValue:0.1965
-                                                  unit:[NSUnitLength meters]];
-            
-            [[UIDevice.currentDevice.irl_physicalScreenWidth should]
-             beWithin:0.01
-             ofMeasurement:expectedWidth];
             
         });
         
