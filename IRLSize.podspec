@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "IRLSize"
-  s.version          = "1.1.1"
+  s.version          = "1.1.2"
   s.summary          = "A library for determining the actual physical size of pixels on an iOS or watchOS device."
   s.description      = <<-DESC
                        IRLSize is used to determine the physical size of the device
@@ -27,5 +27,5 @@ Pod::Spec.new do |s|
   s.watchos.source_files = 'Pod/Classes/watchOS/*'
   s.watchos.frameworks = 'Foundation', 'WatchKit'
 
-  s.dependency 'SDVersion', '~> 4.0.2'
+  s.dependency 'SDVersion', '~> 4.1.0'
 end

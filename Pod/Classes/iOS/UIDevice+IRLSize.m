@@ -35,7 +35,7 @@ static const float kiPad7_9InchScreenWidth = 0.1204f;
 static const float kiPad9_7InchScreenHeight = 0.1971f;
 static const float kiPad9_7InchScreenWidth = 0.1478f;
 static const float kiPad10_5InchScreenHeight = 0.2134f;
-static const float kiPad10_5ScreenWidth = 0.16f;
+static const float kiPad10_5InchScreenWidth = 0.16f;
 static const float kiPad12_9InchScreenHeight = 0.2622f;
 static const float kiPad12_9InchScreenWidth = 0.1965f;
 
@@ -127,7 +127,7 @@ static const NSUInteger kiPadPro12Dot9InchHeightPoints = 1366;
             break;
             
         case kiPadPro10Dot5InchHeightPoints:
-            estimatedDimensions.width = kiPad10_5ScreenWidth;
+            estimatedDimensions.width = kiPad10_5InchScreenWidth;
             estimatedDimensions.height = kiPad10_5InchScreenHeight;
             break;
             
@@ -145,14 +145,10 @@ static const NSUInteger kiPadPro12Dot9InchHeightPoints = 1366;
     IRLRawSize size = { 0.0f, 0.0f };
     
     switch ([SDiOSVersion deviceVersion]) {
-        case iPhone4:
         case iPhone4S:
-        case iPodTouch1Gen:
-        case iPodTouch2Gen:
-        case iPodTouch3Gen:
-        case iPodTouch4Gen:
             size.width = kiPhone3_5InchScreenWidth;
             size.height = kiPhone3_5InchScreenHeight;
+            break;
             
         case iPhone5:
         case iPhone5S:
@@ -178,7 +174,6 @@ static const NSUInteger kiPadPro12Dot9InchHeightPoints = 1366;
             size.height = kiPhone5_5InchScreenHeight;
             break;
             
-        case iPad1:
         case iPad2:
         case iPad3:
         case iPad4:
@@ -198,7 +193,13 @@ static const NSUInteger kiPadPro12Dot9InchHeightPoints = 1366;
             size.height = kiPad7_9InchScreenHeight;
             break;
             
+        case iPadPro10Dot5Inch:
+            size.width = kiPad10_5InchScreenWidth;
+            size.height = kiPad10_5InchScreenHeight;
+            break;
+            
         case iPadPro12Dot9Inch:
+        case iPadPro12Dot9Inch2Gen:
             size.width = kiPad12_9InchScreenWidth;
             size.height = kiPad12_9InchScreenHeight;
             break;
