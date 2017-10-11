@@ -1244,6 +1244,42 @@ describe(@"Estimating the size of an unknown device based on the screen size", ^
         
     });
     
+    context(@"on a device with a resolution of 375 ⨉ 812", ^{
+        
+        beforeEach(^{
+            
+            [mockCoordinateSpace stub:@selector(bounds)
+                            andReturn:theValue(CGRectMake(0.0f, 0.0f,
+                                                          375.0f, 812.0f))];
+            
+        });
+        
+        it(@"should estimate the height of a 5.5\" device", ^{
+            
+            NSMeasurement<NSUnitLength *> *expectedHeight =
+            [[NSMeasurement alloc] initWithDoubleValue:0.1351
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenHeight should]
+             beWithin:0.01
+             ofMeasurement:expectedHeight];
+            
+        });
+        
+        it(@"should estimate the width of a 5.8\" device", ^{
+            
+            NSMeasurement<NSUnitLength *> *expectedWidth =
+            [[NSMeasurement alloc] initWithDoubleValue:0.06239
+                                                  unit:[NSUnitLength meters]];
+            
+            [[UIDevice.currentDevice.irl_physicalScreenWidth should]
+             beWithin:0.01
+             ofMeasurement:expectedWidth];
+            
+        });
+        
+    });
+    
     context(@"on a device with a resolution of 768 ⨉ 1024", ^{
         
         beforeEach(^{
