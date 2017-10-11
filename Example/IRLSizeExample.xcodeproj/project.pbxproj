@@ -408,7 +408,7 @@
 						ProvisioningStyle = Automatic;
 					};
 					6003F589195388D20070C39A = {
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0900;
 					};
 					6003F5AD195388D20070C39A = {
 						ProvisioningStyle = Automatic;
@@ -881,7 +881,8 @@
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "IRLSizeExample/IRLSizeExample-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -901,7 +902,8 @@
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "IRLSizeExample/IRLSizeExample-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
