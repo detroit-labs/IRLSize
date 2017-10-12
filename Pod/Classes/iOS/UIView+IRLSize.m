@@ -89,7 +89,7 @@
 }
 
 - (CGAffineTransform)irl_scaleTransformForTargetMeasurement:(NSMeasurement *)target
-                                         currentMeasurement:(NSMeasurement *)current
+                                         currentMeasurement:(NSMeasurement *)current IRL_IOS_AVAILABLE(10.0)
 {
     if ([target canBeConvertedToUnit:current.unit]) {
         NSMeasurement *convertedTarget =

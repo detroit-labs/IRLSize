@@ -23,11 +23,14 @@ static const float kiPhone4_7InchScreenHeight = 0.1041f;
 static const float kiPhone4_7InchScreenWidth = 0.0585f;
 static const float kiPhone5_5InchScreenHeight = 0.1218f;
 static const float kiPhone5_5InchScreenWidth = 0.0685f;
+static const float kiPhone5_8InchScreenHeight = 0.1351f;
+static const float kiPhone5_8InchScreenWidth = 0.06239f;
 
 static const NSUInteger kiPhone3_5InchHeightPoints = 480;
 static const NSUInteger kiPhone4_0InchHeightPoints = 568;
 static const NSUInteger kiPhone4_7InchHeightPoints = 667;
 static const NSUInteger kiPhone5_5InchHeightPoints = 736;
+static const NSUInteger kiPhone5_8InchHeightPoints = 812;
 
 // iPad
 static const float kiPad7_9InchScreenHeight = 0.1605f;
@@ -121,6 +124,11 @@ static const NSUInteger kiPadPro12Dot9InchHeightPoints = 1366;
             estimatedDimensions.height = kiPhone5_5InchScreenHeight;
             break;
             
+        case kiPhone5_8InchHeightPoints:
+            estimatedDimensions.width = kiPhone5_8InchScreenWidth;
+            estimatedDimensions.height = kiPhone5_8InchScreenHeight;
+            break;
+            
         case kiPadHeightPoints:
             estimatedDimensions.width = kiPad9_7InchScreenWidth;
             estimatedDimensions.height = kiPad9_7InchScreenHeight;
@@ -163,6 +171,7 @@ static const NSUInteger kiPadPro12Dot9InchHeightPoints = 1366;
         case iPhone6:
         case iPhone6S:
         case iPhone7:
+        case iPhone8:
             size.width = kiPhone4_7InchScreenWidth;
             size.height = kiPhone4_7InchScreenHeight;
             break;
@@ -170,8 +179,14 @@ static const NSUInteger kiPadPro12Dot9InchHeightPoints = 1366;
         case iPhone6Plus:
         case iPhone6SPlus:
         case iPhone7Plus:
+        case iPhone8Plus:
             size.width = kiPhone5_5InchScreenWidth;
             size.height = kiPhone5_5InchScreenHeight;
+            break;
+            
+        case iPhoneX:
+            size.width = kiPhone5_8InchScreenWidth;
+            size.height = kiPhone5_8InchScreenHeight;
             break;
             
         case iPad2:
