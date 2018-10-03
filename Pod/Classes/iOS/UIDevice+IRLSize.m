@@ -23,14 +23,21 @@ static const float kiPhone4_7InchScreenHeight = 0.1041f;
 static const float kiPhone4_7InchScreenWidth = 0.0585f;
 static const float kiPhone5_5InchScreenHeight = 0.1218f;
 static const float kiPhone5_5InchScreenWidth = 0.0685f;
-static const float kiPhone5_8InchScreenHeight = 0.1351f;
-static const float kiPhone5_8InchScreenWidth = 0.06239f;
+static const float kiPhone5_8InchScreenHeight = 0.1337f;
+static const float kiPhone5_8InchScreenWidth = 0.0618f;
+static const float kiPhone6_1InchScreenHeight = 0.1407f;
+static const float kiPhone6_1InchScreenWidth = 0.065f;
+static const float kiPhone6_5InchScreenHeight = 0.1499f;
+static const float kiPhone6_5InchScreenWidth = 0.0693f;
 
 static const NSUInteger kiPhone3_5InchHeightPoints = 480;
 static const NSUInteger kiPhone4_0InchHeightPoints = 568;
 static const NSUInteger kiPhone4_7InchHeightPoints = 667;
 static const NSUInteger kiPhone5_5InchHeightPoints = 736;
 static const NSUInteger kiPhone5_8InchHeightPoints = 812;
+// The 6.1" and 6.5" phones both have 896 height points, so we'll need to use
+// different techniques to identify them.
+static const NSUInteger kiPhone6_1InchHeightPoints = 896;
 
 // iPad
 static const float kiPad7_9InchScreenHeight = 0.1605f;
@@ -98,10 +105,12 @@ static const NSUInteger kiPadPro12Dot9InchHeightPoints = 1366;
 - (IRLRawSize)irl_estimatedRawPhysicalScreenSizeFromScreenPointHeight
 {
     IRLRawSize estimatedDimensions = { 0.0f, 0.0f };
-    
-    CGRect portraitBounds = UIScreen.mainScreen.fixedCoordinateSpace.bounds;
+
+    UIScreen *mainScreen = UIScreen.mainScreen;
+    CGRect portraitBounds = mainScreen.fixedCoordinateSpace.bounds;
     
     NSUInteger heightPoints = round(CGRectGetHeight(portraitBounds));
+    NSUInteger scale = mainScreen.scale;
     
     switch (heightPoints) {
         case kiPhone3_5InchHeightPoints:
@@ -127,6 +136,17 @@ static const NSUInteger kiPadPro12Dot9InchHeightPoints = 1366;
         case kiPhone5_8InchHeightPoints:
             estimatedDimensions.width = kiPhone5_8InchScreenWidth;
             estimatedDimensions.height = kiPhone5_8InchScreenHeight;
+            break;
+
+        case kiPhone6_1InchHeightPoints:
+            if (scale == 3) {
+                estimatedDimensions.width = kiPhone6_5InchScreenWidth;
+                estimatedDimensions.height = kiPhone6_5InchScreenHeight;
+            }
+            else {
+                estimatedDimensions.width = kiPhone6_1InchScreenWidth;
+                estimatedDimensions.height = kiPhone6_1InchScreenHeight;
+            }
             break;
             
         case kiPadHeightPoints:
