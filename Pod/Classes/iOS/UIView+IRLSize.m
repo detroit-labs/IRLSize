@@ -12,7 +12,7 @@
 
 @implementation UIView (IRLSizePrivate)
 
-- (IRLRawSize)irl_rawPhysicalSize
+- (IRLRawDimensions)irl_rawPhysicalSize
 {
     return [UIDevice.currentDevice irl_rawPhysicalSizeOfView:self];
 }
@@ -38,7 +38,7 @@
     }
     
     return [[NSMeasurement alloc] initWithDoubleValue:[self irl_rawPhysicalSize].width
-                                                 unit:IRL_RAW_SIZE_UNIT];
+                                                 unit:IRL_SIZE_UNIT];
 }
 
 - (NSMeasurement<NSUnitLength *> *)irl_physicalHeight
@@ -48,15 +48,15 @@
     }
     
     return [[NSMeasurement alloc] initWithDoubleValue:[self irl_rawPhysicalSize].height
-                                                 unit:IRL_RAW_SIZE_UNIT];
+                                                 unit:IRL_SIZE_UNIT];
 }
 
-- (IRLRawLengthMeasurement)irl_rawPhysicalWidth
+- (IRLRawMillimeters)irl_rawPhysicalWidth
 {
     return [self irl_rawPhysicalSize].width;
 }
 
-- (IRLRawLengthMeasurement)irl_rawPhysicalHeight
+- (IRLRawMillimeters)irl_rawPhysicalHeight
 {
     return [self irl_rawPhysicalSize].height;
 }
@@ -100,32 +100,32 @@
     }
 }
 
-- (CGAffineTransform)irl_transformForRawPhysicalWidth:(IRLRawLengthMeasurement)rawPhysicalWidth
+- (CGAffineTransform)irl_transformForRawPhysicalWidth:(IRLRawMillimeters)rawPhysicalWidth
 {
     if ([self irl_isOnSecondaryScreen]) {
         return self.transform;
     }
     
-    IRLRawLengthMeasurement currentValue = self.irl_rawPhysicalWidth;
+    IRLRawMillimeters currentValue = self.irl_rawPhysicalWidth;
     
     return [self irl_scaleTransformForTargetRawMeasurement:rawPhysicalWidth
                                      currentRawMeasurement:currentValue];
 }
 
-- (CGAffineTransform)irl_transformForRawPhysicalHeight:(IRLRawLengthMeasurement)rawPhysicalHeight
+- (CGAffineTransform)irl_transformForRawPhysicalHeight:(IRLRawMillimeters)rawPhysicalHeight
 {
     if ([self irl_isOnSecondaryScreen]) {
         return self.transform;
     }
     
-    IRLRawLengthMeasurement currentValue = self.irl_rawPhysicalHeight;
+    IRLRawMillimeters currentValue = self.irl_rawPhysicalHeight;
     
     return [self irl_scaleTransformForTargetRawMeasurement:rawPhysicalHeight
                                      currentRawMeasurement:currentValue];
 }
 
-- (CGAffineTransform)irl_scaleTransformForTargetRawMeasurement:(IRLRawLengthMeasurement)target
-                                         currentRawMeasurement:(IRLRawLengthMeasurement)current
+- (CGAffineTransform)irl_scaleTransformForTargetRawMeasurement:(IRLRawMillimeters)target
+                                         currentRawMeasurement:(IRLRawMillimeters)current
 {
     double ratio = target / current;
     

@@ -270,7 +270,8 @@
 				6003F5BB195388D20070C39A /* IRLSizeTests.m */,
 				6003F5B6195388D20070C39A /* Supporting Files */,
 			);
-			path = IRLSizeTests;
+			name = IRLSizeTests;
+			path = ../IRLSizeTests;
 			sourceTree = SOURCE_ROOT;
 		};
 		6003F5B6195388D20070C39A /* Supporting Files */ = {
@@ -839,7 +840,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "IRLSizeTests/IRLSizeTests-Info.plist";
+				INFOPLIST_FILE = "../IRLSizeTests/IRLSizeTests-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.detroitlabs.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = xctest;
@@ -855,7 +856,7 @@
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
-				INFOPLIST_FILE = "IRLSizeTests/IRLSizeTests-Info.plist";
+				INFOPLIST_FILE = "../IRLSizeTests/IRLSizeTests-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.detroitlabs.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = xctest;

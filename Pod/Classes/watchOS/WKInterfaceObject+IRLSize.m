@@ -42,9 +42,9 @@
     }
 }
 
-- (void)irl_setRawPhysicalWidth:(IRLRawLengthMeasurement)width
+- (void)irl_setRawPhysicalWidth:(IRLRawMillimeters)width
 {
-    IRLRawLengthMeasurement screenWidth =
+    IRLRawMillimeters screenWidth =
     [WKInterfaceDevice currentDevice].irl_rawPhysicalScreenWidth;
     
     double ratio = width / screenWidth;
@@ -52,9 +52,9 @@
     [self irl_setWidthRatio:ratio];
 }
 
-- (void)irl_setRawPhysicalHeight:(IRLRawLengthMeasurement)height
+- (void)irl_setRawPhysicalHeight:(IRLRawMillimeters)height
 {
-    IRLRawLengthMeasurement screenHeight =
+    IRLRawMillimeters screenHeight =
     [WKInterfaceDevice currentDevice].irl_rawPhysicalScreenHeight;
     
     double ratio = height / screenHeight;

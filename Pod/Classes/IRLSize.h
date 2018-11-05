@@ -8,14 +8,15 @@
 
 #import <TargetConditionals.h>
 
-typedef float IRLRawLengthMeasurement; // meters
+typedef double IRLRawMillimeters;
 
 typedef struct {
-    IRLRawLengthMeasurement width;
-    IRLRawLengthMeasurement height;
-} IRLRawSize;
+    IRLRawMillimeters width;
+    IRLRawMillimeters height;
+} IRLRawDimensions;
 
-#define IRL_RAW_SIZE_UNIT NSUnitLength.meters
+#define IRL_SIZE_UNIT NSUnitLength.millimeters
+#define IRL_MM(x) [[NSMeasurement alloc] initWithDoubleValue:(x) unit: IRL_SIZE_UNIT]
 
 #if TARGET_OS_IOS
     #import "UIDevice+IRLSize.h"

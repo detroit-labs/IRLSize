@@ -13,7 +13,7 @@
 #if TARGET_OS_IOS
 @interface UIDevice (IRLSizePrivate)
 
-- (IRLRawSize)irl_rawPhysicalSizeOfView:(nonnull UIView *)view;
+- (IRLRawDimensions)irl_rawPhysicalSizeOfView:(nonnull UIView *)view;
 
 @end
 #endif

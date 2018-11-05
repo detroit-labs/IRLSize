@@ -10,7 +10,6 @@
 
 #import <SDVersion/SDVersion.h>
 
-
 // https://www.sven.de/dpi/ is a good resource for determining screen sizes.
 static const float kAppleWatch38mmScreenWidth = 0.0212f;
 static const float kAppleWatch38mmScreenHeight = 0.0265f;
@@ -28,9 +27,9 @@ static const NSUInteger kAppleWatch44mmHeightPoints = 224;
 
 @implementation WKInterfaceDevice (IRLSize)
 
-- (IRLRawSize)irl_estimatedRawPhysicalScreenSizeFromScreenPointHeight
+- (IRLRawDimensions)irl_estimatedRawPhysicalScreenSizeFromScreenPointHeight
 {
-    IRLRawSize estimatedDimensions = { 0.0f, 0.0f };
+    IRLRawDimensions estimatedDimensions = { 0.0f, 0.0f };
     
     NSUInteger heightPoints = round(CGRectGetHeight(self.screenBounds));
     
@@ -59,9 +58,9 @@ static const NSUInteger kAppleWatch44mmHeightPoints = 224;
     return estimatedDimensions;
 }
 
-- (IRLRawSize)irl_rawPhysicalScreenSize
+- (IRLRawDimensions)irl_rawPhysicalScreenSize
 {
-    IRLRawSize size = { 0.0f, 0.0f };
+    IRLRawDimensions size = { 0.0f, 0.0f };
     
     switch ([SDwatchOSVersion deviceVersion]) {
         case AppleWatch38mm:
@@ -85,26 +84,26 @@ static const NSUInteger kAppleWatch44mmHeightPoints = 224;
 
 - (NSMeasurement<NSUnitLength *> *)irl_physicalScreenHeight
 {
-    IRLRawSize deviceDimensions = [self irl_rawPhysicalScreenSize];
+    IRLRawDimensions deviceDimensions = [self irl_rawPhysicalScreenSize];
     
     return [[NSMeasurement alloc] initWithDoubleValue:deviceDimensions.height
-                                                 unit:IRL_RAW_SIZE_UNIT];
+                                                 unit:IRL_SIZE_UNIT];
 }
 
 - (NSMeasurement<NSUnitLength *> *)irl_physicalScreenWidth
 {
-    IRLRawSize deviceDimensions = [self irl_rawPhysicalScreenSize];
+    IRLRawDimensions deviceDimensions = [self irl_rawPhysicalScreenSize];
     
     return [[NSMeasurement alloc] initWithDoubleValue:deviceDimensions.width
-                                                 unit:IRL_RAW_SIZE_UNIT];
+                                                 unit:IRL_SIZE_UNIT];
 }
 
-- (IRLRawLengthMeasurement)irl_rawPhysicalScreenHeight
+- (IRLRawMillimeters)irl_rawPhysicalScreenHeight
 {
     return [self irl_rawPhysicalScreenSize].height;
 }
 
-- (IRLRawLengthMeasurement)irl_rawPhysicalScreenWidth
+- (IRLRawMillimeters)irl_rawPhysicalScreenWidth
 {
     return [self irl_rawPhysicalScreenSize].width;
 }
