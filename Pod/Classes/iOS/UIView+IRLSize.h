@@ -14,14 +14,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UIView (IRLSize)
 
-#if IRL_SUPPORTS_NSMEASUREMENT
 /**
  The physical height of the view on the screen, or @c nil if the view is displayed
  on a secondary screen. If the view is not on any screen, returns measurements for
  the main screen.
  */
-@property (nonatomic, readonly, nullable) NSMeasurement<NSUnitLength *> *irl_physicalHeight NS_SWIFT_NAME(physicalHeight) IRL_IOS_AVAILABLE(10.0);
-#endif
+@property (nonatomic, readonly, nullable) NSMeasurement<NSUnitLength *> *irl_physicalHeight NS_SWIFT_NAME(physicalHeight);
 
 /**
  The physical height of the view on the screen, or @c 0.0f if the view is displayed
@@ -30,14 +28,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, readonly) IRLRawLengthMeasurement irl_rawPhysicalHeight NS_SWIFT_NAME(rawPhysicalHeight);
 
-#if IRL_SUPPORTS_NSMEASUREMENT
 /**
  The physical width of the view on the screen, or @c nil if the view is displayed
  on a secondary screen. If the view is not on any screen, returns measurements for
  the main screen.
  */
-@property (nonatomic, readonly, nullable) NSMeasurement<NSUnitLength *> *irl_physicalWidth NS_SWIFT_NAME(physicalWidth) IRL_IOS_AVAILABLE(10.0);
-#endif
+@property (nonatomic, readonly, nullable) NSMeasurement<NSUnitLength *> *irl_physicalWidth NS_SWIFT_NAME(physicalWidth);
 
 /**
  The physical width of the view on the screen, or @c 0.0f if the view is displayed
@@ -46,7 +42,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, readonly) IRLRawLengthMeasurement irl_rawPhysicalWidth NS_SWIFT_NAME(rawPhysicalWidth);
 
-#if IRL_SUPPORTS_NSMEASUREMENT
 /**
  Calculates a transform that, when applied to the view, will make it a given height
  on the screen.
@@ -57,8 +52,7 @@ NS_ASSUME_NONNULL_BEGIN
          displayed on a secondary screen, the return value will be the view’s
          current transform.
  */
-- (CGAffineTransform)irl_transformForPhysicalHeight:(NSMeasurement<NSUnitLength *> *)physicalHeight NS_SWIFT_NAME(transform(forPhysicalHeight:)) IRL_IOS_AVAILABLE(10.0);
-#endif
+- (CGAffineTransform)irl_transformForPhysicalHeight:(NSMeasurement<NSUnitLength *> *)physicalHeight NS_SWIFT_NAME(transform(forPhysicalHeight:));
 
 /**
  Calculates a transform that, when applied to the view, will make it a given height
@@ -73,7 +67,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (CGAffineTransform)irl_transformForRawPhysicalHeight:(IRLRawLengthMeasurement)rawPhysicalHeight NS_SWIFT_NAME(transform(forRawPhysicalHeight:));
 
-#if IRL_SUPPORTS_NSMEASUREMENT
 /**
  Calculates a transform that, when applied to the view, will make it a given width
  on the screen.
@@ -84,8 +77,7 @@ NS_ASSUME_NONNULL_BEGIN
          displayed on a secondary screen, the return value will be the view’s
          current transform.
  */
-- (CGAffineTransform)irl_transformForPhysicalWidth:(NSMeasurement<NSUnitLength *> *)physicalWidth NS_SWIFT_NAME(transform(forPhysicalWidth:)) IRL_IOS_AVAILABLE(10.0);
-#endif
+- (CGAffineTransform)irl_transformForPhysicalWidth:(NSMeasurement<NSUnitLength *> *)physicalWidth NS_SWIFT_NAME(transform(forPhysicalWidth:));
 
 /**
  Calculates a transform that, when applied to the view, will make it a given width

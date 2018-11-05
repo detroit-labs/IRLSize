@@ -83,7 +83,6 @@ static const NSUInteger kAppleWatch44mmHeightPoints = 224;
     return size;
 }
 
-#if IRL_SUPPORTS_NSMEASUREMENT
 - (NSMeasurement<NSUnitLength *> *)irl_physicalScreenHeight
 {
     IRLRawSize deviceDimensions = [self irl_rawPhysicalScreenSize];
@@ -99,7 +98,6 @@ static const NSUInteger kAppleWatch44mmHeightPoints = 224;
     return [[NSMeasurement alloc] initWithDoubleValue:deviceDimensions.width
                                                  unit:IRL_RAW_SIZE_UNIT];
 }
-#endif
 
 - (IRLRawLengthMeasurement)irl_rawPhysicalScreenHeight
 {

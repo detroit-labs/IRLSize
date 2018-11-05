@@ -14,18 +14,19 @@ Pod::Spec.new do |s|
   s.source           = { :git => "https://github.com/detroit-labs/IRLSize.git",
                          :tag => s.version.to_s }
 
-  s.ios.deployment_target = '8.0'
-  s.watchos.deployment_target = '2.0'
+  s.ios.deployment_target = '10.0'
+  s.watchos.deployment_target = '3.0'
   s.requires_arc = true
 
   s.source_files = 'Pod/Classes/*', 'Pod/Classes/Private/*'
   s.private_header_files = 'Pod/Classes/Private/*.h'
+  s.frameworks = 'Foundation'
 
   s.ios.source_files = 'Pod/Classes/iOS/*'
-  s.ios.frameworks = 'Foundation', 'UIKit'
+  s.ios.frameworks = 'UIKit'
 
   s.watchos.source_files = 'Pod/Classes/watchOS/*'
-  s.watchos.frameworks = 'Foundation', 'WatchKit'
+  s.watchos.frameworks = 'WatchKit'
 
   s.dependency 'SDVersion', '~> 4.3.0'
 end

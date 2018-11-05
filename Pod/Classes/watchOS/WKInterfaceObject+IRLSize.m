@@ -10,7 +10,6 @@
 
 @implementation WKInterfaceObject (IRLSize)
 
-#if IRL_SUPPORTS_NSMEASUREMENT
 - (void)irl_setPhysicalWidth:(NSMeasurement<NSUnitLength *> *)width
 {
     NSMeasurement<NSUnitLength *> *screenWidth =
@@ -42,7 +41,6 @@
         [self irl_setHeightRatio:ratio];
     }
 }
-#endif
 
 - (void)irl_setRawPhysicalWidth:(IRLRawLengthMeasurement)width
 {

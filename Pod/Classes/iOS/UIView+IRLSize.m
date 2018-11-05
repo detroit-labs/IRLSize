@@ -31,7 +31,6 @@
 
 @implementation UIView (IRLSize)
 
-#if IRL_SUPPORTS_NSMEASUREMENT
 - (NSMeasurement<NSUnitLength *> *)irl_physicalWidth
 {
     if ([self irl_isOnSecondaryScreen]) {
@@ -51,7 +50,6 @@
     return [[NSMeasurement alloc] initWithDoubleValue:[self irl_rawPhysicalSize].height
                                                  unit:IRL_RAW_SIZE_UNIT];
 }
-#endif
 
 - (IRLRawLengthMeasurement)irl_rawPhysicalWidth
 {
@@ -63,7 +61,6 @@
     return [self irl_rawPhysicalSize].height;
 }
 
-#if IRL_SUPPORTS_NSMEASUREMENT
 - (CGAffineTransform)irl_transformForPhysicalWidth:(NSMeasurement<NSUnitLength *> *)physicalWidth
 {
     NSMeasurement<NSUnitLength *> *currentPhysicalWidth = self.irl_physicalWidth;
@@ -89,7 +86,7 @@
 }
 
 - (CGAffineTransform)irl_scaleTransformForTargetMeasurement:(NSMeasurement *)target
-                                         currentMeasurement:(NSMeasurement *)current IRL_IOS_AVAILABLE(10.0)
+                                         currentMeasurement:(NSMeasurement *)current
 {
     if ([target canBeConvertedToUnit:current.unit]) {
         NSMeasurement *convertedTarget =
@@ -102,7 +99,6 @@
         return self.transform;
     }
 }
-#endif
 
 - (CGAffineTransform)irl_transformForRawPhysicalWidth:(IRLRawLengthMeasurement)rawPhysicalWidth
 {
