@@ -11,14 +11,14 @@
 #import <SDVersion/SDVersion.h>
 
 // https://www.sven.de/dpi/ is a good resource for determining screen sizes.
-static const float kAppleWatch38mmScreenWidth = 0.0212f;
-static const float kAppleWatch38mmScreenHeight = 0.0265f;
-static const float kAppleWatch40mmScreenWidth = 0.029f;
-static const float kAppleWatch40mmScreenHeight = 0.0353f;
-static const float kAppleWatch42mmScreenWidth = 0.0243f;
-static const float kAppleWatch42mmScreenHeight = 0.0304f;
-static const float kAppleWatch44mmScreenWidth = 0.0322f;
-static const float kAppleWatch44mmScreenHeight = 0.0393f;
+static const IRLRawMillimeters kAppleWatch38mmScreenWidth = 21.2;
+static const IRLRawMillimeters kAppleWatch38mmScreenHeight = 26.5;
+static const IRLRawMillimeters kAppleWatch40mmScreenWidth = 29.0;
+static const IRLRawMillimeters kAppleWatch40mmScreenHeight = 35.3;
+static const IRLRawMillimeters kAppleWatch42mmScreenWidth = 24.3;
+static const IRLRawMillimeters kAppleWatch42mmScreenHeight = 30.4;
+static const IRLRawMillimeters kAppleWatch44mmScreenWidth = 32.2;
+static const IRLRawMillimeters kAppleWatch44mmScreenHeight = 39.3;
 
 static const NSUInteger kAppleWatch38mmHeightPoints = 170;
 static const NSUInteger kAppleWatch40mmHeightPoints = 197;
