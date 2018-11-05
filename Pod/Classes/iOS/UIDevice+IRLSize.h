@@ -3,7 +3,7 @@
 //  IRLSize
 //
 //  Created by Jeff Kelley on 11/13/2014.
-//  Copyright © 2017 Detroit Labs. All rights reserved.
+//  Copyright © 2018 Detroit Labs. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
