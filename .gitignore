@@ -24,4 +24,4 @@ DerivedData
 .bundle
 
 # Code Signing Settings
-Example/SigningSettings.xcconfig
+Example/DevelopmentTeam.xcconfig
