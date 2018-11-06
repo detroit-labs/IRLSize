@@ -59,7 +59,7 @@ describe(@"Getting the native size of a device", ^{
     KNOWN_DEVICE_TEST_MATCHING("iPhone 7 Plus", iPhone7Plus)
     KNOWN_DEVICE_TEST_MATCHING("iPhone 8", iPhone8)
     KNOWN_DEVICE_TEST_MATCHING("iPhone 8 Plus", iPhone8Plus)
-    KNOWN_DEVICE_TEST_MATCHING("iPhone X", iPhone8)
+    KNOWN_DEVICE_TEST_MATCHING("iPhone X", iPhoneX)
 
     KNOWN_DEVICE_TEST_MATCHING("iPad (4th Generation)", iPad4)
     KNOWN_DEVICE_TEST_MATCHING("iPad mini", iPadMini)
