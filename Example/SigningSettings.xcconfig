@@ -1,0 +1,15 @@
+//
+//  SigningSettings.xcconfig
+//  IRLSizeExample
+//
+//  Created by Jeff Kelley on 11/6/18.
+//  Copyright © 2018 Detroit Labs. All rights reserved.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+// This file is intentionally in the .gitignore file for this repository. To add
+// your signing settings, uncomment this line and fill in the correct value:
+//
+// DEVELOPMENT_TEAM = <TEAM ID HERE>

@@ -99,6 +99,7 @@
 		1F5EC3871D241DBF0068E86F /* ExtensionDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExtensionDelegate.m; sourceTree = "<group>"; };
 		1F5EC3891D241DBF0068E86F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1F5EC38B1D241DBF0068E86F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F8A1FE821923170006ED4EC /* SigningSettings.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = SigningSettings.xcconfig; sourceTree = "<group>"; };
 		1FBC8FD31D236DFD00015A75 /* IRLSizeExample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IRLSizeExample-Bridging-Header.h"; sourceTree = "<group>"; };
 		1FBC8FD41D236DFD00015A75 /* RulerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RulerView.swift; sourceTree = "<group>"; };
 		1FC7E2001D5F99D400274C2A /* NSMeasurement+Equality.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMeasurement+Equality.h"; sourceTree = "<group>"; };
@@ -200,6 +201,7 @@
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
+				1F8A1FE821923170006ED4EC /* SigningSettings.xcconfig */,
 				1FD4587321913DD500982651 /* CHANGELOG.md */,
 				60FF7A9C1954A5C5007DD14C /* Podspec Metadata */,
 				6003F593195388D20070C39A /* IRLSizeExample */,
@@ -689,6 +691,7 @@
 		};
 		6003F5BD195388D20070C39A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1F8A1FE821923170006ED4EC /* SigningSettings.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -743,6 +746,7 @@
 		};
 		6003F5BE195388D20070C39A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1F8A1FE821923170006ED4EC /* SigningSettings.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
