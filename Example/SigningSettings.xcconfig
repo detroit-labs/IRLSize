@@ -10,7 +10,12 @@
 // https://help.apple.com/xcode/#/dev745c5c974
 
 // To add signing settings, create a new file in the Example/ directory with the
-// name "DevelopmentTeam.xcconfig" and the following contents:
+// name “DevelopmentTeam.xcconfig” and the following contents:
 //
 // DEVELOPMENT_TEAM = <TEAM ID HERE>
+//
+// This file will automatically include it and use the settings at build time
+// (You won’t see them reflected in the Xcode UI, but they will work when you
+// build).
+
 #include? "DevelopmentTeam.xcconfig"
