@@ -105,6 +105,7 @@
 		1FC7E2011D5F99D400274C2A /* NSMeasurement+Equality.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMeasurement+Equality.m"; sourceTree = "<group>"; };
 		1FC7E2031D5F9EB500274C2A /* IRLMeasurementBeWithinMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRLMeasurementBeWithinMatcher.h; sourceTree = "<group>"; };
 		1FC7E2041D5F9EB500274C2A /* IRLMeasurementBeWithinMatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRLMeasurementBeWithinMatcher.m; sourceTree = "<group>"; };
+		1FD4587321913DD500982651 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = ../CHANGELOG.md; sourceTree = "<group>"; };
 		2D7A6FA6D99E271DC58A3FDB /* Pods-IRLSizeExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IRLSizeExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-IRLSizeExample/Pods-IRLSizeExample.release.xcconfig"; sourceTree = "<group>"; };
 		3B52ABAB0F4897702004A1C3 /* Pods-IRLSizeExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IRLSizeExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IRLSizeExample/Pods-IRLSizeExample.debug.xcconfig"; sourceTree = "<group>"; };
 		3F468B881C59569556F61E7D /* Pods-IRLSizeExample-Watch Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IRLSizeExample-Watch Extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IRLSizeExample-Watch Extension/Pods-IRLSizeExample-Watch Extension.debug.xcconfig"; sourceTree = "<group>"; };
@@ -199,6 +200,7 @@
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
+				1FD4587321913DD500982651 /* CHANGELOG.md */,
 				60FF7A9C1954A5C5007DD14C /* Podspec Metadata */,
 				6003F593195388D20070C39A /* IRLSizeExample */,
 				6003F5B5195388D20070C39A /* IRLSizeTests */,
