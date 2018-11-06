@@ -54,13 +54,15 @@
         lengthUnitToDisplay = [NSUnitLength inches];
     }
     
-    [self.widthLabel setText:[formatter stringFromMeasurement:
-                              [[[WKInterfaceDevice currentDevice] irl_physicalScreenWidth]
-                               measurementByConvertingToUnit:lengthUnitToDisplay]]];
+    [self.widthLabel setText:
+     [formatter stringFromMeasurement:
+      [[[WKInterfaceDevice currentDevice] irl_physicalScreenWidth]
+       measurementByConvertingToUnit:lengthUnitToDisplay]]];
     
-    [self.heightLabel setText:[formatter stringFromMeasurement:
-                               [[[WKInterfaceDevice currentDevice] irl_physicalScreenHeight]
-                                measurementByConvertingToUnit:lengthUnitToDisplay]]];
+    [self.heightLabel setText:
+     [formatter stringFromMeasurement:
+      [[[WKInterfaceDevice currentDevice] irl_physicalScreenHeight]
+       measurementByConvertingToUnit:lengthUnitToDisplay]]];
 }
 
 @end
