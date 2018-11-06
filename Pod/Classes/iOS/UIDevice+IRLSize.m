@@ -13,6 +13,12 @@
 #import "UIView+IRLSizePrivate.h"
 #import "iOSDeviceConstants.h"
 
+void IRLRawDimensionsSwap(IRLRawDimensions *dimensions) {
+    IRLRawMillimeters temp = dimensions->width;
+    dimensions->width = dimensions->height;
+    dimensions->height = temp;
+}
+
 @implementation UIDevice (IRLSizePrivate)
 
 - (IRLRawDimensions)irl_rawPhysicalSizeOfView:(UIView *)view
@@ -40,16 +46,14 @@
         
         CGSize windowSize = window.screen.bounds.size;
         
+        IRLRawDimensions rawPhysicalScreenSize = [self irl_rawPhysicalScreenSize];
+        
         if (window == nil) {
             windowSize = UIScreen.mainScreen.fixedCoordinateSpace.bounds.size;
         }
         else if (UIInterfaceOrientationIsLandscape(application.statusBarOrientation)) {
-            CGSize windowSizeSwap = CGSizeMake(windowSize.height,
-                                               windowSize.width);
-            windowSize = windowSizeSwap;
+            IRLRawDimensionsSwap(&rawPhysicalScreenSize);
         }
-        
-        IRLRawDimensions rawPhysicalScreenSize = [self irl_rawPhysicalScreenSize];
         
         dimensions.width = ((CGRectGetWidth(convertedFrame) / windowSize.width) *
                             rawPhysicalScreenSize.width);
@@ -163,28 +167,22 @@
 
 - (NSMeasurement<NSUnitLength *> *)irl_physicalScreenHeight
 {
-    IRLRawDimensions deviceDimensions = [self irl_rawPhysicalScreenSize];
-    
-    return [[NSMeasurement alloc] initWithDoubleValue:deviceDimensions.height
-                                                 unit:IRL_SIZE_UNIT];
+    return IRL_MM(self.irl_rawPhysicalScreenSize.height);
 }
 
 - (NSMeasurement<NSUnitLength *> *)irl_physicalScreenWidth
 {
-    IRLRawDimensions deviceDimensions = [self irl_rawPhysicalScreenSize];
-    
-    return [[NSMeasurement alloc] initWithDoubleValue:deviceDimensions.width
-                                                 unit:IRL_SIZE_UNIT];
+    return IRL_MM(self.irl_rawPhysicalScreenSize.width);
 }
 
 - (IRLRawMillimeters)irl_rawPhysicalScreenHeight
 {
-    return [self irl_rawPhysicalScreenSize].height;
+    return self.irl_rawPhysicalScreenSize.height;
 }
 
 - (IRLRawMillimeters)irl_rawPhysicalScreenWidth
 {
-    return [self irl_rawPhysicalScreenSize].width;
+    return self.irl_rawPhysicalScreenSize.width;
 }
 
 @end
