@@ -23,18 +23,23 @@
                      andReturn:theValue(modelEnum)]; \
         }); \
         it(@"should report the correct height", ^{ \
+            NSLog(@"Expecting device " #modelEnum " height to equal %f", \
+                  k##sizeEnumPrefix##ScreenHeight); \
             [[UIDevice.currentDevice.irl_physicalScreenHeight should] \
              beWithin:0.01 \
-             ofMeasurement:IRL_MM(k ## sizeEnumPrefix ## ScreenHeight)]; \
+             ofMeasurement:IRL_MM(k##sizeEnumPrefix##ScreenHeight)]; \
         }); \
         it(@"should report the correct width", ^{ \
+            NSLog(@"Expecting device " #modelEnum " width to equal %f", \
+                  k##sizeEnumPrefix##ScreenWidth); \
             [[UIDevice.currentDevice.irl_physicalScreenWidth should] \
              beWithin:0.01 \
              ofMeasurement:IRL_MM(k##sizeEnumPrefix##ScreenWidth)]; \
         }); \
     });
 
-#define KNOWN_DEVICE_TEST_MATCHING(name, enum) KNOWN_DEVICE_TEST_UNMATCHING(name, enum, enum)
+#define KNOWN_DEVICE_TEST_MATCHING(name, enum) \
+    KNOWN_DEVICE_TEST_UNMATCHING(name, enum, enum)
 
 SPEC_BEGIN(IRLSizeTests)
 
@@ -83,6 +88,8 @@ describe(@"Getting the native size of a device", ^{
             [mockScreen stub:@selector(scale) andReturn:theValue(deviceScale##.0f)]; \
         }); \
         it(@"should estimate the size of a " #size " Inch " #deviceType, ^{ \
+            NSLog(@"Expecting screen size " #width "⨉" #height " and scale " \
+                  #deviceScale " to equal " #size " inches"); \
             [[UIDevice.currentDevice.irl_physicalScreenHeight should] \
              beWithin:0.01 \
              ofMeasurement:IRL_MM(k##deviceType##size##InchScreenHeight)]; \
