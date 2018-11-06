@@ -3,23 +3,22 @@
 //  IRLSize
 //
 //  Created by Jeff Kelley on 6/29/2016.
-//  Copyright © 2017 Detroit Labs. All rights reserved.
+//  Copyright © 2018 Detroit Labs. All rights reserved.
 //
 
 #import "IRLSize.h"
 
 #import <SDVersion/SDVersion.h>
 
-
 // https://www.sven.de/dpi/ is a good resource for determining screen sizes.
-static const float kAppleWatch38mmScreenWidth = 0.0212f;
-static const float kAppleWatch38mmScreenHeight = 0.0265f;
-static const float kAppleWatch40mmScreenWidth = 0.029f;
-static const float kAppleWatch40mmScreenHeight = 0.0353f;
-static const float kAppleWatch42mmScreenWidth = 0.0243f;
-static const float kAppleWatch42mmScreenHeight = 0.0304f;
-static const float kAppleWatch44mmScreenWidth = 0.0322f;
-static const float kAppleWatch44mmScreenHeight = 0.0393f;
+static const IRLRawMillimeters kAppleWatch38mmScreenWidth = 21.2;
+static const IRLRawMillimeters kAppleWatch38mmScreenHeight = 26.5;
+static const IRLRawMillimeters kAppleWatch40mmScreenWidth = 29.0;
+static const IRLRawMillimeters kAppleWatch40mmScreenHeight = 35.3;
+static const IRLRawMillimeters kAppleWatch42mmScreenWidth = 24.3;
+static const IRLRawMillimeters kAppleWatch42mmScreenHeight = 30.4;
+static const IRLRawMillimeters kAppleWatch44mmScreenWidth = 32.2;
+static const IRLRawMillimeters kAppleWatch44mmScreenHeight = 39.3;
 
 static const NSUInteger kAppleWatch38mmHeightPoints = 170;
 static const NSUInteger kAppleWatch40mmHeightPoints = 197;
@@ -28,9 +27,9 @@ static const NSUInteger kAppleWatch44mmHeightPoints = 224;
 
 @implementation WKInterfaceDevice (IRLSize)
 
-- (IRLRawSize)irl_estimatedRawPhysicalScreenSizeFromScreenPointHeight
+- (IRLRawDimensions)irl_estimatedRawPhysicalScreenSizeFromScreenPointHeight
 {
-    IRLRawSize estimatedDimensions = { 0.0f, 0.0f };
+    IRLRawDimensions estimatedDimensions = { 0.0f, 0.0f };
     
     NSUInteger heightPoints = round(CGRectGetHeight(self.screenBounds));
     
@@ -59,9 +58,9 @@ static const NSUInteger kAppleWatch44mmHeightPoints = 224;
     return estimatedDimensions;
 }
 
-- (IRLRawSize)irl_rawPhysicalScreenSize
+- (IRLRawDimensions)irl_rawPhysicalScreenSize
 {
-    IRLRawSize size = { 0.0f, 0.0f };
+    IRLRawDimensions size = { 0.0f, 0.0f };
     
     switch ([SDwatchOSVersion deviceVersion]) {
         case AppleWatch38mm:
@@ -83,30 +82,28 @@ static const NSUInteger kAppleWatch44mmHeightPoints = 224;
     return size;
 }
 
-#if IRL_SUPPORTS_NSMEASUREMENT
 - (NSMeasurement<NSUnitLength *> *)irl_physicalScreenHeight
 {
-    IRLRawSize deviceDimensions = [self irl_rawPhysicalScreenSize];
+    IRLRawDimensions deviceDimensions = [self irl_rawPhysicalScreenSize];
     
     return [[NSMeasurement alloc] initWithDoubleValue:deviceDimensions.height
-                                                 unit:IRL_RAW_SIZE_UNIT];
+                                                 unit:IRL_SIZE_UNIT];
 }
 
 - (NSMeasurement<NSUnitLength *> *)irl_physicalScreenWidth
 {
-    IRLRawSize deviceDimensions = [self irl_rawPhysicalScreenSize];
+    IRLRawDimensions deviceDimensions = [self irl_rawPhysicalScreenSize];
     
     return [[NSMeasurement alloc] initWithDoubleValue:deviceDimensions.width
-                                                 unit:IRL_RAW_SIZE_UNIT];
+                                                 unit:IRL_SIZE_UNIT];
 }
-#endif
 
-- (IRLRawLengthMeasurement)irl_rawPhysicalScreenHeight
+- (IRLRawMillimeters)irl_rawPhysicalScreenHeight
 {
     return [self irl_rawPhysicalScreenSize].height;
 }
 
-- (IRLRawLengthMeasurement)irl_rawPhysicalScreenWidth
+- (IRLRawMillimeters)irl_rawPhysicalScreenWidth
 {
     return [self irl_rawPhysicalScreenSize].width;
 }

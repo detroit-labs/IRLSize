@@ -3,7 +3,7 @@
 //  IRLSize
 //
 //  Created by Jeff Kelley on 11/13/2014.
-//  Copyright © 2017 Detroit Labs. All rights reserved.
+//  Copyright © 2018 Detroit Labs. All rights reserved.
 //
 
 #import "IRLSize.h"
@@ -12,7 +12,7 @@
 
 @implementation UIView (IRLSizePrivate)
 
-- (IRLRawSize)irl_rawPhysicalSize
+- (IRLRawDimensions)irl_rawPhysicalSize
 {
     return [UIDevice.currentDevice irl_rawPhysicalSizeOfView:self];
 }
@@ -31,7 +31,6 @@
 
 @implementation UIView (IRLSize)
 
-#if IRL_SUPPORTS_NSMEASUREMENT
 - (NSMeasurement<NSUnitLength *> *)irl_physicalWidth
 {
     if ([self irl_isOnSecondaryScreen]) {
@@ -39,7 +38,7 @@
     }
     
     return [[NSMeasurement alloc] initWithDoubleValue:[self irl_rawPhysicalSize].width
-                                                 unit:IRL_RAW_SIZE_UNIT];
+                                                 unit:IRL_SIZE_UNIT];
 }
 
 - (NSMeasurement<NSUnitLength *> *)irl_physicalHeight
@@ -49,21 +48,19 @@
     }
     
     return [[NSMeasurement alloc] initWithDoubleValue:[self irl_rawPhysicalSize].height
-                                                 unit:IRL_RAW_SIZE_UNIT];
+                                                 unit:IRL_SIZE_UNIT];
 }
-#endif
 
-- (IRLRawLengthMeasurement)irl_rawPhysicalWidth
+- (IRLRawMillimeters)irl_rawPhysicalWidth
 {
     return [self irl_rawPhysicalSize].width;
 }
 
-- (IRLRawLengthMeasurement)irl_rawPhysicalHeight
+- (IRLRawMillimeters)irl_rawPhysicalHeight
 {
     return [self irl_rawPhysicalSize].height;
 }
 
-#if IRL_SUPPORTS_NSMEASUREMENT
 - (CGAffineTransform)irl_transformForPhysicalWidth:(NSMeasurement<NSUnitLength *> *)physicalWidth
 {
     NSMeasurement<NSUnitLength *> *currentPhysicalWidth = self.irl_physicalWidth;
@@ -89,7 +86,7 @@
 }
 
 - (CGAffineTransform)irl_scaleTransformForTargetMeasurement:(NSMeasurement *)target
-                                         currentMeasurement:(NSMeasurement *)current IRL_IOS_AVAILABLE(10.0)
+                                         currentMeasurement:(NSMeasurement *)current
 {
     if ([target canBeConvertedToUnit:current.unit]) {
         NSMeasurement *convertedTarget =
@@ -102,34 +99,33 @@
         return self.transform;
     }
 }
-#endif
 
-- (CGAffineTransform)irl_transformForRawPhysicalWidth:(IRLRawLengthMeasurement)rawPhysicalWidth
+- (CGAffineTransform)irl_transformForRawPhysicalWidth:(IRLRawMillimeters)rawPhysicalWidth
 {
     if ([self irl_isOnSecondaryScreen]) {
         return self.transform;
     }
     
-    IRLRawLengthMeasurement currentValue = self.irl_rawPhysicalWidth;
+    IRLRawMillimeters currentValue = self.irl_rawPhysicalWidth;
     
     return [self irl_scaleTransformForTargetRawMeasurement:rawPhysicalWidth
                                      currentRawMeasurement:currentValue];
 }
 
-- (CGAffineTransform)irl_transformForRawPhysicalHeight:(IRLRawLengthMeasurement)rawPhysicalHeight
+- (CGAffineTransform)irl_transformForRawPhysicalHeight:(IRLRawMillimeters)rawPhysicalHeight
 {
     if ([self irl_isOnSecondaryScreen]) {
         return self.transform;
     }
     
-    IRLRawLengthMeasurement currentValue = self.irl_rawPhysicalHeight;
+    IRLRawMillimeters currentValue = self.irl_rawPhysicalHeight;
     
     return [self irl_scaleTransformForTargetRawMeasurement:rawPhysicalHeight
                                      currentRawMeasurement:currentValue];
 }
 
-- (CGAffineTransform)irl_scaleTransformForTargetRawMeasurement:(IRLRawLengthMeasurement)target
-                                         currentRawMeasurement:(IRLRawLengthMeasurement)current
+- (CGAffineTransform)irl_scaleTransformForTargetRawMeasurement:(IRLRawMillimeters)target
+                                         currentRawMeasurement:(IRLRawMillimeters)current
 {
     double ratio = target / current;
     

@@ -3,7 +3,7 @@
 //  IRLSizeExample
 //
 //  Created by Jeff Kelley on 8/13/2016.
-//  Copyright © 2017 Detroit Labs. All rights reserved.
+//  Copyright © 2018 Detroit Labs. All rights reserved.
 //
 
 #import <Kiwi/Kiwi.h>

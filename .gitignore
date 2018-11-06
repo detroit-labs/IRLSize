@@ -22,3 +22,6 @@ DerivedData
 
 # Bundler
 .bundle
+
+# Code Signing Settings
+Example/DevelopmentTeam.xcconfig

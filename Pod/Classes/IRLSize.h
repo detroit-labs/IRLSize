@@ -3,27 +3,20 @@
 //  IRLSize
 //
 //  Created by Jeff Kelley on 11/13/2014.
-//  Copyright © 2017 Detroit Labs. All rights reserved.
+//  Copyright © 2018 Detroit Labs. All rights reserved.
 //
 
 #import <TargetConditionals.h>
 
-#define IRL_SUPPORTS_NSMEASUREMENT (__IPHONE_10_0 > 0 && __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_10_0)
-
-#if TARGET_OS_IOS
-    #define IRL_IOS_AVAILABLE(v) __attribute__((availability(ios,introduced=v)))
-#elif TARGET_OS_WATCH
-    #define IRL_WATCHOS_AVAILABLE(v) __attribute__((availability(watchos,introduced=v)))
-#endif
-
-typedef float IRLRawLengthMeasurement; // meters
+typedef double IRLRawMillimeters;
 
 typedef struct {
-    IRLRawLengthMeasurement width;
-    IRLRawLengthMeasurement height;
-} IRLRawSize;
+    IRLRawMillimeters width;
+    IRLRawMillimeters height;
+} IRLRawDimensions;
 
-#define IRL_RAW_SIZE_UNIT NSUnitLength.meters
+#define IRL_SIZE_UNIT NSUnitLength.millimeters
+#define IRL_MM(x) [[NSMeasurement alloc] initWithDoubleValue:(x) unit: IRL_SIZE_UNIT]
 
 #if TARGET_OS_IOS
     #import "UIDevice+IRLSize.h"

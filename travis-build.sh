@@ -4,7 +4,7 @@ set -ev
 
 rc=0
 
-for OS in 10.0 10.1 10.2 10.3; do 
+for OS in 10.3 11.4 12.0; do 
 	for device in "iPhone SE" "iPhone 7" "iPhone 7 Plus" "iPad Pro (9.7 inch)" "iPad Pro (12.9 inch)"; do
 		xcodebuild -workspace "Example/IRLSizeExample.xcworkspace" \
 		           -scheme "IRLSizeExample" \

@@ -3,7 +3,7 @@
 //  IRLSize
 //
 //  Created by Jeff Kelley on 11/13/2014.
-//  Copyright © 2017 Detroit Labs. All rights reserved.
+//  Copyright © 2018 Detroit Labs. All rights reserved.
 //
 
 #import "IRLSize.h"
@@ -11,54 +11,19 @@
 #import <SDVersion/SDVersion.h>
 
 #import "UIView+IRLSizePrivate.h"
+#import "iOSDeviceConstants.h"
 
-// https://www.sven.de/dpi/ is a good resource for determining screen sizes.
-
-// iPhone/iPod touch
-static const float kiPhone3_5InchScreenHeight = 0.0740f;
-static const float kiPhone3_5InchScreenWidth = 0.0493f;
-static const float kiPhone4_0InchScreenHeight = 0.0885f;
-static const float kiPhone4_0InchScreenWidth = 0.0499f;
-static const float kiPhone4_7InchScreenHeight = 0.1041f;
-static const float kiPhone4_7InchScreenWidth = 0.0585f;
-static const float kiPhone5_5InchScreenHeight = 0.1218f;
-static const float kiPhone5_5InchScreenWidth = 0.0685f;
-static const float kiPhone5_8InchScreenHeight = 0.1337f;
-static const float kiPhone5_8InchScreenWidth = 0.0618f;
-static const float kiPhone6_1InchScreenHeight = 0.1407f;
-static const float kiPhone6_1InchScreenWidth = 0.065f;
-static const float kiPhone6_5InchScreenHeight = 0.1499f;
-static const float kiPhone6_5InchScreenWidth = 0.0693f;
-
-static const NSUInteger kiPhone3_5InchHeightPoints = 480;
-static const NSUInteger kiPhone4_0InchHeightPoints = 568;
-static const NSUInteger kiPhone4_7InchHeightPoints = 667;
-static const NSUInteger kiPhone5_5InchHeightPoints = 736;
-static const NSUInteger kiPhone5_8InchHeightPoints = 812;
-// The 6.1" and 6.5" phones both have 896 height points, so we'll need to use
-// different techniques to identify them.
-static const NSUInteger kiPhone6_1InchHeightPoints = 896;
-
-// iPad
-static const float kiPad7_9InchScreenHeight = 0.1605f;
-static const float kiPad7_9InchScreenWidth = 0.1204f;
-static const float kiPad9_7InchScreenHeight = 0.1971f;
-static const float kiPad9_7InchScreenWidth = 0.1478f;
-static const float kiPad10_5InchScreenHeight = 0.2134f;
-static const float kiPad10_5InchScreenWidth = 0.16f;
-static const float kiPad12_9InchScreenHeight = 0.2622f;
-static const float kiPad12_9InchScreenWidth = 0.1965f;
-
-static const NSUInteger kiPadHeightPoints = 1024;
-static const NSUInteger kiPadPro10Dot5InchHeightPoints = 1112;
-static const NSUInteger kiPadPro12Dot9InchHeightPoints = 1366;
-
+void IRLRawDimensionsSwap(IRLRawDimensions *dimensions) {
+    IRLRawMillimeters temp = dimensions->width;
+    dimensions->width = dimensions->height;
+    dimensions->height = temp;
+}
 
 @implementation UIDevice (IRLSizePrivate)
 
-- (IRLRawSize)irl_rawPhysicalSizeOfView:(UIView *)view
+- (IRLRawDimensions)irl_rawPhysicalSizeOfView:(UIView *)view
 {
-    IRLRawSize dimensions = { 0.0f, 0.0f };
+    IRLRawDimensions dimensions = { 0.0f, 0.0f };
     
     // If the view’s window is nil, we’ll just assume that it will be going onto
     // the main screen. This is what happens if you use this code during
@@ -81,16 +46,14 @@ static const NSUInteger kiPadPro12Dot9InchHeightPoints = 1366;
         
         CGSize windowSize = window.screen.bounds.size;
         
+        IRLRawDimensions rawPhysicalScreenSize = [self irl_rawPhysicalScreenSize];
+        
         if (window == nil) {
             windowSize = UIScreen.mainScreen.fixedCoordinateSpace.bounds.size;
         }
         else if (UIInterfaceOrientationIsLandscape(application.statusBarOrientation)) {
-            CGSize windowSizeSwap = CGSizeMake(windowSize.height,
-                                               windowSize.width);
-            windowSize = windowSizeSwap;
+            IRLRawDimensionsSwap(&rawPhysicalScreenSize);
         }
-        
-        IRLRawSize rawPhysicalScreenSize = [self irl_rawPhysicalScreenSize];
         
         dimensions.width = ((CGRectGetWidth(convertedFrame) / windowSize.width) *
                             rawPhysicalScreenSize.width);
@@ -102,10 +65,17 @@ static const NSUInteger kiPadPro12Dot9InchHeightPoints = 1366;
     return dimensions;
 }
 
-- (IRLRawSize)irl_estimatedRawPhysicalScreenSizeFromScreenPointHeight
-{
-    IRLRawSize estimatedDimensions = { 0.0f, 0.0f };
+#define IRL_ESTIMATED_DIMENSIONS(variable, deviceType, size) \
+    case k##deviceType##size##InchHeightPoints: { \
+        variable.height = k##deviceType##size##InchScreenHeight; \
+        variable.width = k##deviceType##size##InchScreenWidth; \
+    } \
+    break;
 
+- (IRLRawDimensions)irl_estimatedRawPhysicalScreenSizeFromScreenPointHeight
+{
+    IRLRawDimensions estimatedDimensions = { 0.0f, 0.0f };
+    
     UIScreen *mainScreen = UIScreen.mainScreen;
     CGRect portraitBounds = mainScreen.fixedCoordinateSpace.bounds;
     
@@ -113,132 +83,76 @@ static const NSUInteger kiPadPro12Dot9InchHeightPoints = 1366;
     NSUInteger scale = mainScreen.scale;
     
     switch (heightPoints) {
-        case kiPhone3_5InchHeightPoints:
-            estimatedDimensions.width = kiPhone3_5InchScreenWidth;
-            estimatedDimensions.height = kiPhone3_5InchScreenHeight;
-            break;
+            IRL_ESTIMATED_DIMENSIONS(estimatedDimensions, iPhone, 3_5)
+            IRL_ESTIMATED_DIMENSIONS(estimatedDimensions, iPhone, 4_0)
+            IRL_ESTIMATED_DIMENSIONS(estimatedDimensions, iPhone, 4_7)
+            IRL_ESTIMATED_DIMENSIONS(estimatedDimensions, iPhone, 5_5)
+            IRL_ESTIMATED_DIMENSIONS(estimatedDimensions, iPhone, 5_8)
             
-        case kiPhone4_0InchHeightPoints:
-            estimatedDimensions.width = kiPhone4_0InchScreenWidth;
-            estimatedDimensions.height = kiPhone4_0InchScreenHeight;
-            break;
-            
-        case kiPhone4_7InchHeightPoints:
-            estimatedDimensions.width = kiPhone4_7InchScreenWidth;
-            estimatedDimensions.height = kiPhone4_7InchScreenHeight;
-            break;
-            
-        case kiPhone5_5InchHeightPoints:
-            estimatedDimensions.width = kiPhone5_5InchScreenWidth;
-            estimatedDimensions.height = kiPhone5_5InchScreenHeight;
-            break;
-            
-        case kiPhone5_8InchHeightPoints:
-            estimatedDimensions.width = kiPhone5_8InchScreenWidth;
-            estimatedDimensions.height = kiPhone5_8InchScreenHeight;
-            break;
-
         case kiPhone6_1InchHeightPoints:
             if (scale == 3) {
-                estimatedDimensions.width = kiPhone6_5InchScreenWidth;
                 estimatedDimensions.height = kiPhone6_5InchScreenHeight;
+                estimatedDimensions.width = kiPhone6_5InchScreenWidth;
             }
             else {
-                estimatedDimensions.width = kiPhone6_1InchScreenWidth;
                 estimatedDimensions.height = kiPhone6_1InchScreenHeight;
+                estimatedDimensions.width = kiPhone6_1InchScreenWidth;
             }
             break;
             
-        case kiPadHeightPoints:
-            estimatedDimensions.width = kiPad9_7InchScreenWidth;
-            estimatedDimensions.height = kiPad9_7InchScreenHeight;
-            break;
-            
-        case kiPadPro10Dot5InchHeightPoints:
-            estimatedDimensions.width = kiPad10_5InchScreenWidth;
-            estimatedDimensions.height = kiPad10_5InchScreenHeight;
-            break;
-            
-        case kiPadPro12Dot9InchHeightPoints:
-            estimatedDimensions.width = kiPad12_9InchScreenWidth;
-            estimatedDimensions.height = kiPad12_9InchScreenHeight;
-            break;
+            IRL_ESTIMATED_DIMENSIONS(estimatedDimensions, iPad, 9_7)
+            IRL_ESTIMATED_DIMENSIONS(estimatedDimensions, iPadPro, 10_5)
+            IRL_ESTIMATED_DIMENSIONS(estimatedDimensions, iPadPro, 12_9)
     }
     
     return estimatedDimensions;
 }
 
-- (IRLRawSize)irl_rawPhysicalScreenSize
+#define IRL_KNOWN_DEVICE_DIMENSIONS_UNMATCHING(modelEnum, sizeEnumPrefix)\
+    case modelEnum: { \
+        size.height = k##sizeEnumPrefix##ScreenHeight; \
+        size.width = k##sizeEnumPrefix##ScreenWidth; \
+    } \
+    break;
+
+#define IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(enum) \
+    IRL_KNOWN_DEVICE_DIMENSIONS_UNMATCHING(enum, enum)
+
+- (IRLRawDimensions)irl_rawPhysicalScreenSize
 {
-    IRLRawSize size = { 0.0f, 0.0f };
+    IRLRawDimensions size = { 0.0f, 0.0f };
     
     switch ([SDiOSVersion deviceVersion]) {
-        case iPhone4S:
-            size.width = kiPhone3_5InchScreenWidth;
-            size.height = kiPhone3_5InchScreenHeight;
-            break;
+            IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(iPhone5)
+            IRL_KNOWN_DEVICE_DIMENSIONS_UNMATCHING(iPhone5S, iPhone5s)
+            IRL_KNOWN_DEVICE_DIMENSIONS_UNMATCHING(iPhone5C, iPhone5c)
+            IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(iPhoneSE)
+            IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(iPhone6)
+            IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(iPhone6Plus)
+            IRL_KNOWN_DEVICE_DIMENSIONS_UNMATCHING(iPhone6S, iPhone6s)
+            IRL_KNOWN_DEVICE_DIMENSIONS_UNMATCHING(iPhone6SPlus, iPhone6sPlus)
+            IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(iPhone7)
+            IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(iPhone7Plus)
+            IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(iPhone8)
+            IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(iPhone8Plus)
+            IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(iPhoneX)
             
-        case iPhone5:
-        case iPhone5S:
-        case iPhone5C:
-        case iPhoneSE:
-        case iPodTouch5Gen:
-        case iPodTouch6Gen:
-            size.width = kiPhone4_0InchScreenWidth;
-            size.height = kiPhone4_0InchScreenHeight;
-            break;
+            IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(iPad4)
+            IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(iPadMini)
+            IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(iPadAir)
+            IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(iPadMini2)
+            IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(iPadMini3)
+            IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(iPadAir2)
+            IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(iPadMini4)
+            IRL_KNOWN_DEVICE_DIMENSIONS_UNMATCHING(iPadPro9Dot7Inch, iPadPro9_7Inch)
+            IRL_KNOWN_DEVICE_DIMENSIONS_UNMATCHING(iPadPro12Dot9Inch, iPadPro12_9Inch)
+            IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(iPad5)
+            IRL_KNOWN_DEVICE_DIMENSIONS_UNMATCHING(iPadPro10Dot5Inch, iPadPro10_5Inch)
+            IRL_KNOWN_DEVICE_DIMENSIONS_UNMATCHING(iPadPro12Dot9Inch2Gen, iPadPro12_9Inch2)
             
-        case iPhone6:
-        case iPhone6S:
-        case iPhone7:
-        case iPhone8:
-            size.width = kiPhone4_7InchScreenWidth;
-            size.height = kiPhone4_7InchScreenHeight;
-            break;
-            
-        case iPhone6Plus:
-        case iPhone6SPlus:
-        case iPhone7Plus:
-        case iPhone8Plus:
-            size.width = kiPhone5_5InchScreenWidth;
-            size.height = kiPhone5_5InchScreenHeight;
-            break;
-            
-        case iPhoneX:
-            size.width = kiPhone5_8InchScreenWidth;
-            size.height = kiPhone5_8InchScreenHeight;
-            break;
-            
-        case iPad2:
-        case iPad3:
-        case iPad4:
-        case iPadAir:
-        case iPadAir2:
-        case iPadPro9Dot7Inch:
-        case iPad5:
-            size.width = kiPad9_7InchScreenWidth;
-            size.height = kiPad9_7InchScreenHeight;
-            break;
-            
-        case iPadMini:
-        case iPadMini2:
-        case iPadMini3:
-        case iPadMini4:
-            size.width = kiPad7_9InchScreenWidth;
-            size.height = kiPad7_9InchScreenHeight;
-            break;
-            
-        case iPadPro10Dot5Inch:
-            size.width = kiPad10_5InchScreenWidth;
-            size.height = kiPad10_5InchScreenHeight;
-            break;
-            
-        case iPadPro12Dot9Inch:
-        case iPadPro12Dot9Inch2Gen:
-            size.width = kiPad12_9InchScreenWidth;
-            size.height = kiPad12_9InchScreenHeight;
-            break;
-            
+            IRL_KNOWN_DEVICE_DIMENSIONS_UNMATCHING(iPodTouch5Gen, iPodTouch5)
+            IRL_KNOWN_DEVICE_DIMENSIONS_UNMATCHING(iPodTouch6Gen, iPodTouch6)
+
         default:
             size = [self irl_estimatedRawPhysicalScreenSizeFromScreenPointHeight];
             break;
@@ -251,32 +165,24 @@ static const NSUInteger kiPadPro12Dot9InchHeightPoints = 1366;
 
 @implementation UIDevice (IRLSize)
 
-#if IRL_SUPPORTS_NSMEASUREMENT
 - (NSMeasurement<NSUnitLength *> *)irl_physicalScreenHeight
 {
-    IRLRawSize deviceDimensions = [self irl_rawPhysicalScreenSize];
-    
-    return [[NSMeasurement alloc] initWithDoubleValue:deviceDimensions.height
-                                                 unit:IRL_RAW_SIZE_UNIT];
+    return IRL_MM(self.irl_rawPhysicalScreenSize.height);
 }
 
 - (NSMeasurement<NSUnitLength *> *)irl_physicalScreenWidth
 {
-    IRLRawSize deviceDimensions = [self irl_rawPhysicalScreenSize];
-    
-    return [[NSMeasurement alloc] initWithDoubleValue:deviceDimensions.width
-                                                 unit:IRL_RAW_SIZE_UNIT];
-}
-#endif
-
-- (IRLRawLengthMeasurement)irl_rawPhysicalScreenHeight
-{
-    return [self irl_rawPhysicalScreenSize].height;
+    return IRL_MM(self.irl_rawPhysicalScreenSize.width);
 }
 
-- (IRLRawLengthMeasurement)irl_rawPhysicalScreenWidth
+- (IRLRawMillimeters)irl_rawPhysicalScreenHeight
 {
-    return [self irl_rawPhysicalScreenSize].width;
+    return self.irl_rawPhysicalScreenSize.height;
+}
+
+- (IRLRawMillimeters)irl_rawPhysicalScreenWidth
+{
+    return self.irl_rawPhysicalScreenSize.width;
 }
 
 @end

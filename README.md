@@ -17,7 +17,11 @@ pod install --project-directory=Example
 
 ## Use
 
-All IRLSize methods have two versions: one that uses `NSMeasurement` in iOS 10/watchOS 3 and later, and one that uses the `IRLRawLengthMeasurement` type (a float measuring meters).
+All IRLSize methods have two versions: one that uses `NSMeasurement` (`Measurement` in Swift), and one that uses the `IRLRawMillimeters` type (a `double` measuring millimeters).
+
+### Important: Upgrading to IRLSize 2.0
+
+IRLSize 2.0 switched the native unit for measurements from meters to millimeters to better manage what official Apple documentation there is on device sizes. This is a breaking change and as such the raw unit type changed from `IRLRawLengthMeasurement` to `IRLRawMillimeters` to avoid this change accidentally changing existing code by a factor of 1,000. If you were using `NSMeasurement`, no updates should be necessary, as it automatically converts between units.
 
 ### Measuring an On-Screen Element
 
@@ -31,10 +35,9 @@ NSMeasurement<NSUnitLength *> *width = view.irl_physicalWidth;
 NSMeasurement<NSUnitLength *> *height = view.irl_physicalHeight;
 
 // Raw Version
-//   IRLRawLengthMeasurement is a `float` representing meters for OSes versions that
-//   don’t support `NSMeasurement`. 
-IRLRawLengthMeasurement rawWidth = view.irl_rawPhysicalWidth;
-IRLRawLengthMeasurement rawHeight = view.irl_rawPhysicalHeight;
+//   `IRLRawMillimeters` is a `double` representing millimeters. 
+IRLRawMillimeters rawWidth = view.irl_rawPhysicalWidth;
+IRLRawMillimeters rawHeight = view.irl_rawPhysicalHeight;
 ```
 
 If a view is on a secondary screen (i.e. if you’re using an external display)
@@ -49,8 +52,8 @@ let width = view.physicalWidth // type: Measurement<UnitLength>
 let height = view.physicalHeight // type: Measurement<UnitLength>
 
 // Raw Version
-let rawWidth = view.rawPhysicalWidth // type: IRLRawLengthMeasurement
-let rawHeight = view.rawPhysicalHeight // type: IRLRawLengthMeasurement
+let rawWidth = view.rawPhysicalWidth // type: IRLRawMillimeters
+let rawHeight = view.rawPhysicalHeight // type: IRLRawMillimeters
 ```
 
 ### Sizing a View
@@ -68,7 +71,7 @@ NSMeasurement<NSUnitLength *> *desiredHeight =
 view.transform = [view irl_transformForPhysicalHeight:desiredHeight];
 
 // Raw Version
-view.transform = [view irl_transformForRawPhysicalHeight:0.038];
+view.transform = [view irl_transformForRawPhysicalHeight:38.0];
 ```
 
 #### Swift
@@ -79,7 +82,7 @@ let desiredHeight = Measurement(value: 38, unit: UnitLength.millimeters)
 view.transform = view.transform(forPhysicalHeight:desiredHeight)
 
 // Raw Version
-view.transform = view.transform(forRawPhysicalHeight:0.038);
+view.transform = view.transform(forRawPhysicalHeight:38);
 ```
 
 ### Measuring a Device
@@ -91,11 +94,11 @@ If you just want to know the physical size of the screen, use the category on
 ```Objective-C
 // iOS
 NSMeasurement<NSUnitLength *> *screenHeight = UIDevice.currentDevice.irl_physicalScreenHeight;
-IRLRawLengthMeasurement rawScreenHeight = UIDevice.currentDevice.irl_rawPhysicalScreenHeight;
+IRLRawMillimeters rawScreenHeight = UIDevice.currentDevice.irl_rawPhysicalScreenHeight;
 
 // watchOS
 NSMeasurement<NSUnitLength *> *screenHeight = WKInterfaceDevice.currentDevice.irl_physicalScreenHeight;
-IRLRawLengthMeasurement rawScreenHeight = WKInterfaceDevice.currentDevice.irl_rawPhysicalScreenHeight;
+IRLRawMillimeters rawScreenHeight = WKInterfaceDevice.currentDevice.irl_rawPhysicalScreenHeight;
 ```
 
 #### Swift

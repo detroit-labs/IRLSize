@@ -99,16 +99,18 @@
 		1F5EC3871D241DBF0068E86F /* ExtensionDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExtensionDelegate.m; sourceTree = "<group>"; };
 		1F5EC3891D241DBF0068E86F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1F5EC38B1D241DBF0068E86F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F8A1FE821923170006ED4EC /* SigningSettings.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = SigningSettings.xcconfig; sourceTree = "<group>"; };
 		1FBC8FD31D236DFD00015A75 /* IRLSizeExample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IRLSizeExample-Bridging-Header.h"; sourceTree = "<group>"; };
 		1FBC8FD41D236DFD00015A75 /* RulerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RulerView.swift; sourceTree = "<group>"; };
 		1FC7E2001D5F99D400274C2A /* NSMeasurement+Equality.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMeasurement+Equality.h"; sourceTree = "<group>"; };
 		1FC7E2011D5F99D400274C2A /* NSMeasurement+Equality.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMeasurement+Equality.m"; sourceTree = "<group>"; };
 		1FC7E2031D5F9EB500274C2A /* IRLMeasurementBeWithinMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRLMeasurementBeWithinMatcher.h; sourceTree = "<group>"; };
 		1FC7E2041D5F9EB500274C2A /* IRLMeasurementBeWithinMatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRLMeasurementBeWithinMatcher.m; sourceTree = "<group>"; };
+		1FD4587321913DD500982651 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = ../CHANGELOG.md; sourceTree = "<group>"; };
 		2D7A6FA6D99E271DC58A3FDB /* Pods-IRLSizeExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IRLSizeExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-IRLSizeExample/Pods-IRLSizeExample.release.xcconfig"; sourceTree = "<group>"; };
 		3B52ABAB0F4897702004A1C3 /* Pods-IRLSizeExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IRLSizeExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IRLSizeExample/Pods-IRLSizeExample.debug.xcconfig"; sourceTree = "<group>"; };
 		3F468B881C59569556F61E7D /* Pods-IRLSizeExample-Watch Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IRLSizeExample-Watch Extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IRLSizeExample-Watch Extension/Pods-IRLSizeExample-Watch Extension.debug.xcconfig"; sourceTree = "<group>"; };
-		41B6AD569D60E1A0310A509C /* IRLSize.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = IRLSize.podspec; path = ../IRLSize.podspec; sourceTree = "<group>"; };
+		41B6AD569D60E1A0310A509C /* IRLSize.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = IRLSize.podspec; path = ../IRLSize.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		5BEF1258540BA1981AF80DB5 /* libPods-IRLSizeExample-Watch Extension.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IRLSizeExample-Watch Extension.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58A195388D20070C39A /* IRLSizeExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IRLSizeExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -199,6 +201,8 @@
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
+				1F8A1FE821923170006ED4EC /* SigningSettings.xcconfig */,
+				1FD4587321913DD500982651 /* CHANGELOG.md */,
 				60FF7A9C1954A5C5007DD14C /* Podspec Metadata */,
 				6003F593195388D20070C39A /* IRLSizeExample */,
 				6003F5B5195388D20070C39A /* IRLSizeTests */,
@@ -270,7 +274,8 @@
 				6003F5BB195388D20070C39A /* IRLSizeTests.m */,
 				6003F5B6195388D20070C39A /* Supporting Files */,
 			);
-			path = IRLSizeTests;
+			name = IRLSizeTests;
+			path = ../IRLSizeTests;
 			sourceTree = SOURCE_ROOT;
 		};
 		6003F5B6195388D20070C39A /* Supporting Files */ = {
@@ -686,6 +691,7 @@
 		};
 		6003F5BD195388D20070C39A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1F8A1FE821923170006ED4EC /* SigningSettings.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -740,6 +746,7 @@
 		};
 		6003F5BE195388D20070C39A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1F8A1FE821923170006ED4EC /* SigningSettings.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -839,7 +846,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "IRLSizeTests/IRLSizeTests-Info.plist";
+				INFOPLIST_FILE = "../IRLSizeTests/IRLSizeTests-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.detroitlabs.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = xctest;
@@ -855,7 +862,7 @@
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
-				INFOPLIST_FILE = "IRLSizeTests/IRLSizeTests-Info.plist";
+				INFOPLIST_FILE = "../IRLSizeTests/IRLSizeTests-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.detroitlabs.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = xctest;

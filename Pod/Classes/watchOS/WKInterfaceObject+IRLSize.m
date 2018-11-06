@@ -3,14 +3,13 @@
 //  IRLSize
 //
 //  Created by Jeff Kelley on 6/29/2016.
-//  Copyright © 2017 Detroit Labs. All rights reserved.
+//  Copyright © 2018 Detroit Labs. All rights reserved.
 //
 
 #import "WKInterfaceObject+IRLSize.h"
 
 @implementation WKInterfaceObject (IRLSize)
 
-#if IRL_SUPPORTS_NSMEASUREMENT
 - (void)irl_setPhysicalWidth:(NSMeasurement<NSUnitLength *> *)width
 {
     NSMeasurement<NSUnitLength *> *screenWidth =
@@ -42,11 +41,10 @@
         [self irl_setHeightRatio:ratio];
     }
 }
-#endif
 
-- (void)irl_setRawPhysicalWidth:(IRLRawLengthMeasurement)width
+- (void)irl_setRawPhysicalWidth:(IRLRawMillimeters)width
 {
-    IRLRawLengthMeasurement screenWidth =
+    IRLRawMillimeters screenWidth =
     [WKInterfaceDevice currentDevice].irl_rawPhysicalScreenWidth;
     
     double ratio = width / screenWidth;
@@ -54,9 +52,9 @@
     [self irl_setWidthRatio:ratio];
 }
 
-- (void)irl_setRawPhysicalHeight:(IRLRawLengthMeasurement)height
+- (void)irl_setRawPhysicalHeight:(IRLRawMillimeters)height
 {
-    IRLRawLengthMeasurement screenHeight =
+    IRLRawMillimeters screenHeight =
     [WKInterfaceDevice currentDevice].irl_rawPhysicalScreenHeight;
     
     double ratio = height / screenHeight;
