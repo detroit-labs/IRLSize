@@ -1,7 +1,7 @@
 # IRLSize Change Log
 
 ## [2.0.0](https://github.com/detroit-labs/IRLSize/releases/tag/2.0.0)
-**Released:** 2018-11-05
+**Released:** 2018-11-06
 
 ### Breaking Changes
   - Renamed `IRLRawLengthMeasurement` to `IRLRawMillimeters`
