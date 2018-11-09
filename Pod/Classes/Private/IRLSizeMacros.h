@@ -15,7 +15,6 @@
 #define DEBUG_LOG(x)
 #endif
 
-#define IRL_SIZE_UNIT NSUnitLength.millimeters
 #define IRL_MM(x) [[NSMeasurement alloc] initWithDoubleValue:(x) unit:IRL_SIZE_UNIT]
 
 #define IRL_ESTIMATED_DIMENSIONS(variable, deviceType, size) \
