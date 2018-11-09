@@ -13,6 +13,12 @@
 #import "UIView+IRLSizePrivate.h"
 #import "iOSDeviceConstants.h"
 
+#if IRLSIZE_DEBUG
+#define DEBUG_LOG(x) NSLog(x)
+#else
+#define DEBUG_LOG(x)
+#endif
+
 void IRLRawDimensionsSwap(IRLRawDimensions *dimensions) {
     IRLRawMillimeters temp = dimensions->width;
     dimensions->width = dimensions->height;
@@ -67,6 +73,7 @@ void IRLRawDimensionsSwap(IRLRawDimensions *dimensions) {
 
 #define IRL_ESTIMATED_DIMENSIONS(variable, deviceType, size) \
     case k##deviceType##size##InchHeightPoints: { \
+        DEBUG_LOG(@"Estimating height of " #deviceType " at " #size " inches."); \
         variable.height = k##deviceType##size##InchScreenHeight; \
         variable.width = k##deviceType##size##InchScreenWidth; \
     } \
@@ -111,6 +118,7 @@ void IRLRawDimensionsSwap(IRLRawDimensions *dimensions) {
 
 #define IRL_KNOWN_DEVICE_DIMENSIONS_UNMATCHING(modelEnum, sizeEnumPrefix)\
     case modelEnum: { \
+        DEBUG_LOG(@"Local device matches " #modelEnum "."); \
         size.height = k##sizeEnumPrefix##ScreenHeight; \
         size.width = k##sizeEnumPrefix##ScreenWidth; \
     } \

@@ -15,3 +15,15 @@ target 'IRLSizeTests' do
     pod "IRLSize", :path => ".."
     pod "Kiwi", :inhibit_warnings => true
 end
+
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    if target.name.start_with?('IRLSize')
+      target.build_configurations.each do |config|
+        if config.name == 'Debug'
+          config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)', 'IRLSIZE_DEBUG=1']
+        end
+      end
+    end
+  end
+end
