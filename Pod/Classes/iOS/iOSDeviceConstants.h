@@ -9,6 +9,8 @@
 #ifndef iOSDeviceConstants_h
 #define iOSDeviceConstants_h
 
+#import "IRLSize.h"
+
 #pragma mark - Physical Measurements
 // All measurements are in millimeters, sourced from official, publicly-
 // available Apple device documentation here:

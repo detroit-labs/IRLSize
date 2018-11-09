@@ -15,10 +15,6 @@ typedef struct {
     IRLRawMillimeters height;
 } IRLRawDimensions;
 
-#define IRL_SIZE_UNIT NSUnitLength.millimeters
-#define IRL_MM(x) [[NSMeasurement alloc] initWithDoubleValue:(x) \
-                                                        unit:IRL_SIZE_UNIT]
-
 #if TARGET_OS_IOS
     #import "UIDevice+IRLSize.h"
     #import "UIView+IRLSize.h"
