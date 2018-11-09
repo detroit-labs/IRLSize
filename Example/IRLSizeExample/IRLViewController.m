@@ -47,9 +47,9 @@
     [self.rulerView setNeedsDisplay];
 }
 
-- (void)viewDidLayoutSubviews
+- (void)viewWillLayoutSubviews
 {
-    [super viewDidLayoutSubviews];
+    [super viewWillLayoutSubviews];
     
     [self configureLabels];
 }

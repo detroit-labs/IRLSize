@@ -5,6 +5,7 @@
 
 ### Updated
   - Improved accuracy of Apple Watch measurements
+  - Improved the display of the example application, including supporting Dynamic Type
 
 ### Added
   - Support for 2018 iPad Pro models
