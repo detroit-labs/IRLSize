@@ -239,7 +239,7 @@ static const NSUInteger kiPhone6_1InchHeightPoints = 896;
 // iPad //
 //////////
 static const NSUInteger kiPad9_7InchHeightPoints = 1024;
-static const NSUInteger kiPadPro10_5InchHeightPoints = 1112;
-static const NSUInteger kiPadPro12_9InchHeightPoints = 1366;
+static const NSUInteger kiPad10_5InchHeightPoints = 1112;
+static const NSUInteger kiPad12_9InchHeightPoints = 1366;
 
 #endif /* iOSDeviceConstants_h */

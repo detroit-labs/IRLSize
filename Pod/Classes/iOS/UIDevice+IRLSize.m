@@ -101,8 +101,8 @@ void IRLRawDimensionsSwap(IRLRawDimensions *dimensions) {
             break;
             
             IRL_ESTIMATED_DIMENSIONS(estimatedDimensions, iPad, 9_7)
-            IRL_ESTIMATED_DIMENSIONS(estimatedDimensions, iPadPro, 10_5)
-            IRL_ESTIMATED_DIMENSIONS(estimatedDimensions, iPadPro, 12_9)
+            IRL_ESTIMATED_DIMENSIONS(estimatedDimensions, iPad, 10_5)
+            IRL_ESTIMATED_DIMENSIONS(estimatedDimensions, iPad, 12_9)
     }
     
     return estimatedDimensions;
