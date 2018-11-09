@@ -10,6 +10,7 @@
 
 #import <SDVersion/SDVersion.h>
 
+#import "IRLSizeMacros.h"
 #import "UIView+IRLSizePrivate.h"
 #import "iOSDeviceConstants.h"
 
@@ -65,13 +66,6 @@ void IRLRawDimensionsSwap(IRLRawDimensions *dimensions) {
     return dimensions;
 }
 
-#define IRL_ESTIMATED_DIMENSIONS(variable, deviceType, size) \
-    case k##deviceType##size##InchHeightPoints: { \
-        variable.height = k##deviceType##size##InchScreenHeight; \
-        variable.width = k##deviceType##size##InchScreenWidth; \
-    } \
-    break;
-
 - (IRLRawDimensions)irl_estimatedRawPhysicalScreenSizeFromScreenPointHeight
 {
     IRLRawDimensions estimatedDimensions = { 0.0f, 0.0f };
@@ -83,11 +77,11 @@ void IRLRawDimensionsSwap(IRLRawDimensions *dimensions) {
     NSUInteger scale = mainScreen.scale;
     
     switch (heightPoints) {
-            IRL_ESTIMATED_DIMENSIONS(estimatedDimensions, iPhone, 3_5)
-            IRL_ESTIMATED_DIMENSIONS(estimatedDimensions, iPhone, 4_0)
-            IRL_ESTIMATED_DIMENSIONS(estimatedDimensions, iPhone, 4_7)
-            IRL_ESTIMATED_DIMENSIONS(estimatedDimensions, iPhone, 5_5)
-            IRL_ESTIMATED_DIMENSIONS(estimatedDimensions, iPhone, 5_8)
+        IRL_ESTIMATED_DIMENSIONS(estimatedDimensions, iPhone, 3_5Inch)
+        IRL_ESTIMATED_DIMENSIONS(estimatedDimensions, iPhone, 4_0Inch)
+        IRL_ESTIMATED_DIMENSIONS(estimatedDimensions, iPhone, 4_7Inch)
+        IRL_ESTIMATED_DIMENSIONS(estimatedDimensions, iPhone, 5_5Inch)
+        IRL_ESTIMATED_DIMENSIONS(estimatedDimensions, iPhone, 5_8Inch)
             
         case kiPhone6_1InchHeightPoints:
             if (scale == 3) {
@@ -100,58 +94,49 @@ void IRLRawDimensionsSwap(IRLRawDimensions *dimensions) {
             }
             break;
             
-            IRL_ESTIMATED_DIMENSIONS(estimatedDimensions, iPad, 9_7)
-            IRL_ESTIMATED_DIMENSIONS(estimatedDimensions, iPadPro, 10_5)
-            IRL_ESTIMATED_DIMENSIONS(estimatedDimensions, iPadPro, 12_9)
+        IRL_ESTIMATED_DIMENSIONS(estimatedDimensions, iPad, 9_7Inch)
+        IRL_ESTIMATED_DIMENSIONS(estimatedDimensions, iPad, 10_5Inch)
+        IRL_ESTIMATED_DIMENSIONS(estimatedDimensions, iPad, 11_0Inch)
+        IRL_ESTIMATED_DIMENSIONS(estimatedDimensions, iPad, 12_9Inch)
     }
     
     return estimatedDimensions;
 }
-
-#define IRL_KNOWN_DEVICE_DIMENSIONS_UNMATCHING(modelEnum, sizeEnumPrefix)\
-    case modelEnum: { \
-        size.height = k##sizeEnumPrefix##ScreenHeight; \
-        size.width = k##sizeEnumPrefix##ScreenWidth; \
-    } \
-    break;
-
-#define IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(enum) \
-    IRL_KNOWN_DEVICE_DIMENSIONS_UNMATCHING(enum, enum)
 
 - (IRLRawDimensions)irl_rawPhysicalScreenSize
 {
     IRLRawDimensions size = { 0.0f, 0.0f };
     
     switch ([SDiOSVersion deviceVersion]) {
-            IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(iPhone5)
-            IRL_KNOWN_DEVICE_DIMENSIONS_UNMATCHING(iPhone5S, iPhone5s)
-            IRL_KNOWN_DEVICE_DIMENSIONS_UNMATCHING(iPhone5C, iPhone5c)
-            IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(iPhoneSE)
-            IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(iPhone6)
-            IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(iPhone6Plus)
-            IRL_KNOWN_DEVICE_DIMENSIONS_UNMATCHING(iPhone6S, iPhone6s)
-            IRL_KNOWN_DEVICE_DIMENSIONS_UNMATCHING(iPhone6SPlus, iPhone6sPlus)
-            IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(iPhone7)
-            IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(iPhone7Plus)
-            IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(iPhone8)
-            IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(iPhone8Plus)
-            IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(iPhoneX)
-            
-            IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(iPad4)
-            IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(iPadMini)
-            IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(iPadAir)
-            IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(iPadMini2)
-            IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(iPadMini3)
-            IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(iPadAir2)
-            IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(iPadMini4)
-            IRL_KNOWN_DEVICE_DIMENSIONS_UNMATCHING(iPadPro9Dot7Inch, iPadPro9_7Inch)
-            IRL_KNOWN_DEVICE_DIMENSIONS_UNMATCHING(iPadPro12Dot9Inch, iPadPro12_9Inch)
-            IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(iPad5)
-            IRL_KNOWN_DEVICE_DIMENSIONS_UNMATCHING(iPadPro10Dot5Inch, iPadPro10_5Inch)
-            IRL_KNOWN_DEVICE_DIMENSIONS_UNMATCHING(iPadPro12Dot9Inch2Gen, iPadPro12_9Inch2)
-            
-            IRL_KNOWN_DEVICE_DIMENSIONS_UNMATCHING(iPodTouch5Gen, iPodTouch5)
-            IRL_KNOWN_DEVICE_DIMENSIONS_UNMATCHING(iPodTouch6Gen, iPodTouch6)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(iPhone5)
+        IRL_KNOWN_DEVICE_DIMENSIONS_UNMATCHING(iPhone5S, iPhone5s)
+        IRL_KNOWN_DEVICE_DIMENSIONS_UNMATCHING(iPhone5C, iPhone5c)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(iPhoneSE)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(iPhone6)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(iPhone6Plus)
+        IRL_KNOWN_DEVICE_DIMENSIONS_UNMATCHING(iPhone6S, iPhone6s)
+        IRL_KNOWN_DEVICE_DIMENSIONS_UNMATCHING(iPhone6SPlus, iPhone6sPlus)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(iPhone7)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(iPhone7Plus)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(iPhone8)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(iPhone8Plus)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(iPhoneX)
+        
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(iPad4)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(iPadMini)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(iPadAir)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(iPadMini2)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(iPadMini3)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(iPadAir2)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(iPadMini4)
+        IRL_KNOWN_DEVICE_DIMENSIONS_UNMATCHING(iPadPro9Dot7Inch, iPadPro9_7Inch)
+        IRL_KNOWN_DEVICE_DIMENSIONS_UNMATCHING(iPadPro12Dot9Inch, iPadPro12_9Inch)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(iPad5)
+        IRL_KNOWN_DEVICE_DIMENSIONS_UNMATCHING(iPadPro10Dot5Inch, iPadPro10_5Inch)
+        IRL_KNOWN_DEVICE_DIMENSIONS_UNMATCHING(iPadPro12Dot9Inch2Gen, iPadPro12_9Inch2)
+        
+        IRL_KNOWN_DEVICE_DIMENSIONS_UNMATCHING(iPodTouch5Gen, iPodTouch5)
+        IRL_KNOWN_DEVICE_DIMENSIONS_UNMATCHING(iPodTouch6Gen, iPodTouch6)
 
         default:
             size = [self irl_estimatedRawPhysicalScreenSizeFromScreenPointHeight];

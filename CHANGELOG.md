@@ -1,5 +1,17 @@
 # IRLSize Change Log
 
+## [2.0.1](https://github.com/detroit-labs/IRLSize/releases/tag/2.0.1)
+**Released:** 2018-11-08
+
+### Updated
+  - Improved accuracy of Apple Watch measurements
+  - Improved the display of the example application, including supporting Dynamic Type
+
+### Added
+  - Support for 2018 iPad Pro models
+  - Fixed a bug in estimating iPad Pro sizes
+  - Added debug logging of estimates (define `IRLSIZE_DEBUG` to `1` to use)
+
 ## [2.0.0](https://github.com/detroit-labs/IRLSize/releases/tag/2.0.0)
 **Released:** 2018-11-06
 

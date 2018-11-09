@@ -13,8 +13,10 @@
 #import <Kiwi/Kiwi.h>
 #import <SDVersion/SDVersion.h>
 
-#import "iOSDeviceConstants.h"
 #import "IRLMeasurementBeWithinMatcher.h"
+#import "iOSDeviceConstants.h"
+
+#define IRL_MM(x) [[NSMeasurement alloc] initWithDoubleValue:(x) unit:IRL_SIZE_UNIT]
 
 #define KNOWN_DEVICE_TEST_UNMATCHING(name, modelEnum, sizeEnumPrefix) \
     context(@"on an " name, ^{ \

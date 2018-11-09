@@ -8,6 +8,7 @@
 
 #import "IRLSize.h"
 
+#import "IRLSizeMacros.h"
 #import "UIDevice+IRLSizePrivate.h"
 
 @implementation UIView (IRLSizePrivate)
@@ -37,8 +38,7 @@
         return nil;
     }
     
-    return [[NSMeasurement alloc] initWithDoubleValue:[self irl_rawPhysicalSize].width
-                                                 unit:IRL_SIZE_UNIT];
+    return IRL_MM(self.irl_rawPhysicalWidth);
 }
 
 - (NSMeasurement<NSUnitLength *> *)irl_physicalHeight
@@ -47,18 +47,17 @@
         return nil;
     }
     
-    return [[NSMeasurement alloc] initWithDoubleValue:[self irl_rawPhysicalSize].height
-                                                 unit:IRL_SIZE_UNIT];
+    return IRL_MM(self.irl_rawPhysicalHeight);
 }
 
 - (IRLRawMillimeters)irl_rawPhysicalWidth
 {
-    return [self irl_rawPhysicalSize].width;
+    return self.irl_rawPhysicalSize.width;
 }
 
 - (IRLRawMillimeters)irl_rawPhysicalHeight
 {
-    return [self irl_rawPhysicalSize].height;
+    return self.irl_rawPhysicalSize.height;
 }
 
 - (CGAffineTransform)irl_transformForPhysicalWidth:(NSMeasurement<NSUnitLength *> *)physicalWidth

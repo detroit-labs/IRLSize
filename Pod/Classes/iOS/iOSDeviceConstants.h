@@ -9,6 +9,8 @@
 #ifndef iOSDeviceConstants_h
 #define iOSDeviceConstants_h
 
+#import "IRLSize.h"
+
 #pragma mark - Physical Measurements
 // All measurements are in millimeters, sourced from official, publicly-
 // available Apple device documentation here:
@@ -140,6 +142,14 @@ static const IRLRawMillimeters kiPadPro12_9Inch2ScreenWidth  = 196.61;
 static const IRLRawMillimeters kiPadPro10_5InchScreenHeight = 213.50;
 static const IRLRawMillimeters kiPadPro10_5InchScreenWidth  = 160.13;
 
+// iPad Pro (12.9 Inch, 3rd Generation)
+static const IRLRawMillimeters kiPadPro12_9Inch3ScreenHeight = 263.27;
+static const IRLRawMillimeters kiPadPro12_9Inch3ScreenWidth  = 197.61;
+
+// iPad Pro (11.0 Inch)
+static const IRLRawMillimeters kiPadPro11_0InchScreenHeight = 230.25;
+static const IRLRawMillimeters kiPadPro11_0InchScreenWidth  = 161.13;
+
 /////////////////
 // iPods touch //
 /////////////////
@@ -213,9 +223,13 @@ static const IRLRawMillimeters kiPad9_7InchScreenWidth = kiPad6ScreenWidth;
 static const IRLRawMillimeters kiPad10_5InchScreenHeight = kiPadPro10_5InchScreenHeight;
 static const IRLRawMillimeters kiPad10_5InchScreenWidth = kiPadPro10_5InchScreenWidth;
 
+// 11.0"
+static const IRLRawMillimeters kiPad11_0InchScreenHeight = kiPadPro11_0InchScreenHeight;
+static const IRLRawMillimeters kiPad11_0InchScreenWidth = kiPadPro11_0InchScreenWidth;
+
 // 12.9"
-static const IRLRawMillimeters kiPad12_9InchScreenHeight = kiPadPro12_9Inch2ScreenHeight;
-static const IRLRawMillimeters kiPad12_9InchScreenWidth = kiPadPro12_9Inch2ScreenWidth;
+static const IRLRawMillimeters kiPad12_9InchScreenHeight = kiPadPro12_9Inch3ScreenHeight;
+static const IRLRawMillimeters kiPad12_9InchScreenWidth = kiPadPro12_9Inch3ScreenWidth;
 
 #pragma mark - Screen Heights
 // When we estimate the size of the device, we use its height in points. This is
@@ -239,7 +253,8 @@ static const NSUInteger kiPhone6_1InchHeightPoints = 896;
 // iPad //
 //////////
 static const NSUInteger kiPad9_7InchHeightPoints = 1024;
-static const NSUInteger kiPadPro10_5InchHeightPoints = 1112;
-static const NSUInteger kiPadPro12_9InchHeightPoints = 1366;
+static const NSUInteger kiPad10_5InchHeightPoints = 1112;
+static const NSUInteger kiPad11_0InchHeightPoints = 1194;
+static const NSUInteger kiPad12_9InchHeightPoints = 1366;
 
 #endif /* iOSDeviceConstants_h */
