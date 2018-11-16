@@ -16,6 +16,8 @@
 		1F5EC3881D241DBF0068E86F /* ExtensionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5EC3871D241DBF0068E86F /* ExtensionDelegate.m */; };
 		1F5EC38A1D241DBF0068E86F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F5EC3891D241DBF0068E86F /* Assets.xcassets */; };
 		1F5EC38E1D241DBF0068E86F /* IRLSizeExample-Watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 1F5EC3721D241DBF0068E86F /* IRLSizeExample-Watch.app */; };
+		1FAA56AF219F440A00D4DAA4 /* IRLSizeExampleConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA56AE219F440A00D4DAA4 /* IRLSizeExampleConstants.m */; };
+		1FAA56B1219F44C100D4DAA4 /* IRLSizeExampleConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA56AE219F440A00D4DAA4 /* IRLSizeExampleConstants.m */; };
 		1FBC8FD51D236DFD00015A75 /* RulerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBC8FD41D236DFD00015A75 /* RulerView.swift */; };
 		1FC7E2021D5F99D400274C2A /* NSMeasurement+Equality.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FC7E2011D5F99D400274C2A /* NSMeasurement+Equality.m */; };
 		1FC7E2051D5F9EB500274C2A /* IRLMeasurementBeWithinMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FC7E2041D5F9EB500274C2A /* IRLMeasurementBeWithinMatcher.m */; };
@@ -100,6 +102,8 @@
 		1F5EC3891D241DBF0068E86F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1F5EC38B1D241DBF0068E86F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F8A1FE821923170006ED4EC /* SigningSettings.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = SigningSettings.xcconfig; sourceTree = "<group>"; };
+		1FAA56AD219F440A00D4DAA4 /* IRLSizeExampleConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IRLSizeExampleConstants.h; sourceTree = "<group>"; };
+		1FAA56AE219F440A00D4DAA4 /* IRLSizeExampleConstants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IRLSizeExampleConstants.m; sourceTree = "<group>"; };
 		1FBC8FD31D236DFD00015A75 /* IRLSizeExample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IRLSizeExample-Bridging-Header.h"; sourceTree = "<group>"; };
 		1FBC8FD41D236DFD00015A75 /* RulerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RulerView.swift; sourceTree = "<group>"; };
 		1FC7E2001D5F99D400274C2A /* NSMeasurement+Equality.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMeasurement+Equality.h"; sourceTree = "<group>"; };
@@ -198,12 +202,23 @@
 			path = "IRLSizeExample-Watch Extension";
 			sourceTree = "<group>";
 		};
+		1FAA56B0219F44AE00D4DAA4 /* IRLSizeExample Shared */ = {
+			isa = PBXGroup;
+			children = (
+				1FAA56AD219F440A00D4DAA4 /* IRLSizeExampleConstants.h */,
+				1FAA56AE219F440A00D4DAA4 /* IRLSizeExampleConstants.m */,
+			);
+			name = "IRLSizeExample Shared";
+			path = IRLSizeExample;
+			sourceTree = "<group>";
+		};
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
 				1F8A1FE821923170006ED4EC /* SigningSettings.xcconfig */,
 				1FD4587321913DD500982651 /* CHANGELOG.md */,
 				60FF7A9C1954A5C5007DD14C /* Podspec Metadata */,
+				1FAA56B0219F44AE00D4DAA4 /* IRLSizeExample Shared */,
 				6003F593195388D20070C39A /* IRLSizeExample */,
 				6003F5B5195388D20070C39A /* IRLSizeTests */,
 				1F5EC3731D241DBF0068E86F /* IRLSizeExample-Watch */,
@@ -536,6 +551,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F5EC3881D241DBF0068E86F /* ExtensionDelegate.m in Sources */,
+				1FAA56B1219F44C100D4DAA4 /* IRLSizeExampleConstants.m in Sources */,
 				1F5EC3851D241DBF0068E86F /* InterfaceController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -547,6 +563,7 @@
 				6003F59E195388D20070C39A /* IRLAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* IRLViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				1FAA56AF219F440A00D4DAA4 /* IRLSizeExampleConstants.m in Sources */,
 				1FBC8FD51D236DFD00015A75 /* RulerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -715,6 +732,7 @@
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -736,11 +754,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Debug;
 		};
@@ -770,6 +788,7 @@
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -784,12 +803,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
-				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Release;
 		};
@@ -847,6 +866,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "../IRLSizeTests/IRLSizeTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.detroitlabs.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = xctest;
@@ -863,6 +883,7 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				INFOPLIST_FILE = "../IRLSizeTests/IRLSizeTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.detroitlabs.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = xctest;

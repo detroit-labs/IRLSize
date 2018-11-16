@@ -10,9 +10,9 @@
 #define IRLSizeMacros_h
 
 #if IRLSIZE_DEBUG
-#define DEBUG_LOG(x) NSLog(x)
+    #define DEBUG_LOG(x) NSLog(x)
 #else
-#define DEBUG_LOG(x)
+    #define DEBUG_LOG(x)
 #endif
 
 #define IRL_MM(x) [[NSMeasurement alloc] initWithDoubleValue:(x) unit:IRL_SIZE_UNIT]

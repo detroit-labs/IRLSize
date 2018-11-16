@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+@available(iOS 10.0, *)
 private class EigthInchConverter: UnitConverter, NSCopying {
     
     let inches = UnitLength.inches
@@ -27,6 +28,7 @@ private class EigthInchConverter: UnitConverter, NSCopying {
     
 }
 
+@available(iOS 10.0, *)
 private class SixteenthInchConverter: UnitConverter, NSCopying {
     
     let inches = UnitLength.inches
@@ -45,6 +47,7 @@ private class SixteenthInchConverter: UnitConverter, NSCopying {
     
 }
 
+@available(iOS 10.0, *)
 public class RulerView: UIView {
     
     let locale = Locale.autoupdatingCurrent

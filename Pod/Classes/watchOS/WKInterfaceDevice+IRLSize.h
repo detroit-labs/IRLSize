@@ -15,17 +15,17 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The physical height of the device’s screen.
  */
-@property (nonatomic, readonly) NSMeasurement<NSUnitLength *> *irl_physicalScreenHeight NS_SWIFT_NAME(physicalScreenHeight);
+@property (nonatomic, readonly) NSMeasurement<NSUnitLength *> *irl_physicalScreenHeight NS_SWIFT_NAME(physicalScreenHeight) IRL_WATCHOS_AVAILABLE(3.0);
+
+/**
+ The physical width of the device’s screen.
+ */
+@property (nonatomic, readonly) NSMeasurement<NSUnitLength *> *irl_physicalScreenWidth NS_SWIFT_NAME(physicalScreenWidth) IRL_WATCHOS_AVAILABLE(3.0);
 
 /**
  The physical height of the device’s screen as a raw value.
  */
 @property (nonatomic, readonly) IRLRawMillimeters irl_rawPhysicalScreenHeight NS_SWIFT_NAME(rawPhysicalScreenHeight);
-
-/**
- The physical width of the device’s screen.
- */
-@property (nonatomic, readonly) NSMeasurement<NSUnitLength *> *irl_physicalScreenWidth NS_SWIFT_NAME(physicalScreenWidth);
 
 /**
  The physical width of the device’s screen as a raw value.
