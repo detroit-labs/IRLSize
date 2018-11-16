@@ -14,6 +14,7 @@
 
 #import "NSMeasurement+Equality.h"
 
+IRL_IOS_AVAILABLE(10.0)
 @interface IRLMeasurementBeWithinMatcher()
 
 @property (nonatomic, readwrite) double distance;
@@ -37,13 +38,19 @@
 
 - (BOOL)evaluate
 {
-    NSMeasurement *subject = self.subject;
-    
-    NSAssert([subject isKindOfClass:[NSMeasurement class]],
-             @"This matcher can only be used on NSMeasurement instances.");
-    
-    return [subject irl_isEqualToMeasurement:self.otherValue
-                                   withDelta:self.distance];
+    if (@available(iOS 10.0, *)) {
+        NSMeasurement *subject = self.subject;
+        
+        NSAssert([subject isKindOfClass:[NSMeasurement class]],
+                 @"This matcher can only be used on NSMeasurement instances.");
+        
+        return [subject irl_isEqualToMeasurement:self.otherValue
+                                       withDelta:self.distance];
+    }
+    else {
+        NSAssert(false, @"This matcher requires iOS 10 or later.");
+        return false;
+    }
 }
 
 #pragma mark - Getting Failure Messages

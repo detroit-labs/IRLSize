@@ -31,7 +31,7 @@ Pod::Spec.new do |s|
   s.dependency 'SDVersion', '~> 4.3.0'
 
   s.test_spec 'IRLSizeTests' do |ts|
-    ts.platform = :ios, '10.0'
+    ts.platform = :ios, '8.0'
     ts.source_files = 'IRLSizeTests/*.{h,m}'
     ts.dependency 'Kiwi'
     ts.requires_app_host = true
