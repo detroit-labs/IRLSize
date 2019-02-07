@@ -12,11 +12,15 @@
 
 #import "IRLSizeExample-Swift.h"
 
+#import "IRLSizeExampleConstants.h"
+
+
 @interface IRLViewController ()
 
 @property (assign) BOOL didTransformRuler;
 
-@property (weak, nonatomic) IBOutlet RulerView *rulerView;
+@property (weak, nonatomic) IBOutlet UIView *rulerContainerView;
+@property (weak, nonatomic) IBOutlet UIView *rulerView;
 
 @property (weak, nonatomic) IBOutlet UILabel *widthLabel;
 @property (weak, nonatomic) IBOutlet UILabel *heightLabel;
@@ -29,6 +33,20 @@
 - (BOOL)prefersStatusBarHidden
 {
     return YES;
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    if (@available(iOS 10.0, *)) {
+        self.widthLabel.adjustsFontForContentSizeCategory = YES;
+        self.heightLabel.adjustsFontForContentSizeCategory = YES;
+    }
+    else {
+        [self.rulerView removeFromSuperview];
+        [self.rulerContainerView removeFromSuperview];
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -56,26 +74,56 @@
 
 - (void)configureLabels
 {
-    NSMeasurementFormatter *formatter = [[NSMeasurementFormatter alloc] init];
+    NSString *widthString;
+    NSString *heightString;
     
-    formatter.unitOptions = NSMeasurementFormatterUnitOptionsProvidedUnit;
+    BOOL usesMetric = [[[NSLocale currentLocale]
+                        objectForKey:NSLocaleUsesMetricSystem] boolValue];
     
-    NSUnitLength *lengthUnitToDisplay;
-    
-    if ([[NSLocale currentLocale] usesMetricSystem]) {
-        lengthUnitToDisplay = [NSUnitLength centimeters];
+    if (@available(iOS 10.0, *)) {
+        NSMeasurementFormatter *formatter =
+        [[NSMeasurementFormatter alloc] init];
+        
+        formatter.unitOptions = NSMeasurementFormatterUnitOptionsProvidedUnit;
+        formatter.numberFormatter.maximumFractionDigits = 2;
+        
+        NSUnitLength *lengthUnitToDisplay =
+        usesMetric ? NSUnitLength.millimeters : NSUnitLength.inches;
+        
+        widthString = [formatter stringFromMeasurement:
+                       [self.view.irl_physicalWidth
+                        measurementByConvertingToUnit:lengthUnitToDisplay]];
+        
+        heightString = [formatter stringFromMeasurement:
+                        [self.view.irl_physicalHeight
+                         measurementByConvertingToUnit:lengthUnitToDisplay]];
     }
     else {
-        lengthUnitToDisplay = [NSUnitLength inches];
+        IRLRawMillimeters width = self.view.irl_rawPhysicalWidth;
+        IRLRawMillimeters height = self.view.irl_rawPhysicalHeight;
+        
+        NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+        formatter.maximumFractionDigits = 2;
+        
+        NSString *suffix;
+        
+        if (usesMetric) {
+            suffix = @" mm";
+        }
+        else {
+            suffix = @" in";
+            width *= kInchesPerMillimeter;
+            height *= kInchesPerMillimeter;
+        }
+        
+        formatter.positiveSuffix = suffix;
+        
+        widthString = [formatter stringFromNumber:@(width)];
+        heightString = [formatter stringFromNumber:@(height)];
     }
     
-    self.widthLabel.text = [formatter stringFromMeasurement:
-                            [[self.view irl_physicalWidth]
-                             measurementByConvertingToUnit:lengthUnitToDisplay]];
-
-    self.heightLabel.text = [formatter stringFromMeasurement:
-                             [[self.view irl_physicalHeight]
-                             measurementByConvertingToUnit:lengthUnitToDisplay]];
+    self.widthLabel.text = widthString;
+    self.heightLabel.text = heightString;
 }
 
 @end

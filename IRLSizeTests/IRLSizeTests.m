@@ -27,9 +27,11 @@
         it(@"should report the correct height", ^{ \
             NSLog(@"Expecting device " #modelEnum " height to equal %f", \
                   k##sizeEnumPrefix##ScreenHeight); \
-            [[UIDevice.currentDevice.irl_physicalScreenHeight should] \
-             beWithin:0.01 \
-             ofMeasurement:IRL_MM(k##sizeEnumPrefix##ScreenHeight)]; \
+            if (@available(iOS 10.0, *)) { \
+                [[UIDevice.currentDevice.irl_physicalScreenHeight should] \
+                 beWithin:0.01 \
+                 ofMeasurement:IRL_MM(k##sizeEnumPrefix##ScreenHeight)]; \
+            } \
             [[theValue(UIDevice.currentDevice.irl_rawPhysicalScreenHeight) should] \
              beWithin:theValue(0.1) \
              of:theValue(k##sizeEnumPrefix##ScreenHeight)]; \
@@ -37,9 +39,11 @@
         it(@"should report the correct width", ^{ \
             NSLog(@"Expecting device " #modelEnum " width to equal %f", \
                   k##sizeEnumPrefix##ScreenWidth); \
-            [[UIDevice.currentDevice.irl_physicalScreenWidth should] \
-             beWithin:0.01 \
-             ofMeasurement:IRL_MM(k##sizeEnumPrefix##ScreenWidth)]; \
+            if (@available(iOS 10.0, *)) { \
+                [[UIDevice.currentDevice.irl_physicalScreenWidth should] \
+                 beWithin:0.01 \
+                 ofMeasurement:IRL_MM(k##sizeEnumPrefix##ScreenWidth)]; \
+            } \
             [[theValue(UIDevice.currentDevice.irl_rawPhysicalScreenWidth) should] \
              beWithin:theValue(0.1) \
              of:theValue(k##sizeEnumPrefix##ScreenWidth)]; \
@@ -98,12 +102,20 @@ describe(@"Getting the native size of a device", ^{
         it(@"should estimate the size of a " #size " Inch " #deviceType, ^{ \
             NSLog(@"Expecting screen size " #width "⨉" #height " and scale " \
                   #deviceScale " to equal " #size " inches"); \
-            [[UIDevice.currentDevice.irl_physicalScreenHeight should] \
-             beWithin:0.01 \
-             ofMeasurement:IRL_MM(k##deviceType##size##InchScreenHeight)]; \
-            [[UIDevice.currentDevice.irl_physicalScreenWidth should] \
-             beWithin:0.01 \
-             ofMeasurement:IRL_MM(k##deviceType##size##InchScreenWidth)]; \
+            if (@available(iOS 10.0, *)) { \
+                [[UIDevice.currentDevice.irl_physicalScreenHeight should] \
+                 beWithin:0.01 \
+                 ofMeasurement:IRL_MM(k##deviceType##size##InchScreenHeight)]; \
+                [[UIDevice.currentDevice.irl_physicalScreenWidth should] \
+                 beWithin:0.01 \
+                 ofMeasurement:IRL_MM(k##deviceType##size##InchScreenWidth)]; \
+            } \
+            [[theValue(UIDevice.currentDevice.irl_rawPhysicalScreenHeight) should] \
+             beWithin:theValue(0.1) \
+             of:theValue(k##deviceType##size##InchScreenHeight)]; \
+            [[theValue(UIDevice.currentDevice.irl_rawPhysicalScreenWidth) should] \
+             beWithin:theValue(0.1) \
+             of:theValue(k##deviceType##size##InchScreenWidth)]; \
         }); \
     });
 
@@ -238,24 +250,42 @@ describe(@"Getting the IRL size of a view", ^{
             
             it(@"should report the correct size", ^{
                 
-                NSMeasurement<NSUnitLength *> *expectedSize =
-                [[NSMeasurement alloc] initWithDoubleValue:0.01654589372
-                                                      unit:[NSUnitLength meters]];
+                if (@available(iOS 10.0, *)) {
+                    NSMeasurement<NSUnitLength *> *expectedSize = IRL_MM(15.5997001499);
+                    
+                    [[view.irl_physicalWidth should] beWithin:0.01
+                                                ofMeasurement:expectedSize];
+                    
+                    [[view.irl_physicalHeight should] beWithin:0.01
+                                                 ofMeasurement:expectedSize];
+                }
                 
-                [[view.irl_physicalWidth should] beWithin:0.01
-                                            ofMeasurement:expectedSize];
-                
-                [[view.irl_physicalHeight should] beWithin:0.01
-                                             ofMeasurement:expectedSize];
-                
+                [[theValue(view.irl_rawPhysicalWidth) should]
+                 beWithin:theValue(0.01)
+                 of:theValue(15.5997001499)];
+
+                [[theValue(view.irl_rawPhysicalHeight) should]
+                 beWithin:theValue(0.01)
+                 of:theValue(15.5997001499)];
             });
             
             it(@"should return the correct transform to resize the view", ^{
                 
-                CGAffineTransform transform =
-                [view irl_transformForPhysicalWidth:
-                 [[NSMeasurement alloc] initWithDoubleValue:0.01
-                                                       unit:[NSUnitLength meters]]];
+                if (@available(iOS 10.0, *)) {
+                    CGAffineTransform transform =
+                    [view irl_transformForPhysicalWidth:IRL_MM(10)];
+                    
+                    CGAffineTransform expectedTransform =
+                    CGAffineTransformMakeScale(0.641025602, 0.641025602);
+                    
+                    [[theValue(transform.a) should] equal:expectedTransform.a
+                                                withDelta:0.001];
+                    
+                    [[theValue(transform.d) should] equal:expectedTransform.d
+                                                withDelta:0.001];
+                }
+                
+                CGAffineTransform transform = [view irl_transformForRawPhysicalWidth:10];
                 
                 CGAffineTransform expectedTransform =
                 CGAffineTransformMakeScale(0.641025602, 0.641025602);
@@ -265,7 +295,6 @@ describe(@"Getting the IRL size of a view", ^{
                 
                 [[theValue(transform.d) should] equal:expectedTransform.d
                                             withDelta:0.001];
-                
             });
             
         });
@@ -274,24 +303,43 @@ describe(@"Getting the IRL size of a view", ^{
             
             it(@"should report the correct size", ^{
                 
-                NSMeasurement<NSUnitLength *> *expectedSize =
-                [[NSMeasurement alloc] initWithDoubleValue:0.01654589372
-                                                      unit:[NSUnitLength meters]];
+                if (@available(iOS 10.0, *)) {
+                    NSMeasurement<NSUnitLength *> *expectedSize = IRL_MM(15.5997001499);
+                    
+                    [[view.irl_physicalWidth should] beWithin:0.01
+                                                ofMeasurement:expectedSize];
+                    
+                    [[view.irl_physicalHeight should] beWithin:0.01
+                                                 ofMeasurement:expectedSize];
+                }
                 
-                [[view.irl_physicalWidth should] beWithin:0.01
-                                            ofMeasurement:expectedSize];
+                [[theValue(view.irl_rawPhysicalWidth) should]
+                 beWithin:theValue(0.01)
+                 of:theValue(15.5997001499)];
                 
-                [[view.irl_physicalHeight should] beWithin:0.01
-                                             ofMeasurement:expectedSize];
+                [[theValue(view.irl_rawPhysicalHeight) should]
+                 beWithin:theValue(0.01)
+                 of:theValue(15.5997001499)];
                 
             });
             
             it(@"should return the correct transform to resize the view", ^{
                 
-                CGAffineTransform transform =
-                [view irl_transformForPhysicalWidth:
-                 [[NSMeasurement alloc] initWithDoubleValue:0.01f
-                                                       unit:[NSUnitLength meters]]];
+                if (@available(iOS 10.0, *)) {
+                    CGAffineTransform transform =
+                    [view irl_transformForPhysicalWidth:IRL_MM(10)];
+                    
+                    CGAffineTransform expectedTransform =
+                    CGAffineTransformMakeScale(0.641025602, 0.641025602);
+                    
+                    [[theValue(transform.a) should] equal:expectedTransform.a
+                                                withDelta:0.001];
+                    
+                    [[theValue(transform.d) should] equal:expectedTransform.d
+                                                withDelta:0.001];
+                }
+                
+                CGAffineTransform transform = [view irl_transformForRawPhysicalWidth:10];
                 
                 CGAffineTransform expectedTransform =
                 CGAffineTransformMakeScale(0.641025602, 0.641025602);
@@ -317,24 +365,43 @@ describe(@"Getting the IRL size of a view", ^{
             
             it(@"should report the correct size", ^{
                 
-                NSMeasurement<NSUnitLength *> *expectedSize =
-                [[NSMeasurement alloc] initWithDoubleValue:0.01654589372
-                                                      unit:[NSUnitLength meters]];
+                if (@available(iOS 10.0, *)) {
+                    NSMeasurement<NSUnitLength *> *expectedSize = IRL_MM(15.597333);
+                    
+                    [[view.irl_physicalWidth should] beWithin:0.01
+                                                ofMeasurement:expectedSize];
+                    
+                    [[view.irl_physicalHeight should] beWithin:0.01
+                                                 ofMeasurement:expectedSize];
+                }
                 
-                [[view.irl_physicalWidth should] beWithin:0.01
-                                            ofMeasurement:expectedSize];
+                [[theValue(view.irl_rawPhysicalWidth) should]
+                 beWithin:theValue(0.01)
+                 of:theValue(15.597333)];
                 
-                [[view.irl_physicalHeight should] beWithin:0.01
-                                             ofMeasurement:expectedSize];
+                [[theValue(view.irl_rawPhysicalHeight) should]
+                 beWithin:theValue(0.01)
+                 of:theValue(15.597333)];
                 
             });
             
             it(@"should return the correct transform to resize the view", ^{
                 
-                CGAffineTransform transform =
-                [view irl_transformForPhysicalWidth:
-                 [[NSMeasurement alloc] initWithDoubleValue:0.01
-                                                       unit:[NSUnitLength meters]]];
+                if (@available(iOS 10.0, *)) {
+                    CGAffineTransform transform =
+                    [view irl_transformForPhysicalWidth:IRL_MM(10)];
+                    
+                    CGAffineTransform expectedTransform =
+                    CGAffineTransformMakeScale(0.641025602, 0.641025602);
+                    
+                    [[theValue(transform.a) should] equal:expectedTransform.a
+                                                withDelta:0.001];
+                    
+                    [[theValue(transform.d) should] equal:expectedTransform.d
+                                                withDelta:0.001];
+                }
+                
+                CGAffineTransform transform = [view irl_transformForRawPhysicalWidth:10];
                 
                 CGAffineTransform expectedTransform =
                 CGAffineTransformMakeScale(0.641025602, 0.641025602);
@@ -344,6 +411,7 @@ describe(@"Getting the IRL size of a view", ^{
                 
                 [[theValue(transform.d) should] equal:expectedTransform.d
                                             withDelta:0.001];
+
                 
             });
             
@@ -358,25 +426,43 @@ describe(@"Getting the IRL size of a view", ^{
                 
                 it(@"should report the correct size", ^{
                     
-                    NSMeasurement<NSUnitLength *> *expectedSize =
-                    [[NSMeasurement alloc] initWithDoubleValue:0.01654589372
-                                                          unit:[NSUnitLength meters]];
+                    if (@available(iOS 10.0, *)) {
+                        NSMeasurement<NSUnitLength *> *expectedSize = IRL_MM(15.597333);
+                        
+                        [[view.irl_physicalWidth should] beWithin:0.01
+                                                    ofMeasurement:expectedSize];
+                        
+                        [[view.irl_physicalHeight should] beWithin:0.01
+                                                     ofMeasurement:expectedSize];
+                    }
                     
-                    [[view.irl_physicalWidth should] beWithin:0.01
-                                                ofMeasurement:expectedSize];
+                    [[theValue(view.irl_rawPhysicalWidth) should]
+                     beWithin:theValue(0.01)
+                     of:theValue(15.597333)];
                     
-                    [[view.irl_physicalHeight should] beWithin:0.01
-                                                 ofMeasurement:expectedSize];
-                    
+                    [[theValue(view.irl_rawPhysicalHeight) should]
+                     beWithin:theValue(0.01)
+                     of:theValue(15.597333)];
                     
                 });
                 
                 it(@"should return the correct transform to resize the view", ^{
                     
-                    CGAffineTransform transform =
-                    [view irl_transformForPhysicalWidth:
-                     [[NSMeasurement alloc] initWithDoubleValue:0.01
-                                                           unit:[NSUnitLength meters]]];
+                    if (@available(iOS 10.0, *)) {
+                        CGAffineTransform transform =
+                        [view irl_transformForPhysicalWidth:IRL_MM(10)];
+                        
+                        CGAffineTransform expectedTransform =
+                        CGAffineTransformMakeScale(0.641025602, 0.641025602);
+                        
+                        [[theValue(transform.a) should] equal:expectedTransform.a
+                                                    withDelta:0.001];
+                        
+                        [[theValue(transform.d) should] equal:expectedTransform.d
+                                                    withDelta:0.001];
+                    }
+                    
+                    CGAffineTransform transform = [view irl_transformForRawPhysicalWidth:10];
                     
                     CGAffineTransform expectedTransform =
                     CGAffineTransformMakeScale(0.641025602, 0.641025602);
@@ -386,6 +472,7 @@ describe(@"Getting the IRL size of a view", ^{
                     
                     [[theValue(transform.d) should] equal:expectedTransform.d
                                                 withDelta:0.001];
+                    
                     
                 });
                 
@@ -416,19 +503,27 @@ describe(@"Getting the IRL size of a view", ^{
             
             it(@"should not return a size", ^{
                 
-                [[view.irl_physicalWidth should] beNil];
-                [[view.irl_physicalHeight should] beNil];
+                if (@available(iOS 10.0, *)) {
+                    [[view.irl_physicalWidth should] beNil];
+                    [[view.irl_physicalHeight should] beNil];
+                }
                 
+                [[theValue(view.irl_rawPhysicalWidth) should] beZero];
+                [[theValue(view.irl_rawPhysicalHeight) should] beZero];
             });
             
             it(@"should reuse the view’s transform for resizing", ^{
                 
-                NSMeasurement<NSUnitLength *> *desiredWidth =
-                [[NSMeasurement alloc] initWithDoubleValue:0.42
-                                                      unit:[NSUnitLength meters]];
+                if (@available(iOS 10.0, *)) {
+                    NSMeasurement<NSUnitLength *> *desiredWidth = IRL_MM(42);
+                    
+                    CGAffineTransform transform =
+                    [view irl_transformForPhysicalWidth:desiredWidth];
+                    
+                    [[theValue(CGAffineTransformIsIdentity(transform)) should] beTrue];
+                }
                 
-                CGAffineTransform transform =
-                [view irl_transformForPhysicalWidth:desiredWidth];
+                CGAffineTransform transform = [view irl_transformForRawPhysicalWidth:42];
                 
                 [[theValue(CGAffineTransformIsIdentity(transform)) should] beTrue];
                 

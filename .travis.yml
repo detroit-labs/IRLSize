@@ -9,6 +9,7 @@ env:
   - LC_CTYPE=en_US.UTF-8
   - LANG=en_US.UTF-8
 before_install:
+  - gem install bundler -v 2.0.1
   - bundle install
 install:
   - bundle exec pod install --project-directory=Example --repo-update

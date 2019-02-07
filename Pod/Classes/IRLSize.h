@@ -8,6 +8,12 @@
 
 #import <TargetConditionals.h>
 
+#if TARGET_OS_IOS
+    #define IRL_IOS_AVAILABLE(v) __attribute__((availability(ios,introduced=v)))
+#elif TARGET_OS_WATCH
+    #define IRL_WATCHOS_AVAILABLE(v) __attribute__((availability(watchos,introduced=v)))
+#endif
+
 typedef double IRLRawMillimeters;
 
 typedef struct {

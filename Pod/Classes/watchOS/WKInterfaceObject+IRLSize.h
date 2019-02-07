@@ -19,21 +19,21 @@ NS_ASSUME_NONNULL_BEGIN
 
  @param width The physical width to set on the interface object.
  */
-- (void)irl_setPhysicalWidth:(NSMeasurement<NSUnitLength *> *)width NS_SWIFT_NAME(setPhysicalWidth(_:));
-
-/**
- Sets the physical width of the interface object on screen.
- 
- @param width The physical width to set on the interface object as a raw value.
- */
-- (void)irl_setRawPhysicalWidth:(IRLRawMillimeters)width NS_SWIFT_NAME(setRawPhysicalWidth(_:));
+- (void)irl_setPhysicalWidth:(NSMeasurement<NSUnitLength *> *)width NS_SWIFT_NAME(setPhysicalWidth(_:)) IRL_WATCHOS_AVAILABLE(3.0);
 
 /**
  Sets the physical height of the interface object on screen.
  
  @param height The physical height to set on the interface object.
  */
-- (void)irl_setPhysicalHeight:(NSMeasurement<NSUnitLength *> *)height NS_SWIFT_NAME(setPhysicalHeight(_:));
+- (void)irl_setPhysicalHeight:(NSMeasurement<NSUnitLength *> *)height NS_SWIFT_NAME(setPhysicalHeight(_:)) IRL_WATCHOS_AVAILABLE(3.0);
+
+/**
+ Sets the physical width of the interface object on screen.
+
+ @param width The physical width to set on the interface object as a raw value.
+ */
+- (void)irl_setRawPhysicalWidth:(IRLRawMillimeters)width NS_SWIFT_NAME(setRawPhysicalWidth(_:));
 
 /**
  Sets the physical height of the interface object on screen.

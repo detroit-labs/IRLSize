@@ -1,5 +1,11 @@
 # IRLSize Change Log
 
+## [2.1.0](https://github.com/detroit-labs/IRLSize/releases/tag/2.1.0)
+**Released:** 2018-11-16
+
+### Updated
+  - Restored the deployment target to iOS 8.0 and watchOS 2.0.
+
 ## [2.0.1](https://github.com/detroit-labs/IRLSize/releases/tag/2.0.1)
 **Released:** 2018-11-08
 
