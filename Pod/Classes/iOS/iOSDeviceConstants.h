@@ -3,7 +3,7 @@
 //  IRLSize
 //
 //  Created by Jeff Kelley on 11/2/2018.
-//  Copyright © 2018 Detroit Labs. All rights reserved.
+//  Copyright © 2019 Detroit Labs. All rights reserved.
 //
 
 #ifndef iOSDeviceConstants_h
@@ -146,9 +146,9 @@ static const IRLRawMillimeters kiPadPro10_5InchScreenWidth  = 160.13;
 static const IRLRawMillimeters kiPadPro12_9Inch3ScreenHeight = 263.27;
 static const IRLRawMillimeters kiPadPro12_9Inch3ScreenWidth  = 197.61;
 
-// iPad Pro (11.0 Inch)
-static const IRLRawMillimeters kiPadPro11_0InchScreenHeight = 230.25;
-static const IRLRawMillimeters kiPadPro11_0InchScreenWidth  = 161.13;
+// iPad Pro (11 Inch)
+static const IRLRawMillimeters kiPadPro11InchScreenHeight = 230.25;
+static const IRLRawMillimeters kiPadPro11InchScreenWidth  = 161.13;
 
 /////////////////
 // iPods touch //
@@ -223,9 +223,9 @@ static const IRLRawMillimeters kiPad9_7InchScreenWidth = kiPad6ScreenWidth;
 static const IRLRawMillimeters kiPad10_5InchScreenHeight = kiPadPro10_5InchScreenHeight;
 static const IRLRawMillimeters kiPad10_5InchScreenWidth = kiPadPro10_5InchScreenWidth;
 
-// 11.0"
-static const IRLRawMillimeters kiPad11_0InchScreenHeight = kiPadPro11_0InchScreenHeight;
-static const IRLRawMillimeters kiPad11_0InchScreenWidth = kiPadPro11_0InchScreenWidth;
+// 11"
+static const IRLRawMillimeters kiPad11InchScreenHeight = kiPadPro11InchScreenHeight;
+static const IRLRawMillimeters kiPad11InchScreenWidth = kiPadPro11InchScreenWidth;
 
 // 12.9"
 static const IRLRawMillimeters kiPad12_9InchScreenHeight = kiPadPro12_9Inch3ScreenHeight;
@@ -254,7 +254,7 @@ static const NSUInteger kiPhone6_1InchHeightPoints = 896;
 //////////
 static const NSUInteger kiPad9_7InchHeightPoints = 1024;
 static const NSUInteger kiPad10_5InchHeightPoints = 1112;
-static const NSUInteger kiPad11_0InchHeightPoints = 1194;
+static const NSUInteger kiPad11InchHeightPoints = 1194;
 static const NSUInteger kiPad12_9InchHeightPoints = 1366;
 
 #endif /* iOSDeviceConstants_h */

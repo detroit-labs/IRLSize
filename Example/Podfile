@@ -3,6 +3,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 target 'IRLSizeExample' do
     platform :ios, '8.0'
     pod "IRLSize", :path => ".."
+    pod "Orchard/ObjC", :path => "../../Orchard"
 end
 
 target 'IRLSizeExample-Watch Extension' do
@@ -13,6 +14,7 @@ end
 target 'IRLSizeTests' do
     platform :ios, '10.0'
     pod "IRLSize", :path => ".."
+    pod "Orchard/ObjC", :path => "../../Orchard"
     pod "Kiwi", :inhibit_warnings => true
 end
 

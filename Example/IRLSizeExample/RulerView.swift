@@ -3,7 +3,7 @@
 //  IRLSizeExample
 //
 //  Created by Jeff Kelley on 6/28/2016.
-//  Copyright © 2018 Detroit Labs. All rights reserved.
+//  Copyright © 2019 Detroit Labs. All rights reserved.
 //
 
 import Foundation

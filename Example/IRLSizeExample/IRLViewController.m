@@ -3,12 +3,13 @@
 //  IRLSizeExample
 //
 //  Created by Jeff Kelley on 11/13/2014.
-//  Copyright © 2018 Detroit Labs. All rights reserved.
+//  Copyright © 2019 Detroit Labs. All rights reserved.
 //
 
 #import "IRLViewController.h"
 
 #import <IRLSize/IRLSize.h>
+#import <Orchard/Orchard.h>
 
 #import "IRLSizeExample-Swift.h"
 
@@ -21,7 +22,7 @@
 
 @property (weak, nonatomic) IBOutlet UIView *rulerContainerView;
 @property (weak, nonatomic) IBOutlet UIView *rulerView;
-
+@property (weak, nonatomic) IBOutlet UILabel *deviceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *widthLabel;
 @property (weak, nonatomic) IBOutlet UILabel *heightLabel;
 
@@ -40,6 +41,7 @@
     [super viewDidLoad];
     
     if (@available(iOS 10.0, *)) {
+        self.deviceLabel.adjustsFontForContentSizeCategory = YES;
         self.widthLabel.adjustsFontForContentSizeCategory = YES;
         self.heightLabel.adjustsFontForContentSizeCategory = YES;
     }
@@ -124,6 +126,9 @@
     
     self.widthLabel.text = widthString;
     self.heightLabel.text = heightString;
+    
+    OrchardiOSDevice device = [UIDevice.currentDevice orchardiOSDevice];
+    self.deviceLabel.text = OrchardMarketingNameForiOSDevice(device);
 }
 
 @end
