@@ -9,12 +9,15 @@
 #import "InterfaceController.h"
 
 #import <IRLSize/IRLSize.h>
+#import <Orchard/Orchard.h>
 
 #import "IRLSizeExampleConstants.h"
 
 @interface InterfaceController()
 
 @property (weak, nonatomic) IBOutlet WKInterfaceGroup *halfInchGroup;
+    
+@property (weak, nonatomic) IBOutlet WKInterfaceLabel *deviceLabel;
 
 @property (weak, nonatomic) IBOutlet WKInterfaceLabel *widthLabel;
 @property (weak, nonatomic) IBOutlet WKInterfaceLabel *heightLabel;
@@ -27,8 +30,17 @@
 {
     [super willActivate];
     
+    [self configureDeviceLabel];
     [self configureHalfInchGroup];
     [self configureLabels];
+}
+    
+- (void)configureDeviceLabel
+{
+    OrchardwatchOSDevice device = [WKInterfaceDevice.currentDevice
+                                   orchardwatchOSDevice];
+    
+    [self.deviceLabel setText:OrchardMarketingNameForWatchOSDevice(device)];
 }
 
 - (void)configureHalfInchGroup
