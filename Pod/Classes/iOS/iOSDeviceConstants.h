@@ -150,6 +150,15 @@ static const IRLRawMillimeters kiPadPro12_9Inch3ScreenWidth  = 197.61;
 static const IRLRawMillimeters kiPadPro11InchScreenHeight = 230.25;
 static const IRLRawMillimeters kiPadPro11InchScreenWidth  = 161.13;
 
+// iPad mini 5
+static const IRLRawMillimeters kiPadMini5ScreenHeight = 160.74;
+static const IRLRawMillimeters kiPadMini5ScreenWidth  = 120.81;
+
+// iPad Air 3
+static const IRLRawMillimeters kiPadAir3ScreenHeight = 213.50;
+static const IRLRawMillimeters kiPadAir3ScreenWidth  = 160.13;
+
+
 /////////////////
 // iPods touch //
 /////////////////

@@ -140,6 +140,8 @@ void IRLRawDimensionsSwap(IRLRawDimensions *dimensions) {
         IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPad6)
         IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPadPro12_9Inch3)
         IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPadPro11Inch)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPadMini5)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPadAir3)
 
         IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPodTouch5)
         IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPodTouch6)

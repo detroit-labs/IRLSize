@@ -87,7 +87,7 @@ describe(@"Getting the native size of a device", ^{
     KNOWN_DEVICE_TEST("iPad Air", iPadAir, 7.0)
     KNOWN_DEVICE_TEST("iPad mini (2nd Generation)", iPadMini2, 7.0)
     KNOWN_DEVICE_TEST("iPad mini (3rd Generation)", iPadMini3, 8.0)
-    KNOWN_DEVICE_TEST("iPad Air2", iPadAir2, 8.1)
+    KNOWN_DEVICE_TEST("iPad Air 2", iPadAir2, 8.1)
     KNOWN_DEVICE_TEST("iPad mini (4th Generation)", iPadMini4, 9.0)
     KNOWN_DEVICE_TEST("iPad Pro (12.9\")", iPadPro12_9Inch, 9.1)
     KNOWN_DEVICE_TEST("iPad Pro (9.7\")", iPadPro9_7Inch, 9.3)
@@ -97,6 +97,8 @@ describe(@"Getting the native size of a device", ^{
     KNOWN_DEVICE_TEST("iPad (6th Generation)", iPad6, 11.3)
     KNOWN_DEVICE_TEST("iPad Pro (12.9\", 3nd Generation)", iPadPro12_9Inch3, 12.1)
     KNOWN_DEVICE_TEST("iPad Pro (11\")", iPadPro11Inch, 12.1)
+    KNOWN_DEVICE_TEST("iPad mini (5th Generation))", iPadMini5, 12.2)
+    KNOWN_DEVICE_TEST("iPad Air (3rd Generation)", iPadAir3, 12.2)
 
     KNOWN_DEVICE_TEST("iPod touch (5th Generation)", iPodTouch5, 6.0)
     KNOWN_DEVICE_TEST("iPod touch (6th Generation)", iPodTouch6, 8.4)
