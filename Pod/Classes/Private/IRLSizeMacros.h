@@ -3,7 +3,7 @@
 //  IRLSize
 //
 //  Created by Jeff Kelley on 11/8/2018.
-//  Copyright © 2018 Detroit Labs. All rights reserved.
+//  Copyright © 2019 Detroit Labs. All rights reserved.
 //
 
 #ifndef IRLSizeMacros_h
@@ -25,7 +25,7 @@
     } \
     break;
 
-#define IRL_KNOWN_DEVICE_DIMENSIONS_UNMATCHING(modelEnum, sizeEnumPrefix)\
+#define IRL_KNOWN_DEVICE_DIMENSIONS(modelEnum, sizeEnumPrefix)\
     case modelEnum: { \
         DEBUG_LOG(@"Local device matches " #modelEnum "."); \
         size.height = k##sizeEnumPrefix##ScreenHeight; \
@@ -33,7 +33,7 @@
     } \
     break;
 
-#define IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(enum) \
-    IRL_KNOWN_DEVICE_DIMENSIONS_UNMATCHING(enum, enum)
+#define IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(prefix, enum) \
+    IRL_KNOWN_DEVICE_DIMENSIONS(prefix##enum, enum)
 
 #endif /* IRLSizeMacros_h */

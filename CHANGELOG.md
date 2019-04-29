@@ -1,5 +1,14 @@
 # IRLSize Change Log
 
+## [2.2.0](https://github.com/detroit-labs/IRLSize/releases/tag/2.2.0)
+**Released:** 2019-04-29
+
+### Updated
+  - Switch from SDVersion to Orchard for device identification
+
+### Added
+  - Support for 2019 iPad models
+
 ## [2.1.0](https://github.com/detroit-labs/IRLSize/releases/tag/2.1.0)
 **Released:** 2018-11-16
 

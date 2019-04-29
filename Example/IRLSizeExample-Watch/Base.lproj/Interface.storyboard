@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14313.18" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14490.70" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
     <device id="watch38" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="watchOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14238.10"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14490.21"/>
     </dependencies>
     <scenes>
         <!--Interface Controller-->
@@ -25,10 +25,14 @@
                             </items>
                             <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         </group>
+                        <label alignment="center" text="Device" minimumScaleFactor="0.5" id="49V-Pa-KtO">
+                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                        </label>
                         <label alignment="right" verticalAlignment="center" text="Height" id="JRJ-ts-6eX"/>
                         <label alignment="center" verticalAlignment="bottom" text="Width" id="bUp-Kd-mbY"/>
                     </items>
                     <connections>
+                        <outlet property="deviceLabel" destination="49V-Pa-KtO" id="mvl-I7-aX3"/>
                         <outlet property="halfInchGroup" destination="Z2X-2K-oFk" id="qgF-dd-usg"/>
                         <outlet property="heightLabel" destination="JRJ-ts-6eX" id="6pj-fz-Ger"/>
                         <outlet property="widthLabel" destination="bUp-Kd-mbY" id="mLn-MA-wAo"/>

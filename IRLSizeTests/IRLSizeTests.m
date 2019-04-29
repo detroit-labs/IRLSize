@@ -3,7 +3,7 @@
 //  IRLSizeTests
 //
 //  Created by Jeff Kelley on 11/13/2014.
-//  Copyright © 2018 Detroit Labs. All rights reserved.
+//  Copyright © 2019 Detroit Labs. All rights reserved.
 //
 
 #import <IRLSize/IRLSize.h>
@@ -11,47 +11,57 @@
 #import <UIKit/UIKit.h>
 
 #import <Kiwi/Kiwi.h>
-#import <SDVersion/SDVersion.h>
+#import <Orchard/Orchard.h>
 
 #import "IRLMeasurementBeWithinMatcher.h"
 #import "iOSDeviceConstants.h"
 
 #define IRL_MM(x) [[NSMeasurement alloc] initWithDoubleValue:(x) unit:IRL_SIZE_UNIT]
 
-#define KNOWN_DEVICE_TEST_UNMATCHING(name, modelEnum, sizeEnumPrefix) \
+#define KNOWN_DEVICE_TEST_IMPL(name, modelEnum, sizeEnumPrefix, availability) \
     context(@"on an " name, ^{ \
         beforeEach(^{ \
-            [SDiOSVersion stub:@selector(deviceVersion) \
-                     andReturn:theValue(modelEnum)]; \
+            if (@available(iOS availability, *)) { \
+                [UIDevice.currentDevice stub:@selector(orchardiOSDevice) \
+                                   andReturn:theValue(modelEnum)]; \
+            } \
+            else { \
+                [UIDevice.currentDevice stub:@selector(orchardiOSDevice) \
+                                   andReturn:theValue(OrchardiOSDeviceUnknown)]; \
+            } \
         }); \
         it(@"should report the correct height", ^{ \
-            NSLog(@"Expecting device " #modelEnum " height to equal %f", \
-                  k##sizeEnumPrefix##ScreenHeight); \
-            if (@available(iOS 10.0, *)) { \
-                [[UIDevice.currentDevice.irl_physicalScreenHeight should] \
-                 beWithin:0.01 \
-                 ofMeasurement:IRL_MM(k##sizeEnumPrefix##ScreenHeight)]; \
+            if (@available(iOS availability, *)) { \
+                NSLog(@"Expecting device " #modelEnum " height to equal %f", \
+                      k##sizeEnumPrefix##ScreenHeight); \
+                if (@available(iOS 10.0, *)) { \
+                    [[UIDevice.currentDevice.irl_physicalScreenHeight should] \
+                     beWithin:0.01 \
+                     ofMeasurement:IRL_MM(k##sizeEnumPrefix##ScreenHeight)]; \
+                } \
+                [[theValue(UIDevice.currentDevice.irl_rawPhysicalScreenHeight) should] \
+                 beWithin:theValue(0.1) \
+                 of:theValue(k##sizeEnumPrefix##ScreenHeight)]; \
             } \
-            [[theValue(UIDevice.currentDevice.irl_rawPhysicalScreenHeight) should] \
-             beWithin:theValue(0.1) \
-             of:theValue(k##sizeEnumPrefix##ScreenHeight)]; \
         }); \
         it(@"should report the correct width", ^{ \
-            NSLog(@"Expecting device " #modelEnum " width to equal %f", \
-                  k##sizeEnumPrefix##ScreenWidth); \
-            if (@available(iOS 10.0, *)) { \
-                [[UIDevice.currentDevice.irl_physicalScreenWidth should] \
-                 beWithin:0.01 \
-                 ofMeasurement:IRL_MM(k##sizeEnumPrefix##ScreenWidth)]; \
+            if (@available(iOS availability, *)) { \
+                NSLog(@"Expecting device " #modelEnum " width to equal %f", \
+                      k##sizeEnumPrefix##ScreenWidth); \
+                if (@available(iOS 10.0, *)) { \
+                    [[UIDevice.currentDevice.irl_physicalScreenWidth should] \
+                     beWithin:0.01 \
+                     ofMeasurement:IRL_MM(k##sizeEnumPrefix##ScreenWidth)]; \
+                } \
+                [[theValue(UIDevice.currentDevice.irl_rawPhysicalScreenWidth) should] \
+                 beWithin:theValue(0.1) \
+                 of:theValue(k##sizeEnumPrefix##ScreenWidth)]; \
             } \
-            [[theValue(UIDevice.currentDevice.irl_rawPhysicalScreenWidth) should] \
-             beWithin:theValue(0.1) \
-             of:theValue(k##sizeEnumPrefix##ScreenWidth)]; \
         }); \
     });
 
-#define KNOWN_DEVICE_TEST_MATCHING(name, enum) \
-    KNOWN_DEVICE_TEST_UNMATCHING(name, enum, enum)
+#define KNOWN_DEVICE_TEST(name, enum, availability) \
+    KNOWN_DEVICE_TEST_IMPL(name, OrchardiOSDevice##enum, enum, availability)
 
 SPEC_BEGIN(IRLSizeTests)
 
@@ -59,35 +69,43 @@ describe(@"Getting the native size of a device", ^{
 
     registerMatchers(@"IRL");
 
-    KNOWN_DEVICE_TEST_MATCHING("iPhone 5", iPhone5)
-    KNOWN_DEVICE_TEST_UNMATCHING("iPhone 5c", iPhone5C, iPhone5c)
-    KNOWN_DEVICE_TEST_UNMATCHING("iPhone 5s", iPhone5S, iPhone5s)
-    KNOWN_DEVICE_TEST_MATCHING("iPhone SE", iPhoneSE)
-    KNOWN_DEVICE_TEST_MATCHING("iPhone 6", iPhone6)
-    KNOWN_DEVICE_TEST_MATCHING("iPhone 6 Plus", iPhone6Plus)
-    KNOWN_DEVICE_TEST_UNMATCHING("iPhone 6s", iPhone6S, iPhone6s)
-    KNOWN_DEVICE_TEST_UNMATCHING("iPhone 6s Plus", iPhone6SPlus, iPhone6sPlus)
-    KNOWN_DEVICE_TEST_MATCHING("iPhone 7", iPhone7)
-    KNOWN_DEVICE_TEST_MATCHING("iPhone 7 Plus", iPhone7Plus)
-    KNOWN_DEVICE_TEST_MATCHING("iPhone 8", iPhone8)
-    KNOWN_DEVICE_TEST_MATCHING("iPhone 8 Plus", iPhone8Plus)
-    KNOWN_DEVICE_TEST_MATCHING("iPhone X", iPhoneX)
+    KNOWN_DEVICE_TEST("iPhone 5", iPhone5, 6.0)
+    KNOWN_DEVICE_TEST("iPhone 5c", iPhone5c, 7.0)
+    KNOWN_DEVICE_TEST("iPhone 5s", iPhone5s, 7.0)
+    KNOWN_DEVICE_TEST("iPhone 6", iPhone6, 8.0)
+    KNOWN_DEVICE_TEST("iPhone 6 Plus", iPhone6Plus, 8.0)
+    KNOWN_DEVICE_TEST("iPhone 6s", iPhone6s, 9.0)
+    KNOWN_DEVICE_TEST("iPhone 6s Plus", iPhone6sPlus, 9.0)
+    KNOWN_DEVICE_TEST("iPhone SE", iPhoneSE, 9.3)
+    KNOWN_DEVICE_TEST("iPhone 7", iPhone7, 10.0)
+    KNOWN_DEVICE_TEST("iPhone 7 Plus", iPhone7Plus, 10.0)
+    KNOWN_DEVICE_TEST("iPhone 8", iPhone8, 11.0)
+    KNOWN_DEVICE_TEST("iPhone 8 Plus", iPhone8Plus, 11.0)
+    KNOWN_DEVICE_TEST("iPhone X", iPhoneX, 11.0)
+    KNOWN_DEVICE_TEST("iPhone XS", iPhoneXS, 12.0)
+    KNOWN_DEVICE_TEST("iPhone XS Max", iPhoneXSMax, 12.0)
+    KNOWN_DEVICE_TEST("iPhone XR", iPhoneXR, 12.0)
 
-    KNOWN_DEVICE_TEST_MATCHING("iPad (4th Generation)", iPad4)
-    KNOWN_DEVICE_TEST_MATCHING("iPad mini", iPadMini)
-    KNOWN_DEVICE_TEST_MATCHING("iPad Air", iPadAir)
-    KNOWN_DEVICE_TEST_MATCHING("iPad mini (2nd Generation)", iPadMini2)
-    KNOWN_DEVICE_TEST_MATCHING("iPad Air2", iPadAir2)
-    KNOWN_DEVICE_TEST_MATCHING("iPad mini (3rd Generation)", iPadMini3)
-    KNOWN_DEVICE_TEST_UNMATCHING("iPad Pro (9.7\")", iPadPro9Dot7Inch, iPadPro9_7Inch)
-    KNOWN_DEVICE_TEST_UNMATCHING("iPad Pro (12.9\")", iPadPro12Dot9Inch, iPadPro12_9Inch)
-    KNOWN_DEVICE_TEST_MATCHING("iPad mini (4th Generation)", iPadMini4)
-    KNOWN_DEVICE_TEST_MATCHING("iPad (5th Generation)", iPad5)
-    KNOWN_DEVICE_TEST_UNMATCHING("iPad Pro (10.5\")", iPadPro10Dot5Inch, iPadPro10_5Inch)
-    KNOWN_DEVICE_TEST_UNMATCHING("iPad Pro (12.9\", 2nd Generation)", iPadPro12Dot9Inch2Gen, iPadPro12_9Inch2)
+    KNOWN_DEVICE_TEST("iPad (4th Generation)", iPad4, 6.0)
+    KNOWN_DEVICE_TEST("iPad mini", iPadMini, 6.0)
+    KNOWN_DEVICE_TEST("iPad Air", iPadAir, 7.0)
+    KNOWN_DEVICE_TEST("iPad mini (2nd Generation)", iPadMini2, 7.0)
+    KNOWN_DEVICE_TEST("iPad mini (3rd Generation)", iPadMini3, 8.0)
+    KNOWN_DEVICE_TEST("iPad Air 2", iPadAir2, 8.1)
+    KNOWN_DEVICE_TEST("iPad mini (4th Generation)", iPadMini4, 9.0)
+    KNOWN_DEVICE_TEST("iPad Pro (12.9\")", iPadPro12_9Inch, 9.1)
+    KNOWN_DEVICE_TEST("iPad Pro (9.7\")", iPadPro9_7Inch, 9.3)
+    KNOWN_DEVICE_TEST("iPad (5th Generation)", iPad5, 10.3)
+    KNOWN_DEVICE_TEST("iPad Pro (12.9\", 2nd Generation)", iPadPro12_9Inch2, 10.3)
+    KNOWN_DEVICE_TEST("iPad Pro (10.5\")", iPadPro10_5Inch, 10.3)
+    KNOWN_DEVICE_TEST("iPad (6th Generation)", iPad6, 11.3)
+    KNOWN_DEVICE_TEST("iPad Pro (12.9\", 3nd Generation)", iPadPro12_9Inch3, 12.1)
+    KNOWN_DEVICE_TEST("iPad Pro (11\")", iPadPro11Inch, 12.1)
+    KNOWN_DEVICE_TEST("iPad mini (5th Generation))", iPadMini5, 12.2)
+    KNOWN_DEVICE_TEST("iPad Air (3rd Generation)", iPadAir3, 12.2)
 
-    KNOWN_DEVICE_TEST_UNMATCHING("iPod touch (5th Generation)", iPodTouch5Gen, iPodTouch5)
-    KNOWN_DEVICE_TEST_UNMATCHING("iPod touch (6th Generation)", iPodTouch6Gen, iPodTouch6)
+    KNOWN_DEVICE_TEST("iPod touch (5th Generation)", iPodTouch5, 6.0)
+    KNOWN_DEVICE_TEST("iPod touch (6th Generation)", iPodTouch6, 8.4)
 
 });
 
@@ -128,8 +146,8 @@ describe(@"Estimating the size of an unknown device based on the screen size", ^
     
     beforeEach(^{
         
-        [SDiOSVersion stub:@selector(deviceVersion)
-                 andReturn:theValue(Simulator)];
+        [UIDevice.currentDevice stub:@selector(orchardiOSDevice)
+                           andReturn:theValue(OrchardiOSDeviceSimulator)];
         
         mockScreen = [UIScreen mock];
         mockCoordinateSpace = [KWMock mockForProtocol:@protocol(UICoordinateSpace)];
@@ -205,7 +223,7 @@ describe(@"Getting the IRL size of a view", ^{
         
     });
     
-    context(@"on an iPhone 6s", ^{
+    context(@"on an iPhone 6", ^{
         
         __block UIView *view;
         
@@ -226,8 +244,8 @@ describe(@"Getting the IRL size of a view", ^{
             [mockMainScreen stub:@selector(bounds)
                        andReturn:theValue(iPhone6sBounds)];
             
-            [SDiOSVersion stub:@selector(deviceVersion)
-                     andReturn:theValue(iPhone6S)];
+            [UIDevice.currentDevice stub:@selector(orchardiOSDevice)
+                               andReturn:theValue(OrchardiOSDeviceiPhone6)];
             
             [mockWindow stub:@selector(bounds)
                    andReturn:theValue(iPhone6sBounds)];

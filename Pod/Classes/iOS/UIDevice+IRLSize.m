@@ -3,12 +3,12 @@
 //  IRLSize
 //
 //  Created by Jeff Kelley on 11/13/2014.
-//  Copyright © 2018 Detroit Labs. All rights reserved.
+//  Copyright © 2019 Detroit Labs. All rights reserved.
 //
 
 #import "IRLSize.h"
 
-#import <SDVersion/SDVersion.h>
+#import <Orchard/Orchard.h>
 
 #import "IRLSizeMacros.h"
 #import "UIView+IRLSizePrivate.h"
@@ -96,7 +96,7 @@ void IRLRawDimensionsSwap(IRLRawDimensions *dimensions) {
             
         IRL_ESTIMATED_DIMENSIONS(estimatedDimensions, iPad, 9_7Inch)
         IRL_ESTIMATED_DIMENSIONS(estimatedDimensions, iPad, 10_5Inch)
-        IRL_ESTIMATED_DIMENSIONS(estimatedDimensions, iPad, 11_0Inch)
+        IRL_ESTIMATED_DIMENSIONS(estimatedDimensions, iPad, 11Inch)
         IRL_ESTIMATED_DIMENSIONS(estimatedDimensions, iPad, 12_9Inch)
     }
     
@@ -107,36 +107,44 @@ void IRLRawDimensionsSwap(IRLRawDimensions *dimensions) {
 {
     IRLRawDimensions size = { 0.0f, 0.0f };
     
-    switch ([SDiOSVersion deviceVersion]) {
-        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(iPhone5)
-        IRL_KNOWN_DEVICE_DIMENSIONS_UNMATCHING(iPhone5S, iPhone5s)
-        IRL_KNOWN_DEVICE_DIMENSIONS_UNMATCHING(iPhone5C, iPhone5c)
-        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(iPhoneSE)
-        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(iPhone6)
-        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(iPhone6Plus)
-        IRL_KNOWN_DEVICE_DIMENSIONS_UNMATCHING(iPhone6S, iPhone6s)
-        IRL_KNOWN_DEVICE_DIMENSIONS_UNMATCHING(iPhone6SPlus, iPhone6sPlus)
-        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(iPhone7)
-        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(iPhone7Plus)
-        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(iPhone8)
-        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(iPhone8Plus)
-        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(iPhoneX)
-        
-        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(iPad4)
-        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(iPadMini)
-        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(iPadAir)
-        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(iPadMini2)
-        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(iPadMini3)
-        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(iPadAir2)
-        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(iPadMini4)
-        IRL_KNOWN_DEVICE_DIMENSIONS_UNMATCHING(iPadPro9Dot7Inch, iPadPro9_7Inch)
-        IRL_KNOWN_DEVICE_DIMENSIONS_UNMATCHING(iPadPro12Dot9Inch, iPadPro12_9Inch)
-        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(iPad5)
-        IRL_KNOWN_DEVICE_DIMENSIONS_UNMATCHING(iPadPro10Dot5Inch, iPadPro10_5Inch)
-        IRL_KNOWN_DEVICE_DIMENSIONS_UNMATCHING(iPadPro12Dot9Inch2Gen, iPadPro12_9Inch2)
-        
-        IRL_KNOWN_DEVICE_DIMENSIONS_UNMATCHING(iPodTouch5Gen, iPodTouch5)
-        IRL_KNOWN_DEVICE_DIMENSIONS_UNMATCHING(iPodTouch6Gen, iPodTouch6)
+    switch ([UIDevice.currentDevice orchardiOSDevice]) {
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPhone5)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPhone5s)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPhone5c)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPhoneSE)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPhone6)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPhone6Plus)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPhone6s)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPhone6sPlus)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPhone7)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPhone7Plus)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPhone8)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPhone8Plus)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPhoneX)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPhoneXS)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPhoneXSMax)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPhoneXR)
+
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPad4)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPadMini)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPadAir)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPadMini2)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPadMini3)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPadAir2)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPadMini4)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPadPro12_9Inch)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPadPro9_7Inch)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPad5)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPadPro12_9Inch2)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPadPro10_5Inch)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPad6)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPadPro12_9Inch3)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPadPro11Inch)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPadMini5)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPadAir3)
+
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPodTouch5)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPodTouch6)
 
         default:
             size = [self irl_estimatedRawPhysicalScreenSizeFromScreenPointHeight];

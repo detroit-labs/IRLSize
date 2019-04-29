@@ -3,18 +3,21 @@
 //  IRLSizeExample-Watch Extension
 //
 //  Created by Jeff Kelley on 6/29/2016.
-//  Copyright © 2018 Detroit Labs. All rights reserved.
+//  Copyright © 2019 Detroit Labs. All rights reserved.
 //
 
 #import "InterfaceController.h"
 
 #import <IRLSize/IRLSize.h>
+#import <Orchard/Orchard.h>
 
 #import "IRLSizeExampleConstants.h"
 
 @interface InterfaceController()
 
 @property (weak, nonatomic) IBOutlet WKInterfaceGroup *halfInchGroup;
+    
+@property (weak, nonatomic) IBOutlet WKInterfaceLabel *deviceLabel;
 
 @property (weak, nonatomic) IBOutlet WKInterfaceLabel *widthLabel;
 @property (weak, nonatomic) IBOutlet WKInterfaceLabel *heightLabel;
@@ -27,8 +30,17 @@
 {
     [super willActivate];
     
+    [self configureDeviceLabel];
     [self configureHalfInchGroup];
     [self configureLabels];
+}
+    
+- (void)configureDeviceLabel
+{
+    OrchardwatchOSDevice device = [WKInterfaceDevice.currentDevice
+                                   orchardwatchOSDevice];
+    
+    [self.deviceLabel setText:OrchardMarketingNameForWatchOSDevice(device)];
 }
 
 - (void)configureHalfInchGroup

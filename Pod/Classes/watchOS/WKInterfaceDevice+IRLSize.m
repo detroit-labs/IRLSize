@@ -3,12 +3,12 @@
 //  IRLSize
 //
 //  Created by Jeff Kelley on 6/29/2016.
-//  Copyright © 2018 Detroit Labs. All rights reserved.
+//  Copyright © 2019 Detroit Labs. All rights reserved.
 //
 
 #import "IRLSize.h"
 
-#import <SDVersion/SDVersion.h>
+#import <Orchard/Orchard.h>
 
 #import "IRLSizeMacros.h"
 #import "watchOSDeviceConstants.h"
@@ -35,15 +35,15 @@
 {
     IRLRawDimensions size = { 0.0f, 0.0f };
     
-    switch ([SDwatchOSVersion deviceVersion]) {
-        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(AppleWatch38mm)
-        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(AppleWatch42mm)
-        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(AppleWatch38mmSeries1)
-        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(AppleWatch42mmSeries1)
-        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(AppleWatch38mmSeries2)
-        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(AppleWatch42mmSeries2)
-        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(AppleWatch38mmSeries3)
-        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(AppleWatch42mmSeries3)
+    switch ([WKInterfaceDevice.currentDevice orchardwatchOSDevice]) {
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardwatchOSDevice, AppleWatch_38mm)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardwatchOSDevice, AppleWatch_42mm)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardwatchOSDevice, AppleWatchSeries1_38mm)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardwatchOSDevice, AppleWatchSeries1_42mm)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardwatchOSDevice, AppleWatchSeries2_38mm)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardwatchOSDevice, AppleWatchSeries2_42mm)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardwatchOSDevice, AppleWatchSeries3_38mm)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardwatchOSDevice, AppleWatchSeries3_42mm)
 
         default:
             size = [self irl_estimatedRawPhysicalScreenSizeFromScreenPointHeight];

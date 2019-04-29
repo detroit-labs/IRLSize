@@ -67,27 +67,36 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Height" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mz2-Sx-qRr">
-                                <rect key="frame" x="20" y="318" width="339" height="31.5"/>
+                                <rect key="frame" x="283.5" y="318" width="75.5" height="31.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Device" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xLk-QO-0HD">
+                                <rect key="frame" x="161" y="156.5" width="53" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="mz2-Sx-qRr" firstAttribute="trailing" secondItem="6gr-T9-C85" secondAttribute="trailingMargin" id="0PV-Av-yde"/>
+                            <constraint firstItem="mz2-Sx-qRr" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="xLk-QO-0HD" secondAttribute="trailing" constant="8" symbolic="YES" id="3dV-2C-Vvm"/>
                             <constraint firstItem="2eH-vR-4gg" firstAttribute="top" secondItem="go1-Yq-6oD" secondAttribute="bottom" id="Dff-cz-mJb"/>
                             <constraint firstItem="2eH-vR-4gg" firstAttribute="leading" secondItem="6gr-T9-C85" secondAttribute="leading" id="Fms-1Z-LnO"/>
                             <constraint firstItem="Bs4-HA-XU5" firstAttribute="leading" secondItem="6gr-T9-C85" secondAttribute="leadingMargin" id="GKE-9j-bqs"/>
                             <constraint firstAttribute="centerY" secondItem="mz2-Sx-qRr" secondAttribute="centerY" priority="750" id="KhI-4c-xrv"/>
                             <constraint firstAttribute="trailing" secondItem="2eH-vR-4gg" secondAttribute="trailing" id="UDB-I8-aYg"/>
                             <constraint firstItem="4PU-od-t1s" firstAttribute="top" secondItem="Bs4-HA-XU5" secondAttribute="bottom" constant="8" symbolic="YES" id="WE7-Cx-x1a"/>
-                            <constraint firstItem="mz2-Sx-qRr" firstAttribute="leading" secondItem="6gr-T9-C85" secondAttribute="leading" constant="20" symbolic="YES" id="iDy-ZR-noq"/>
+                            <constraint firstItem="xLk-QO-0HD" firstAttribute="centerX" secondItem="6gr-T9-C85" secondAttribute="centerX" priority="750" id="XGJ-qN-c3x"/>
+                            <constraint firstItem="xLk-QO-0HD" firstAttribute="firstBaseline" secondItem="YB9-WO-T3n" secondAttribute="baseline" constant="24.5" symbolType="layoutAnchor" id="Yih-DY-fk1"/>
                             <constraint firstAttribute="centerX" secondItem="Bs4-HA-XU5" secondAttribute="centerX" id="mOa-9n-quh"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Bs4-HA-XU5" secondAttribute="trailing" id="trO-ja-YK1"/>
                             <constraint firstItem="mz2-Sx-qRr" firstAttribute="top" relation="greaterThanOrEqual" secondItem="2eH-vR-4gg" secondAttribute="bottom" constant="8" symbolic="YES" id="u3x-14-ALN"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="deviceLabel" destination="xLk-QO-0HD" id="Ukc-of-aWD"/>
                         <outlet property="heightLabel" destination="mz2-Sx-qRr" id="ZHY-uj-U5x"/>
                         <outlet property="rulerContainerView" destination="2eH-vR-4gg" id="fQw-aV-PaH"/>
                         <outlet property="rulerView" destination="YB9-WO-T3n" id="MiC-od-CsP"/>

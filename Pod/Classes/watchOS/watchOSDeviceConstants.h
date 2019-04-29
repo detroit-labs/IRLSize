@@ -3,7 +3,7 @@
 //  IRLSize
 //
 //  Created by Jeff Kelley on 11/8/2018.
-//  Copyright © 2018 Detroit Labs. All rights reserved.
+//  Copyright © 2019 Detroit Labs. All rights reserved.
 //
 
 #ifndef watchOSDeviceConstants_h
@@ -18,44 +18,44 @@
 // https://developer.apple.com/accessories/
 
 // Apple Watch (1st Generation) 38mm
-static const IRLRawMillimeters kAppleWatch38mmScreenHeight = 26.52;
-static const IRLRawMillimeters kAppleWatch38mmScreenWidth  = 21.22;
+static const IRLRawMillimeters kAppleWatch_38mmScreenHeight = 26.52;
+static const IRLRawMillimeters kAppleWatch_38mmScreenWidth  = 21.22;
 
 // Apple Watch (1st Generation) 42mm
-static const IRLRawMillimeters kAppleWatch42mmScreenHeight = 30.42;
-static const IRLRawMillimeters kAppleWatch42mmScreenWidth  = 24.34;
+static const IRLRawMillimeters kAppleWatch_42mmScreenHeight = 30.42;
+static const IRLRawMillimeters kAppleWatch_42mmScreenWidth  = 24.34;
 
 // Apple Watch Series 1 38mm
-static const IRLRawMillimeters kAppleWatch38mmSeries1ScreenHeight = 26.52;
-static const IRLRawMillimeters kAppleWatch38mmSeries1ScreenWidth  = 21.22;
+static const IRLRawMillimeters kAppleWatchSeries1_38mmScreenHeight = 26.52;
+static const IRLRawMillimeters kAppleWatchSeries1_38mmScreenWidth  = 21.22;
 
 // Apple Watch Series 1 42mm
-static const IRLRawMillimeters kAppleWatch42mmSeries1ScreenHeight = 30.42;
-static const IRLRawMillimeters kAppleWatch42mmSeries1ScreenWidth  = 24.34;
+static const IRLRawMillimeters kAppleWatchSeries1_42mmScreenHeight = 30.42;
+static const IRLRawMillimeters kAppleWatchSeries1_42mmScreenWidth  = 24.34;
 
 // Apple Watch Series 2 38mm
-static const IRLRawMillimeters kAppleWatch38mmSeries2ScreenHeight = 27.32;
-static const IRLRawMillimeters kAppleWatch38mmSeries2ScreenWidth  = 22.02;
+static const IRLRawMillimeters kAppleWatchSeries2_38mmScreenHeight = 27.32;
+static const IRLRawMillimeters kAppleWatchSeries2_38mmScreenWidth  = 22.02;
 
 // Apple Watch Series 2 42mm
-static const IRLRawMillimeters kAppleWatch42mmSeries2ScreenHeight = 31.22;
-static const IRLRawMillimeters kAppleWatch42mmSeries2ScreenWidth  = 25.13;
+static const IRLRawMillimeters kAppleWatchSeries2_42mmScreenHeight = 31.22;
+static const IRLRawMillimeters kAppleWatchSeries2_42mmScreenWidth  = 25.13;
 
 // Apple Watch Series 3 38mm
-static const IRLRawMillimeters kAppleWatch38mmSeries3ScreenHeight = 27.32;
-static const IRLRawMillimeters kAppleWatch38mmSeries3ScreenWidth  = 22.02;
+static const IRLRawMillimeters kAppleWatchSeries3_38mmScreenHeight = 27.32;
+static const IRLRawMillimeters kAppleWatchSeries3_38mmScreenWidth  = 22.02;
 
 // Apple Watch Series 3 42mm
-static const IRLRawMillimeters kAppleWatch42mmSeries3ScreenHeight = 31.22;
-static const IRLRawMillimeters kAppleWatch42mmSeries3ScreenWidth  = 25.13;
+static const IRLRawMillimeters kAppleWatchSeries3_42mmScreenHeight = 31.22;
+static const IRLRawMillimeters kAppleWatchSeries3_42mmScreenWidth  = 25.13;
 
 // Apple Watch Series 4 40mm
-static const IRLRawMillimeters kAppleWatch40mmSeries4ScreenHeight = 30.73;
-static const IRLRawMillimeters kAppleWatch40mmSeries4ScreenWidth  = 25.27;
+static const IRLRawMillimeters kAppleWatchSeries4_40mmScreenHeight = 30.73;
+static const IRLRawMillimeters kAppleWatchSeries4_40mmScreenWidth  = 25.27;
 
 // Apple Watch Series 4 44mm
-static const IRLRawMillimeters kAppleWatch44mmSeries4ScreenHeight = 34.95;
-static const IRLRawMillimeters kAppleWatch44mmSeries4ScreenWidth  = 28.71;
+static const IRLRawMillimeters kAppleWatchSeries4_44mmScreenHeight = 34.95;
+static const IRLRawMillimeters kAppleWatchSeries4_44mmScreenWidth  = 28.71;
 
 #pragma mark - Estimated Measurements
 // Estimated heights for unknown devices use the most-recently-known height for
@@ -63,20 +63,20 @@ static const IRLRawMillimeters kAppleWatch44mmSeries4ScreenWidth  = 28.71;
 // (usually a new device) that shares a screen resolution with a known device.
 
 // 38mm
-static const IRLRawMillimeters kWatch38mmScreenHeight = kAppleWatch38mmSeries3ScreenHeight;
-static const IRLRawMillimeters kWatch38mmScreenWidth  = kAppleWatch38mmSeries3ScreenWidth;
+static const IRLRawMillimeters kWatch38mmScreenHeight = kAppleWatchSeries3_38mmScreenHeight;
+static const IRLRawMillimeters kWatch38mmScreenWidth  = kAppleWatchSeries3_38mmScreenWidth;
 
 // 40mm
-static const IRLRawMillimeters kWatch40mmScreenHeight = kAppleWatch40mmSeries4ScreenHeight;
-static const IRLRawMillimeters kWatch40mmScreenWidth  = kAppleWatch40mmSeries4ScreenWidth;
+static const IRLRawMillimeters kWatch40mmScreenHeight = kAppleWatchSeries4_40mmScreenHeight;
+static const IRLRawMillimeters kWatch40mmScreenWidth  = kAppleWatchSeries4_40mmScreenWidth;
 
 // 42mm
-static const IRLRawMillimeters kWatch42mmScreenHeight = kAppleWatch42mmSeries3ScreenHeight;
-static const IRLRawMillimeters kWatch42mmScreenWidth  = kAppleWatch42mmSeries3ScreenWidth;
+static const IRLRawMillimeters kWatch42mmScreenHeight = kAppleWatchSeries3_42mmScreenHeight;
+static const IRLRawMillimeters kWatch42mmScreenWidth  = kAppleWatchSeries3_42mmScreenWidth;
 
 // 44mm
-static const IRLRawMillimeters kWatch44mmScreenHeight = kAppleWatch44mmSeries4ScreenHeight;
-static const IRLRawMillimeters kWatch44mmScreenWidth  = kAppleWatch44mmSeries4ScreenWidth;
+static const IRLRawMillimeters kWatch44mmScreenHeight = kAppleWatchSeries4_44mmScreenHeight;
+static const IRLRawMillimeters kWatch44mmScreenWidth  = kAppleWatchSeries4_44mmScreenWidth;
 
 
 #pragma mark - Screen Heights

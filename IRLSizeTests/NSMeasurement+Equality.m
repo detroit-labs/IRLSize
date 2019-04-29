@@ -3,7 +3,7 @@
 //  IRLSizeExample
 //
 //  Created by Jeff Kelley on 8/13/16.
-//  Copyright © 2018 Detroit Labs. All rights reserved.
+//  Copyright © 2019 Detroit Labs. All rights reserved.
 //
 
 #import "NSMeasurement+Equality.h"
