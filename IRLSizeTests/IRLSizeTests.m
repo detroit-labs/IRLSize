@@ -31,28 +31,32 @@
             } \
         }); \
         it(@"should report the correct height", ^{ \
-            NSLog(@"Expecting device " #modelEnum " height to equal %f", \
-                  k##sizeEnumPrefix##ScreenHeight); \
-            if (@available(iOS 10.0, *)) { \
-                [[UIDevice.currentDevice.irl_physicalScreenHeight should] \
-                 beWithin:0.01 \
-                 ofMeasurement:IRL_MM(k##sizeEnumPrefix##ScreenHeight)]; \
+            if (@available(iOS availability, *)) { \
+                NSLog(@"Expecting device " #modelEnum " height to equal %f", \
+                      k##sizeEnumPrefix##ScreenHeight); \
+                if (@available(iOS 10.0, *)) { \
+                    [[UIDevice.currentDevice.irl_physicalScreenHeight should] \
+                     beWithin:0.01 \
+                     ofMeasurement:IRL_MM(k##sizeEnumPrefix##ScreenHeight)]; \
+                } \
+                [[theValue(UIDevice.currentDevice.irl_rawPhysicalScreenHeight) should] \
+                 beWithin:theValue(0.1) \
+                 of:theValue(k##sizeEnumPrefix##ScreenHeight)]; \
             } \
-            [[theValue(UIDevice.currentDevice.irl_rawPhysicalScreenHeight) should] \
-             beWithin:theValue(0.1) \
-             of:theValue(k##sizeEnumPrefix##ScreenHeight)]; \
         }); \
         it(@"should report the correct width", ^{ \
-            NSLog(@"Expecting device " #modelEnum " width to equal %f", \
-                  k##sizeEnumPrefix##ScreenWidth); \
-            if (@available(iOS 10.0, *)) { \
-                [[UIDevice.currentDevice.irl_physicalScreenWidth should] \
-                 beWithin:0.01 \
-                 ofMeasurement:IRL_MM(k##sizeEnumPrefix##ScreenWidth)]; \
+            if (@available(iOS availability, *)) { \
+                NSLog(@"Expecting device " #modelEnum " width to equal %f", \
+                      k##sizeEnumPrefix##ScreenWidth); \
+                if (@available(iOS 10.0, *)) { \
+                    [[UIDevice.currentDevice.irl_physicalScreenWidth should] \
+                     beWithin:0.01 \
+                     ofMeasurement:IRL_MM(k##sizeEnumPrefix##ScreenWidth)]; \
+                } \
+                [[theValue(UIDevice.currentDevice.irl_rawPhysicalScreenWidth) should] \
+                 beWithin:theValue(0.1) \
+                 of:theValue(k##sizeEnumPrefix##ScreenWidth)]; \
             } \
-            [[theValue(UIDevice.currentDevice.irl_rawPhysicalScreenWidth) should] \
-             beWithin:theValue(0.1) \
-             of:theValue(k##sizeEnumPrefix##ScreenWidth)]; \
         }); \
     });
 
