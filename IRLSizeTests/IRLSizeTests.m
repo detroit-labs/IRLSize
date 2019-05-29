@@ -106,6 +106,7 @@ describe(@"Getting the native size of a device", ^{
 
     KNOWN_DEVICE_TEST("iPod touch (5th Generation)", iPodTouch5, 6.0)
     KNOWN_DEVICE_TEST("iPod touch (6th Generation)", iPodTouch6, 8.4)
+    KNOWN_DEVICE_TEST("iPod touch (7th Generation)", iPodTouch7, 12.3)
 
 });
 

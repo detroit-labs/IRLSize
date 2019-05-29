@@ -1,5 +1,11 @@
 # IRLSize Change Log
 
+## [2.2.1](https://github.com/detroit-labs/IRLSize/releases/tag/2.2.1)
+**Released:** 2019-05-29
+
+### Added
+  - Support for the 7th-generation iPod touch
+
 ## [2.2.0](https://github.com/detroit-labs/IRLSize/releases/tag/2.2.0)
 **Released:** 2019-04-29
 

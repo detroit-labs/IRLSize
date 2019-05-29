@@ -145,7 +145,8 @@ void IRLRawDimensionsSwap(IRLRawDimensions *dimensions) {
 
         IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPodTouch5)
         IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPodTouch6)
-
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPodTouch7)
+        
         default:
             size = [self irl_estimatedRawPhysicalScreenSizeFromScreenPointHeight];
             break;
