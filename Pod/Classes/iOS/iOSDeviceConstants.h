@@ -171,7 +171,7 @@ static const IRLRawMillimeters kiPodTouch5ScreenWidth  = 49.92;
 static const IRLRawMillimeters kiPodTouch6ScreenHeight = 88.61;
 static const IRLRawMillimeters kiPodTouch6ScreenWidth  = 49.92;
 
-// iPod touch 7 (awaiting official accessory PDF)
+// iPod touch 7 (no changes from iPod touch 6)
 static const IRLRawMillimeters kiPodTouch7ScreenHeight = kiPodTouch6ScreenHeight;
 static const IRLRawMillimeters kiPodTouch7ScreenWidth = kiPodTouch6ScreenWidth;
 
