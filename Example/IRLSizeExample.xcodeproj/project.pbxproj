@@ -499,8 +499,8 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-IRLSizeExample/Pods-IRLSizeExample-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/IRLSize-iOS8.0/IRLSize.framework",
-				"${BUILT_PRODUCTS_DIR}/Orchard-iOS8.0/Orchard.framework",
+				"${BUILT_PRODUCTS_DIR}/IRLSize-iOS/IRLSize.framework",
+				"${BUILT_PRODUCTS_DIR}/Orchard-iOS/Orchard.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -519,8 +519,8 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-IRLSizeTests/Pods-IRLSizeTests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/IRLSize-iOS10.0/IRLSize.framework",
-				"${BUILT_PRODUCTS_DIR}/Orchard-iOS10.0/Orchard.framework",
+				"${BUILT_PRODUCTS_DIR}/IRLSize-iOS/IRLSize.framework",
+				"${BUILT_PRODUCTS_DIR}/Orchard-iOS/Orchard.framework",
 				"${BUILT_PRODUCTS_DIR}/Kiwi/Kiwi.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -595,8 +595,8 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-IRLSizeExample-Watch Extension/Pods-IRLSizeExample-Watch Extension-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/IRLSize-watchOS2.0/IRLSize.framework",
-				"${BUILT_PRODUCTS_DIR}/Orchard-watchOS2.0/Orchard.framework",
+				"${BUILT_PRODUCTS_DIR}/IRLSize-watchOS/IRLSize.framework",
+				"${BUILT_PRODUCTS_DIR}/Orchard-watchOS/Orchard.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
