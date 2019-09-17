@@ -248,6 +248,12 @@ describe(@"Getting the IRL size of a view", ^{
             
             [mockMainScreen stub:@selector(bounds)
                        andReturn:theValue(iPhone6sBounds)];
+
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
+            [mockMainScreen stub:@selector(_fallbackTraitCollection)
+                       andReturn:[[UITraitCollection alloc] init]];
+#pragma clang diasnostic pop
             
             [UIDevice.currentDevice stub:@selector(orchardiOSDevice)
                                andReturn:theValue(OrchardiOSDeviceiPhone6)];
