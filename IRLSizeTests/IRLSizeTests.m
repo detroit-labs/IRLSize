@@ -85,6 +85,9 @@ describe(@"Getting the native size of a device", ^{
     KNOWN_DEVICE_TEST("iPhone XS", iPhoneXS, 12.0)
     KNOWN_DEVICE_TEST("iPhone XS Max", iPhoneXSMax, 12.0)
     KNOWN_DEVICE_TEST("iPhone XR", iPhoneXR, 12.0)
+    KNOWN_DEVICE_TEST("iPhone 11", iPhone11, 13.0)
+    KNOWN_DEVICE_TEST("iPhone 11 Pro", iPhone11Pro, 13.0)
+    KNOWN_DEVICE_TEST("iPhone 11 Pro Max", iPhone11ProMax, 13.0)
 
     KNOWN_DEVICE_TEST("iPad (4th Generation)", iPad4, 6.0)
     KNOWN_DEVICE_TEST("iPad mini", iPadMini, 6.0)
@@ -177,6 +180,7 @@ describe(@"Estimating the size of an unknown device based on the screen size", ^
 
     ESTIMATED_SIZE_TEST(768,  1024, 1,  9_7, iPad)
     ESTIMATED_SIZE_TEST(768,  1024, 2,  9_7, iPad)
+    ESTIMATED_SIZE_TEST(810,  1080, 2, 10_2, iPad)
     ESTIMATED_SIZE_TEST(834,  1112, 2, 10_5, iPad)
     ESTIMATED_SIZE_TEST(1024, 1366, 2, 12_9, iPad)
     

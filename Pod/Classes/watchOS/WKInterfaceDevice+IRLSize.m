@@ -44,6 +44,10 @@
         IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardwatchOSDevice, AppleWatchSeries2_42mm)
         IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardwatchOSDevice, AppleWatchSeries3_38mm)
         IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardwatchOSDevice, AppleWatchSeries3_42mm)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardwatchOSDevice, AppleWatchSeries4_40mm)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardwatchOSDevice, AppleWatchSeries4_44mm)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardwatchOSDevice, AppleWatchSeries5_40mm)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardwatchOSDevice, AppleWatchSeries5_44mm)
 
         default:
             size = [self irl_estimatedRawPhysicalScreenSizeFromScreenPointHeight];

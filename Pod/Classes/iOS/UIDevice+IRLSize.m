@@ -95,6 +95,7 @@ void IRLRawDimensionsSwap(IRLRawDimensions *dimensions) {
             break;
             
         IRL_ESTIMATED_DIMENSIONS(estimatedDimensions, iPad, 9_7Inch)
+        IRL_ESTIMATED_DIMENSIONS(estimatedDimensions, iPad, 10_2Inch)
         IRL_ESTIMATED_DIMENSIONS(estimatedDimensions, iPad, 10_5Inch)
         IRL_ESTIMATED_DIMENSIONS(estimatedDimensions, iPad, 11Inch)
         IRL_ESTIMATED_DIMENSIONS(estimatedDimensions, iPad, 12_9Inch)
@@ -124,6 +125,9 @@ void IRLRawDimensionsSwap(IRLRawDimensions *dimensions) {
         IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPhoneXS)
         IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPhoneXSMax)
         IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPhoneXR)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPhone11)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPhone11Pro)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPhone11ProMax)
 
         IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPad4)
         IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPadMini)

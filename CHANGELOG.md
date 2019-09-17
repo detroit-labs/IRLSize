@@ -1,10 +1,16 @@
 # IRLSize Change Log
 
+## [2.2.2](https://github.com/detroit-labs/IRLSize/releases/tag/2.2.2)
+**Released:** 2019-09-16
+
+### Added
+- Support for iPhone 11, iPhone 11 Pro, iPhone 11 Pro Max, and Apple Watch Series 5
+
 ## [2.2.1](https://github.com/detroit-labs/IRLSize/releases/tag/2.2.1)
 **Released:** 2019-05-29
 
 ### Added
-  - Support for the 7th-generation iPod touch
+  - Support for iPod touch (7th-generation)
 
 ## [2.2.0](https://github.com/detroit-labs/IRLSize/releases/tag/2.2.0)
 **Released:** 2019-04-29
