@@ -5,6 +5,7 @@
 
 ### Added
 - Support for iPhone 11, iPhone 11 Pro, iPhone 11 Pro Max, and Apple Watch Series 5
+- Preliminary support for the 10.2-inch iPad display size
 
 ## [2.2.1](https://github.com/detroit-labs/IRLSize/releases/tag/2.2.1)
 **Released:** 2019-05-29
