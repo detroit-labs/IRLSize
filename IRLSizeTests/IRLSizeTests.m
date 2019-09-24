@@ -106,6 +106,7 @@ describe(@"Getting the native size of a device", ^{
     KNOWN_DEVICE_TEST("iPad Pro (11\")", iPadPro11Inch, 12.1)
     KNOWN_DEVICE_TEST("iPad mini (5th Generation))", iPadMini5, 12.2)
     KNOWN_DEVICE_TEST("iPad Air (3rd Generation)", iPadAir3, 12.2)
+    KNOWN_DEVICE_TEST("iPad (7th Generation)", iPad7, 13.1)
 
     KNOWN_DEVICE_TEST("iPod touch (5th Generation)", iPodTouch5, 6.0)
     KNOWN_DEVICE_TEST("iPod touch (6th Generation)", iPodTouch6, 8.4)
