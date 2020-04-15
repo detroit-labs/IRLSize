@@ -28,7 +28,7 @@
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
 	<key>WKCompanionAppBundleIdentifier</key>
-	<string>com.detroitlabs.demo.IRLSizeExample</string>
+	<string>com.detroitlabs.IRLSizeExample</string>
 	<key>WKWatchKitApp</key>
 	<true/>
 </dict>
