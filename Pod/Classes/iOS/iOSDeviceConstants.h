@@ -97,6 +97,10 @@ static const IRLRawMillimeters kiPhone11ProScreenWidth  =  62.33;
 static const IRLRawMillimeters kiPhone11ProMaxScreenHeight = 148.91;
 static const IRLRawMillimeters kiPhone11ProMaxScreenWidth  =  68.81;
 
+// iPhone SE (2nd Generation)
+static const IRLRawMillimeters kiPhoneSE2ScreenHeight = 104.05;
+static const IRLRawMillimeters kiPhoneSE2ScreenWidth  =  58.50;
+
 
 ///////////
 // iPads //
@@ -174,6 +178,14 @@ static const IRLRawMillimeters kiPadAir3ScreenWidth  = 160.13;
 static const IRLRawMillimeters kiPad7ScreenHeight = 207.36;
 static const IRLRawMillimeters kiPad7ScreenWidth  = 155.52;
 
+// iPad Pro (12.9 Inch, 4th Generation)
+static const IRLRawMillimeters kiPadPro12_9Inch4ScreenHeight = 262.27;
+static const IRLRawMillimeters kiPadPro12_9Inch4ScreenWidth  = 196.61;
+
+// iPad Pro (11 Inch, 2nd Generation)
+static const IRLRawMillimeters kiPadPro11Inch2ScreenHeight = 230.25;
+static const IRLRawMillimeters kiPadPro11Inch2ScreenWidth  = 161.13;
+
 
 /////////////////
 // iPods touch //
@@ -211,8 +223,8 @@ static const IRLRawMillimeters kiPhone4_0InchScreenHeight = kiPhoneSEScreenHeigh
 static const IRLRawMillimeters kiPhone4_0InchScreenWidth = kiPhoneSEScreenWidth;
 
 // 4.7"
-static const IRLRawMillimeters kiPhone4_7InchScreenHeight = kiPhone8ScreenHeight;
-static const IRLRawMillimeters kiPhone4_7InchScreenWidth = kiPhone8ScreenWidth;
+static const IRLRawMillimeters kiPhone4_7InchScreenHeight = kiPhoneSE2ScreenHeight;
+static const IRLRawMillimeters kiPhone4_7InchScreenWidth = kiPhoneSE2ScreenWidth;
 
 // 5.5"
 static const IRLRawMillimeters kiPhone5_5InchScreenHeight = kiPhone8PlusScreenHeight;

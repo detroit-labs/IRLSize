@@ -692,7 +692,7 @@
 				IBSC_MODULE = IRLSizeExample_Watch_Extension;
 				INFOPLIST_FILE = "IRLSizeExample-Watch/Info.plist";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.detroitlabs.demo.IRLSizeExample.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.detroitlabs.IRLSizeExample.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -713,7 +713,7 @@
 				IBSC_MODULE = IRLSizeExample_Watch_Extension;
 				INFOPLIST_FILE = "IRLSizeExample-Watch/Info.plist";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.detroitlabs.demo.IRLSizeExample.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.detroitlabs.IRLSizeExample.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -737,7 +737,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.detroitlabs.demo.IRLSizeExample.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.detroitlabs.IRLSizeExample.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -762,7 +762,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.detroitlabs.demo.IRLSizeExample.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.detroitlabs.IRLSizeExample.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -821,7 +821,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MARKETING_VERSION = 2.2.3;
+				MARKETING_VERSION = 2.2.4;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -873,7 +873,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MARKETING_VERSION = 2.2.3;
+				MARKETING_VERSION = 2.2.4;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -896,7 +896,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.detroitlabs.demo.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.detroitlabs.IRLSizeExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "IRLSizeExample/IRLSizeExample-Bridging-Header.h";
@@ -919,7 +919,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.detroitlabs.demo.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.detroitlabs.IRLSizeExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -945,7 +945,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "../IRLSizeTests/IRLSizeTests-Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.detroitlabs.demo.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.detroitlabs.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -962,7 +962,7 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				INFOPLIST_FILE = "../IRLSizeTests/IRLSizeTests-Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.detroitlabs.demo.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.detroitlabs.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = xctest;
 			};

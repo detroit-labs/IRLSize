@@ -1,5 +1,13 @@
 # IRLSize Change Log
 
+## [2.2.4](https://github.com/detroit-labs/IRLSize/releases/tag/2.2.4)
+**Released:** 2020-04-15
+
+### Added
+- Support for iPad Pro (12.9-inch) (4th Generation).
+- Support for iPad Pro (11-inch) (2nd Generation).
+- Support for iPhone SE (2nd Generation).
+
 ## [2.2.3](https://github.com/detroit-labs/IRLSize/releases/tag/2.2.3)
 **Released:** 2019-09-24
 
