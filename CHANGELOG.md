@@ -5,6 +5,10 @@
 
 ### Updated
 - Added `DEFINES_MODULE` setting to support static libraries.
+  - Note: You may need to set the `-Wno-incomplete-umbrella` compiler flag to
+    avoid a warning when using this setting. See
+    [this GitHub issue](https://github.com/CocoaPods/CocoaPods/issues/7729)
+    for more information.
 
 ## [2.2.4](https://github.com/detroit-labs/IRLSize/releases/tag/2.2.4)
 **Released:** 2020-04-15
@@ -24,7 +28,8 @@
 **Released:** 2019-09-16
 
 ### Added
-- Support for iPhone 11, iPhone 11 Pro, iPhone 11 Pro Max, and Apple Watch Series 5.
+- Support for iPhone 11, iPhone 11 Pro, iPhone 11 Pro Max, and Apple Watch
+  Series 5.
 - Preliminary support for the 10.2-inch iPad display size.
 
 ## [2.2.1](https://github.com/detroit-labs/IRLSize/releases/tag/2.2.1)
@@ -53,7 +58,8 @@
 
 ### Updated
 - Improved accuracy of Apple Watch measurements.
-- Improved the display of the example application, including supporting Dynamic Type.
+- Improved the display of the example application, including supporting Dynamic 
+  Type.
 
 ### Added
 - Support for 2018 iPad Pro models.
@@ -69,7 +75,8 @@
 - Updated deployment target to iOS 10.0 and watchOS 3.0.
 
 ### Updated
-- Re-sourced all device size data from [official Apple documentation](https://developer.apple.com/accessories).
+- Re-sourced all device size data from
+  [official Apple documentation](https://developer.apple.com/accessories).
 - Refactored test suite to have much less repeated code.
 
 ### Fixed

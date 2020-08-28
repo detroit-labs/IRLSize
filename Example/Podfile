@@ -2,18 +2,15 @@ source 'https://cdn.cocoapods.org/'
 
 target 'IRLSizeExample' do
     platform :ios, '8.0'
-    use_frameworks!
     pod "IRLSize", :path => ".."
 end
 
 target 'IRLSizeExample-Watch Extension' do
-    use_frameworks!
     platform :watchos, '2.0'
     pod "IRLSize", :path => ".."
 end
 
 target 'IRLSizeTests' do
-    use_frameworks!
     platform :ios, '8.0'
     pod "IRLSize", :path => ".."
     pod "Kiwi", :inhibit_warnings => true
