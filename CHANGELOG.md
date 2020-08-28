@@ -1,5 +1,11 @@
 # IRLSize Change Log
 
+## [2.2.5](https://github.com/detroit-labs/IRLSize/releases/tag/2.2.5)
+**Released:** 2020-08-28
+
+### Updated
+- Added `DEFINES_MODULE` setting to support static libraries.
+
 ## [2.2.4](https://github.com/detroit-labs/IRLSize/releases/tag/2.2.4)
 **Released:** 2020-04-15
 
