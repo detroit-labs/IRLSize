@@ -30,6 +30,8 @@ Pod::Spec.new do |s|
 
   s.dependency 'Orchard/ObjC', '>= 1.3.0'
 
+  s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES' }
+
   s.test_spec 'IRLSizeTests' do |ts|
     ts.platform = :ios, '8.0'
     ts.source_files = 'IRLSizeTests/*.{h,m}'
