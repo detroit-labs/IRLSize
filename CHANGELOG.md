@@ -13,6 +13,9 @@
 - Support for Apple Watch Series 6
 - Support for Apple Watch SE
 
+### Updated
+- iOS deployment target set to 9.0 to match Xcode 12’s support.
+
 ## [2.2.5](https://github.com/detroit-labs/IRLSize/releases/tag/2.2.5)
 **Released:** 2020-08-28
 
