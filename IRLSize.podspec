@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "IRLSize"
-  s.version          = "2.2.5"
+  s.version          = "2.3.0"
   s.summary          = "A library for determining the actual physical size of pixels on an iOS or watchOS device."
   s.description      = <<-DESC
                        IRLSize is used to determine the physical size of the device
