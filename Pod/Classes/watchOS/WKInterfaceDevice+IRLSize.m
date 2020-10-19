@@ -36,6 +36,10 @@
     IRLRawDimensions size = { 0.0f, 0.0f };
     
     switch ([WKInterfaceDevice.currentDevice orchardwatchOSDevice]) {
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardwatchOSDevice, AppleWatchSeries6_44mm)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardwatchOSDevice, AppleWatchSeries6_40mm)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardwatchOSDevice, AppleWatchSE_44mm)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardwatchOSDevice, AppleWatchSE_40mm)
         IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardwatchOSDevice, AppleWatchSeries5_44mm)
         IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardwatchOSDevice, AppleWatchSeries5_40mm)
         IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardwatchOSDevice, AppleWatchSeries4_44mm)
