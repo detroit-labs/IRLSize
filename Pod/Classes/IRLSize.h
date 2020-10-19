@@ -24,9 +24,9 @@ typedef struct {
 #define IRL_SIZE_UNIT NSUnitLength.millimeters
 
 #if TARGET_OS_IOS
-    #import "UIDevice+IRLSize.h"
-    #import "UIView+IRLSize.h"
+    #import <IRLSize/UIDevice+IRLSize.h>
+    #import <IRLSize/UIView+IRLSize.h>
 #elif TARGET_OS_WATCH
-    #import "WKInterfaceDevice+IRLSize.h"
-    #import "WKInterfaceObject+IRLSize.h"
+    #import <IRLSize/WKInterfaceDevice+IRLSize.h>
+    #import <IRLSize/WKInterfaceObject+IRLSize.h>
 #endif

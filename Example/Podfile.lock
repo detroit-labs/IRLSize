@@ -1,8 +1,8 @@
 PODS:
-  - IRLSize (2.2.5):
-    - Orchard/ObjC (>= 1.3.0)
+  - IRLSize (2.3.0):
+    - Orchard/ObjC (>= 1.8.0)
   - Kiwi (3.0.0)
-  - Orchard/ObjC (1.7.0)
+  - Orchard/ObjC (1.8.0)
 
 DEPENDENCIES:
   - IRLSize (from `..`)
@@ -18,10 +18,10 @@ EXTERNAL SOURCES:
     :path: ".."
 
 SPEC CHECKSUMS:
-  IRLSize: c8dbc5dbe1602baf26ca3acf398b8d3aa7c03a86
+  IRLSize: 098bfdbf7adc9c9a365807f433770bc95edc37b4
   Kiwi: fbeafef0f00e4d8f7dcb3420a4930afe70af77f7
-  Orchard: 4e5333ce80eaa32591fd1c0bce12ff3417d912fe
+  Orchard: 09aca81cb0e7012858e205bf8204487d9fb00460
 
-PODFILE CHECKSUM: 142071854d3d3469b90d22b4f2d62ad2bc01e596
+PODFILE CHECKSUM: 48b51162645f22797f7d913af8a0dd3cdb0813df
 
 COCOAPODS: 1.9.3

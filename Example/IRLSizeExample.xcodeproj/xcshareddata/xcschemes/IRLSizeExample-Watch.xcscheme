@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1030"
+   LastUpgradeVersion = "1200"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -41,8 +41,6 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
-      <Testables>
-      </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
@@ -52,8 +50,8 @@
             ReferencedContainer = "container:IRLSizeExample.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
-      <AdditionalOptions>
-      </AdditionalOptions>
+      <Testables>
+      </Testables>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -67,8 +65,8 @@
       allowLocationSimulation = "YES">
       <RemoteRunnable
          runnableDebuggingMode = "2"
-         BundleIdentifier = "com.apple.carousel"
-         RemotePath = "/IRLSizeExample">
+         BundleIdentifier = "com.apple.Carousel"
+         RemotePath = "/IRLSize">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1F5EC3711D241DBF0068E86F"
@@ -77,17 +75,6 @@
             ReferencedContainer = "container:IRLSizeExample.xcodeproj">
          </BuildableReference>
       </RemoteRunnable>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1F5EC3711D241DBF0068E86F"
-            BuildableName = "IRLSizeExample-Watch.app"
-            BlueprintName = "IRLSizeExample-Watch"
-            ReferencedContainer = "container:IRLSizeExample.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
-      <AdditionalOptions>
-      </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -97,8 +84,8 @@
       debugDocumentVersioning = "YES">
       <RemoteRunnable
          runnableDebuggingMode = "2"
-         BundleIdentifier = "com.apple.carousel"
-         RemotePath = "/IRLSizeExample">
+         BundleIdentifier = "com.apple.Carousel"
+         RemotePath = "/IRLSize">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1F5EC3711D241DBF0068E86F"
