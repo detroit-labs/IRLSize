@@ -1,7 +1,7 @@
 VERSION_FILE=.version
 VERSION_STRING=$(shell cat "$(VERSION_FILE)")
 
-.PHONY: get-version set-version git-tag pod-publish publish
+.PHONY: get-version set-version git-tag lint publish
 
 get-version:
 	@echo $(VERSION_STRING)
@@ -21,10 +21,11 @@ endif
 	git tag -a "$(VERSION_STRING)" -m "$(VERSION_STRING)"
 	git push origin "$(VERSION_STRING)"
 
-pod-publish:
-	pod trunk push IRLSize.podspec
+lint:
+	bundle exec pod spec lint IRLSize.podspec
 
-publish: pod-publish
+publish:
+	bundle exec pod trunk push IRLSize.podspec
 
 %:
 	@:
