@@ -1,9 +1,9 @@
 # IRLSize
 
 [![CI Status](http://img.shields.io/travis/detroit-labs/IRLSize.svg?style=flat)](https://travis-ci.org/detroit-labs/IRLSize)
-[![Version](https://img.shields.io/cocoapods/v/IRLSize.svg?style=flat)](http://cocoadocs.org/docsets/IRLSize)
-[![License](https://img.shields.io/cocoapods/l/IRLSize.svg?style=flat)](http://cocoadocs.org/docsets/IRLSize)
-[![Platform](https://img.shields.io/cocoapods/p/IRLSize.svg?style=flat)](http://cocoadocs.org/docsets/IRLSize)
+[![Version](https://img.shields.io/cocoapods/v/IRLSize.svg?style=flat)](https://cocoapods.org/pods/IRLSize)
+[![License](https://img.shields.io/cocoapods/l/IRLSize.svg?style=flat)](https://github.com/detroit-labs/IRLSize/blob/master/LICENSE)
+[![Platform](https://img.shields.io/cocoapods/p/IRLSize.svg?style=flat)](https://github.com/detroit-labs/IRLSize)
 
 ## Getting Started
 
