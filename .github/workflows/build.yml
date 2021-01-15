@@ -1,0 +1,20 @@
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  xcodebuild:
+    name: IRLSizeExample Build
+    runs-on: macos-latest
+    env:
+      DEVELOPER_DIR: /Applications/Xcode_12.3.app/Contents/Developer
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Install Dependencies
+      run: pod install --project-directory=Example
+    - name: Install enum
+      run: pip install --upgrade pip enum34
+    - name: xcodebuild
+      run: xcodebuild -workspace Example/IRLSizeExample.xcworkspace -scheme IRLSizeExample -configuration Debug  -destination 'platform=iOS Simulator,name=iPhone 12,OS=14.3' test
