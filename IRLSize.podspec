@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
   s.watchos.source_files = 'Pod/Classes/watchOS/*'
   s.watchos.frameworks = 'WatchKit'
 
-  s.dependency 'Orchard/ObjC', '>= 1.8.0'
+  s.dependency 'Orchard/ObjC', '>= 1.13.0'
 
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES' }
 
