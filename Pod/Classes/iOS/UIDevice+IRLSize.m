@@ -111,6 +111,14 @@ void IRLRawDimensionsSwap(IRLRawDimensions *dimensions) {
     IRLRawDimensions size = { 0.0f, 0.0f };
     
     switch ([UIDevice.currentDevice orchardiOSDevice]) {
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPhone14ProMax)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPhone14Pro)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPhone14Plus)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPhone14)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPhone13ProMax)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPhone13Pro)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPhone13Mini)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPhone13)
         IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPhone12ProMax)
         IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPhone12Pro)
         IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPhone12)
@@ -136,6 +144,10 @@ void IRLRawDimensionsSwap(IRLRawDimensions *dimensions) {
         IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPhone5c)
         IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPhone5)
 
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPadPro11Inch3)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPadPro12_9Inch5)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPad9)
+        IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPadMini6)
         IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPadAir4)
         IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPadPro12_9Inch4)
         IRL_KNOWN_DEVICE_DIMENSIONS_MATCHING(OrchardiOSDevice, iPadPro11Inch2)

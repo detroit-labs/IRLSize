@@ -93,6 +93,15 @@ describe(@"Getting the native size of a device", ^{
     KNOWN_DEVICE_TEST("iPhone 12 mini", iPhone12Mini, 14.1)
     KNOWN_DEVICE_TEST("iPhone 12 Pro", iPhone12Pro, 14.1)
     KNOWN_DEVICE_TEST("iPhone 12 Pro Max", iPhone12ProMax, 14.1)
+    KNOWN_DEVICE_TEST("iPhone 13", iPhone13, 15.1)
+    KNOWN_DEVICE_TEST("iPhone 13 mini", iPhone13Mini, 15.1)
+    KNOWN_DEVICE_TEST("iPhone 13 Pro", iPhone13Pro, 15.1)
+    KNOWN_DEVICE_TEST("iPhone 13 Pro Max", iPhone13ProMax, 15.1)
+    KNOWN_DEVICE_TEST("iPhone 14", iPhone14, 16.1)
+    KNOWN_DEVICE_TEST("iPhone 14 Plus", iPhone14Plus, 16.1)
+    KNOWN_DEVICE_TEST("iPhone 14 Pro", iPhone14Pro, 16.1)
+    KNOWN_DEVICE_TEST("iPhone 14 Pro Max", iPhone14ProMax, 16.1)
+    
 
     KNOWN_DEVICE_TEST("iPad (4th Generation)", iPad4, 6.0)
     KNOWN_DEVICE_TEST("iPad mini", iPadMini, 6.0)
@@ -116,6 +125,10 @@ describe(@"Getting the native size of a device", ^{
     KNOWN_DEVICE_TEST("iPad Pro (11\", 2nd Generation)", iPadPro11Inch2, 13.4)
     KNOWN_DEVICE_TEST("iPad (8th Generation)", iPad8, 14.0)
     KNOWN_DEVICE_TEST("iPad Air (4th Generation)", iPadAir4, 14.0)
+    KNOWN_DEVICE_TEST("iPad (9th Generation)", iPad9, 15.0)
+    KNOWN_DEVICE_TEST("iPad Pro (12.9\", 5th Generation)", iPadPro12_9Inch5, 15.0)
+    KNOWN_DEVICE_TEST("iPad Pro (11\", 3rd Generation)", iPadPro11Inch3, 15.0)
+    KNOWN_DEVICE_TEST("iPad mini (6th Generation)", iPadMini6, 15.0)
 
     KNOWN_DEVICE_TEST("iPod touch (5th Generation)", iPodTouch5, 6.0)
     KNOWN_DEVICE_TEST("iPod touch (6th Generation)", iPodTouch6, 8.4)
